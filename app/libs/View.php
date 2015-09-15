@@ -1,7 +1,7 @@
 <?php
 	class View {
 		public function __construct() {
-			echo 'default View';
+			
 		}
 		
 		 public function render($name) {
