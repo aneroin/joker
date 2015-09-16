@@ -24,17 +24,18 @@
 
 			
 			if(isset($url[2])) {
-					if (!(method_exists($controller, $url[1]) && is_callable($controller->$url[1]()))){
+					if (!(method_exists($controller, $url[1]))){
 						require 'controllers/method_error.php';
-						$controller = new Error();
+						$controller = new MethodError();
 						return false;
 					}
-				$controller->$url[1]($url[2]);
+				$args = explode('&', $url[2]);
+				$controller->$url[1]($args);
 			} else {
 				 if(isset($url[1])) {
-				 	if (!(method_exists($controller, $url[1]) && is_callable($controller->$url[1]()))){
+				 	if (!(method_exists($controller, $url[1]))){
 						require 'controllers/method_error.php';
-						$controller = new Error();
+						$controller = new MethodError();
 						return false;
 					}
 					$controller->$url[1]();

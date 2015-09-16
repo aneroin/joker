@@ -1,5 +1,5 @@
 <?php
-	class Error extends Controller  {
+	class MethodError extends Controller  {
 		public function __construct() {
 			parent::__construct();
 			$this->view->msg = 'sorry, there are no such method';
