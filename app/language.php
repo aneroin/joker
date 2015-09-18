@@ -6,8 +6,5 @@ session_start();
 	$_SESSION['lang'] = $lang;
 	if (isset($local))
 	$_SESSION['local'] = $local;
-
-	echo $_SESSION['lang'];
-	echo '<br>';
-	echo $_SESSION['local'];
+	header('Location: ' . $_SERVER['HTTP_REFERER']);
 ?>

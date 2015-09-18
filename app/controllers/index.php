@@ -12,9 +12,6 @@ session_start();
 				if (!isset($_SESSION['local']))
 					$_SESSION['local'] = 'te';
 			}
-				echo $_SESSION['lang'];
-				echo '<br>';
-				echo $_SESSION['local'];
 			require 'models/index_model.php';
     		$model = new Index_Model($_SESSION['lang'],$_SESSION['local']);
 			$this->view->render('index/index',$model->data);

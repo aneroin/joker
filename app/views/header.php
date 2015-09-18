@@ -8,6 +8,10 @@
 	
 
 </head>
-	head
 
+<a href="language.php?lang=ua" > UA </a>
+<a href="language.php?lang=ru" > RU </a>
+<hr>
+<a href="language.php?local=te" > Ternopil </a>
+<a href="language.php?local=lu" > Luck </a>
 <body>
