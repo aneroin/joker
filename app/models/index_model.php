@@ -1,4 +1,5 @@
 <?php
+session_start();
   class Index_Model extends Model {
    public function __construct($lang, $city) {
     parent::__construct();

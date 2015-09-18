@@ -4,7 +4,7 @@
 			
 		}
 		
-		 public function render($name,$data) {
+		 public function render($name,$data=null) {
 			require 'views/'.$name.'.php';
 		 }
 	   
