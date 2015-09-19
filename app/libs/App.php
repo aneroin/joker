@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+require 'defines.php';
   class App {
 	public function __construct() {
 		$url = isset($_GET['url']) ? $_GET['url'] : null;

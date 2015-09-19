@@ -2,16 +2,29 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<script src="/jquery/jquery-2.1.4.js"></script>
-	<script src="/bootstrap/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap-responsive.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="<?php echo URL; ?>jquery/jquery-2.1.4.js"></script>
+	<script src="<?php echo URL; ?>bootstrap/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>bootstrap/css/bootstrap-responsive.min.css">
 	
 
 </head>
-
-<a href="language.php?lang=ua" > UA </a>
-<a href="language.php?lang=ru" > RU </a>
-<hr>
-<a href="language.php?local=te" > Ternopil </a>
-<a href="language.php?local=lu" > Luck </a>
 <body>
+
+	<div class="dropdown">
+		<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">мова
+		<span class="caret"></span></button>
+	  	<ul class="dropdown-menu">
+		    <li><a href="language.php?lang=ua" > UA </a></li>
+			<li><a href="language.php?lang=ru" > RU </a></li>
+	  	</ul>
+	</div>
+	<div class="dropdown">
+		<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">місто
+		<span class="caret"></span></button>
+	  	<ul class="dropdown-menu">
+			<li><a href="language.php?local=te" > Ternopil </a></li>
+			<li><a href="language.php?local=lu" > Luck </a></li>
+	  	</ul>
+	</div>
