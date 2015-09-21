@@ -1,38 +1,19 @@
 <?php
 session_start();
   class Index_Model extends Model {
-   public function __construct($lang, $city) {
+   public function __construct($lang = 'ua', $city = 'te') {
     parent::__construct();
-    if ($lang == "ua"){
-  		$this->data['title'] = 'таксі джокер';
-          if ($city == "te"){
-            $this->data['title'] =  $this->data['title'].' в Тернополі';
-          } else if ($city == "lu") {
-            $this->data['title'] =  $this->data['title'].' в Луцьку';
-          } else {
-            $this->data['title'] =  $this->data['title'].' місто не обрано';
-          }
-  	} else if ($lang == "ru") {
-  		$this->data['title'] = 'такси джокер';
-          if ($city == "te"){
-            $this->data['title'] =  $this->data['title'].' в Тернополе';
-          } else if ($city == "lu") {
-            $this->data['title'] =  $this->data['title'].' в Луцке';
-          } else {
-            $this->data['title'] =  $this->data['title'].' город не выбран';
-          }
-  	} else {
-      $this->data['title'] = 'мову не обрано';
-          if ($city == "te"){
-            $this->data['title'] =  $this->data['title'].' в тернополі';
-          } else if ($city == "lu") {
-            $this->data['title'] =  $this->data['title'].' в луцьку';
-          } else {
-            $this->data['title'] =  $this->data['title'].' місто не обрано';
-          }
+
+    $this->data['title'] = 'DataBase is OFFLINE';
+
+    require ('dbcon.php');
+    $sql = "SELECT * FROM Blocks WHERE Blocks.local=? AND Blocks.name = 'title' AND Blocks.idPages=1";
+    $stm = $pdo->prepare($sql);
+    $stm->execute(array($city));
+    while ($db_data = $stm->fetch(PDO::FETCH_ASSOC)){
+      $this->data['title'] = $db_data[$lang];    
     }
 
-    //database
    }
   }
 ?>
