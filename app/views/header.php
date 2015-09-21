@@ -18,6 +18,7 @@
 	  	<ul class="dropdown-menu">
 		    <li><a href="language.php?lang=ua" > UA </a></li>
 			<li><a href="language.php?lang=ru" > RU </a></li>
+			<li><a href="language.php?lang=eng" > ENG </a></li>
 	  	</ul>
 	</div>
 	<div class="dropdown">
