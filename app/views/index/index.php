@@ -2,7 +2,7 @@
 <hr>
 <div>
 	<h3>
-<?php echo $data['title'] ?>
+		<?php echo $data['title'] ?>
 	</h3>
 </div>
 <?php require 'views/footer.php'; ?>
