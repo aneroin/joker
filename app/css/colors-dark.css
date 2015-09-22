@@ -1,0 +1,42 @@
+body {
+	background: #707072;
+	color: #F7F7F7;
+	margin: 0 px;
+	padding: 0 px;
+}
+
+.menu {
+	background: #C0C0C2;
+	color: #303032;
+	margin: 0 px;
+	padding: 0 px;
+	padding-right: 10 px;
+	min-height: auto;
+	height: 100 %;
+}
+
+.body {
+	background: #707072;
+	color: #F7F7F7;
+}
+
+.navbar {
+	min-width: auto;
+}
+
+.dropdown {
+	margin: auto;
+	width: 80 %;
+	float: left;
+}
+
+.dropdown-menu {
+	min-width: auto;
+	width: 100 %;
+}
+
+.dropdown-menu-item {
+	display: inline-block;
+	min-width: auto;
+	width: 90 %;
+}
