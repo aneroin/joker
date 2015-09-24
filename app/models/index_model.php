@@ -8,13 +8,13 @@ session_start();
     //connecting to db
     require ('dbcon.php');
     //statement preparing
-    $sql = "SELECT * FROM Blocks WHERE Blocks.local=? AND Blocks.name = 'title' AND Blocks.idPages=1";
+    $sql = "SELECT * FROM Blocks WHERE Blocks.local=? AND Blocks.idPages=1";
     $stm = $pdo->prepare($sql);
     //statement executing
     $stm->execute(array($city));
     //fetching array
     while ($db_data = $stm->fetch(PDO::FETCH_ASSOC)){
-      $this->data['title'] = $db_data[$lang];    
+      $this->data[$db_data['name']] = $db_data[$lang];    
     }
 
    }
