@@ -6,6 +6,7 @@
 
 	<script src="<?php echo URL; ?>jquery/jquery-2.1.4.js"></script>
 	<script src="<?php echo URL; ?>jquery/scroll.js"></script>
+	<script src="<?php echo URL; ?>jquery/formprocess.js"></script>
 	<script src="<?php echo URL; ?>bootstrap/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/sidebar.css">

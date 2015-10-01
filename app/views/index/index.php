@@ -57,24 +57,28 @@
 	 <!-- form panel -->
 	<div class="row rounded" id="accent-buttons">
 		<div class="col-md-8" id="call-form">
-			 <form role="form">
-			  <div class="form-group">
+			<form role="form" action="callform.php" method="GET" class="callform">
+			 <div class="form-group" id="phone-group">
 				<label for="phone"><?php echo $data['phone'] ?>:</label>
-				<input type="text" class="form-control main" id="phone">
+				<input type="text" class="form-control main" id="phone" placeholder="+380">
+			 </div>
+			 <div class="form-group" id="name-group">
 				<label for="name"><?php echo $data['name'] ?>:</label>
 				<input type="text" class="form-control main" id="name">
-			  </div>
-			  <div class="form-group">
+			 </div>
+			 <div class="form-group" id="from-group">
 				<label for="from"><?php echo $data['from'] ?>:</label>
 				<input type="text" class="form-control main" id="from">
-				<label for="to"><?php echo $data['where'] ?>:</label>
-				<input type="text" class="form-control main" id="to">
-			  </div>
-			  <div class="form-group">
+			 </div>
+			 <div class="form-group" id="where-group">
+				<label for="where"><?php echo $data['where'] ?>:</label>
+				<input type="text" class="form-control main" id="where">
+			 </div>
+			 <div class="form-group" id="comment-group">
 				<label for="comment"><?php echo $data['comment'] ?>:</label>
 				<input type="text" class="form-control main" id="comment">
-			  </div>
-			  <button type="submit" class="btn btn-main btn-xl btn3d capital"><?php echo $data['main-btn'] ?></button>
+			 </div>
+			 <button type="submit" class="btn btn-main btn-xl btn3d capital" id="submit-call-taxi"><?php echo $data['main-btn'] ?></button>
 			</form>
 		</div>
 		<!-- form image -->
@@ -109,10 +113,10 @@
 			<h4 class="modal-title black"><?php echo $data['second-btn'] ?></h4>
 		  </div>
 		  <div class="modal-body">
-		 <form role="form">
+		 	<form role="form">
 			  <div class="form-group capital black">
 				<label for="phone"><?php echo $data['phone'] ?>:</label>
-				<input type="text" class="form-control" id="phone">
+				<input type="text" class="form-control" id="phone" placeholder="+380">
 				<label for="name"><?php echo $data['name'] ?>:</label>
 				<input type="text" class="form-control" id="name">
 			  </div>
