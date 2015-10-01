@@ -7,6 +7,7 @@
 /* Toggle Styles */
 
 #wrapper {
+	overflow: hidden;
     padding-left: 0;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -45,7 +46,9 @@
     top: 0%;
     left: 0px;
     padding: 0px;
+	height: auto;
     width: 32px;
+	z-index: 1000;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -54,7 +57,8 @@
 
 #wrapper.toggled #menu-toggle-wrapper {
     left: 250px;
-    width: 12px;
+    width: 32px;
+	height: auto;
 }
 
 #page-content-wrapper {
@@ -65,7 +69,7 @@
 
 #wrapper.toggled #page-content-wrapper {
     position: absolute;
-    margin-right: -250px;
+    margin-right: 250px;
 }
 
 /* Sidebar Styles */
@@ -115,6 +119,7 @@
 @media(min-width:768px) {
     #wrapper {
         padding-left: 250px;
+		overflow: hidden;
     }
 
     #wrapper.toggled {

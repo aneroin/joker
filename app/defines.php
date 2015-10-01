@@ -1,3 +1,3 @@
 <?php
-  define('URL', 'http://inshadow.pp.ua/');
+  define('URL', 'http://taxijoker.com/');
 ?>

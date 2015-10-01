@@ -8,7 +8,7 @@ session_start();
     //connecting to db
     require ('dbcon.php');
     //statement preparing
-    $sql = "SELECT * FROM Blocks WHERE Blocks.local=? AND Blocks.idPages=1";
+    $sql = "SELECT name, ".$lang." FROM blocks WHERE blocks.local=? AND blocks.idPages=1";
     $stm = $pdo->prepare($sql);
     //statement executing
     $stm->execute(array($city));

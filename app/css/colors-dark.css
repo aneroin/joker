@@ -1,15 +1,47 @@
 body {
-	background: #707072;
+	background: #333333;
 	color: #F7F7F7;
+    background-image: url("/../img/te.png");
+	width: 100%;
+	height: auto;
+    background-attachment: fixed;
+   	background-repeat: no-repeat;
+    background-position: right bottom;
+	background-size: contain;
+	font-family: helvetica, serif;
+}
+
+#accent-photo {
+	background-image: url("/../img/accent.png");
+	background-position: top;
+	background-color: rgba(25,25,25,1);
+}
+
+#accent-text {
+	background-color: rgba(5,5,5,0.8);
+}
+
+#accent-buttons {
+	background-color: rgba(25,25,25,0.7);
+	-webkit-box-shadow: inset 0px 0px 45px -2px rgba(0,0,0,0.25);
+	-moz-box-shadow: inset 0px 0px 45px -2px rgba(0,0,0,0.25);
+	box-shadow: inset 0px 0px 45px -2px rgba(0,0,0,0.25);
+}
+
+.info-panel {
+	background-color:  rgba(25,25,25,0.7);
+	-webkit-box-shadow: inset 0px 0px 44px -25px rgba(0,0,0,0.25);
+	-moz-box-shadow: inset 0px 0px 44px -25px rgba(0,0,0,0.25);
+	box-shadow: inset 0px 0px 44px -25px rgba(0,0,0,0.25);
 }
 
 .menu {
-	background: #C0C0C2;
+	background: #0c0c0c;
 	color: #303032;
 }
 
 .body {
-	background: #707072;
+	background: #333333;
 	color: #999999;
 }
 
@@ -23,18 +55,17 @@ body {
 }
 
 .sidebar-nav > .sidebar-brand a {
-    color: #999999;
+	background: none;
 }
 
 .sidebar-nav > .sidebar-brand a:hover {
-    color: #FFEB19;
-    background: none;
+	background: none;
 }
 
 #nav-active {
 	font-weight: bold;
-	color: #030303;
-    background: #707072;
+	color: #FFEB19;
+    background: #333333;
 }
 
 .btn:hover,
@@ -141,5 +172,16 @@ body {
 }
 
 #sidebar-wrapper {
-    background: #050505;
+    background: #0c0c0c;
+}
+
+.black {
+	color: #020202;
+}
+
+.form-control.main:focus {
+  border-color: #fad00c;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(250, 208, 12, .6);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(250, 208, 12, .6);
 }
