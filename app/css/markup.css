@@ -74,6 +74,37 @@ body {
 	border-radius: 15px;
 }
 
+.panel-group .panel-accent {
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	margin: 0px -15px;
+}
+
+.panel-group .panel-accent .panel-heading{
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+}
+
+.panel-group .panel-group .panel-body {
+  -webkit-border-bottom-right-radius: 15px;
+  -webkit-border-bottom-left-radius: 15px;
+  -moz-border-bottom-right-radius: 15px;
+  -moz-border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.panel-group .panel-accent .panel-footer {
+  -webkit-border-bottom-right-radius: 15px;
+  -webkit-border-bottom-left-radius: 15px;
+  -moz-border-bottom-right-radius: 15px;
+  -moz-border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
 #accent-photo {
 	min-width: auto;
 	min-height: 200px;
@@ -88,14 +119,22 @@ body {
 	min-height: 200px;
 	height: 100%;
 	min-width: auto;
-	font-size: 150%;
+	font-size: 1.5em;
 }
 
 #accent-buttons {
 	padding: 48px 0px;
 	min-width: auto;
 	min-height: 100%;
-	font-size: 200%;
+	font-size: 2em;
+}
+
+#accent-row {
+	padding: 12px 24px;
+	min-width: auto;
+	min-height: 100%;
+	font-size: 1.5em;
+	text-align: center;
 }
 
 .capital {
@@ -103,8 +142,33 @@ body {
 }
 
 .info-panel {
+	font-size: 1.4em;
 	height: 160px;
 	padding: 12px 12px;
+	overflow: hidden;
+}
+
+.info-panel .panel-text {
+	display: inline-block;
+	padding-top: 10px;
+}
+
+.info-panel .panel-footer {
+	border: none;
+    display:none;
+    min-width: 100%;
+    height: 60px;
+    margin: auto;
+    font-size: 0.8em;
+}
+
+.info-panel .panel-footer-xs {
+	border: none;
+    min-width: 100%;
+    height: 60px;
+    margin: auto -12px;
+    padding-top: 12px;
+    font-size: 0.8em;
 }
 
 .whitespace-v {
@@ -116,15 +180,9 @@ body {
 }
 
 .totop {
-    -webkit-border-radius: 0 5px 5px 0;
-    border-radius: 0 5px 5px 0;
     margin-left: 0px;
     padding: 0px;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-	display: none;
+    display: none;
 	cursor: pointer;
 }
 

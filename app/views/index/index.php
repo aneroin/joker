@@ -1,9 +1,4 @@
 <?php require 'views/header.php'; ?>
-<!-- toggle buttons -->
-<a href="#menu-toggle" class="btn btn-yellow" id="menu-toggle-wrapper">
-	<img border="0" alt="toggle menu" src="<?php echo URL; ?>img/sidebar.gif" width="100%" height="auto">
-</a>
-
 <!-- accent of the page -->
 	<!-- photo background -->
 	<div class="row rounded-up" id="accent-photo">
@@ -26,35 +21,96 @@
 		</div>
 	</div>
 	<!-- end of accent -->
-	 <p class="whitespace-h"> </p>
+
 	<!-- information -->
+	<p class="whitespace-h"> </p>
+	<div class="row">
+		<!-- information panel -->
+		<div class="col-md-4 col-md-offset-1 info-panel text-center rounded" >
+			<div class="row">
+				<div class="col-xs-6 col-md-12" >
+					 <img border="0" src="<?php echo URL; ?>img/driver.png">
+				</div>
+				<div class="panel-footer hidden-xs hidden-sm col-xs-12 capital">
+					<a href=""> стати водієм </a>
+				</div>
+				<div class="panel-text col-xs-6 col-md-12" >
+					 у нас 888 водіїв
+				</div>
+			</div>
+			<div class="panel-footer-xs hidden-md hidden-lg capital">
+				<a href=""> стати водієм </a>
+			</div>
+		</div>
+		 <p class="whitespace-h visible-xs"> </p>
+		<!-- information panel -->
+		<div class="col-md-4 col-md-offset-2 info-panel text-center rounded">
+			<div class="row">
+				<div class="col-xs-6 col-md-12" >
+					 <img border="0" src="<?php echo URL; ?>img/operator.png">
+				</div>
+				<div class="panel-footer hidden-xs hidden-sm col-xs-12 capital">
+					<a href=""> стати диспетчером </a>
+				</div>
+				<div class="panel-text col-xs-6 col-md-12" >
+					у нас 88 диспетчерів
+				</div>
+			</div>
+			<div class="panel-footer-xs hidden-md hidden-lg capital">
+				<a href=""> стати диспетчером </a>
+			</div>
+		</div>
+	</div>
+
+	<!-- information -->
+	<p class="whitespace-h"> </p>
+	<div class="row rounded" id="accent-row">
+		часто користуєтесь смартфоном? Завантажуйте наш додаток для Android та iOS
+	</div>
+
+	<!-- information -->
+	<p class="whitespace-h"> </p>
 	<div class="row">
 		<!-- information panel -->
 		<div class="col-md-4 col-md-offset-1 info-panel text-center rounded" >
 		<div class="row">
-			<div class="col-xs-12" >
-				 <img border="0" src="<?php echo URL; ?>img/car.png">
+			<div class="col-xs-6 col-md-12" >
+				 <img border="0" src="<?php echo URL; ?>img/gplay.png">
 			</div>
-			<div class="col-xs-12" >
-				 у нашому штаті 000 машин
+			<div class="panel-footer hidden-xs hidden-sm col-xs-12 capital">
+				<a href=""> завантажити</a>
+			</div>
+			<div class="panel-text col-xs-6 col-md-12" >
+				Play Market
 			</div>
 		</div>
+			<div class="panel-footer-xs hidden-md hidden-lg capital">
+				<a href=""> завантажити</a>
+			</div>
 		</div>
 		 <p class="whitespace-h visible-xs"> </p>
 		<!-- information panel -->
 		<div class="col-md-4 col-md-offset-2 info-panel text-center rounded">
 		<div class="row">
-			<div class="col-xs-12" >
-				 <img border="0" src="<?php echo URL; ?>img/client.png">
+			<div class="col-xs-6 col-md-12" >
+				 <img border="0" src="<?php echo URL; ?>img/astore.png">
 			</div>
-			<div class="col-xs-12" >
-				сьогодні виконано 0000 замовлень
+			<div class="panel-footer hidden-xs hidden-sm col-xs-12 capital">
+				<a href=""> завантажити</a>
+			</div>
+			<div class="panel-text col-xs-6 col-md-12" >
+				App Store
 			</div>
 		</div>
+			<div class="panel-footer-xs hidden-md hidden-lg capital">
+				<a href=""> завантажити</a>
+			</div>
 		</div>
 	</div>
-	 <p class="whitespace-h"> </p>
-	 <!-- form panel -->
+
+	
+	<!-- form panel -->
+	<p class="whitespace-h"> </p>
 	<div class="row rounded" id="accent-buttons">
 		<div class="col-md-8" id="call-form">
 			<form role="form" action="callform.php" method="GET" class="callform">
@@ -93,11 +149,11 @@
 	
 	<!-- scrollers -->
 	<a data-id="top" class="scroll-link totop side hidden-xs">
-		<img class="img-circle" src="img/up.png">
+		<img class="img-circle" src="img/up.png"/>
 	</a>
 	
 	<a data-id="top" class="scroll-link totop top visible-xs">
-		<img class="img-circle" src="img/up-s.png">
+		<img class="img-circle" src="img/up-s.png"/>
 	</a>
 
 	
@@ -129,14 +185,17 @@
 		</div>
 	  </div>
 	</div>
-		
 	
+
+	<script>
+		$(function(){
+		$('.info-panel').hover(function(){
+		        $(this).find('.panel-footer').slideDown(300);
+		    },function(){
+		        $(this).find('.panel-footer').slideUp(300);
+		    });
+		})
+	</script>	
 	
-	<!-- inline scripts -->
-<script>
-    $("#menu-toggle-wrapper").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-</script>
+
 <?php require 'views/footer.php'; ?>

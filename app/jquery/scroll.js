@@ -35,8 +35,8 @@ if (typeof console === "undefined") {
 
 $(window).scroll(function() {
     if ($(this).scrollTop()>100) {
-        $('.totop.side').fadeIn();
+        $('.totop.side').fadeIn(500,"swing");
     } else {
-        $('.totop.side').fadeOut();
+        $('.totop.side').fadeOut(500,"swing");
     }
 });

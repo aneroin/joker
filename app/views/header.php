@@ -51,10 +51,16 @@
 					<a href=""> <img src="img/logo.png" style="min-width: 80%; width: 80%; min-height: auto; height: auto; padding: 0px 20px;"> </a>
 				</li>
 				<li>
-					<a href="" id="nav-active"> Index </a>
+					<a href="index"> Index </a>
 				</li>
 				<li>
-					<a href=""> Drivers </a>
+					<a href="prices"> Prices </a>
+				</li>
+				<li>
+					<a href="drivers"> Drivers </a>
+				</li>
+				<li>
+					<a href="vacancies"> Vacancies </a>
 				</li>
 			</ul>
 	</div>
@@ -63,3 +69,7 @@
 		<div class="container-fluid" id="top">
             <div class="row">
                 <div class="col-xs-12  col-sd-8  col-md-10 col-md-offset-1">
+                	<!-- toggle buttons -->
+					<a href="#menu-toggle" class="btn btn-yellow" id="menu-toggle-wrapper">
+						<img border="0" alt="toggle menu" src="<?php echo URL; ?>img/sidebar.gif" width="100%" height="auto">
+					</a>
