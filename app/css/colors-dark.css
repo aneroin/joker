@@ -8,7 +8,7 @@ body {
    	background-repeat: no-repeat;
     background-position: right bottom;
 	background-size: contain;
-	font-family: helvetica, serif;
+	font-family: 'Roboto', sans-serif;
 }
 
 .accent {
@@ -36,6 +36,15 @@ body {
 }
 
 #accent-row {
+  color: #FFEB19;
+  background-color: rgba(25,25,25,0.7);
+  -webkit-box-shadow: inset 0px 0px 45px -2px rgba(0,0,0,0.25);
+  -moz-box-shadow: inset 0px 0px 45px -2px rgba(0,0,0,0.25);
+  box-shadow: inset 0px 0px 45px -2px rgba(0,0,0,0.25);
+}
+
+#news-row {
+  color: #F7F7F7;
   background-color: rgba(25,25,25,0.7);
   -webkit-box-shadow: inset 0px 0px 45px -2px rgba(0,0,0,0.25);
   -moz-box-shadow: inset 0px 0px 45px -2px rgba(0,0,0,0.25);

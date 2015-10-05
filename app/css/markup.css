@@ -88,21 +88,30 @@ body {
 }
 
 .panel-group .panel-group .panel-body {
-  -webkit-border-bottom-right-radius: 15px;
-  -webkit-border-bottom-left-radius: 15px;
-  -moz-border-bottom-right-radius: 15px;
-  -moz-border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  border-bottom-left-radius: 15px;
+	-webkit-border-bottom-right-radius: 15px;
+	-webkit-border-bottom-left-radius: 15px;
+	-moz-border-bottom-right-radius: 15px;
+	-moz-border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 15px;
 }
 
 .panel-group .panel-accent .panel-footer {
-  -webkit-border-bottom-right-radius: 15px;
-  -webkit-border-bottom-left-radius: 15px;
-  -moz-border-bottom-right-radius: 15px;
-  -moz-border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  border-bottom-left-radius: 15px;
+	-webkit-border-bottom-right-radius: 15px;
+	-webkit-border-bottom-left-radius: 15px;
+	-moz-border-bottom-right-radius: 15px;
+	-moz-border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+	font-size: 1.2em;
 }
 
 #accent-photo {
@@ -135,6 +144,15 @@ body {
 	min-height: 100%;
 	font-size: 1.5em;
 	text-align: center;
+	font-weight: 700;
+}
+
+#news-row {
+	padding: 12px 24px;
+	min-width: auto;
+	min-height: 100%;
+	font-size: 1.5em;
+	text-align: center;
 }
 
 .capital {
@@ -160,6 +178,7 @@ body {
     height: 60px;
     margin: auto;
     font-size: 0.8em;
+    font-weight: 700;
 }
 
 .info-panel .panel-footer-xs {
@@ -169,6 +188,7 @@ body {
     margin: auto -12px;
     padding-top: 12px;
     font-size: 0.8em;
+    font-weight: 700;
 }
 
 .whitespace-v {
@@ -188,7 +208,7 @@ body {
 
 .side {
 	position: fixed;
-    top: 50%;
+    top: 85%;
     right: 10px;
 }
 

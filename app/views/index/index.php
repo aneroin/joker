@@ -1,4 +1,3 @@
-<?php require 'views/header.php'; ?>
 <!-- accent of the page -->
 	<!-- photo background -->
 	<div class="row rounded-up" id="accent-photo">
@@ -35,14 +34,14 @@
 					<a href=""> стати водієм </a>
 				</div>
 				<div class="panel-text col-xs-6 col-md-12" >
-					 у нас 888 водіїв
+					 у нас --- водіїв
 				</div>
 			</div>
 			<div class="panel-footer-xs hidden-md hidden-lg capital">
 				<a href=""> стати водієм </a>
 			</div>
 		</div>
-		 <p class="whitespace-h visible-xs"> </p>
+		 <p class="whitespace-h visible-xs  visible-sm"> </p>
 		<!-- information panel -->
 		<div class="col-md-4 col-md-offset-2 info-panel text-center rounded">
 			<div class="row">
@@ -50,14 +49,14 @@
 					 <img border="0" src="<?php echo URL; ?>img/operator.png">
 				</div>
 				<div class="panel-footer hidden-xs hidden-sm col-xs-12 capital">
-					<a href=""> стати диспетчером </a>
+					<a href="" target="_blank"> стати диспетчером </a>
 				</div>
 				<div class="panel-text col-xs-6 col-md-12" >
-					у нас 88 диспетчерів
+					у нас -- диспетчерів
 				</div>
 			</div>
 			<div class="panel-footer-xs hidden-md hidden-lg capital">
-				<a href=""> стати диспетчером </a>
+				<a href="" target="_blank"> стати диспетчером </a>
 			</div>
 		</div>
 	</div>
@@ -65,7 +64,7 @@
 	<!-- information -->
 	<p class="whitespace-h"> </p>
 	<div class="row rounded" id="accent-row">
-		часто користуєтесь смартфоном? Завантажуйте наш додаток для Android та iOS
+		Часто користуєтесь смартфоном? Завантажуйте наш додаток для Android та iOS
 	</div>
 
 	<!-- information -->
@@ -78,17 +77,17 @@
 				 <img border="0" src="<?php echo URL; ?>img/gplay.png">
 			</div>
 			<div class="panel-footer hidden-xs hidden-sm col-xs-12 capital">
-				<a href=""> завантажити</a>
+				<a href="https://play.google.com/store/apps/details?id=tenopol.joker&hl=ua" target="_blank"> завантажити</a>
 			</div>
 			<div class="panel-text col-xs-6 col-md-12" >
 				Play Market
 			</div>
 		</div>
 			<div class="panel-footer-xs hidden-md hidden-lg capital">
-				<a href=""> завантажити</a>
+				<a href="https://play.google.com/store/apps/details?id=tenopol.joker&hl=ua" target="_blank"> завантажити</a>
 			</div>
 		</div>
-		 <p class="whitespace-h visible-xs"> </p>
+		 <p class="whitespace-h visible-xs  visible-sm"> </p>
 		<!-- information panel -->
 		<div class="col-md-4 col-md-offset-2 info-panel text-center rounded">
 		<div class="row">
@@ -96,19 +95,73 @@
 				 <img border="0" src="<?php echo URL; ?>img/astore.png">
 			</div>
 			<div class="panel-footer hidden-xs hidden-sm col-xs-12 capital">
-				<a href=""> завантажити</a>
+				<a href="" target="_blank"> завантажити</a>
 			</div>
 			<div class="panel-text col-xs-6 col-md-12" >
 				App Store
 			</div>
 		</div>
 			<div class="panel-footer-xs hidden-md hidden-lg capital">
-				<a href=""> завантажити</a>
+				<a href="" target="_blank"> завантажити</a>
 			</div>
 		</div>
 	</div>
 
+
+	<!-- information -->
+	<p class="whitespace-h"> </p>
+	<div class="row rounded" id="news-row">
+		<p class="whitespace-h"> </p>
+		останні новини
+		<p class="whitespace-h"> </p>
+	</div>
 	
+<!-- information -->
+	<p class="whitespace-h"> </p>
+	<div class="row rounded" id="accent-row">
+		Користуєтесь соціальними мережами? Долучайтесь до нас!
+	</div>
+
+	<!-- information -->
+	<p class="whitespace-h"> </p>
+	<div class="row">
+		<!-- information panel -->
+		<div class="col-md-4 col-md-offset-1 info-panel text-center rounded" >
+		<div class="row">
+			<div class="col-xs-6 col-md-12" >
+				 <img border="0" src="<?php echo URL; ?>img/vk.png">
+			</div>
+			<div class="panel-footer hidden-xs hidden-sm col-xs-12 capital">
+				<a href="http://vk.com/taxi.joker" target="_blank"> долучитись</a>
+			</div>
+			<div class="panel-text col-xs-6 col-md-12" >
+				вконтакті
+			</div>
+		</div>
+			<div class="panel-footer-xs hidden-md hidden-lg capital">
+				<a href="http://vk.com/taxi.joker" target="_blank"> долучитись</a>
+			</div>
+		</div>
+		 <p class="whitespace-h visible-xs visible-sm"> </p>
+		<!-- information panel -->
+		<div class="col-md-4 col-md-offset-2 info-panel text-center rounded">
+		<div class="row">
+			<div class="col-xs-6 col-md-12" >
+				 <img border="0" src="<?php echo URL; ?>img/fb.png">
+			</div>
+			<div class="panel-footer hidden-xs hidden-sm col-xs-12 capital">
+				<a href="" target="_blank"> долучитись</a>
+			</div>
+			<div class="panel-text col-xs-6 col-md-12" >
+				фейсбук
+			</div>
+		</div>
+			<div class="panel-footer-xs hidden-md hidden-lg capital">
+				<a href="" target="_blank"> долучитись</a>
+			</div>
+		</div>
+	</div>
+
 	<!-- form panel -->
 	<p class="whitespace-h"> </p>
 	<div class="row rounded" id="accent-buttons">
@@ -138,15 +191,14 @@
 			</form>
 		</div>
 		<!-- form image -->
-		<div class="col-md-4 hidden-xs">
-			 <div class="whitespace-h"> - </div>
-			 <div class="whitespace-h"> - </div>
-			 <div class="whitespace-h"> - </div>
+		<div class="col-md-4 hidden-xs hidden-sm">
+			 
+			<img border="0" src="<?php echo URL; ?>img/form.png" style="max-width: 90%; height: 70%; margin-top: 15%;"> </img>
+
 		</div>
 	</div>
 	
-	
-	
+		
 	<!-- scrollers -->
 	<a data-id="top" class="scroll-link totop side hidden-xs">
 		<img class="img-circle" src="img/up.png"/>
@@ -196,6 +248,3 @@
 		    });
 		})
 	</script>	
-	
-
-<?php require 'views/footer.php'; ?>

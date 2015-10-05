@@ -1,4 +1,3 @@
-<?php require 'views/header.php'; ?>
 <!-- accent of the page -->
 	<!-- photo background -->
 	<div class="row rounded-up" id="accent-photo">
@@ -216,7 +215,3 @@
 	<a data-id="top" class="scroll-link totop top visible-xs">
 		<img class="img-circle" src="img/up-s.png">
 	</a>
-		
-	
-
-<?php require 'views/footer.php'; ?>

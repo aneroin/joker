@@ -2,6 +2,7 @@
 session_start();
 	class Index extends Controller  {
 		public function __construct($locale = null) {
+			$title = "Taxi Joker";
 			parent::__construct();
 			//if locale param is set - setting up session variables
 			if (isset($locale)) {
@@ -18,7 +19,7 @@ session_start();
 			//model init with locale params from sessing variables
     		$model = new Index_Model($_SESSION['lang'],$_SESSION['local']);
     		//rendering index page
-			$this->view->render('index/index',$model->data);
+			$this->view->render('index/index',$model->data,$title);
 		}
 	}
 ?>

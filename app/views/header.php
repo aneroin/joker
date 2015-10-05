@@ -1,9 +1,11 @@
 <!DOCTYPE html> 
 <html>
 <head>
+	<title><?php echo $title; ?></title>
+	<link rel="icon" type="image/png" href="<?php echo URL; ?>img/favicon_light.png">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100&subset=latin,cyrillic,cyrillic-ext' rel='stylesheet' type='text/css'>
 	<script src="<?php echo URL; ?>jquery/jquery-2.1.4.js"></script>
 	<script src="<?php echo URL; ?>jquery/scroll.js"></script>
 	<script src="<?php echo URL; ?>jquery/formprocess.js"></script>
@@ -13,7 +15,6 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/markup.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/colors-dark.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/buttons3d.css">
-	
 
 </head>
 <body style="background-image: url('/../img/<?php echo $_SESSION['local'] ?>.png')">
@@ -48,7 +49,7 @@
 				</div>
 
 				<li class="sidebar-brand clearfix">
-					<a href=""> <img src="img/logo.png" style="min-width: 80%; width: 80%; min-height: auto; height: auto; padding: 0px 20px;"> </a>
+					<a href=""> <img src="img/logo.png" alt="таксі джокер" style="min-width: 80%; width: 80%; min-height: auto; height: auto; padding: 0px 20px;"> </a>
 				</li>
 				<li>
 					<a href="index"> Index </a>
