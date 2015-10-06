@@ -77,14 +77,14 @@
 				 <img border="0" src="<?php echo URL; ?>img/gplay.png">
 			</div>
 			<div class="panel-footer hidden-xs hidden-sm col-xs-12 capital">
-				<a href="https://play.google.com/store/apps/details?id=tenopol.joker&hl=ua" target="_blank"><?php echo $data['smartphone-row-action'];?></a>
+				<a href=<?php echo $data['smartphone-pm-link'];?> target="_blank"><?php echo $data['smartphone-row-action'];?></a>
 			</div>
 			<div class="panel-text col-xs-6 col-md-12" >
 				Play Market
 			</div>
 		</div>
 			<div class="panel-footer-xs hidden-md hidden-lg capital">
-				<a href="https://play.google.com/store/apps/details?id=tenopol.joker&hl=ua" target="_blank"><?php echo $data['smartphone-row-action'];?></a>
+				<a href=<?php echo $data['smartphone-pm-link'];?> target="_blank"><?php echo $data['smartphone-row-action'];?></a>
 			</div>
 		</div>
 		 <p class="whitespace-h visible-xs  visible-sm"> </p>
@@ -95,14 +95,14 @@
 				 <img border="0" src="<?php echo URL; ?>img/astore.png">
 			</div>
 			<div class="panel-footer hidden-xs hidden-sm col-xs-12 capital">
-				<a href="" target="_blank"><?php echo $data['smartphone-row-action'];?></a>
+				<a href=<?php echo $data['smartphone-as-link'];?> target="_blank"><?php echo $data['smartphone-row-action'];?></a>
 			</div>
 			<div class="panel-text col-xs-6 col-md-12" >
 				App Store
 			</div>
 		</div>
 			<div class="panel-footer-xs hidden-md hidden-lg capital">
-				<a href="" target="_blank"><?php echo $data['smartphone-row-action'];?></a>
+				<a href=<?php echo $data['smartphone-as-link'];?> target="_blank"><?php echo $data['smartphone-row-action'];?></a>
 			</div>
 		</div>
 	</div>
