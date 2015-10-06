@@ -191,9 +191,9 @@
 			</form>
 		</div>
 		<!-- form image -->
-		<div class="col-md-4 hidden-xs hidden-sm">
+		<div class="col-md-4 hidden-xs hidden-sm" id= "pull-down">
 			 
-			<img border="0" src="<?php echo URL; ?>img/form.png" style="max-width: 90%; height: 70%; margin-top: 15%;"> </img>
+			<img id="pull-down-element" border="0" src="<?php echo URL; ?>img/form.png" style="max-width: 100%; max-height: 70%;"> </img>
 
 		</div>
 	</div>
