@@ -95,10 +95,13 @@ body {
 	background: none;
 }
 
-#nav-active {
+.nav-active {
 	font-weight: bold;
-	color: #FFEB19;
   background: #333333;
+}
+
+.nav-active a {
+  color: #FFEB19 !important;
 }
 
 .btn:hover,

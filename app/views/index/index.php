@@ -31,14 +31,14 @@
 					 <img border="0" src="<?php echo URL; ?>img/driver.png">
 				</div>
 				<div class="panel-footer hidden-xs hidden-sm col-xs-12 capital">
-					<a href=""> стати водієм </a>
+					<a href=""> <?php echo $data['driver-info-action']; ?> </a>
 				</div>
 				<div class="panel-text col-xs-6 col-md-12" >
-					 у нас --- водіїв
+					<?php echo $data['driver-info']; ?>
 				</div>
 			</div>
 			<div class="panel-footer-xs hidden-md hidden-lg capital">
-				<a href=""> стати водієм </a>
+				<a href=""> <?php echo $data['driver-info-action']; ?> </a>
 			</div>
 		</div>
 		 <p class="whitespace-h visible-xs  visible-sm"> </p>
@@ -49,14 +49,14 @@
 					 <img border="0" src="<?php echo URL; ?>img/operator.png">
 				</div>
 				<div class="panel-footer hidden-xs hidden-sm col-xs-12 capital">
-					<a href="" target="_blank"> стати диспетчером </a>
+					<a href="" target="_blank"> <?php echo $data['dispatcher-info-action']; ?> </a>
 				</div>
 				<div class="panel-text col-xs-6 col-md-12" >
-					у нас -- диспетчерів
+					<?php echo $data['dispatcher-info']; ?>
 				</div>
 			</div>
 			<div class="panel-footer-xs hidden-md hidden-lg capital">
-				<a href="" target="_blank"> стати диспетчером </a>
+				<a href="" target="_blank"> <?php echo $data['dispatcher-info-action']; ?> </a>
 			</div>
 		</div>
 	</div>
@@ -64,7 +64,7 @@
 	<!-- information -->
 	<p class="whitespace-h"> </p>
 	<div class="row rounded" id="accent-row">
-		Часто користуєтесь смартфоном? Завантажуйте наш додаток для Android та iOS
+		<?php echo $data['smartphone-row']; ?>
 	</div>
 
 	<!-- information -->
@@ -77,14 +77,14 @@
 				 <img border="0" src="<?php echo URL; ?>img/gplay.png">
 			</div>
 			<div class="panel-footer hidden-xs hidden-sm col-xs-12 capital">
-				<a href="https://play.google.com/store/apps/details?id=tenopol.joker&hl=ua" target="_blank"> завантажити</a>
+				<a href="https://play.google.com/store/apps/details?id=tenopol.joker&hl=ua" target="_blank"><?php echo $data['smartphone-row-action'];?></a>
 			</div>
 			<div class="panel-text col-xs-6 col-md-12" >
 				Play Market
 			</div>
 		</div>
 			<div class="panel-footer-xs hidden-md hidden-lg capital">
-				<a href="https://play.google.com/store/apps/details?id=tenopol.joker&hl=ua" target="_blank"> завантажити</a>
+				<a href="https://play.google.com/store/apps/details?id=tenopol.joker&hl=ua" target="_blank"><?php echo $data['smartphone-row-action'];?></a>
 			</div>
 		</div>
 		 <p class="whitespace-h visible-xs  visible-sm"> </p>
@@ -95,14 +95,14 @@
 				 <img border="0" src="<?php echo URL; ?>img/astore.png">
 			</div>
 			<div class="panel-footer hidden-xs hidden-sm col-xs-12 capital">
-				<a href="" target="_blank"> завантажити</a>
+				<a href="" target="_blank"><?php echo $data['smartphone-row-action'];?></a>
 			</div>
 			<div class="panel-text col-xs-6 col-md-12" >
 				App Store
 			</div>
 		</div>
 			<div class="panel-footer-xs hidden-md hidden-lg capital">
-				<a href="" target="_blank"> завантажити</a>
+				<a href="" target="_blank"><?php echo $data['smartphone-row-action'];?></a>
 			</div>
 		</div>
 	</div>
@@ -119,7 +119,7 @@
 <!-- information -->
 	<p class="whitespace-h"> </p>
 	<div class="row rounded" id="accent-row">
-		Користуєтесь соціальними мережами? Долучайтесь до нас!
+		<?php echo $data['social-row'];?>
 	</div>
 
 	<!-- information -->
@@ -132,14 +132,14 @@
 				 <img border="0" src="<?php echo URL; ?>img/vk.png">
 			</div>
 			<div class="panel-footer hidden-xs hidden-sm col-xs-12 capital">
-				<a href="http://vk.com/taxi.joker" target="_blank"> долучитись</a>
+				<a href=<?php echo $data['social-vk-link'];?> target="_blank"><?php echo $data['social-action'];?></a>
 			</div>
 			<div class="panel-text col-xs-6 col-md-12" >
-				вконтакті
+				<?php echo $data['social-vk-info'];?>
 			</div>
 		</div>
 			<div class="panel-footer-xs hidden-md hidden-lg capital">
-				<a href="http://vk.com/taxi.joker" target="_blank"> долучитись</a>
+				<a href=<?php echo $data['social-vk-link'];?> target="_blank"><?php echo $data['social-action'];?></a>
 			</div>
 		</div>
 		 <p class="whitespace-h visible-xs visible-sm"> </p>
@@ -150,14 +150,14 @@
 				 <img border="0" src="<?php echo URL; ?>img/fb.png">
 			</div>
 			<div class="panel-footer hidden-xs hidden-sm col-xs-12 capital">
-				<a href="" target="_blank"> долучитись</a>
+				<a href=<?php echo $data['social-fb-link'];?> target="_blank"><?php echo $data['social-action'];?></a>
 			</div>
 			<div class="panel-text col-xs-6 col-md-12" >
-				фейсбук
+				<?php echo $data['social-fb-info'];?>
 			</div>
 		</div>
 			<div class="panel-footer-xs hidden-md hidden-lg capital">
-				<a href="" target="_blank"> долучитись</a>
+				<a href=<?php echo $data['social-fb-link'];?> target="_blank"><?php echo $data['social-action'];?></a>
 			</div>
 		</div>
 	</div>

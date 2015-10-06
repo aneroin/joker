@@ -15,6 +15,10 @@ body {
 	min-width: auto;
 }
 
+.fill_h {
+  min-width: 100%;
+}
+
 .dropdown {
 	margin: auto;
 	width: 80 %;
