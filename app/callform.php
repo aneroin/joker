@@ -20,7 +20,7 @@ if ( ! empty($errors)) {
 	//processing and packing data
 	//TBA
 	$data['success'] = true;
-	$data['message'] = 'Success!';
+	$data['message'] = 'Sorry, but site-ordering temporarily not working.';
 }
 //respond json
 echo json_encode($data);

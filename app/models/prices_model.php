@@ -12,7 +12,7 @@ session_start();
     //SQLs
     $sql_global = "SELECT name, ".$lang." FROM globals";
     $sql_pages = "SELECT name, ".$lang." FROM pages";
-    $sql_blocks = "SELECT name, ".$lang." FROM blocks WHERE blocks.local=? AND blocks.idPages=1";
+    $sql_blocks = "SELECT name, ".$lang." FROM blocks WHERE blocks.local=? AND blocks.idPages=2";
     //prepare globals
     $stm = $pdo->prepare($sql_global);
     //statement executing

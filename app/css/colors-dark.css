@@ -97,7 +97,7 @@ body {
 
 .nav-active {
 	font-weight: bold;
-  background: #333333;
+  background: transparent;
 }
 
 .nav-active a {
@@ -208,7 +208,7 @@ body {
 }
 
 #sidebar-wrapper {
-    background: #0c0c0c;
+    background: rgba(5,5,5,0.7);
 }
 
 .black {
