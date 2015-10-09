@@ -70,3 +70,8 @@
 					<a href="#menu-toggle" class="btn btn-yellow" id="menu-toggle-wrapper">
 						<img border="0" alt="toggle menu" src="<?php echo URL; ?>img/sidebar.gif" width="100%" height="auto">
 					</a>
+					<!--phone numbers-->
+						<div class="row rounded" id="accent-row" style="font-weight: 400 !important;">
+							наш телефон  &nbsp <span class="glyphicon glyphicon-earphone"  style="font-size: 0.8em !important;"></span><a href="tel:828" style="font-weight: 800 !important;"> 828 </a>&nbsp  з мобільного безкоштовно
+						</div>
+						<p class="whitespace-h"> </p>

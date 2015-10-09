@@ -288,6 +288,12 @@ body {
   border-bottom: 2px solid #FFEB19;
 }
 
+#accent-row a, 
+#accent-row a:hover, 
+#accent-row a:focus {
+  color: #FFEB19;
+}
+
 @media screen and (max-width: 767px) {
   .table-responsive {
     border: 1px solid #FFEB19;
