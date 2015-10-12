@@ -251,3 +251,5 @@
 		    });
 		})
 	</script>	
+
+	<script src="<?php echo URL; ?>jquery/formprocess.js"></script>

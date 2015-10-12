@@ -9,7 +9,6 @@
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700&subset=latin,cyrillic,cyrillic-ext' rel='stylesheet' type='text/css'>
 	<script src="<?php echo URL; ?>jquery/jquery-2.1.4.js"></script>
 	<script src="<?php echo URL; ?>jquery/scroll.js"></script>
-	<script src="<?php echo URL; ?>jquery/formprocess.js"></script>
 	<script src="<?php echo URL; ?>bootstrap/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/sidebar.css">
@@ -76,6 +75,6 @@
 					</a>
 					<!--phone numbers-->
 						<div class="row rounded contacts" id="accent-row" style="">
-							наш телефон  &nbsp; <a href="tel:828" style=""><span class="glyphicon glyphicon-earphone"  style="font-size: 0.8em !important;"></span> 828 </a>&nbsp;  з мобільного безкоштовно
+							<?php echo $data['our_phone']; ?>  &nbsp; <a href="tel:828" style=""><span class="glyphicon glyphicon-earphone"  style="font-size: 0.8em !important;"></span> 828 </a>&nbsp; <?php echo $data['free_phone']; ?>
 						</div>
 						<p class="whitespace-h"> </p>
