@@ -165,31 +165,34 @@
 	<!-- form panel -->
 	<p class="whitespace-h"> </p>
 	<div class="row rounded" id="accent-buttons">
+		<!--
 		<div class="col-md-8" id="call-form">
 			<form role="form" action="callform.php" method="GET" class="callform">
 			 <div class="form-group" id="phone-group">
-				<label for="phone"><?php echo $data['phone'] ?>:</label>
+				<label for="phone"><?php// echo $data['phone'] ?>:</label>
 				<input type="text" class="form-control main" id="phone" placeholder="+380">
 			 </div>
 			 <div class="form-group" id="name-group">
-				<label for="name"><?php echo $data['name'] ?>:</label>
+				<label for="name"><?php// echo $data['name'] ?>:</label>
 				<input type="text" class="form-control main" id="name">
 			 </div>
 			 <div class="form-group" id="from-group">
-				<label for="from"><?php echo $data['from'] ?>:</label>
+				<label for="from"><?php// echo $data['from'] ?>:</label>
 				<input type="text" class="form-control main" id="from">
 			 </div>
 			 <div class="form-group" id="where-group">
-				<label for="where"><?php echo $data['where'] ?>:</label>
+				<label for="where"><?php// echo $data['where'] ?>:</label>
 				<input type="text" class="form-control main" id="where">
 			 </div>
 			 <div class="form-group" id="comment-group">
-				<label for="comment"><?php echo $data['comment'] ?>:</label>
+				<label for="comment"><?php// echo $data['comment'] ?>:</label>
 				<input type="text" class="form-control main" id="comment">
 			 </div>
 			 <button type="submit" class="btn btn-main btn-xl btn3d capital" id="submit-call-taxi"><?php echo $data['main-btn'] ?></button>
 			</form>
 		</div>
+		-->
+		<?php require 'views/callform.php'; ?>
 		<!-- form image -->
 		<div class="col-md-4 hidden-xs hidden-sm" id= "pull-down">
 			 

@@ -5,7 +5,8 @@
 	<link rel="icon" type="image/png" href="<?php echo URL; ?>img/favicon_light.png">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100&subset=latin,cyrillic,cyrillic-ext' rel='stylesheet' type='text/css'>
+	<!--link href='https://fonts.googleapis.com/css?family=Roboto:400,100&subset=latin,cyrillic,cyrillic-ext' rel='stylesheet' type='text/css'-->
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700&subset=latin,cyrillic,cyrillic-ext' rel='stylesheet' type='text/css'>
 	<script src="<?php echo URL; ?>jquery/jquery-2.1.4.js"></script>
 	<script src="<?php echo URL; ?>jquery/scroll.js"></script>
 	<script src="<?php echo URL; ?>jquery/formprocess.js"></script>
@@ -59,6 +60,9 @@
 				<li id="prices">
 					<a href="prices"> <?php echo $data['Prices']; ?> </a>
 				</li>
+				<li id="contacts">
+					<a href="contacts"> <?php echo $data['Contacts']; ?> </a>
+				</li>
 			</ul>
 	</div>
 
@@ -71,7 +75,7 @@
 						<img border="0" alt="toggle menu" src="<?php echo URL; ?>img/sidebar.gif" width="100%" height="auto">
 					</a>
 					<!--phone numbers-->
-						<div class="row rounded" id="accent-row" style="font-weight: 400 !important;">
-							наш телефон  &nbsp <span class="glyphicon glyphicon-earphone"  style="font-size: 0.8em !important;"></span><a href="tel:828" style="font-weight: 800 !important;"> 828 </a>&nbsp  з мобільного безкоштовно
+						<div class="row rounded contacts" id="accent-row" style="">
+							наш телефон  &nbsp; <a href="tel:828" style=""><span class="glyphicon glyphicon-earphone"  style="font-size: 0.8em !important;"></span> 828 </a>&nbsp;  з мобільного безкоштовно
 						</div>
 						<p class="whitespace-h"> </p>
