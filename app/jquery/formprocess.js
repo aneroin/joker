@@ -24,16 +24,34 @@ $(document).ready(function() {
         $('.callform .form-group').removeClass('has-error'); //clear errors
         $('.callform .help-block').remove(); //clear errors text
         $('.callform .alert-success').remove(); //clear errors text
+        console.log("pre ajax state");
+        var formData = {
+                'new_site_order'             : 1,
+                'key_num'                     : $('#key').val(),
+                'phone'                       : $('#phone').val(),
+                'sattlement'                  : $('#sattlement').val(),
+                'street'                      : $('#street').val(),
+                'home'                        : $('#home').val(),
+                'entrance'                    : $('#entrance').val(),
+                'message'                     : $('#message').val(),
+                'advanced'                    : $('#advanced').val(),
+                'address_to'                  : $('#address-to').val(),
+                'id_taxi'                     : 42
+            };
+        console.log(formData);
             //prepare form
             $.ajax({
+                headers: { 'Access-Control-Allow-Origin':'taxijoker.dyndns.org' },
                 type: "POST",
-                dataType: 'jsonp',
                 jsonp: 'jsonp_callback',
-                url: "http://taxijoker.dyndns.org/taxi/info.php/",
-                data: "new_site_order=1&key_num="+$('#key').val()+"&phone="+$('#phone').val()+"&sattlement="+$('#sattlement').val()+"&street="+$('#street').val()+"&home="+$('#home').val()+"&entrance="+$('#entrance').val()+"&message="+$('#message').val()+"&advanced="+$('#advanced').val()+"&address_to="+$('#address_to').val()+"&id_taxi=42",
+                dataType: 'jsonp',
+                cache: false,
+                crossDomain: true,
+                url: "http://taxijoker.dyndns.org/taxi/info.php",
+                data: formData,
                 jsonpCallback: "new_site_order",
                 success: function(html) {
-                    alert (html['error']);
+                    console.log("html error state %s",html['error']);
                     if (html['error']=='1'){
                         $('.callform #phone-group').addClass('has-error');
                         $('.callform #phone-group').append('<div class="help-block">' + "required" + '</div>');
@@ -71,5 +89,17 @@ $(document).ready(function() {
                         $('.callform #submit-call-taxi').removeClass('btn-process');
                     }
                 }
-            });
+            }) 
+            .done(function () {
+                console.log("done");
+                $('.callform #submit-call-taxi').removeClass('disabled');
+                $('.callform #submit-call-taxi').removeClass('btn-process');
+            })
+            .fail(function(jqXHR, status, error) {
+                console.log(jqXHR);
+                console.log("status:", status, "error:", error);
+                $('.callform #submit-call-taxi').removeClass('disabled');
+                $('.callform #submit-call-taxi').removeClass('btn-process');
+            })
+        console.log("post ajax state");
         }
