@@ -167,10 +167,10 @@
 	<div class="row rounded" id="accent-buttons">
 		<?php require 'views/callform.php'; ?>
 		<!-- form image -->
-		<div class="col-md-4 hidden-xs hidden-sm" id= "pull-down">
-			 
-			<img id="pull-down-element" border="0" src="<?php echo URL; ?>img/form.png" style="max-width: 100%; max-height: 70%;"> </img>
-
+		<div class="col-md-4 hidden-xs hidden-sm" id="pull-down">
+			<div id="pull-down-element">
+				<img border="0" src="<?php echo URL; ?>img/form.png" style="max-width: 100%; max-height: 70%;"> </img>
+			</div>
 		</div>
 	</div>
 	

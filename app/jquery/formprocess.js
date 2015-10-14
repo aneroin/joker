@@ -67,34 +67,39 @@ $(document).ready(function() {
             .fail(function(jqXHR, status, error) {
                 console.log(jqXHR);
                 console.log("status:", status, "error:", error);
+                $("#captcha").html('<img src=\'http://taxijoker.dyndns.org/taxi/captcha.php?num='+Math.random()+'\'>');
                 $('.callform #submit-call-taxi').removeClass('disabled');
                 $('.callform #submit-call-taxi').removeClass('btn-process');
                     if (jqXHR.status=='1'){
+                        var errormsg = $('.callform #phone-group').data('error');
                         $('.callform #phone-group').addClass('has-error');
-                        $('.callform #phone-group').append('<div class="help-block">' + "required" + '</div>');
+                        $('.callform #phone-group').append('<div class="help-block">' + errormsg + '</div>');
                     } else
                     if (jqXHR.status=='2'){
+                        var errormsg = $('.callform #address-group').data('error');
                         $('.callform #address-group').addClass('has-error');
-                        $('.callform #address-group').append('<div class="help-block">' + "required" + '</div>');
+                        $('.callform #address-group').append('<div class="help-block">' + errormsg + '</div>');
                     } else
                     if (jqXHR.status=='3'){
+                        var errormsg = $('.callform #address-to-group').data('error');
                         $('.callform #address-to-group').addClass('has-error');
-                        $('.callform #address-to-group').append('<div class="help-block">' + "required" + '</div>');
+                        $('.callform #address-to-group').append('<div class="help-block">' + errormsg + '</div>');
                     } else
                     if (jqXHR.status=='101'){console.log('Помилка параметрів!');} else
                     if (jqXHR.status=='102'){
+                        var errormsg = $('.callform #key-group').data('error');
                         $('.callform #key-group').addClass('has-error');
-                        $('.callform #key-group').append('<div class="help-block">' + "required" + '</div>');
+                        $('.callform #key-group').append('<div class="help-block">' + errormsg + '</div>');
                     } else
                     if (jqXHR.status=='103'){
                         console.log('Заказ с сайта заблокирован!');
                         $('.callform #submit-group').addClass('has-error');
-                        $('.callform #submit-group').append('<div class="help-block">' + "103: замовлення заблоковане" + '</div>');
+                        $('.callform #submit-group').append('<div class="help-block">' + "ERROR: 103" + '</div>');
                     } else
                     if (jqXHR.status=='404'){
                         console.log('Файл не найден!');
                         $('.callform #submit-group').addClass('has-error');
-                        $('.callform #submit-group').append('<div class="help-block">' + "404: файл не знайдено" + '</div>');
+                        $('.callform #submit-group').append('<div class="help-block">' + "ERROR: 404" + '</div>');
                     } else
                     if (jqXHR.status=='100'){
                         $('#key').val('');

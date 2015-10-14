@@ -12,7 +12,7 @@ body {
 }
 
 .accent {
-  background-color: rgba(25,25,25,0.7);
+  background-color: rgba(25,25,25,0.8);
   -webkit-box-shadow: inset 0px 0px 25px -2px rgba(0,0,0,0.25);
   -moz-box-shadow: inset 0px 0px 25px -2px rgba(0,0,0,0.25);
   box-shadow: inset 0px 0px 25px -2px rgba(0,0,0,0.25);
@@ -29,7 +29,7 @@ body {
 }
 
 #accent-buttons {
-	background-color: rgba(25,25,25,0.7);
+	background-color: rgba(25,25,25,0.8);
 	-webkit-box-shadow: inset 0px 0px 45px -2px rgba(0,0,0,0.25);
 	-moz-box-shadow: inset 0px 0px 45px -2px rgba(0,0,0,0.25);
 	box-shadow: inset 0px 0px 45px -2px rgba(0,0,0,0.25);
@@ -37,7 +37,7 @@ body {
 
 #accent-row {
   color: #FFEB19;
-  background-color: rgba(25,25,25,0.7);
+  background-color: rgba(25,25,25,0.8);
   -webkit-box-shadow: inset 0px 0px 45px -2px rgba(0,0,0,0.25);
   -moz-box-shadow: inset 0px 0px 45px -2px rgba(0,0,0,0.25);
   box-shadow: inset 0px 0px 45px -2px rgba(0,0,0,0.25);
@@ -45,14 +45,14 @@ body {
 
 #news-row {
   color: #F7F7F7;
-  background-color: rgba(25,25,25,0.7);
+  background-color: rgba(25,25,25,0.8);
   -webkit-box-shadow: inset 0px 0px 45px -2px rgba(0,0,0,0.25);
   -moz-box-shadow: inset 0px 0px 45px -2px rgba(0,0,0,0.25);
   box-shadow: inset 0px 0px 45px -2px rgba(0,0,0,0.25);
 }
 
 .info-panel {
-	background-color:  rgba(25,25,25,0.7);
+	background-color:  rgba(25,25,25,0.8);
 	-webkit-box-shadow: inset 0px 0px 44px -25px rgba(0,0,0,0.25);
 	-moz-box-shadow: inset 0px 0px 44px -25px rgba(0,0,0,0.25);
 	box-shadow: inset 0px 0px 44px -25px rgba(0,0,0,0.25);
@@ -235,7 +235,7 @@ body {
 }
 
 .panel {
-  background-color: rgba(25,25,25,0.7);
+  background-color: rgba(25,25,25,0.8);
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
           box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 }
@@ -247,7 +247,7 @@ body {
 }
 
 .panel-accent {
-  background-color: rgba(25,25,25,0.7);
+  background-color: rgba(25,25,25,0.8);
 }
 .panel-accent a {
   color: #FFEB19;
@@ -272,7 +272,7 @@ body {
 
 .table-hover > tbody > tr:hover {
   color: #020202;
-  background-color: rgba(255,235,25,0.7);
+  background-color: rgba(255,235,25,0.8);
 }
 
 .table > thead > tr > th,
