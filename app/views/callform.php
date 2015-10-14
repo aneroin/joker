@@ -1,4 +1,4 @@
-<div class="col-md-8" id="call-form">
+<div class="col-md-8" id="call-form" data-tid=<?php echo $data['id_taxi'] ?>>
 	<form  role="form" id="f_online_order" class="callform">
 
 		<div class="form-group" id="phone-group">
@@ -9,7 +9,7 @@
 
 		<div class="form-group" id="address-group">
 		<label for="sattlement"><?php echo $data['sattlement'] ?>:</label>
-		<input type="text" class="form-control main" id="sattlement"
+		<input type="text" class="form-control main" id="sattlement" value=<?php echo $data['call_city'] ?>
 			onblur="this.value=this.value.toUpperCase()" maxlength=20>
 		<label for="street"><?php echo $data['street'] ?>:</label>
 		<input type="text" class="form-control main" id="street" 
@@ -47,9 +47,9 @@
 			</label>
 			<input type="text" class="form-control main" id="key" maxlength=4>
 		</div>
-
-		<input type="button"  onclick="send_new_order();" class="btn btn-main btn-xl btn3d capital" id="submit-call-taxi" value=<?php echo $data['main-btn'] ?>>
-
+		<div class="form-group" id="submit-group">
+			<input type="button"  onclick="send_new_order();" class="btn btn-main btn-xl btn3d capital" id="submit-call-taxi" value=<?php echo $data['main-btn'] ?>>
+		</div>
 	</form>
 </div>
 

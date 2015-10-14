@@ -19,6 +19,7 @@ session_start();
     //statement preparing
     //SQLs
     $sql_global = "SELECT name, ".$lang." FROM globals";
+    $sql_locals = "SELECT name, ".$lang." FROM locals WHERE locals.local=?";
     $sql_pages = "SELECT name, ".$lang." FROM pages";
     $sql_blocks = "SELECT name, ".$lang." FROM blocks WHERE blocks.local=? AND blocks.idPages=2";
     //prepare globals
@@ -26,6 +27,14 @@ session_start();
     //statement executing
     $stm->execute(array($city));
     //fetching globals array
+    while ($db_data = $stm->fetch(PDO::FETCH_ASSOC)){
+      $this->data[$db_data['name']] = $db_data[$lang];    
+    }
+    //prepare locals
+    $stm = $pdo->prepare($sql_locals);
+    //statement executing
+    $stm->execute(array($city));
+    //fetching locals array
     while ($db_data = $stm->fetch(PDO::FETCH_ASSOC)){
       $this->data[$db_data['name']] = $db_data[$lang];    
     }

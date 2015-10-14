@@ -36,41 +36,67 @@ $(document).ready(function() {
                 'message'                     : $('#message').val(),
                 'advanced'                    : $('#advanced').val(),
                 'address_to'                  : $('#address-to').val(),
-                'id_taxi'                     : 42
+                'id_taxi'                     : $('#call-form').data('tid')
             };
         console.log(formData);
             //prepare form
             $.ajax({
-                headers: { 'Access-Control-Allow-Origin':'taxijoker.dyndns.org' },
+                headers: { 'Access-Control-Allow-Origin':'http://taxijoker.dyndns.org/' },
                 type: "POST",
                 jsonp: 'jsonp_callback',
                 dataType: 'jsonp',
-                cache: false,
                 crossDomain: true,
                 url: "http://taxijoker.dyndns.org/taxi/info.php",
                 data: formData,
                 jsonpCallback: "new_site_order",
-                success: function(html) {
-                    console.log("html error state %s",html['error']);
-                    if (html['error']=='1'){
+            }) 
+            .done(function () {
+                console.log("done");
+                $('#key').val('');
+                $('#phone').val('');
+                $('#sattlement').val('ТЕРНОПІЛЬ');
+                $('#street').val('');
+                $('#home').val('');
+                $('#entrance').val('');
+                $('#message').val('');
+                $("#captcha").html('<img src=\'http://taxijoker.dyndns.org/taxi/captcha.php?num='+Math.random()+'\'>');
+                $('.callform .form-group').addClass('has-success');
+                //success
+                $('.callform').prepend('<div class="alert alert-success">' + "success" + '</div>');
+            })
+            .fail(function(jqXHR, status, error) {
+                console.log(jqXHR);
+                console.log("status:", status, "error:", error);
+                $('.callform #submit-call-taxi').removeClass('disabled');
+                $('.callform #submit-call-taxi').removeClass('btn-process');
+                    if (jqXHR.status=='1'){
                         $('.callform #phone-group').addClass('has-error');
                         $('.callform #phone-group').append('<div class="help-block">' + "required" + '</div>');
                     } else
-                    if (html['error']=='2'){
+                    if (jqXHR.status=='2'){
                         $('.callform #address-group').addClass('has-error');
                         $('.callform #address-group').append('<div class="help-block">' + "required" + '</div>');
                     } else
-                    if (html['error']=='3'){
+                    if (jqXHR.status=='3'){
                         $('.callform #address-to-group').addClass('has-error');
                         $('.callform #address-to-group').append('<div class="help-block">' + "required" + '</div>');
                     } else
-                    if (html['error']=='101'){alert('Ошибка параметров!');} else
-                    if (html['error']=='102'){
+                    if (jqXHR.status=='101'){console.log('Помилка параметрів!');} else
+                    if (jqXHR.status=='102'){
                         $('.callform #key-group').addClass('has-error');
                         $('.callform #key-group').append('<div class="help-block">' + "required" + '</div>');
                     } else
-                    if (html['error']=='103'){alert('Заказ с сайта заблокирован!');} else
-                    if (html['error']=='100'){
+                    if (jqXHR.status=='103'){
+                        console.log('Заказ с сайта заблокирован!');
+                        $('.callform #submit-group').addClass('has-error');
+                        $('.callform #submit-group').append('<div class="help-block">' + "103: замовлення заблоковане" + '</div>');
+                    } else
+                    if (jqXHR.status=='404'){
+                        console.log('Файл не найден!');
+                        $('.callform #submit-group').addClass('has-error');
+                        $('.callform #submit-group').append('<div class="help-block">' + "404: файл не знайдено" + '</div>');
+                    } else
+                    if (jqXHR.status=='100'){
                         $('#key').val('');
                         $('#phone').val('380');
                         $('#sattlement').val('ТЕРНОПІЛЬ');
@@ -81,25 +107,16 @@ $(document).ready(function() {
                         $("#captcha").html('<img src=\'http://taxijoker.dyndns.org/taxi/captcha.php?num='+Math.random()+'\'>');
                         $('.callform .form-group').addClass('has-success');
                         //success
-                        $('.callform').prepend('<div class="alert alert-success">' + "success" + '</div>');
-                        $('.callform #submit-call-taxi').removeClass('disabled');
-                        $('.callform #submit-call-taxi').removeClass('btn-process');
-                    }  else {alert('Сервис не доступен!');
-                        $('.callform #submit-call-taxi').removeClass('disabled');
-                        $('.callform #submit-call-taxi').removeClass('btn-process');
+                        $('.callform').prepend('<div class="alert alert-success">' + "success" + '</div>');}  
+                    else {
+                        console.log('Сервіс недоступний!');
+                        $('.callform #submit-group').addClass('has-error');
+                        $('.callform #submit-group').append('<div class="help-block">' + "Сервіс недоступний" + '</div>');
                     }
-                }
-            }) 
-            .done(function () {
-                console.log("done");
-                $('.callform #submit-call-taxi').removeClass('disabled');
-                $('.callform #submit-call-taxi').removeClass('btn-process');
             })
-            .fail(function(jqXHR, status, error) {
-                console.log(jqXHR);
-                console.log("status:", status, "error:", error);
-                $('.callform #submit-call-taxi').removeClass('disabled');
-                $('.callform #submit-call-taxi').removeClass('btn-process');
-            })
+            .always(function () {
+                        $('.callform #submit-call-taxi').removeClass('disabled');
+                        $('.callform #submit-call-taxi').removeClass('btn-process');
+            });
         console.log("post ajax state");
         }

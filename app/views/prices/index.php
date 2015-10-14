@@ -21,9 +21,6 @@
     </div>
     </div>
 
-
-
-
 	<!-- scrollers -->
 	<a data-id="top" class="scroll-link totop side hidden-xs">
 		<img class="img-circle" src="img/up.png">
