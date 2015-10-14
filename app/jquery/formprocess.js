@@ -2,8 +2,8 @@
 $(document).ready(function() {
     var now = new Date();
     //var formated_date = now.format("yyyy-mm-dd");
-    var date_time = document.getElementById("advanced");
-    date_time.value = formatDate(now);
+    console.log(formatDate(now));
+    $('#advanced').val(formatDate(now));
 });
 
     function formatDate(d) {
@@ -11,7 +11,7 @@ $(document).ready(function() {
         var strMonth = d.getMonth()>8? d.getMonth()+1 : "0" + (d.getMonth() + 1);
         var strYear = d.getFullYear()+"";
         var strH = d.getHours()>9? d.getHours() : "0" + d.getHours();
-        var strM = d.getMinutes()+"";
+        var strM = d.getMinutes()>9? d.getMinutes()+"" : "0" + d.getMinutes();
         strYear = strYear.slice(2);
         var strDate = "20" + strYear + "." + strMonth + "." + strDay +" "+strH+":"+strM;
         return strDate;
@@ -40,7 +40,7 @@ $(document).ready(function() {
             };
         console.log(formData);
             //prepare form
-            $.ajax({
+            var xhr = $.ajax({
                 headers: { 'Access-Control-Allow-Origin':'http://taxijoker.dyndns.org/' },
                 type: "POST",
                 jsonp: 'jsonp_callback',
@@ -49,79 +49,97 @@ $(document).ready(function() {
                 url: "http://taxijoker.dyndns.org/taxi/info.php",
                 data: formData,
                 jsonpCallback: "new_site_order",
-            }) 
-            .done(function () {
-                console.log("done");
-                $('#key').val('');
-                $('#phone').val('');
-                $('#sattlement').val('ТЕРНОПІЛЬ');
-                $('#street').val('');
-                $('#home').val('');
-                $('#entrance').val('');
-                $('#message').val('');
-                $("#captcha").html('<img src=\'http://taxijoker.dyndns.org/taxi/captcha.php?num='+Math.random()+'\'>');
-                $('.callform .form-group').addClass('has-success');
-                //success
-                $('.callform').prepend('<div class="alert alert-success">' + "success" + '</div>');
             })
-            .fail(function(jqXHR, status, error) {
-                console.log(jqXHR);
-                console.log("status:", status, "error:", error);
-                $("#captcha").html('<img src=\'http://taxijoker.dyndns.org/taxi/captcha.php?num='+Math.random()+'\'>');
+            .done(function(data, textStatus, jqXHR) {
+                console.log('Замовлення пройшло!');
+                console.log(jqXHR.status);
+                errorThrower(jqXHR.status);
+            })
+            .fail(function(jqXHR, textStatus, errorThrown) {
+                console.log('Сервіс недоступний!');
+                console.log(jqXHR.status);
+                errorThrower(jqXHR.status);
+            })
+            .always(function() {
                 $('.callform #submit-call-taxi').removeClass('disabled');
                 $('.callform #submit-call-taxi').removeClass('btn-process');
-                    if (jqXHR.status=='1'){
+                $('#captcha').html('<img src=\'http://taxijoker.dyndns.org/taxi/captcha.php?num='+Math.random()+'\'>');
+            });
+        console.log("post ajax state");
+    }
+
+    function errorThrower (errorcodes) {
+                    if (errorcodes=='1'){
                         var errormsg = $('.callform #phone-group').data('error');
                         $('.callform #phone-group').addClass('has-error');
                         $('.callform #phone-group').append('<div class="help-block">' + errormsg + '</div>');
                     } else
-                    if (jqXHR.status=='2'){
+                    if (errorcodes=='2'){
                         var errormsg = $('.callform #address-group').data('error');
                         $('.callform #address-group').addClass('has-error');
                         $('.callform #address-group').append('<div class="help-block">' + errormsg + '</div>');
                     } else
-                    if (jqXHR.status=='3'){
+                    if (errorcodes=='3'){
                         var errormsg = $('.callform #address-to-group').data('error');
                         $('.callform #address-to-group').addClass('has-error');
                         $('.callform #address-to-group').append('<div class="help-block">' + errormsg + '</div>');
                     } else
-                    if (jqXHR.status=='101'){console.log('Помилка параметрів!');} else
-                    if (jqXHR.status=='102'){
+                    if (errorcodes=='101'){console.log('Помилка параметрів!');} else
+                    if (errorcodes=='102'){
                         var errormsg = $('.callform #key-group').data('error');
                         $('.callform #key-group').addClass('has-error');
                         $('.callform #key-group').append('<div class="help-block">' + errormsg + '</div>');
                     } else
-                    if (jqXHR.status=='103'){
+                    if (errorcodes=='103'){
                         console.log('Заказ с сайта заблокирован!');
                         $('.callform #submit-group').addClass('has-error');
                         $('.callform #submit-group').append('<div class="help-block">' + "ERROR: 103" + '</div>');
                     } else
-                    if (jqXHR.status=='404'){
+                    if (errorcodes=='404'){
                         console.log('Файл не найден!');
                         $('.callform #submit-group').addClass('has-error');
                         $('.callform #submit-group').append('<div class="help-block">' + "ERROR: 404" + '</div>');
                     } else
-                    if (jqXHR.status=='100'){
+                    if (errorcodes=='100'){
+                        console.log("done");
                         $('#key').val('');
-                        $('#phone').val('380');
+                        $('#phone').val('');
                         $('#sattlement').val('ТЕРНОПІЛЬ');
                         $('#street').val('');
                         $('#home').val('');
                         $('#entrance').val('');
                         $('#message').val('');
-                        $("#captcha").html('<img src=\'http://taxijoker.dyndns.org/taxi/captcha.php?num='+Math.random()+'\'>');
                         $('.callform .form-group').addClass('has-success');
                         //success
-                        $('.callform').prepend('<div class="alert alert-success">' + "success" + '</div>');}  
-                    else {
-                        console.log('Сервіс недоступний!');
-                        $('.callform #submit-group').addClass('has-error');
-                        $('.callform #submit-group').append('<div class="help-block">' + "Сервіс недоступний" + '</div>');
-                    }
-            })
-            .always(function () {
-                        $('.callform #submit-call-taxi').removeClass('disabled');
-                        $('.callform #submit-call-taxi').removeClass('btn-process');
-            });
-        console.log("post ajax state");
+                        $('.callform').prepend('<div class="alert alert-success">' + "success" + '</div>');
+                    } 
+    }
+
+    function isXHR(maybe)
+    {
+        if(maybe==null)
+        {
+            return false;
         }
+        if(!maybe)
+        {
+            return false;
+        }
+        if(! ('readyState' in maybe) )
+        {
+            return false;
+        }
+        if(! ('responseText' in maybe) )
+        {
+            return false;
+        }
+        if(! ('status' in maybe) )
+        {
+            return false;
+        }
+        if(! ('statusText' in maybe) )
+        {
+            return false;
+        }
+        return true;
+    }

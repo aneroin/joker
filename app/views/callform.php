@@ -24,8 +24,7 @@
 
 		<div class="form-group" id="advanced-group">
 		<label for="advanced"><?php echo $data['advanced'] ?>:</label>
-		<input type="text" class="form-control main" id="advanced"
-			onblur="this.value=this.value.toUpperCase()" maxlength=20>
+		<input type="text" class="form-control main" id="advanced" maxlength=20>
 		</div>
 
 		<div class="form-group" id="address-to-group" data-error=<?php echo $data['call_error_address_to'] ?>>
@@ -43,7 +42,9 @@
 		<div class="form-group" id="key-group" data-error='<?php echo $data['call_error_key'] ?>'>
 			<label for="key">
 				<?php echo $data['key'] ?>: &nbsp;
-				<img src='http://taxijoker.dyndns.org/taxi/captcha.php' id='captcha'>
+				<span id='captcha'>
+					<img src='http://taxijoker.dyndns.org/taxi/captcha.php' >
+				</span>
 			</label>
 			<input type="text" class="form-control main" id="key" maxlength=4>
 		</div>

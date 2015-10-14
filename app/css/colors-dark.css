@@ -298,4 +298,7 @@ body {
   .table-responsive {
     border: 1px solid #FFEB19;
   }
+  body {
+    background-image: none;
+  }
 }
