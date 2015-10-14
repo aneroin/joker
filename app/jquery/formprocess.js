@@ -38,7 +38,6 @@ $(document).ready(function() {
                 'address_to'                  : $('#address-to').val(),
                 'id_taxi'                     : $('#call-form').data('tid')
             };
-        console.log(formData);
             //prepare form
             var xhr = $.ajax({
                 headers: { 'Access-Control-Allow-Origin':'http://taxijoker.dyndns.org/' },
@@ -50,14 +49,12 @@ $(document).ready(function() {
                 data: formData,
                 jsonpCallback: "new_site_order",
             })
-            .done(function(data, textStatus, jqXHR) {
+            .done(function(data) {
                 console.log('Замовлення пройшло!');
-                console.log(jqXHR.status);
-                errorThrower(jqXHR.status);
+                errorThrower(data['error']);
             })
             .fail(function(jqXHR, textStatus, errorThrown) {
                 console.log('Сервіс недоступний!');
-                console.log(jqXHR.status);
                 errorThrower(jqXHR.status);
             })
             .always(function() {
@@ -104,7 +101,7 @@ $(document).ready(function() {
                         console.log("done");
                         $('#key').val('');
                         $('#phone').val('');
-                        $('#sattlement').val('ТЕРНОПІЛЬ');
+                        $('#sattlement').val('');
                         $('#street').val('');
                         $('#home').val('');
                         $('#entrance').val('');
