@@ -1,13 +1,13 @@
 <div class="col-md-8" id="call-form" data-tid=<?php echo $data['id_taxi'] ?>>
 	<form  role="form" id="f_online_order" class="callform">
 
-		<div class="form-group" id="phone-group" data-error=<?php echo $data['call_error_phone'] ?>>
+		<div class="form-group" id="phone-group" data-error='<?php echo $data['call_error_phone'] ?>'>
 		<label for="phone"><?php echo $data['phone'] ?>:</label>
 		<input type="text" class="form-control main" id="phone" placeholder="380"
 			onblur="this.value=this.value.toUpperCase()" maxlength=12>
 		</div>
 
-		<div class="form-group" id="address-group" data-error=<?php echo $data['call_error_address'] ?>>
+		<div class="form-group" id="address-group" data-error='<?php echo $data['call_error_address'] ?>'>
 		<label for="sattlement"><?php echo $data['sattlement'] ?>:</label>
 		<input type="text" class="form-control main" id="sattlement" value=<?php echo $data['call_city'] ?>
 			onblur="this.value=this.value.toUpperCase()" maxlength=20>
@@ -27,7 +27,7 @@
 		<input type="text" class="form-control main" id="advanced" maxlength=20>
 		</div>
 
-		<div class="form-group" id="address-to-group" data-error=<?php echo $data['call_error_address_to'] ?>>
+		<div class="form-group" id="address-to-group" data-error='<?php echo $data['call_error_address_to'] ?>'>
 		<label for="address-to"><?php echo $data['address-to'] ?>:</label>
 		<input type="text" class="form-control main" id="address-to"
 			onblur="this.value=this.value.toUpperCase()" maxlength=50>
