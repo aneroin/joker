@@ -13,7 +13,8 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/markup.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/colors-dark.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/colors.css">
+	<link id="theme" data-theme-dark="<?php echo URL; ?>css/colors-dark.css" data-theme-light="<?php echo URL; ?>css/colors-light.css" rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/colors-dark.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/buttons3d.css">
 
 </head>
@@ -58,6 +59,9 @@
 				</li>
 				<li id="prices">
 					<a href="prices"> <?php echo $data['Prices']; ?> </a>
+				</li>
+				<li id="drivers">
+					<a href="drivers"> Водії </a>
 				</li>
 				<li id="contacts">
 					<a href="contacts"> <?php echo $data['Contacts']; ?> </a>
