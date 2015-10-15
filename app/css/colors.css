@@ -292,6 +292,17 @@ body {
   color: #FFEB19;
 }
 
+.drivers .id {
+  background-color: #FFEB19;
+}
+
+.drivers .photo {
+  background-color: #FFEB19;
+}
+
+
+
+
 @media screen and (max-width: 767px) {
   .table-responsive {
     border: 1px solid #FFEB19;

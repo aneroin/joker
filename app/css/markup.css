@@ -248,6 +248,51 @@ body {
 	font-weight: 700 !important;
 }
 
+.drivers-container {
+	padding: 0px !important;
+}
+
+.drivers {
+	padding: 0px !important;
+}
+
+	.drivers .id {
+		padding: 0px !important;
+	}
+
+	.drivers .id img {
+		height: auto;
+		width: 100%;
+		padding: 0px !important;
+		float: left;
+	}
+
+	.drivers .info {
+
+	}
+		.drivers .info .name {
+			font-weight: 200;
+			font-size: 1.6em;
+		}
+
+		.drivers .info .car {
+			font-weight: 200;
+			font-size: 0.8em;
+		}
+
+	.drivers .photo {
+		padding: 0px !important;
+	}
+
+	.drivers .photo img {
+		height: auto;
+		width: 100%;
+		padding: 0px !important;
+		float: right;
+	}
+
+
+
  @media only screen and (max-width : 991px) {
 		.rounded-up-left {
 			-webkit-border-top-left-radius: 15px;
@@ -296,5 +341,15 @@ body {
 			-moz-border-radius: 15px;
 			border-radius: 15px;	
 		}
+
+				.drivers .info .name {
+					font-weight: 200;
+					font-size: 0.8em;
+				}
+
+				.drivers .info .car {
+					font-weight: 200;
+					font-size: 0.6em;
+				}
 
     }

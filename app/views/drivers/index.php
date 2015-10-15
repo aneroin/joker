@@ -8,96 +8,113 @@
 	</div>
 
 	<!-- end of accent -->
+
 	<p class="whitespace-h"> </p>
-	<div class="row">
-		<div class="col-md-6 rounded-left" id="accent-row">
-			<p class="whitespace-h"> </p>
-			дані про водія
-			<p class="whitespace-h"> </p>
-		</div>
-		<p class="whitespace-h visible-sm visible-xs"> </p>
-		<div class="col-md-6 rounded-right" id="accent-row">
-			<p class="whitespace-h"> </p>
-			дані про водія
-			<p class="whitespace-h"> </p>
+	<div class="row drivers-container">
+		<div class="drivers col-xs-12 col-md-10 col-md-offset-1" id="accent-row">
+			<div class="row-fluid">
+			<div class="id col-xs-3 col-sm-2">
+				<img src="http://placehold.it/110x110" class="img-circle">
+
+				</img>
+			</div>
+			<div class="info col-xs-9 col-sm-8">
+				<div class="name row">
+					name, surname
+				</div>
+				<div class="car row">
+					car model, car color
+				</div>
+			</div>
+			<div class="photo col-sm-2 hidden-xs">
+				<img src="http://placehold.it/110x110">
+
+				</img>
+			</div>
+			</div>
 		</div>
 	</div>
 
-	<div class="row">
-		<p class="whitespace-h"> </p>
-		<div class="col-md-6 rounded-left" id="accent-row">
-			<p class="whitespace-h"> </p>
-			дані про водія
-			<p class="whitespace-h"> </p>
-		</div>
-		<p class="whitespace-h visible-sm visible-xs"> </p>
-		<div class="col-md-6 rounded-right" id="accent-row">
-			<p class="whitespace-h"> </p>
-			дані про водія
-			<p class="whitespace-h"> </p>
+	
+	<p class="whitespace-h"> </p>
+	<div class="row drivers-container">
+		<div class="drivers col-xs-12 col-md-10 col-md-offset-1" id="accent-row">
+			<div class="row-fluid">
+			<div class="id col-xs-3 col-sm-2">
+				<img src="http://placehold.it/110x110" class="img-circle">
+
+				</img>
+			</div>
+			<div class="info col-xs-9 col-sm-8">
+				<div class="name row">
+					name, surname
+				</div>
+				<div class="car row">
+					car model, car color
+				</div>
+			</div>
+			<div class="photo col-sm-2 hidden-xs">
+				<img src="http://placehold.it/110x110">
+
+				</img>
+			</div>
+			</div>
 		</div>
 	</div>
 
-	<div class="row">
-		<p class="whitespace-h"> </p>
-		<div class="col-md-6 rounded-left" id="accent-row">
-			<p class="whitespace-h"> </p>
-			дані про водія
-			<p class="whitespace-h"> </p>
-		</div>
-		<p class="whitespace-h visible-sm visible-xs"> </p>
-		<div class="col-md-6 rounded-right" id="accent-row">
-			<p class="whitespace-h"> </p>
-			дані про водія
-			<p class="whitespace-h"> </p>
+
+	<p class="whitespace-h"> </p>
+	<div class="row drivers-container">
+		<div class="drivers col-xs-12 col-md-10 col-md-offset-1" id="accent-row">
+			<div class="row-fluid">
+			<div class="id col-xs-3 col-sm-2">
+				<img src="http://placehold.it/110x110" class="img-circle">
+
+				</img>
+			</div>
+			<div class="info col-xs-9 col-sm-8">
+				<div class="name row">
+					name, surname
+				</div>
+				<div class="car row">
+					car model, car color
+				</div>
+			</div>
+			<div class="photo col-sm-2 hidden-xs">
+				<img src="http://placehold.it/110x110">
+
+				</img>
+			</div>
+			</div>
 		</div>
 	</div>
 
-	<div class="row">
-		<p class="whitespace-h"> </p>
-		<div class="col-md-6 rounded-left" id="accent-row">
-			<p class="whitespace-h"> </p>
-			дані про водія
-			<p class="whitespace-h"> </p>
-		</div>
-		<p class="whitespace-h visible-sm visible-xs"> </p>
-		<div class="col-md-6 rounded-right" id="accent-row">
-			<p class="whitespace-h"> </p>
-			дані про водія
-			<p class="whitespace-h"> </p>
-		</div>
-    </div>
 
-	<div class="row">
-		<p class="whitespace-h"> </p>
-		<div class="col-md-6 rounded-left" id="accent-row">
-			<p class="whitespace-h"> </p>
-			дані про водія
-			<p class="whitespace-h"> </p>
-		</div>
-		<p class="whitespace-h visible-sm visible-xs"> </p>
-		<div class="col-md-6 rounded-right" id="accent-row">
-			<p class="whitespace-h"> </p>
-			дані про водія
-			<p class="whitespace-h"> </p>
-		</div>
-    </div>
+	<p class="whitespace-h"> </p>
+	<div class="row drivers-container">
+		<div class="drivers col-xs-12 col-md-10 col-md-offset-1" id="accent-row">
+			<div class="row-fluid">
+			<div class="id col-xs-3 col-sm-2">
+				<img src="http://placehold.it/110x110" class="img-circle">
 
-	<div class="row">
-		<p class="whitespace-h"> </p>
-		<div class="col-md-6 rounded-left" id="accent-row">
-			<p class="whitespace-h"> </p>
-			дані про водія
-			<p class="whitespace-h"> </p>
-		</div>
-		<p class="whitespace-h visible-sm visible-xs"> </p>
-		<div class="col-md-6 rounded-right" id="accent-row">
-			<p class="whitespace-h"> </p>
-			дані про водія
-			<p class="whitespace-h"> </p>
-		</div>
-    </div>
+				</img>
+			</div>
+			<div class="info col-xs-9 col-sm-8">
+				<div class="name row">
+					name, surname
+				</div>
+				<div class="car row">
+					car model, car color
+				</div>
+			</div>
+			<div class="photo col-sm-2 hidden-xs">
+				<img src="http://placehold.it/110x110">
 
+				</img>
+			</div>
+			</div>
+		</div>
+	</div>
 
 
 
