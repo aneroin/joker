@@ -297,7 +297,12 @@ body {
 }
 
 .drivers .photo {
-  background-color: #FFEB19;
+
+}
+
+.drivers .id .callsign {
+  background-color: #f0f0f0;
+  color: #333333;
 }
 
 
@@ -307,7 +312,8 @@ body {
   .table-responsive {
     border: 1px solid #FFEB19;
   }
+
   body {
-    background-image: none;
+    background: none;
   }
 }

@@ -23,13 +23,25 @@
 		$(document).ready(function (){
 			var dark = $('head link#theme').data('theme-dark');
 			var light = $('head link#theme').data('theme-light');
+			var xsdark = $('head link#theme').data('theme-dark-xs');
+			var xslight = $('head link#theme').data('theme-light-xs');
 			var time = new Date();
 			var hours = time.getHours();
-			if (hours > 8 && hours < 20){ 
-   				$('head link#theme').attr('href',light);
+			if ($(window).width() < 768) {
+				if (hours > 8 && hours < 20){ 
+	   				$('head link#theme').attr('href',xslight);
+	   			} else {
+	   				$('head link#theme').attr('href',xsdark);
+	   			}
+	   			$(body).css('background-image',"url('/../img/<?php echo $_SESSION['local'] ?>_xs.png')")
    			} else {
-   				$('head link#theme').attr('href',dark);
+				if (hours > 8 && hours < 20){ 
+	   				$('head link#theme').attr('href',light);
+	   			} else {
+	   				$('head link#theme').attr('href',dark);
+   				}
    			}
+
 		});
 
 	</script>

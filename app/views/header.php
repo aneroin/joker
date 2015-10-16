@@ -14,7 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/markup.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/colors.css">
-	<link id="theme" data-theme-dark="<?php echo URL; ?>css/colors-dark.css" data-theme-light="<?php echo URL; ?>css/colors-light.css" rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/colors-dark.css">
+	<link id="theme" data-theme-dark="<?php echo URL; ?>css/colors-dark.css" data-theme-light="<?php echo URL; ?>css/colors-light.css" data-theme-xsdark="<?php echo URL; ?>css/colors-dark-xs.css" data-theme-xslight="<?php echo URL; ?>css/colors-light-xs.css" rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/colors-dark.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/buttons3d.css">
 
 </head>

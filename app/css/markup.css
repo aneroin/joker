@@ -258,6 +258,17 @@ body {
 
 	.drivers .id {
 		padding: 0px !important;
+		display: block;
+		position: relative;
+		font-size: 1.8em;
+		text-align: middle;
+		vertical-align: middle;
+		min-height: 100%;
+		height: 100%;
+		max-height: 100px;
+		min-width: auto;
+		height: auto;
+		max-width: 100px;
 	}
 
 	.drivers .id img {
@@ -266,6 +277,17 @@ body {
 		padding: 0px !important;
 		float: left;
 	}
+
+	.drivers .id .callsign {
+		padding: 0.39em 0px !important;
+		display: block;
+		font-size: 1.2em;
+		text-align: middle;
+		vertical-align: middle;
+		max-height: 100%;
+		max-width: 100%;
+	}
+
 
 	.drivers .info {
 
@@ -280,17 +302,36 @@ body {
 			font-size: 0.8em;
 		}
 
+		.drivers .info .carcolor {
+			min-height: 10px;
+			min-width: 10px;
+			max-height: 20px;
+			max-width: 20px;
+		}
+
 	.drivers .photo {
 		padding: 0px !important;
+		display: block;
+		position: relative;
+		max-height: 100%;
+		max-width: 100%;
 	}
 
 	.drivers .photo img {
-		height: auto;
-		width: 100%;
-		padding: 0px !important;
+		padding-right: 0px;
+		margin-right: 0px;
+		display: inline-block;
+		position: relative;
 		float: right;
+		font-size: 1.8em;
+		vertical-align: middle;
+		min-height: 100%;
+		height: 100%;
+		max-height: 100px;
+		min-width: auto;
+		width: auto;
+		max-width: 100px;
 	}
-
 
 
  @media only screen and (max-width : 991px) {
@@ -351,5 +392,12 @@ body {
 					font-weight: 200;
 					font-size: 0.6em;
 				}
+		.drivers .id .callsign {
+			padding: 0.6em 0px !important;
+			display: block;
+			font-size: 1em;
+			min-height: 100%;
+			min-width: auto;
+		}
 
     }

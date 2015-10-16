@@ -8,113 +8,38 @@
 	</div>
 
 	<!-- end of accent -->
-
+<?php 
+	foreach ($data['drivers'] as $row) {
+	$drivercard = <<<EOT
 	<p class="whitespace-h"> </p>
-	<div class="row drivers-container">
+	<div class="row drivers-container" id="driver-{$row['id']}">
 		<div class="drivers col-xs-12 col-md-10 col-md-offset-1" id="accent-row">
 			<div class="row-fluid">
 			<div class="id col-xs-3 col-sm-2">
-				<img src="http://placehold.it/110x110" class="img-circle">
-
-				</img>
+				<div class="img-circle img-responsive callsign">
+					{$row['tid']}
+				</div>
 			</div>
 			<div class="info col-xs-9 col-sm-8">
 				<div class="name row">
-					name, surname
+					{$row['name']} {$row['surname']}
 				</div>
 				<div class="car row">
-					car model, car color
+					{$row['model']} {$row['color']}	<span class="img-circle" style="background-color: {$row['hex']}"> &nbsp;   		&nbsp;		   &nbsp; </span>	
 				</div>
 			</div>
 			<div class="photo col-sm-2 hidden-xs">
-				<img src="http://placehold.it/110x110">
+				<img class="img-circle" src="http://taxijoker.com/img/drivers/{$row['photo']}">
 
 				</img>
 			</div>
 			</div>
 		</div>
 	</div>
-
-	
-	<p class="whitespace-h"> </p>
-	<div class="row drivers-container">
-		<div class="drivers col-xs-12 col-md-10 col-md-offset-1" id="accent-row">
-			<div class="row-fluid">
-			<div class="id col-xs-3 col-sm-2">
-				<img src="http://placehold.it/110x110" class="img-circle">
-
-				</img>
-			</div>
-			<div class="info col-xs-9 col-sm-8">
-				<div class="name row">
-					name, surname
-				</div>
-				<div class="car row">
-					car model, car color
-				</div>
-			</div>
-			<div class="photo col-sm-2 hidden-xs">
-				<img src="http://placehold.it/110x110">
-
-				</img>
-			</div>
-			</div>
-		</div>
-	</div>
-
-
-	<p class="whitespace-h"> </p>
-	<div class="row drivers-container">
-		<div class="drivers col-xs-12 col-md-10 col-md-offset-1" id="accent-row">
-			<div class="row-fluid">
-			<div class="id col-xs-3 col-sm-2">
-				<img src="http://placehold.it/110x110" class="img-circle">
-
-				</img>
-			</div>
-			<div class="info col-xs-9 col-sm-8">
-				<div class="name row">
-					name, surname
-				</div>
-				<div class="car row">
-					car model, car color
-				</div>
-			</div>
-			<div class="photo col-sm-2 hidden-xs">
-				<img src="http://placehold.it/110x110">
-
-				</img>
-			</div>
-			</div>
-		</div>
-	</div>
-
-
-	<p class="whitespace-h"> </p>
-	<div class="row drivers-container">
-		<div class="drivers col-xs-12 col-md-10 col-md-offset-1" id="accent-row">
-			<div class="row-fluid">
-			<div class="id col-xs-3 col-sm-2">
-				<img src="http://placehold.it/110x110" class="img-circle">
-
-				</img>
-			</div>
-			<div class="info col-xs-9 col-sm-8">
-				<div class="name row">
-					name, surname
-				</div>
-				<div class="car row">
-					car model, car color
-				</div>
-			</div>
-			<div class="photo col-sm-2 hidden-xs">
-				<img src="http://placehold.it/110x110">
-
-				</img>
-			</div>
-			</div>
-		</div>
-	</div>
+EOT;
+	echo $drivercard;
+	}
+?>
 
 
 
