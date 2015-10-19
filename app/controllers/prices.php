@@ -2,8 +2,11 @@
 session_start();
 	class Prices extends Controller  {
 		public function __construct($locale = null) {
-			$title = "Taxi Joker - Prices";
 			parent::__construct();
+		}
+
+		public function Index($locale = null) {
+			$title = "Taxi Joker - Prices";
 			//if locale param is set - setting up session variables
 			if (isset($locale)) {
 				$_SESSION['lang'] = $locale['0'];

@@ -48,6 +48,11 @@ require 'defines.php';
 					}
 					$controller->$url[1]();
 				 }
+				 else {
+				 	if(isset($url[0])) {
+				 		$controller->Index();
+				 	}
+				 }
 			}
 	}
   }

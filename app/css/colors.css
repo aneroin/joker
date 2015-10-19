@@ -1,11 +1,11 @@
 body {
 	color: #F7F7F7;
-    background-image: url("/../img/te.png");
+  background-image: url("/../img/te.png");
 	width: 100%;
 	height: auto;
-    background-attachment: fixed;
-   	background-repeat: no-repeat;
-    background-position: right bottom;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: right bottom;
 	background-size: cover;
 	font-family: 'Open Sans', sans-serif;
 }
@@ -314,6 +314,6 @@ body {
   }
 
   body {
-    background: none;
+    background-image: none;
   }
 }

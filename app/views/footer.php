@@ -11,6 +11,7 @@
 
 	    current = $( "#sidebar-wrapper" ).data( "current-page" );
 	    $("#"+current).addClass("nav-active");
+	    $($("#"+current).data("target")).toggleClass('in');
 
 		$(window).load( function () {
 			$('#pull-down').css('margin-top', $('#call-form').height()-$('#pull-down-element').height());
@@ -23,8 +24,8 @@
 		$(document).ready(function (){
 			var dark = $('head link#theme').data('theme-dark');
 			var light = $('head link#theme').data('theme-light');
-			var xsdark = $('head link#theme').data('theme-dark-xs');
-			var xslight = $('head link#theme').data('theme-light-xs');
+			var xsdark = $('head link#theme').data('theme-xsdark');
+			var xslight = $('head link#theme').data('theme-xslight');
 			var time = new Date();
 			var hours = time.getHours();
 			if ($(window).width() < 768) {
@@ -33,7 +34,6 @@
 	   			} else {
 	   				$('head link#theme').attr('href',xsdark);
 	   			}
-	   			$(body).css('background-image',"url('/../img/<?php echo $_SESSION['local'] ?>_xs.png')")
    			} else {
 				if (hours > 8 && hours < 20){ 
 	   				$('head link#theme').attr('href',light);

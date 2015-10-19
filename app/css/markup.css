@@ -213,6 +213,36 @@ body {
     font-weight: 700;
 }
 
+.tall {
+	height: 240px;
+}
+
+.adaptive {
+	height: auto;
+	overflow: auto;
+}
+
+@media (min-width: 992px) {
+	.half-cell-md {
+	  width: 25% !important;
+	  margin-left:  12.5%!important;
+	}
+}
+@media (min-width: 1200px) {
+	.half-cell-lg {
+	  width: 25% !important;
+	  margin-left: 12.5% !important;
+	}
+}
+
+
+
+.opportunity-panel {
+	font-size: 1.4em;
+	padding: 12px 12px;
+	overflow: hidden;
+}
+
 .whitespace-v {
 	margin: 0px 32px;
 }

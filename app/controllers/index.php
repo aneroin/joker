@@ -2,8 +2,11 @@
 session_start();
 	class Index extends Controller  {
 		public function __construct($locale = null) {
-			$title = "Taxi Joker";
 			parent::__construct();
+		}
+
+		public function Index($locale = null) {
+			$title = "Taxi Joker";
 			//if locale param is set - setting up session variables
 			if (isset($locale)) {
 				$_SESSION['lang'] = $locale['0'];

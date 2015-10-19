@@ -6,42 +6,61 @@
 			<?php echo $data['accent'] ?>
 		</div>
 	</div>
-
 	<!-- end of accent -->
-<?php 
-	foreach ($data['drivers'] as $row) {
-	$drivercard = <<<EOT
 	<p class="whitespace-h"> </p>
-	<div class="row drivers-container" id="driver-{$row['id']}">
-		<div class="drivers col-xs-12 col-md-10 col-md-offset-1" id="accent-row">
-			<div class="row-fluid">
-			<div class="id col-xs-3 col-sm-2">
-				<div class="img-circle img-responsive callsign">
-					{$row['tid']}
+	<div class="row rounded"  id="accent-row">
+		Ми пропонуємо для наших водіїв найкращі умови праці:
+	</div>
+	<p class="whitespace-h"> </p>	
+	<!-- start of opportunity-panel -->	
+	<div class="row info-panel adaptive rounded">
+		<div class="opportunity-panel text-center col-md-3">
+			<div class="row">
+				<div class="col-xs-12">
+					 <img border="0" src="<?php echo URL; ?>img/drivers.png">
 				</div>
 			</div>
-			<div class="info col-xs-9 col-sm-8">
-				<div class="name row">
-					{$row['name']} {$row['surname']}
-				</div>
-				<div class="car row">
-					{$row['model']} {$row['color']}	<span class="img-circle" style="background-color: {$row['hex']}"> &nbsp;   		&nbsp;		   &nbsp; </span>	
+			<div class="row">
+				<div class="col-xs-12">
+					Дружній колектив
 				</div>
 			</div>
-			<div class="photo col-sm-2 hidden-xs">
-				<img class="img-circle" src="http://taxijoker.com/img/drivers/{$row['photo']}">
-
-				</img>
+		</div>
+		<p class="whitespace-h visible-sm"> </p>
+		<div class="opportunity-panel text-center col-md-4 col-md-offset-1 half-cell-md">
+			<div class="row">
+				<div class="col-xs-12">
+					 <img border="0" src="<?php echo URL; ?>img/time.png">
+				</div>
 			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					Вільний графік
+				</div>
+			</div>
+		</div>
+		<p class="whitespace-h visible-sm"> </p>
+		<div class="opportunity-panel text-center col-md-3 col-md-offset-1 half-cell-md">
+			<div class="row">
+				<div class="col-xs-12">
+					 <img border="0" src="<?php echo URL; ?>img/money.png">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					Працюєте на себе
+				</div>
 			</div>
 		</div>
 	</div>
-EOT;
-	echo $drivercard;
-	}
-?>
+	<!-- end of opportunity-panel -->
+	<p class="whitespace-h"> </p>
+	<!-- vacancy offer -->
+	<div class="row rounded"  id="accent-row">
+		<a href=""> Для того щоб приєднатися до наших рядів слід лише заповнити спеціальну форму у нас на сайті </a>
+	</div>
 
-
+	<p class="whitespace-h"> </p>
 
 	<!-- scrollers -->
 	<a data-id="top" class="scroll-link totop side hidden-xs">
@@ -51,3 +70,13 @@ EOT;
 	<a data-id="top" class="scroll-link totop top visible-xs">
 		<img class="img-circle" src="img/up-s.png">
 	</a>
+
+	<script>
+		$(function(){
+		$('.info-panel').hover(function(){
+		        $(this.data("target")).slideToggle(500);
+		    },function(){
+		        $(this.data("target")).slideToggle(500);
+		    });
+		})
+	</script>	

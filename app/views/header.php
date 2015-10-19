@@ -4,7 +4,7 @@
 	<title><?php echo $title; ?></title>
 	<link rel="icon" type="image/png" href="<?php echo URL; ?>img/favicon_light.png">
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=0" />
 	<!--link href='https://fonts.googleapis.com/css?family=Roboto:400,100&subset=latin,cyrillic,cyrillic-ext' rel='stylesheet' type='text/css'-->
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700&subset=latin,cyrillic,cyrillic-ext' rel='stylesheet' type='text/css'>
 	<script src="<?php echo URL; ?>jquery/jquery-2.1.4.js"></script>
@@ -52,19 +52,27 @@
 				</div>
 
 				<li class="sidebar-brand clearfix">
-					<a href=""> <img src="img/logo.png" alt="таксі джокер" style="min-width: 80%; width: 80%; min-height: auto; height: auto; padding: 0px 20px;"> </a>
+					<a href=""> <img src="<?php echo URL; ?>img/logo.png" alt="таксі джокер" style="min-width: 80%; width: 80%; min-height: auto; height: auto; padding: 0px 20px;"> </a>
 				</li>
 				<li id="index">
-					<a href="index"> <?php echo $data['Index']; ?> </a>
+					<a href="/index"> <?php echo $data['Index']; ?> </a>
 				</li>
 				<li id="prices">
-					<a href="prices"> <?php echo $data['Prices']; ?> </a>
+					<a href="/prices"> <?php echo $data['Prices']; ?> </a>
 				</li>
-				<li id="drivers">
-					<a href="drivers"> Водії </a>
+				<li id="drivers" data-target="#drivers_sub">
+					<a href="/drivers"> Водії </a>
 				</li>
+					<ul id="drivers_sub" class="nav nav-list collapse">
+						<li id="drivers_sub_all">
+							<a href="/drivers/all"> Всі водії </a>
+						</li>
+						<li id="drivers_sub_join">
+							<a href="/drivers/join"> Стати водієм </a>
+						</li>
+					</ul>
 				<li id="contacts">
-					<a href="contacts"> <?php echo $data['Contacts']; ?> </a>
+					<a href="/contacts"> <?php echo $data['Contacts']; ?> </a>
 				</li>
 			</ul>
 							<a href="http://taxiadmin.com.ua/"><img border="0" src="<?php echo URL; ?>img/taxiadmin.png" style="max-width: 150px; max-height: auto; position: relative; bottom: -90%; left: 50px; opacity: 0.7;"></img></a>
