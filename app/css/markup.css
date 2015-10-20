@@ -32,26 +32,38 @@ body {
 
 .rounded-up-left {
 	-webkit-border-top-left-radius: 15px;
+	-webkit-border-top-right-radius: 15px;
 	-moz-border-radius-topleft: 15px;
+	-moz-border-radius-topright: 15px;
 	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
 }
 
 .rounded-up-right {
+	-webkit-border-top-left-radius: 15px;
 	-webkit-border-top-right-radius: 15px;
+	-moz-border-radius-topleft: 15px;
 	-moz-border-radius-topright: 15px;
+	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
 }
 
 .rounded-down-left {
+	-webkit-border-bottom-right-radius: 15px;
 	-webkit-border-bottom-left-radius: 15px;
+	-moz-border-radius-bottomright: 15px;
 	-moz-border-radius-bottomleft: 15px;
+	border-bottom-right-radius: 15px;
 	border-bottom-left-radius: 15px;
 }
 
 .rounded-down-right {
 	-webkit-border-bottom-right-radius: 15px;
+	-webkit-border-bottom-left-radius: 15px;
 	-moz-border-radius-bottomright: 15px;
+	-moz-border-radius-bottomleft: 15px;
 	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 15px;
 }
 
 .rounded-up {
@@ -61,33 +73,38 @@ body {
 	-moz-border-radius-topright: 15px;
 	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
+	-webkit-border-bottom-right-radius: 0px;
+	-webkit-border-bottom-left-radius: 0px;
+	-moz-border-radius-bottomright: 0px;
+	-moz-border-radius-bottomleft: 0px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
 }
 
 .rounded-down {
+	-webkit-border-top-left-radius: 0px;
+	-webkit-border-top-right-radius: 0px;
+	-moz-border-radius-topleft: 0px;
+	-moz-border-radius-topright: 0px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
 	-webkit-border-bottom-right-radius: 15px;
 	-webkit-border-bottom-left-radius: 15px;
 	-moz-border-radius-bottomright: 15px;
 	-moz-border-radius-bottomleft: 15px;
 	border-bottom-right-radius: 15px;
-	border-bottom-left-radius: 15px;
-}
-
-.rounded-left {
-	-webkit-border-top-left-radius: 15px;
-	-webkit-border-bottom-left-radius: 15px;
-	-moz-border-radius-topleft: 15px;
-	-moz-border-radius-bottomleft: 15px;
-	border-top-left-radius: 15px;
 	border-bottom-left-radius: 15px;
 }
 
 .rounded-right {
-	-webkit-border-top-right-radius: 15px;
-	-webkit-border-bottom-right-radius: 15px;
-	-moz-border-radius-topright: 15px;
-	-moz-border-radius-bottomright: 15px;
-	border-top-right-radius: 15px;
-	border-bottom-right-radius: 15px;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+}
+.rounded-left {
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;	
 }
 
 .rounded {
@@ -290,7 +307,7 @@ body {
 		padding: 0px !important;
 		display: block;
 		position: relative;
-		font-size: 1.8em;
+		font-size: 1.2em;
 		text-align: middle;
 		vertical-align: middle;
 		min-height: 100%;
@@ -324,12 +341,12 @@ body {
 	}
 		.drivers .info .name {
 			font-weight: 200;
-			font-size: 1.6em;
+			font-size: 0.8em;
 		}
 
 		.drivers .info .car {
 			font-weight: 200;
-			font-size: 0.8em;
+			font-size: 0.6em;
 		}
 
 		.drivers .info .carcolor {
@@ -364,64 +381,76 @@ body {
 	}
 
 
- @media only screen and (max-width : 991px) {
+	@media (min-width : 992px) {
+
 		.rounded-up-left {
 			-webkit-border-top-left-radius: 15px;
-			-webkit-border-top-right-radius: 15px;
 			-moz-border-radius-topleft: 15px;
-			-moz-border-radius-topright: 15px;
 			border-top-left-radius: 15px;
-			border-top-right-radius: 15px;
+			-webkit-border-top-right-radius: 0px;
+			-moz-border-radius-topright: 0px;
+			border-top-right-radius: 0px;
 		}
-		
+
 		.rounded-up-right {
-			-webkit-border-top-left-radius: 15px;
+			-webkit-border-top-left-radius: 0px;
+			-moz-border-radius-topleft: 0px;
+			border-top-left-radius: 0px;
 			-webkit-border-top-right-radius: 15px;
-			-moz-border-radius-topleft: 15px;
 			-moz-border-radius-topright: 15px;
-			border-top-left-radius: 15px;
 			border-top-right-radius: 15px;
 		}
-		
+
 		.rounded-down-left {
-			-webkit-border-bottom-right-radius: 15px;
 			-webkit-border-bottom-left-radius: 15px;
-			-moz-border-radius-bottomright: 15px;
 			-moz-border-radius-bottomleft: 15px;
-			border-bottom-right-radius: 15px;
 			border-bottom-left-radius: 15px;
+			-webkit-border-bottom-right-radius: 0px;
+			-moz-border-radius-bottomright: 0px;
+			border-bottom-right-radius: 0px;
 		}
-		
+
 		.rounded-down-right {
+			-webkit-border-bottom-left-radius: 0px;
+			-moz-border-radius-bottomleft: 0px;
+			border-bottom-left-radius: 0px;
 			-webkit-border-bottom-right-radius: 15px;
-			-webkit-border-bottom-left-radius: 15px;
 			-moz-border-radius-bottomright: 15px;
-			-moz-border-radius-bottomleft: 15px;
 			border-bottom-right-radius: 15px;
+		}
+
+		.rounded-left {
+			-webkit-border-top-left-radius: 15px;
+			-webkit-border-bottom-left-radius: 15px;
+			-moz-border-radius-topleft: 15px;
+			-moz-border-radius-bottomleft: 15px;
+			border-top-left-radius: 15px;
 			border-bottom-left-radius: 15px;
 		}
 
 		.rounded-right {
-			-webkit-border-radius: 15px;
-			-moz-border-radius: 15px;
-			border-radius: 15px;
-		}
-
-		.rounded-left {
-			-webkit-border-radius: 15px;
-			-moz-border-radius: 15px;
-			border-radius: 15px;	
+			-webkit-border-top-right-radius: 15px;
+			-webkit-border-bottom-right-radius: 15px;
+			-moz-border-radius-topright: 15px;
+			-moz-border-radius-bottomright: 15px;
+			border-top-right-radius: 15px;
+			border-bottom-right-radius: 15px;
 		}
 
 				.drivers .info .name {
 					font-weight: 200;
-					font-size: 0.8em;
+					font-size: 1.6em;
 				}
 
 				.drivers .info .car {
 					font-weight: 200;
-					font-size: 0.6em;
+					font-size: 0.8em;
 				}
+
+		.drivers .id {
+			font-size: 1.8em;
+		}
+
 		.drivers .id .callsign {
 			padding: 0.6em 0px !important;
 			display: block;
@@ -431,3 +460,22 @@ body {
 		}
 
     }
+
+    @media (min-width: 768px) {
+		.drivers .id {
+			font-size: 1.8em;
+		}
+    }
+
+    @media (min-width: 992px) {
+		.drivers .id {
+			font-size: 1.8em;
+		}
+    }
+
+    @media (min-width: 1200px) {
+
+    }
+
+
+

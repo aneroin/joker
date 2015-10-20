@@ -1,9 +1,17 @@
-body {
-  background-color: #475A6E;
-  background-image: none;
+body{
+	background-image: none !important;
+	background: #363636;
+	color: #f0f0f0;
 }
 
 .body {
-  background: #475A6E; 
-  background-image: none;
+	background-image: none !important;
+	background: #363636;
 }
+
+.accent, #accent-buttons, #accent-row, #news-row, .info-panel, .panel-accent {
+  background-color: rgba(55,55,55,0.2);
+  -webkit-box-shadow: inset 0px 0px 0px 2px rgba(25,25,25,0.8);
+	 -moz-box-shadow: inset 0px 0px 0px 2px rgba(25,25,25,0.8);
+		  box-shadow: inset 0px 0px 0px 2px rgba(25,25,25,0.8);
+ }

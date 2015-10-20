@@ -177,11 +177,11 @@
 		
 	<!-- scrollers -->
 	<a data-id="top" class="scroll-link totop side hidden-xs">
-		<img class="img-circle" src="img/up.png"/>
+		<img class="img-circle" src="<?php echo URL; ?>img/up.png"/>
 	</a>
 	
 	<a data-id="top" class="scroll-link totop top visible-xs">
-		<img class="img-circle" src="img/up-s.png"/>
+		<img class="img-circle" src="<?php echo URL; ?>img/up-s.png"/>
 	</a>
 
 	

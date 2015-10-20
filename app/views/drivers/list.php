@@ -16,7 +16,7 @@
 		<div class="drivers col-xs-12 col-md-10 col-md-offset-1" id="accent-row">
 			<div class="row-fluid">
 			<div class="id col-xs-3 col-sm-2">
-				<div class="img-circle img-responsive callsign">
+				<div class="callsign">
 					{$row['tid']}
 				</div>
 			</div>
@@ -45,9 +45,9 @@ EOT;
 
 	<!-- scrollers -->
 	<a data-id="top" class="scroll-link totop side hidden-xs">
-		<img class="img-circle" src="img/up.png">
+		<img class="img-circle" src="<?php echo URL; ?>img/up.png"/>
 	</a>
 	
 	<a data-id="top" class="scroll-link totop top visible-xs">
-		<img class="img-circle" src="img/up-s.png">
+		<img class="img-circle" src="<?php echo URL; ?>img/up-s.png"/>
 	</a>

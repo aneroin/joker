@@ -9,51 +9,49 @@ require 'defines.php';
 		$url = isset($_GET['url']) ? $_GET['url'] : null;
 	    $url = rtrim($url, '/');
 	    $url = explode('/', $url);
-		//if empty url - redirects to index
-		if(empty($url[0])) {
+
+		if (empty($url[0])){
+			//if empty url - redirects to index
 			require 'controllers/index.php';
 			$controller = new Index();
+			$controller->Index();
 			return false;
-		}
-		//if not empty - search for controller that is called
-		$file = 'controllers/'.$url[0].'.php';
-		 if(file_exists($file)) {
-			require $file;
 		} else {
-			//if no controller were found - go to error page
-			require 'controllers/error.php';
-			$controller = new Error();
-			return false;
-		}
-		//creating controller
+			//if not empty - search for controller that is called
+			$file = 'controllers/'.$url[0].'.php';
+			if(!file_exists($file)) {
+				//if no controller were found - go to error page
+				require 'controllers/error.php';
+				$controller = new Error();
+				return false;
+			}
+
+			require $file;
 			$controller = new $url[0];
 
-		//if url 2 param is not empty, calling method with param	
 			if(isset($url[2])) {
-					if (!(method_exists($controller, $url[1]))){
-						require 'controllers/method_error.php';
-						$controller = new MethodError();
-						return false;
-					}
 				$args = explode('&', $url[2]);
+				if (!(method_exists($controller, $url[1]($args)))){
+					//if no method were found - go to error page
+					require 'controllers/method_error.php';
+					$controller = new MethodError();
+					return false;
+				}
 				$controller->$url[1]($args);
+			} else  if(isset($url[1])) { 
+				//else, if url 2 is empty but url 1 is not, calling method withoud param
+				if (!(method_exists($controller, $url[1]))){
+				 	//if there is no such method - throwing an error
+					require 'controllers/method_error.php';
+					$controller = new MethodError();
+					return false;
+				}
+				$controller->$url[1]();
 			} else {
-				//esle, if url 2 is empty but url 1 is not, calling method withoud param
-				 if(isset($url[1])) {
-				 	if (!(method_exists($controller, $url[1]))){
-				 		//if there is no such method - throwing an error
-						require 'controllers/method_error.php';
-						$controller = new MethodError();
-						return false;
-					}
-					$controller->$url[1]();
-				 }
-				 else {
-				 	if(isset($url[0])) {
-				 		$controller->Index();
-				 	}
-				 }
+				$controller->Index();
 			}
-	}
+
+		}
+    }
   }
 ?>

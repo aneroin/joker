@@ -13,12 +13,12 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/markup.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/colors.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/colors_outline.css">
 	<link id="theme" data-theme-dark="<?php echo URL; ?>css/colors-dark.css" data-theme-light="<?php echo URL; ?>css/colors-light.css" data-theme-xsdark="<?php echo URL; ?>css/colors-dark-xs.css" data-theme-xslight="<?php echo URL; ?>css/colors-light-xs.css" rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/colors-dark.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/buttons3d.css">
 
 </head>
-<body style="background-image: url('/../img/<?php echo $_SESSION['local'] ?>.png')">
+<body style="background-image: url('<?php echo URL; ?>img/<?php echo $_SESSION['local'] ?>.png')">
 	<div id="wrapper"> 
 	<div id="sidebar-wrapper" data-current-page=<?php echo $data['current_page']; ?>>
 			<ul class="sidebar-nav">
@@ -31,9 +31,9 @@
 						<span class="selection"><?php echo $data['lang_title']; ?></span>
 						<span class="caret"></span></button>
 						<ul class="dropdown-menu  col-xs-12">
-							<li class="dropdown-menu-item"><a href="language.php?lang=ua" ><?php echo $data['lang_ua']; ?></a></li>
-							<li class="dropdown-menu-item"><a href="language.php?lang=ru" ><?php echo $data['lang_ru']; ?></a></li>
-							<li class="dropdown-menu-item"><a href="language.php?lang=eng" ><?php echo $data['lang_en']; ?></a></li>
+							<li class="dropdown-menu-item"><a href="<?php echo URL; ?>language.php?lang=ua" ><?php echo $data['lang_ua']; ?></a></li>
+							<li class="dropdown-menu-item"><a href="<?php echo URL; ?>language.php?lang=ru" ><?php echo $data['lang_ru']; ?></a></li>
+							<li class="dropdown-menu-item"><a href="<?php echo URL; ?>language.php?lang=eng" ><?php echo $data['lang_en']; ?></a></li>
 						</ul>
 					</div>
 					
@@ -42,8 +42,8 @@
 						<span class="selection"><?php echo $data['local_title']; ?></span>
 						<span class="caret"></span></button>
 						<ul class="dropdown-menu col-xs-12">
-							<li class="dropdown-menu-item"><a href="language.php?local=te" ><?php echo $data['local_te']; ?></a></li>
-							<li class="dropdown-menu-item"><a href="language.php?local=lu" ><?php echo $data['local_lu']; ?></a></li>
+							<li class="dropdown-menu-item"><a href="<?php echo URL; ?>language.php?local=te" ><?php echo $data['local_te']; ?></a></li>
+							<li class="dropdown-menu-item"><a href="<?php echo URL; ?>language.php?local=lu" ><?php echo $data['local_lu']; ?></a></li>
 						</ul>
 					</div>
 				</div>

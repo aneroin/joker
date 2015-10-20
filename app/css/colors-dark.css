@@ -1,7 +1,16 @@
 body {
-  background-color: #333333;
+  background-color: #2e3335;
+  color: #f0f0f0;
 }
 
 .body {
-  background: #333333;  
+  background: #2e3335;  
 }
+
+.accent, #accent-buttons, #accent-row, #news-row, .info-panel, .panel-accent {
+  background-color: rgba(0,0,0,0.2);
+  -webkit-box-shadow: inset 0px 0px 0px 2px rgba(125,125,125,0.8);
+	 -moz-box-shadow: inset 0px 0px 0px 2px rgba(125,125,125,0.8);
+		  box-shadow: inset 0px 0px 0px 2px rgba(125,125,125,0.8);
+ }
+
