@@ -25,7 +25,7 @@
 	<p class="whitespace-h"> </p>
 	<div class="row">
 		<!-- information panel -->
-		<div class="col-md-4 col-md-offset-1 info-panel text-center rounded" >
+		<div class="col-md-5 info-panel text-center rounded" >
 			<div class="row">
 				<div class="col-xs-6 col-md-12" >
 					 <img border="0" src="<?php echo URL; ?>img/driver.png">
@@ -43,7 +43,7 @@
 		</div>
 		 <p class="whitespace-h visible-xs  visible-sm"> </p>
 		<!-- information panel -->
-		<div class="col-md-4 col-md-offset-2 info-panel text-center rounded">
+		<div class="col-md-5 col-md-offset-2 info-panel text-center rounded">
 			<div class="row">
 				<div class="col-xs-6 col-md-12" >
 					 <img border="0" src="<?php echo URL; ?>img/operator.png">
@@ -71,7 +71,7 @@
 	<p class="whitespace-h"> </p>
 	<div class="row">
 		<!-- information panel -->
-		<div class="col-md-4 col-md-offset-1 info-panel text-center rounded" >
+		<div class="col-md-5 info-panel text-center rounded" >
 		<div class="row">
 			<div class="col-xs-6 col-md-12" >
 				 <img border="0" src="<?php echo URL; ?>img/gplay.png">
@@ -89,7 +89,7 @@
 		</div>
 		 <p class="whitespace-h visible-xs  visible-sm"> </p>
 		<!-- information panel -->
-		<div class="col-md-4 col-md-offset-2 info-panel text-center rounded">
+		<div class="col-md-5 col-md-offset-2 info-panel text-center rounded">
 		<div class="row">
 			<div class="col-xs-6 col-md-12" >
 				 <img border="0" src="<?php echo URL; ?>img/astore.png">
@@ -126,7 +126,7 @@
 	<p class="whitespace-h"> </p>
 	<div class="row">
 		<!-- information panel -->
-		<div class="col-md-4 col-md-offset-1 info-panel text-center rounded" >
+		<div class="col-md-5 info-panel text-center rounded" >
 		<div class="row">
 			<div class="col-xs-6 col-md-12" >
 				 <img border="0" src="<?php echo URL; ?>img/vk.png">
@@ -144,7 +144,7 @@
 		</div>
 		 <p class="whitespace-h visible-xs visible-sm"> </p>
 		<!-- information panel -->
-		<div class="col-md-4 col-md-offset-2 info-panel text-center rounded">
+		<div class="col-md-5 col-md-offset-2 info-panel text-center rounded">
 		<div class="row">
 			<div class="col-xs-6 col-md-12" >
 				 <img border="0" src="<?php echo URL; ?>img/fb.png">

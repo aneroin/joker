@@ -16,7 +16,7 @@
 }
 
 #wrapper.toggled {
-    padding-left: 250px;
+    /*padding-left: 250px;*/
 }
 
 #sidebar-wrapper {
@@ -35,7 +35,7 @@
 }
 
 #wrapper.toggled #sidebar-wrapper {
-    width: 250px;
+    width: 100%; /*250px;*/
 }
 
 #menu-toggle-wrapper {
@@ -56,7 +56,9 @@
 }
 
 #wrapper.toggled #menu-toggle-wrapper {
-    left: 250px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    left: 90%;
     width: 32px;
 	height: auto;
 }
@@ -65,11 +67,20 @@
     width: 100%;
     position: absolute;
     padding: 15px;
+    padding-top: 45px;
 }
 
 #wrapper.toggled #page-content-wrapper {
     position: absolute;
     margin-right: 250px;
+}
+
+
+#appbar-wrapper {
+    width: 83.33333333%; 
+    margin: 0px 16.66666667%;
+    display: inline-block; 
+    position: absolute; 
 }
 
 /* Sidebar Styles */
@@ -113,10 +124,9 @@
 }
 
 .sidebar-nav > .sidebar-brand a:hover {
-
 }
 
-@media(min-width:768px) {
+@media(min-width:992px) {
     #wrapper {
         padding-left: 250px;
 		overflow: hidden;
@@ -156,5 +166,14 @@
     #wrapper.toggled #page-content-wrapper {
         position: relative;
         margin-right: 0;
+    }
+
+    #appbar-wrapper {
+        width: 12%; 
+        margin: 0px; 
+        display: block; 
+        position: absolute; 
+        right: 0px;
+        top: 32px;
     }
 }

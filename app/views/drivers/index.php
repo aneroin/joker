@@ -16,7 +16,7 @@
 	<div class="row info-panel adaptive rounded">
 		<div class="opportunity-panel text-center col-md-3">
 			<div class="row">
-				<div class="col-xs-12">
+				<div class="col-xs-12 img-responsive">
 					 <img border="0" src="<?php echo URL; ?>img/drivers.png">
 				</div>
 			</div>
@@ -29,7 +29,7 @@
 		<p class="whitespace-h visible-sm"> </p>
 		<div class="opportunity-panel text-center col-md-4 col-md-offset-1 half-cell-md">
 			<div class="row">
-				<div class="col-xs-12">
+				<div class="col-xs-12 img-responsive">
 					 <img border="0" src="<?php echo URL; ?>img/time.png">
 				</div>
 			</div>
@@ -42,7 +42,7 @@
 		<p class="whitespace-h visible-sm"> </p>
 		<div class="opportunity-panel text-center col-md-3 col-md-offset-1 half-cell-md">
 			<div class="row">
-				<div class="col-xs-12">
+				<div class="col-xs-12 img-responsive">
 					 <img border="0" src="<?php echo URL; ?>img/money.png">
 				</div>
 			</div>

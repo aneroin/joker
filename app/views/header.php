@@ -14,7 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/markup.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/colors_outline.css">
-	<link id="theme" data-theme-dark="<?php echo URL; ?>css/colors-dark.css" data-theme-light="<?php echo URL; ?>css/colors-light.css" data-theme-xsdark="<?php echo URL; ?>css/colors-dark-xs.css" data-theme-xslight="<?php echo URL; ?>css/colors-light-xs.css" rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/colors-dark.css">
+	<link id="theme" data-theme-dark="<?php echo URL; ?>css/colors-light.css" data-theme-light="<?php echo URL; ?>css/colors-light.css" data-theme-xsdark="<?php echo URL; ?>css/colors-dark-xs.css" data-theme-xslight="<?php echo URL; ?>css/colors-light-xs.css" rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/colors-dark.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/buttons3d.css">
 
 </head>
@@ -22,34 +22,6 @@
 	<div id="wrapper"> 
 	<div id="sidebar-wrapper" data-current-page=<?php echo $data['current_page']; ?>>
 			<ul class="sidebar-nav">
-				<div class="container" style="width: 250px; margin: 0px; display: block;">
-				<div class="row">
-				<div class="col-xs-12">
-				<div class="row">
-			 		<div class="dropdown col-xs-6">
-						<button class="btn btn-yellow dropdown-toggle fill_h" type="button" data-toggle="dropdown">
-						<span class="selection"><?php echo $data['lang_title']; ?></span>
-						<span class="caret"></span></button>
-						<ul class="dropdown-menu  col-xs-12">
-							<li class="dropdown-menu-item"><a href="<?php echo URL; ?>language.php?lang=ua" ><?php echo $data['lang_ua']; ?></a></li>
-							<li class="dropdown-menu-item"><a href="<?php echo URL; ?>language.php?lang=ru" ><?php echo $data['lang_ru']; ?></a></li>
-							<li class="dropdown-menu-item"><a href="<?php echo URL; ?>language.php?lang=eng" ><?php echo $data['lang_en']; ?></a></li>
-						</ul>
-					</div>
-					
-					<div class="dropdown col-xs-6">
-						<button class="btn btn-yellow dropdown-toggle fill_h" type="button" data-toggle="dropdown">
-						<span class="selection"><?php echo $data['local_title']; ?></span>
-						<span class="caret"></span></button>
-						<ul class="dropdown-menu col-xs-12">
-							<li class="dropdown-menu-item"><a href="<?php echo URL; ?>language.php?local=te" ><?php echo $data['local_te']; ?></a></li>
-							<li class="dropdown-menu-item"><a href="<?php echo URL; ?>language.php?local=lu" ><?php echo $data['local_lu']; ?></a></li>
-						</ul>
-					</div>
-				</div>
-				</div>
-				</div>
-				</div>
 
 				<li class="sidebar-brand clearfix">
 					<a href=""> <img src="<?php echo URL; ?>img/logo.png" alt="таксі джокер" style="min-width: 80%; width: 80%; min-height: auto; height: auto; padding: 0px 20px;"> </a>
@@ -81,7 +53,7 @@
 	<div id="page-content-wrapper">
 		<div class="container-fluid" id="top">
             <div class="row">
-                <div class="col-xs-12  col-sd-8  col-md-10 col-md-offset-1">
+                <div class="col-xs-12 col-sd-10 col-md-10 col-xl-8 col-offset-xl-2">
                 	<!-- toggle buttons -->
 					<a href="#menu-toggle" class="btn btn-yellow" id="menu-toggle-wrapper">
 						<img border="0" alt="toggle menu" src="<?php echo URL; ?>img/sidebar.gif" width="100%" height="auto">
