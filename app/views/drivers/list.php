@@ -16,7 +16,7 @@
 		<div class="drivers col-xs-12 col-md-10 col-md-offset-1" id="accent-row">
 			<div class="row-fluid">
 			<div class="id col-xs-3 col-sm-2">
-				<div class="callsign">
+				<div class="callsign img-responsive">
 					{$row['tid']}
 				</div>
 			</div>
@@ -28,7 +28,7 @@
 					{$row['model']} {$row['color']}	<span class="img-circle" style="background-color: {$row['hex']}"> &nbsp;   		&nbsp;		   &nbsp; </span>	
 				</div>
 			</div>
-			<div class="photo col-sm-2 hidden-xs">
+			<div class="photo col-sm-2 hidden-xs img-responsive">
 				<img class="img-circle" src="http://taxijoker.com/img/drivers/{$row['photo']}">
 
 				</img>
