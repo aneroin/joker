@@ -14,7 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/markup.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/colors_outline.css">
-	<link id="theme" data-theme-dark="<?php echo URL; ?>css/colors-light.css" data-theme-light="<?php echo URL; ?>css/colors-light.css" data-theme-xsdark="<?php echo URL; ?>css/colors-dark-xs.css" data-theme-xslight="<?php echo URL; ?>css/colors-light-xs.css" rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/colors-dark.css">
+	<link id="theme" data-theme-dark="<?php echo URL; ?>css/colors-light.css" data-theme-light="<?php echo URL; ?>css/colors-light.css" data-theme-xsdark="<?php echo URL; ?>css/colors-light-xs.css" data-theme-xslight="<?php echo URL; ?>css/colors-light-xs.css" rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/colors-dark.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/buttons3d.css">
 
 </head>
@@ -33,14 +33,31 @@
 					<a href="/prices"> <?php echo $data['Prices']; ?> </a>
 				</li>
 				<li id="drivers" data-target="#drivers_sub">
-					<a href="/drivers"> Водії </a>
+					<a href="/drivers"> <?php echo $data['Drivers']; ?> </a>
 				</li>
 					<ul id="drivers_sub" class="nav nav-list collapse">
 						<li id="drivers_sub_all">
-							<a href="/drivers/all"> Всі водії </a>
+							<a href="/drivers/all"> <?php echo $data['Drivers_All']; ?> </a>
 						</li>
 						<li id="drivers_sub_join">
-							<a href="/drivers/join"> Стати водієм </a>
+							<a href="/drivers/join"> <?php echo $data['Drivers_Join']; ?> </a>
+						</li>
+						<li id="drivers_sub_faq">
+							<a href="/drivers/faq"> <?php echo $data['Drivers_FAQ']; ?> </a>
+						</li>
+					</ul>
+				<li id="dispatchers" data-target="#dispatchers_sub">
+					<a href="/dispatchers"> <?php echo $data['Dispatchers']; ?> </a>
+				</li>
+					<ul id="dispatchers_sub" class="nav nav-list collapse">
+						<li id="dispatchers_sub_all">
+							<a href="/drivers/all"> <?php echo $data['Dispatchers_All']; ?> </a>
+						</li>
+						<li id="dispatchers_sub_join">
+							<a href="/drivers/join"> <?php echo $data['Dispatchers_Join']; ?> </a>
+						</li>
+						<li id="dispatchers_sub_faq">
+							<a href="/drivers/faq"> <?php echo $data['Dispatchers_FAQ']; ?> </a>
 						</li>
 					</ul>
 				<li id="contacts">

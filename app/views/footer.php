@@ -9,9 +9,16 @@
 	    	},500);
 	    });
 
-	    current = $( "#sidebar-wrapper" ).data( "current-page" );
-	    $("#"+current).addClass("nav-active");
-	    $($("#"+current).data("target")).toggleClass('in');
+	    var current = $( "#sidebar-wrapper" ).data( "current-page" );
+	    var actives = current.split("/");
+	    function highlight(element, index, array) {
+	    	$("#"+element).addClass("nav-active");
+	    	if (index==0){
+		    	$($("#"+element).data("target")).toggleClass('in');
+		    }
+	    }
+
+	    actives.forEach(highlight);
 
 		$(window).load( function () {
 			$('#pull-down').css('margin-top', $('#call-form').height()-$('#pull-down-element').height());

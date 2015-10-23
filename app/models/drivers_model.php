@@ -1,6 +1,6 @@
 <?php
 session_start();
-  class Drivers_List_Model extends Model {
+  class Drivers_Model extends Model {
    public function __construct($lang = 'ua', $city = 'te') {
     parent::__construct();
     //pre init
@@ -13,7 +13,7 @@ session_start();
     $sql_global = "SELECT name, ".$lang." FROM globals";
     $sql_locals = "SELECT name, ".$lang." FROM locals WHERE locals.local=?";
     $sql_pages = "SELECT name, ".$lang." FROM pages";
-    $sql_blocks = "SELECT name, ".$lang." FROM blocks WHERE blocks.local=? AND blocks.idPages=4";
+    $sql_blocks = "SELECT name, ".$lang." FROM blocks WHERE blocks.local=? AND blocks.idPages=3";
     $sql_drivers = "SELECT * FROM drivercard_view ORDER BY drivercard_view.tid ASC LIMIT 8";
     //prepare globals
     $stm = $pdo->prepare($sql_global);

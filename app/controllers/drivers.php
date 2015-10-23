@@ -42,7 +42,7 @@ session_start();
 			require 'models/drivers_list_model.php';
 			//model init with locale params from sessing variables
     		$model = new Drivers_List_Model($_SESSION['lang'],$_SESSION['local']);
-    		//rendering index page
+    		//rendering list page
 			$this->view->render('drivers/list',$model->data,$title);			
 		}
 
@@ -61,10 +61,31 @@ session_start();
 			}
 			//connecting to the model
 			require 'models/drivers_join_model.php';
-			//model init with locale params from sessing variables
+			//model init with locale params from session variables
     		$model = new Drivers_Join_Model($_SESSION['lang'],$_SESSION['local']);
-    		//rendering index page
+    		//rendering join page
 			$this->view->render('drivers/join',$model->data,$title);				
+		}
+
+		public function faq($locale = null) {
+			$title = "Taxi Joker - Drivers FAQ";
+			parent::__construct();
+			//if locale param is set - setting up session variables
+			if (isset($locale)) {
+				$_SESSION['lang'] = $locale['0'];
+				$_SESSION['local'] = $locale['1'];
+			} else {
+				if (!isset($_SESSION['lang']))
+					$_SESSION['lang'] = 'ua';
+				if (!isset($_SESSION['local']))
+					$_SESSION['local'] = 'te';
+			}
+			//connecting to the model
+			require 'models/drivers_faq_model';
+			//model init with locale params from session variables	
+			$model = new Drivers_FAQ_Modell($_SESSION['lang'],$_SESSING['local']);
+			//rendering faq page	
+			$this->view->render('drivers/faq',$model->data,$title);	
 		}
 	}
 ?>

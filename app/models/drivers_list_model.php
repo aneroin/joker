@@ -4,7 +4,7 @@ session_start();
    public function __construct($lang = 'ua', $city = 'te') {
     parent::__construct();
     //pre init
-    $this->data['current_page'] = "drivers";
+    $this->data['current_page'] = "drivers/drivers_sub_all";
     $this->data['title'] = 'DataBase is OFFLINE';
      //connecting to db
     require ('dbcon.php');

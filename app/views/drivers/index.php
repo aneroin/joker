@@ -22,7 +22,7 @@
 			</div>
 			<div class="row">
 				<div class="col-xs-12">
-					Дружній колектив
+					<?php echo $data['drivers_collective'] ?>
 				</div>
 			</div>
 		</div>
@@ -35,7 +35,7 @@
 			</div>
 			<div class="row">
 				<div class="col-xs-12">
-					Вільний графік
+					<?php echo $data['drivers_time'] ?>
 				</div>
 			</div>
 		</div>
@@ -48,7 +48,7 @@
 			</div>
 			<div class="row">
 				<div class="col-xs-12">
-					Працюєте на себе
+					<?php echo $data['drivers_income'] ?>
 				</div>
 			</div>
 		</div>
@@ -57,7 +57,7 @@
 	<p class="whitespace-h"> </p>
 	<!-- vacancy offer -->
 	<div class="row rounded"  id="accent-row">
-		<a href=""> Для того щоб приєднатися до наших рядів слід лише заповнити спеціальну форму у нас на сайті </a>
+		<input type="button"  onclick="window.location.href='/drivers/join'" class="btn btn-main btn-xl btn3d capital" id="submit-call-taxi" value='<?php echo $data['vacancy_button'] ?>'>
 	</div>
 
 	<p class="whitespace-h"> </p>
