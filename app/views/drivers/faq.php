@@ -11,7 +11,7 @@
 	<p class="whitespace-h"> </p>
 
 	<div id="accordion" class="panel-group">
-
+		<?php echo $data['faq'] ?>
 	</div>
 
 	<!-- scrollers -->

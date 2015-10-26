@@ -6,7 +6,9 @@
 			<?php echo $data['accent'] ?>
 		</div>
 	</div>
+
 	<!-- end of accent -->
+	
 	<p class="whitespace-h"> </p>
 	<div class="row rounded"  id="accent-row">
 		Ми пропонуємо для наших водіїв найкращі умови праці:

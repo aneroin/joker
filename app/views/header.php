@@ -16,6 +16,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/colors_outline.css">
 	<link id="theme" data-theme-dark="<?php echo URL; ?>css/colors-light.css" data-theme-light="<?php echo URL; ?>css/colors-light.css" data-theme-xsdark="<?php echo URL; ?>css/colors-light-xs.css" data-theme-xslight="<?php echo URL; ?>css/colors-light-xs.css" rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/colors-dark.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/buttons3d.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/checkbox.css">
 
 </head>
 <body style="background-image: url('<?php echo URL; ?>img/<?php echo $_SESSION['local'] ?>.png')">
@@ -24,7 +25,7 @@
 			<ul class="sidebar-nav">
 
 				<li class="sidebar-brand clearfix">
-					<a href=""> <img src="<?php echo URL; ?>img/logo.png" alt="таксі джокер" style="min-width: 80%; width: 80%; min-height: auto; height: auto; padding: 0px 20px;"> </a>
+					<a href="/"> <img src="<?php echo URL; ?>img/logo.png" alt="таксі джокер" style="min-width: 80%; width: 80%; min-height: auto; height: auto; padding: 0px 20px;"> </a>
 				</li>
 				<li id="index">
 					<a href="/index"> <?php echo $data['Index']; ?> </a>
@@ -63,8 +64,11 @@
 				<li id="contacts">
 					<a href="/contacts"> <?php echo $data['Contacts']; ?> </a>
 				</li>
+				
+					<a href="http://taxiadmin.com.ua/"><img border="0" src="<?php echo URL; ?>img/taxiadmin.png" style="max-width: 150px; max-height: auto; padding-top: 48px; margin-left: 50px; opacity: 0.7;"></img></a>
+				
 			</ul>
-							<a href="http://taxiadmin.com.ua/"><img border="0" src="<?php echo URL; ?>img/taxiadmin.png" style="max-width: 150px; max-height: auto; position: relative; bottom: -90%; left: 50px; opacity: 0.7;"></img></a>
+							
 	</div>
 
 	<div id="page-content-wrapper">

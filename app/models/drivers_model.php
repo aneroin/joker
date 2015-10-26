@@ -13,8 +13,7 @@ session_start();
     $sql_global = "SELECT name, {$lang} FROM globals";
     $sql_locals = "SELECT name, {$lang} FROM locals WHERE locals.local=?";
     $sql_pages = "SELECT name, {$lang} FROM pages";
-    $sql_blocks = "SELECT name, ".$lang." FROM blocks WHERE blocks.local=? AND blocks.idPages=3";
-    $sql_drivers = "SELECT * FROM drivercard_view ORDER BY drivercard_view.tid ASC LIMIT 8";
+    $sql_blocks = "SELECT name, {$lang} FROM blocks WHERE blocks.local=? AND blocks.idPages=3";
     //prepare globals
     $stm = $pdo->prepare($sql_global);
     //statement executing
@@ -46,14 +45,6 @@ session_start();
     //fetching blocks array
     while ($db_data = $stm->fetch(PDO::FETCH_ASSOC)){
       $this->data[$db_data['name']] = $db_data[$lang];    
-    }
-    //prepare drivers
-    $stm = $pdo->prepare($sql_drivers);
-    //statement drivers
-    $stm->execute();
-    //fetching drivers array
-    while ($db_data = $stm->fetch(PDO::FETCH_ASSOC)){
-      $this->data['drivers'][] = $db_data;    
     }
    }
   }

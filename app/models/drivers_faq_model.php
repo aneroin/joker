@@ -1,24 +1,21 @@
 <?php
 session_start();
-
   class Drivers_FAQ_Model extends Model {
    public function __construct($lang = 'ua', $city = 'te') {
     parent::__construct();
     //pre init
     $this->data['current_page'] = "drivers/drivers_sub_faq";
     $this->data['title'] = 'DataBase is OFFLINE';
-
-    $faq;
-
-    //connecting to db
+     //connecting to db
     require ('dbcon.php');
+
     //statement preparing
     //SQLs
     $sql_global = "SELECT name, {$lang} FROM globals";
     $sql_locals = "SELECT name, {$lang} FROM locals WHERE locals.local=?";
     $sql_pages = "SELECT name, {$lang} FROM pages";
     $sql_blocks = "SELECT name, {$lang} FROM blocks WHERE blocks.local=? AND blocks.idPages=10";
-    $sql_faq = "SELECT id, t{$lang}, a{$lang} FROM faq_drivers WHERE local =?;";
+    $sql_faq = "SELECT id, t{$lang}, a{$lang} FROM faq_drivers WHERE local =?";
     //prepare globals
     $stm = $pdo->prepare($sql_global);
     //statement executing
@@ -55,22 +52,23 @@ session_start();
     //FAQ-------------------------------------------------------------------------------- 
     //statement preparing
     //prepare faq
-    echo "<script>console.log( 'Debug Objects: " . $sql_faq . "' );</script>";
     $stm = $pdo->prepare($sql_faq);
     //statement executing
     $stm->execute(array($city));
     //fetching faq array
-    while ($db_data = $stm->fetch(PDO::FETCH_ASSOC)){
-      $faq[] = $db_data;    
+    while ($db_data = $stm->fetch(PDO::FETCH_NUM)){
+        $faq[] = $db_data; 
     }
 
-    foreach ($faq as $faqrow) {
-        faq_to_table($faqrow, $this->data['faq']);
-    }
-}
+    faq_to_table($faq, $this->data['faq']);
 
-    public function faq_to_table($row, &$outdata){
-$outdata.= <<<EOT
+   }
+  }
+
+function faq_to_table($faq_data, &$outdata) {
+    foreach ($faq_data as $row)
+    {
+$outdata .= <<<EOT
             <div class="panel panel-accent">
                 <div class="panel-heading">
                     <h4><a data-toggle="collapse" data-parent="#accordion" href="#{$row[0]}">{$row[1]}</a></h4>
@@ -82,8 +80,7 @@ $outdata.= <<<EOT
                 </div>
             </div>
 EOT;
-    } 
+    }
 }
-
 
 ?>

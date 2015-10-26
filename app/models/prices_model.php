@@ -123,9 +123,11 @@ session_start();
 function prices_to_table($title, $tdata, $local, &$outdata){
 $outdata.= <<<EOT
         <div class="panel panel-accent">
+        <a data-toggle="collapse" data-parent="#accordion" href="#{$title[0]}">
             <div class="panel-heading">
-                <h4><a data-toggle="collapse" data-parent="#accordion" href="#{$title[0]}">{$title[1]}</a></h4>
+                <h4>{$title[1]}</h4>
             </div>
+        </a>
             <div id="{$title[0]}" class="panel-collapse collapse">
                 <div class="panel-body">
                     <div class="table-responsive">

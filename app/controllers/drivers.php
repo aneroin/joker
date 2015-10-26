@@ -68,7 +68,7 @@ session_start();
 		}
 
 		public function faq($locale = null) {
-			$title = "Taxi Joker - Drivers FAQ";
+			$title = "Taxi Joker - driver's FAQ";
 			parent::__construct();
 			//if locale param is set - setting up session variables
 			if (isset($locale)) {
@@ -82,10 +82,10 @@ session_start();
 			}
 			//connecting to the model
 			require 'models/drivers_faq_model.php';
-			//model init with locale params from session variables	
-			$model = new Drivers_FAQ_Model($_SESSION['lang'],$_SESSING['local']);
-			//rendering faq page	
-			$this->view->render('drivers/faq',$model->data,$title);	
+			//model init with locale params from sessing variables
+    		$model = new Drivers_FAQ_Model($_SESSION['lang'],$_SESSION['local']);
+    		//rendering list page
+			$this->view->render('drivers/faq',$model->data,$title);			
 		}
 	}
 ?>
