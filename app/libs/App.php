@@ -31,7 +31,7 @@ require 'defines.php';
 
 			if(isset($url[2])) {
 				$args = explode('&', $url[2]);
-				if (!(method_exists($controller, $url[1]($args)))){
+				if (!(method_exists($controller, $url[1]))){
 					//if no method were found - go to error page
 					require 'controllers/method_error.php';
 					$controller = new MethodError();

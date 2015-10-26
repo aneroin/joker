@@ -81,9 +81,9 @@ session_start();
 					$_SESSION['local'] = 'te';
 			}
 			//connecting to the model
-			require 'models/drivers_faq_model';
+			require 'models/drivers_faq_model.php';
 			//model init with locale params from session variables	
-			$model = new Drivers_FAQ_Modell($_SESSION['lang'],$_SESSING['local']);
+			$model = new Drivers_FAQ_Model($_SESSION['lang'],$_SESSING['local']);
 			//rendering faq page	
 			$this->view->render('drivers/faq',$model->data,$title);	
 		}

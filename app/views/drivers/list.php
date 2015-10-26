@@ -20,7 +20,7 @@
 					{$row['tid']}
 				</div>
 			</div>
-			<div class="info col-xs-9 col-sm-8">
+			<div class="info col-xs-8 col-sm-8">
 				<div class="name row">
 					{$row['name']} {$row['surname']}
 				</div>
@@ -29,7 +29,7 @@
 				</div>
 			</div>
 			<div class="photo col-sm-2 hidden-xs img-responsive">
-				<img class="img-circle" src="http://taxijoker.com/img/drivers/{$row['photo']}">
+				<img class="img-responsive" src="http://taxijoker.com/img/drivers/{$row['photo']}">
 
 				</img>
 			</div>
