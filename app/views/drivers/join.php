@@ -12,38 +12,7 @@
 	<p class="whitespace-h"> </p>
 	<div class="row rounded" id="accent-buttons">
 		<div class="col-md-8" id="driver-form">
-			<form  role="form" class="driverform">
-
-				<div class="form-group" id="name-group" data-error='<?php echo $data['driver_error_name'] ?>'>
-					<label for="lname"><?php echo $data['lname'] ?>:</label>
-					<input type="text" class="form-control main" id="lname" maxlength=45>
-					<label for="fname"><?php echo $data['fname'] ?>:</label>
-					<input type="text" class="form-control main" id="fname" maxlength=45>
-					<label for="mname"><?php echo $data['mname'] ?>:</label>
-					<input type="text" class="form-control main" id="mname" maxlength=45>
-				</div>
-
-				<div class="form-group" id="phone-group" data-error='<?php echo $data['driver_error_phone'] ?>'>
-					<label for="phone"><?php echo $data['phone'] ?>:</label>
-					<input type="text" class="form-control main" id="phone" placeholder="380" maxlength=12>
-				</div>
-
-				<div class="form-group" id="city-group" data-error='<?php echo $data['driver_error_city'] ?>'>
-					<label for="city"><?php echo $data['city'] ?>:</label>
-					<input type="text" class="form-control main" id="city" maxlength=45>
-				</div>
-
-				<div class="form-group" id="accept-group" data-error='<?php echo $data['driver_error_accept'] ?>'>
-					<?php echo $data['accept'] ?>
-					<span class="checkbox checkbox-success">
-						<input class="styled" id="accept" type="checkbox" value="" required="true">
-						<label for="accept" style="font-weight: 200; font-size: 12pt;"><?php echo $data['accept_des'] ?></label>
-					</span>
-				</div>
-
-				<div class="form-group" id="submit-group">
-					<input type="button" onclick="driver_form_next();" class="btn btn-main btn-xl btn3d capital" id="submit-driver-form" value=<?php echo $data['main-btn'] ?>>
-				</div>
+			<form  role="form" class="driverform" id="driver-form-content">
 
 			</form>
 		</div>
@@ -58,3 +27,93 @@
 	<a data-id="top" class="scroll-link totop top visible-xs">
 		<img class="img-circle" src="<?php echo URL; ?>img/up-s.png"/>
 	</a>
+
+	<script>
+	var driver_info = {
+		'lname' 	: '',
+		'fname' 	: '',
+		'mname' 	: '',
+		'phone' 	: '',
+		'city'  	: '',
+		'carvendor' : '',
+		'carmodel'  : '',
+		'carcolor'  : '',
+		'carnumber' : ''
+	};
+
+	$(document).ready(function(){
+		driver_form_next(0);
+	});
+
+	function sms(){
+		var formData = {
+			'phone'		: $('#phone').val()
+		};
+
+		var xhr = $.ajax({
+	        type: "POST",
+	        url: "http://taxijoker.com/libs/sms.php",
+	        data: formData
+	    })
+	    .done(function(data) {
+	    	if (data['response']=='1'){
+			    console.log('SMS ok');
+			} else {
+				console.log('SMS error');
+			}
+			console.log(data);
+	    })
+	    .fail(function(jqXHR, textStatus, errorThrown) {
+	        console.log('SMS fail');
+	        errorThrower(jqXHR.status);
+	    });
+	};
+
+	function driver_form_start(){
+		var formData = {
+			'phone'		: $('#phone').val(),
+			'smscode'	: $('#smscode').val()
+		};
+
+		var xhr = $.ajax({
+	        type: "POST",
+	        url: "http://taxijoker.com/libs/sms_check.php",
+	        data: formData
+	    })
+	    .done(function(data) {
+	    	if (data['response']=='1') {
+		    	console.log('SMS CODE ok');
+				driver_form_next(1);
+			} else {
+				console.log('SMS CODE error');
+			}
+	    })
+	    .fail(function(jqXHR, textStatus, errorThrown) {
+	        console.log('SMS CODE fail');
+	        errorThrower(jqXHR.status);
+	    });
+	};
+
+	function driver_form_next(step){
+		if (step==1) {
+			driver_info.lname = $('#lname').val();
+			driver_info.fname = $('#fname').val();
+			driver_info.mname = $('#mname').val();
+			console.log(driver_info);
+		}
+
+		var xhr = $.ajax({
+	        type: "POST",
+	        url: "http://taxijoker.com/drivers/driverform/"+step,
+	    })
+	    .done(function(data) {
+	        console.log('Form ok');
+	        $('#driver-form-content').html(data);
+	    })
+	    .fail(function(jqXHR, textStatus, errorThrown) {
+	        console.log('Form fail');
+	        errorThrower(jqXHR.status);
+	    });
+	};
+
+	</script>
