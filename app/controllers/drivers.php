@@ -87,5 +87,81 @@ session_start();
     		//rendering list page
 			$this->view->render('drivers/faq',$model->data,$title);			
 		}
+
+		public function driverform($args = null) {
+			parent::__construct();
+			//connecting to the model
+			require 'models/drivers_join_model.php';
+			//model init with locale params from sessing variables
+    		$model = new Drivers_JOIN_Model($_SESSION['lang'],$_SESSION['local']);
+
+$driverform[0] = <<<EOT
+
+				<div class="form-group" id="phone-group" data-error='{$model->data['driver_error_phone']}'>
+					<label for="phone">{$model->data['phone']}:</label>
+					<input type="text" class="form-control main" id="phone" placeholder="380" maxlength=12>
+				</div>
+
+				<div class="form-group" id="submit-group">
+					<input type="button" onclick="sms();" class="btn btn-second btn-xl btn3d capital" id="submit-driver-form" value='надіслати код'>
+				</div>
+
+				<div class="form-group" id="smscode-group" data-error='{$model->data['driver_error_smscode']}'>
+					<label for="smscode">Код з СМС:</label>
+					<input type="text" class="form-control main" id="smscode" maxlength=12>
+				</div>				
+
+				<div class="form-group" id="submit-group">
+					<input type="button" onclick="driver_form_start();" class="btn btn-main btn-xl btn3d capital" id="submit-driver-form" value='{$model->data['main-btn']}'>
+				</div>
+EOT;
+
+$driverform[1] = <<<EOT
+				<div class="form-group" id="name-group" data-error='{$model->data['driver_error_name']}'>
+					<label for="lname">{$model->data['lname']}:</label>
+					<input type="text" class="form-control main" id="lname" maxlength=45>
+					<label for="fname">{$model->data['fname']}:</label>
+					<input type="text" class="form-control main" id="fname" maxlength=45>
+					<label for="mname">{$model->data['mname']}:</label>
+					<input type="text" class="form-control main" id="mname" maxlength=45>
+				</div>
+
+				<div class="form-group" id="city-group" data-error='Помилка в назві міста'>
+					<label for="city">{$model->data['city']}:</label>
+					<input type="text" class="form-control main" id="city" maxlength=45>
+				</div>
+
+				<div class="form-group" id="accept-group" data-error='{$model->data['driver_error_accept']}'>
+					{$model->data['accept']}
+					<span class="checkbox checkbox-success">
+						<input class="styled" id="accept" type="checkbox" value="" required="true">
+						<label for="accept" style="font-weight: 200; font-size: 12pt;">{$model->data['accept_des']}</label>
+					</span>
+				</div>
+
+				<div class="form-group" id="submit-group">
+					<input type="button" onclick="driver_form_next(2);" class="btn btn-main btn-xl btn3d capital" id="submit-driver-form" value='{$model->data['main-btn']}'>
+				</div>
+EOT;
+
+$driverform[2] = <<<EOT
+				<div class="form-group" id="car-group" data-error='{$model->data['driver_error_car']}'>
+					<label for="carvendor">{$model->data['carvendor']}:</label>
+					<input type="text" class="form-control main" id="carvendor" maxlength=45>
+					<label for="carmodel">{$model->data['carmodel']}:</label>
+					<input type="text" class="form-control main" id="carmodel" maxlength=45>
+					<label for="carcolor">{$model->data['carcolor']}:</label>
+					<input type="text" class="form-control main" id="carcolor" maxlength=45>
+					<label for="carnumber">{$model->data['carnumber']}:</label>
+					<input type="text" class="form-control main" id="carnumber" maxlength=45>
+				</div>
+				<div class="form-group" id="submit-group">
+					<input type="button" onclick="driver_form_finally();" class="btn btn-main btn-xl btn3d capital" id="submit-driver-form" value='{$model->data['main-btn']}'>
+				</div>
+EOT;
+
+			echo $driverform[$args[0]];
+
+		}
 	}
 ?>

@@ -317,7 +317,7 @@ body {
 		min-width: auto;
 		height: auto;
 		max-width: 96px;
-		float: none;
+		float: left;
 	}
 
 	.drivers .id img {
@@ -341,6 +341,7 @@ body {
 
 	.drivers .info {
 		padding-right: 0px;
+		float: right;
 	}
 		.drivers .info .name {
 			font-weight: 200;
@@ -366,7 +367,7 @@ body {
 		position: relative;
 		max-height: 100%;
 		max-width: 100%;
-		float: none;
+		float: right;
 	}
 
 	.drivers .photo img {
@@ -487,6 +488,9 @@ body {
 			font-size: 1.8em;
 			float: left;
 		}
+		.drivers .info {
+			float: left;
+		}
 		.drivers .photo {
 			float: right;
 		}
@@ -498,12 +502,22 @@ body {
 			font-size: 1.8em;
 			float: left;
 		}
+		.drivers .info {
+			float: left;
+		}
 		.drivers .photo {
 			float: right;
 		}
     }
 
     @media (min-width: 1200px) {
+    	.drivers .id {
+			font-size: 1.8em;
+			float: left;
+		}
+		.drivers .info {
+			float: left;
+		}
 		.drivers .photo {
 			float: right;
 		}

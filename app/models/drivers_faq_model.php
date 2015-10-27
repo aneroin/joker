@@ -70,9 +70,11 @@ function faq_to_table($faq_data, &$outdata) {
     {
 $outdata .= <<<EOT
             <div class="panel panel-accent">
+            <a data-toggle="collapse" data-parent="#accordion" href="#{$row[0]}">
                 <div class="panel-heading">
-                    <h4><a data-toggle="collapse" data-parent="#accordion" href="#{$row[0]}">{$row[1]}</a></h4>
+                    <h4>{$row[1]}</h4>
                 </div>
+            </a>
                 <div id="{$row[0]}" class="panel-collapse collapse">
                     <div class="panel-body">
                         {$row[2]}

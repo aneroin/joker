@@ -65,7 +65,7 @@
 					<a href="/contacts"> <?php echo $data['Contacts']; ?> </a>
 				</li>
 				
-					<a href="http://taxiadmin.com.ua/"><img border="0" src="<?php echo URL; ?>img/taxiadmin.png" style="max-width: 150px; max-height: auto; padding-top: 48px; margin-left: 50px; opacity: 0.7;"></img></a>
+					<a href="http://taxiadmin.com.ua/"><img border="0" src="<?php echo URL; ?>img/taxiadmin.png" style="max-width: 150px; max-height: auto; margin-top: 48px; margin-left: 50px; opacity: 0.6;"></img></a>
 				
 			</ul>
 							

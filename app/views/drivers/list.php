@@ -16,7 +16,7 @@
 		<div class="drivers col-xs-12 col-md-10 col-md-offset-1" id="accent-row">
 			<div class="row-fluid">
 			<div class="id col-xs-3 col-sm-2">
-				<div class="callsign img-responsive">
+				<div class="callsign">
 					{$row['tid']}
 				</div>
 			</div>
@@ -25,10 +25,10 @@
 					{$row['name']} {$row['surname']}
 				</div>
 				<div class="car row">
-					{$row['model']} {$row['color']}	<span class="img-circle" style="background-color: {$row['hex']}"> &nbsp;   		&nbsp;		   &nbsp; </span>	
+					{$row['model']} {$row['color']} <br>	<span class="img-circle" style="background-color: {$row['hex']}"> &nbsp;   		&nbsp;		   &nbsp; </span>	
 				</div>
 			</div>
-			<div class="photo col-sm-2 hidden-xs img-responsive">
+			<div class="photo hidden-xs col-sm-2 img-responsive">
 				<img class="img-responsive" src="http://taxijoker.com/img/drivers/{$row['photo']}">
 
 				</img>
