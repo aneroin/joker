@@ -34,8 +34,8 @@ $(document).ready(function() {
                 'home'                        : $('#home').val(),
                 'entrance'                    : $('#entrance').val(),
                 'message'                     : $('#message').val(),
-                'advanced'                    : $('#advanced').val(),
-                'address_to'                  : $('#address-to').val(),
+            //    'advanced'                    : $('#advanced').val(),
+            //    'address_to'                  : $('#address-to').val(),
                 'id_taxi'                     : $('#call-form').data('tid')
             };
             //prepare form
