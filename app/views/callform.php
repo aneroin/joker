@@ -26,6 +26,7 @@
 			onblur="this.value=this.value.toUpperCase()" maxlength=5>
 		</div>
 		</div>
+		</div>
 <!--
 		<div class="form-group" id="advanced-group">
 		<label for="advanced"><?php // echo $data['advanced'] ?>:</label>
