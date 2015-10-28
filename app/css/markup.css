@@ -386,6 +386,21 @@ body {
 		max-width: 96px;
 	}
 
+	.step-displayer {
+		display: block;
+		height: 10vh;
+		text-align: center;
+		font-size: 5vw;
+		min-width: 100%;
+		padding-left: 0;
+	}
+
+	.step-displayer .step{
+		display: inline-block;
+		float: left;
+		margin: 5px 10px;
+	}
+
 
 	@media (min-width : 992px) {
 
@@ -479,6 +494,20 @@ body {
 
 		.drivers .photo {
 			float: right;
+		}
+
+		.step-displayer {
+			display: block;
+			height: 40vh;
+			text-align: center;
+			font-size: 4vh;
+		}
+
+		.step-displayer .step{
+			display: block;
+			float: right;
+			clear: right;
+			margin: 10px 5px;
 		}
 
     }

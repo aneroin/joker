@@ -11,7 +11,16 @@
 	<!-- end of accent -->	
 	<p class="whitespace-h"> </p>
 	<div class="row rounded" id="accent-buttons">
-		<div class="col-md-8" id="driver-form">
+		<div class="col-xs-12 col-md-4 col-md-push-8" id="driver-form-step">
+			<ul class="step-displayer">
+				<li class="step" id="step-0" data-cap-s="1" data-cap="Відкриття заявки"> </li>
+				<li class="step" id="step-1" data-cap-s="2" data-cap="Персональні дані"> </li>
+				<li class="step" id="step-2" data-cap-s="3" data-cap="Автомобіль"> </li>
+				<li class="step" id="step-3" data-cap-s="4" data-cap="Адреса"> </li>
+				<li class="step" id="step-4" data-cap-s="5" data-cap="Фото"> </li>
+			</ul>
+		</div>
+		<div class="col-xs-12 col-md-8 col-md-pull-4" id="driver-form">
 			<form  role="form" class="driverform" id="driver-form-content">
 
 			</form>
@@ -28,92 +37,4 @@
 		<img class="img-circle" src="<?php echo URL; ?>img/up-s.png"/>
 	</a>
 
-	<script>
-	var driver_info = {
-		'lname' 	: '',
-		'fname' 	: '',
-		'mname' 	: '',
-		'phone' 	: '',
-		'city'  	: '',
-		'carvendor' : '',
-		'carmodel'  : '',
-		'carcolor'  : '',
-		'carnumber' : ''
-	};
-
-	$(document).ready(function(){
-		driver_form_next(0);
-	});
-
-	function sms(){
-		var formData = {
-			'phone'		: $('#phone').val()
-		};
-
-		var xhr = $.ajax({
-	        type: "POST",
-	        url: "http://taxijoker.com/libs/sms.php",
-	        data: formData
-	    })
-	    .done(function(data) {
-	    	if (data['response']=='1'){
-			    console.log('SMS ok');
-			} else {
-				console.log('SMS error');
-			}
-			console.log(data);
-	    })
-	    .fail(function(jqXHR, textStatus, errorThrown) {
-	        console.log('SMS fail');
-	        errorThrower(jqXHR.status);
-	    });
-	};
-
-	function driver_form_start(){
-		var formData = {
-			'phone'		: $('#phone').val(),
-			'smscode'	: $('#smscode').val()
-		};
-
-		var xhr = $.ajax({
-	        type: "POST",
-	        url: "http://taxijoker.com/libs/sms_check.php",
-	        data: formData
-	    })
-	    .done(function(data) {
-	    	if (data['response']=='1') {
-		    	console.log('SMS CODE ok');
-				driver_form_next(1);
-			} else {
-				console.log('SMS CODE error');
-			}
-	    })
-	    .fail(function(jqXHR, textStatus, errorThrown) {
-	        console.log('SMS CODE fail');
-	        errorThrower(jqXHR.status);
-	    });
-	};
-
-	function driver_form_next(step){
-		if (step==1) {
-			driver_info.lname = $('#lname').val();
-			driver_info.fname = $('#fname').val();
-			driver_info.mname = $('#mname').val();
-			console.log(driver_info);
-		}
-
-		var xhr = $.ajax({
-	        type: "POST",
-	        url: "http://taxijoker.com/drivers/driverform/"+step,
-	    })
-	    .done(function(data) {
-	        console.log('Form ok');
-	        $('#driver-form-content').html(data);
-	    })
-	    .fail(function(jqXHR, textStatus, errorThrown) {
-	        console.log('Form fail');
-	        errorThrower(jqXHR.status);
-	    });
-	};
-
-	</script>
+	<script src="<?php echo URL; ?>jquery/driverprocess.js"></script>

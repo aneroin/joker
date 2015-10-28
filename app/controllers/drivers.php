@@ -99,7 +99,7 @@ $driverform[0] = <<<EOT
 
 				<div class="form-group" id="phone-group" data-error='{$model->data['driver_error_phone']}'>
 					<label for="phone">{$model->data['phone']}:</label>
-					<input type="text" class="form-control main" id="phone" placeholder="380" maxlength=12>
+					<input type="text" class="form-control main" id="phone" placeholder="380"  data-validation="length number" data-validation-length="12" data-validation-allowing="range[0;9]" maxlength=12>
 				</div>
 
 				<div class="form-group" id="submit-group">
@@ -126,11 +126,6 @@ $driverform[1] = <<<EOT
 					<input type="text" class="form-control main" id="mname" maxlength=45>
 				</div>
 
-				<div class="form-group" id="city-group" data-error='Помилка в назві міста'>
-					<label for="city">{$model->data['city']}:</label>
-					<input type="text" class="form-control main" id="city" maxlength=45>
-				</div>
-
 				<div class="form-group" id="accept-group" data-error='{$model->data['driver_error_accept']}'>
 					{$model->data['accept']}
 					<span class="checkbox checkbox-success">
@@ -155,6 +150,34 @@ $driverform[2] = <<<EOT
 					<label for="carnumber">{$model->data['carnumber']}:</label>
 					<input type="text" class="form-control main" id="carnumber" maxlength=45>
 				</div>
+				<div class="form-group" id="submit-group">
+					<input type="button" onclick="driver_form_next(3);" class="btn btn-main btn-xl btn3d capital" id="submit-driver-form" value='{$model->data['main-btn']}'>
+				</div>
+EOT;
+
+$driverform[3] = <<<EOT
+				<div class="form-group" id="city-group" data-error='Помилка в адресі'>
+					<label for="city">{$model->data['city']}:</label>
+					<input type="text" class="form-control main" id="city" maxlength=45>
+					<label for="street">{$model->data['street']}:</label>
+					<input type="text" class="form-control main" id="street" maxlength=45>
+					<label for="house">{$model->data['house']}:</label>
+					<input type="text" class="form-control main" id="house" maxlength=45>
+				</div>
+
+				<div class="form-group" id="submit-group">
+					<input type="button" onclick="driver_form_next(4);" class="btn btn-main btn-xl btn3d capital" id="submit-driver-form" value='{$model->data['main-btn']}'>
+				</div>
+EOT;
+
+$driverform[4] = <<<EOT
+				<div class="form-group" id="city-group" data-error='Помилка в файлах'>
+					<label for="photo-portrait">{$model->data['photo-portrait']}:</label>
+					<input type="text" class="form-control main" id="photo-portrait" maxlength=45>
+					<label for="photo-car">{$model->data['photo-car']}:</label>
+					<input type="text" class="form-control main" id="photo-car" maxlength=45>
+				</div>
+
 				<div class="form-group" id="submit-group">
 					<input type="button" onclick="driver_form_finally();" class="btn btn-main btn-xl btn3d capital" id="submit-driver-form" value='{$model->data['main-btn']}'>
 				</div>
