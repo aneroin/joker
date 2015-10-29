@@ -401,6 +401,24 @@ body {
 		margin: 5px 10px;
 	}
 
+	label {
+		font-size: 6vmin;
+	}
+
+	label.error {
+		font-size: 3vw;
+		font-weight: 200;
+		display: inline-block;
+		float: right;
+		text-align: right;
+		padding-top: 3vh;
+	}
+
+	.form-control.color {
+		padding: 0px !important;
+
+	}
+
 
 	@media (min-width : 992px) {
 
@@ -508,6 +526,19 @@ body {
 			float: right;
 			clear: right;
 			margin: 10px 5px;
+		}
+
+		label.error {
+			font-size: 1vw;
+			font-weight: 200;
+			display: inline-block;
+			float: right;
+			text-align: right;
+			margin-top: 3vh;
+		}
+
+		label {
+			font-size: 3vmin;
 		}
 
     }

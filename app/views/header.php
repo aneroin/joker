@@ -8,7 +8,8 @@
 	<!--link href='https://fonts.googleapis.com/css?family=Roboto:400,100&subset=latin,cyrillic,cyrillic-ext' rel='stylesheet' type='text/css'-->
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700&subset=latin,cyrillic,cyrillic-ext' rel='stylesheet' type='text/css'>
 	<script src="<?php echo URL; ?>jquery/jquery-2.1.4.js"></script>
-	<script src="<?php echo URL; ?>jquery/form-validator/jquery.form-validator.js"></script>
+	<script src="<?php echo URL; ?>jquery/jquery.validate.js"></script>
+	<script src="<?php echo URL; ?>jquery/jquery.validate.additional-methods.js"></script>
 	<script src="<?php echo URL; ?>jquery/scroll.js"></script>
 	<script src="<?php echo URL; ?>bootstrap/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>bootstrap/css/bootstrap.min.css">

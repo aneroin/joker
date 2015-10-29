@@ -11,7 +11,12 @@
 	
 	<p class="whitespace-h"> </p>
 	<div class="row rounded"  id="accent-row">
-		Ми пропонуємо для наших водіїв найкращі умови праці:
+		<?php echo $data['drivers_motive'] ?>
+	</div>
+	<p class="whitespace-h"> </p>
+	<!-- vacancy offer -->
+	<div class="row rounded"  id="accent-row">
+		<input type="button"  onclick="window.location.href='/drivers/join'" class="btn btn-main btn-xl btn3d capital" id="submit-call-taxi" value='<?php echo $data['vacancy_button'] ?>'>
 	</div>
 	<p class="whitespace-h"> </p>	
 	<!-- start of opportunity-panel -->	
@@ -59,9 +64,13 @@
 	<p class="whitespace-h"> </p>
 	<!-- vacancy offer -->
 	<div class="row rounded"  id="accent-row">
-		<input type="button"  onclick="window.location.href='/drivers/join'" class="btn btn-main btn-xl btn3d capital" id="submit-call-taxi" value='<?php echo $data['vacancy_button'] ?>'>
+		<div class="col-xs-12 col-md-6">
+			<input type="button"  onclick="window.location.href='/drivers/all'" class="btn btn-main btn-xl btn3d capital" id="submit-call-taxi" value='<?php echo $data['list_button'] ?>'>
+		</div>
+		<div class="col-xs-12 col-md-6">
+			<input type="button"  onclick="window.location.href='/drivers/faq'" class="btn btn-second btn-xl btn3d capital" id="submit-call-taxi" value='<?php echo $data['faq_button'] ?>'>
+		</div>
 	</div>
-
 	<p class="whitespace-h"> </p>
 
 	<!-- scrollers -->

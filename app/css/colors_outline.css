@@ -196,7 +196,7 @@ text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.4);
 	color: #020202;
 }
 
-.form-control.main:focus {
+.form-control.main:focus, .form-control.color:focus {
   border-color: #fad00c;
   outline: 0;
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(250, 208, 12, .6);
@@ -302,7 +302,9 @@ text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.4);
   color: #333333;
 }
 
-
+label.error {
+  color: #f5a5a5;
+}
 
 
 @media screen and (max-width: 767px) {
