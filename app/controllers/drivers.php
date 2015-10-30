@@ -108,7 +108,7 @@ $driverform[0] = <<<EOT
 
 				<div class="form-group" id="smscode-group" data-error='{$model->data['driver_error_smscode']}'>
 					<label for="smscode">{$model->data['sms']}:</label>
-					<input type="text" class="form-control main" name="smscode" id="smscode" maxlength=4>
+					<input type="text" class="form-control main" name="smscode" id="smscode" data-validation="length alphanumeric" data-validation-length="4" maxlength=4>
 				</div>				
 
 				<div class="form-group" id="submit-group">
