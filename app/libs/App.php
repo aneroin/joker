@@ -22,7 +22,7 @@ require 'defines.php';
 			if(!file_exists($file)) {
 				//if no controller were found - go to error page
 				require 'controllers/error.php';
-				$controller = new Error();
+				$controller = new Error(array(404,'sorry, there are no such file'));
 				return false;
 			}
 
@@ -33,8 +33,8 @@ require 'defines.php';
 				$args = explode('&', $url[2]);
 				if (!(method_exists($controller, $url[1]))){
 					//if no method were found - go to error page
-					require 'controllers/method_error.php';
-					$controller = new MethodError();
+					require 'controllers/error.php';
+					$controller = new Error(array(406,'wrong method'));
 					return false;
 				}
 				$controller->$url[1]($args);
@@ -42,8 +42,8 @@ require 'defines.php';
 				//else, if url 2 is empty but url 1 is not, calling method withoud param
 				if (!(method_exists($controller, $url[1]))){
 				 	//if there is no such method - throwing an error
-					require 'controllers/method_error.php';
-					$controller = new MethodError();
+					require 'controllers/error.php';
+					$controller = new Error(array(406,'wrong method'));
 					return false;
 				}
 				$controller->$url[1]();

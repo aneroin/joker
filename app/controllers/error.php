@@ -1,10 +1,16 @@
 <?php
 	class Error extends Controller  {
-		public function __construct() {
+		public function __construct($input) {
+			http_response_code($input[0]);
+			if ( !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' )
+			{
+			    echo $input[1];
+			    return false;
+			}
 			parent::__construct();
-			$this->view->msg = 'ERROR: 404 <br> sorry, there are no such file';
-
-			$title = "Taxi Joker - ERROR: 404";
+			$this->view->errcode = "error {$input[0]}";
+			$this->view->msg = $input[1];
+			$title = "Taxi Joker - ERROR: {$input[0]}";
 			//if locale param is set - setting up session variables
 			if (isset($locale)) {
 				$_SESSION['lang'] = $locale['0'];

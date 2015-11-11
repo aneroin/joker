@@ -8,22 +8,28 @@
 		</div>
 
 		<div class="form-group" id="address-group" data-error='<?php echo $data['call_error_address'] ?>'>
-		<label for="sattlement"><?php echo $data['sattlement'] ?>:</label>
-		<input type="text" class="form-control main" id="sattlement" value=<?php echo $data['call_city'] ?>
-			onblur="this.value=this.value.toUpperCase()" maxlength=20>
-		<label for="street"><?php echo $data['street'] ?>:</label>
-		<input type="text" class="form-control main" id="street" 
-			onblur="this.value=this.value.toUpperCase()" maxlength=50>
 		<div class="row">
-		<div class="col-xs-6">
-		<label for="home"><?php echo $data['home'] ?>:</label>
-		<input type="text" class="form-control main" id="home"
-			onblur="this.value=this.value.toUpperCase()" maxlength=12>
+		<div class="col-xs-12 col-md-6">
+			<label for="sattlement"><?php echo $data['sattlement'] ?>:</label>
+			<input type="text" class="form-control main" id="sattlement" value=<?php echo $data['call_city'] ?>
+				onblur="this.value=this.value.toUpperCase()" maxlength=20>
 		</div>
-		<div class="col-xs-6">
-		<label for="entrance"><?php echo $data['entrance'] ?>:</label>
-		<input type="text" class="form-control main" id="entrance"
-			onblur="this.value=this.value.toUpperCase()" maxlength=5>
+		<div class="col-xs-12 col-md-6">
+			<label for="street"><?php echo $data['street'] ?>:</label>
+			<input type="text" class="form-control main" id="street" 
+				onblur="this.value=this.value.toUpperCase()" maxlength=50>
+		</div>
+		</div>
+		<div class="row">
+		<div class="col-xs-12 col-md-6">
+			<label for="home"><?php echo $data['home'] ?>:</label>
+			<input type="text" class="form-control main" id="home"
+				onblur="this.value=this.value.toUpperCase()" maxlength=12>
+		</div>
+		<div class="col-xs-12 col-md-6">
+			<label for="entrance"><?php echo $data['entrance'] ?>:</label>
+			<input type="text" class="form-control main" id="entrance"
+				onblur="this.value=this.value.toUpperCase()" maxlength=5>
 		</div>
 		</div>
 		</div>

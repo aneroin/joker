@@ -290,6 +290,18 @@ text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.4);
   color: #FFEB19;
 }
 
+.panel-footer a, 
+.panel-footer a:hover, 
+.panel-footer a:focus {
+  color: #020202;
+}
+
+a, 
+a:hover, 
+a:focus {
+  color: #FFEB19;
+}
+
 .drivers .id {
   background-color: #FFEB19;
 }

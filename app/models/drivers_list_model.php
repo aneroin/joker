@@ -14,7 +14,7 @@ session_start();
     $sql_locals = "SELECT name, {$lang} FROM locals WHERE locals.local=?";
     $sql_pages = "SELECT name, {$lang} FROM pages";
     $sql_blocks = "SELECT name, {$lang} FROM blocks WHERE blocks.local=? AND blocks.idPages=8";
-    $sql_drivers = "SELECT * FROM drivercard_view ORDER BY drivercard_view.tid ASC LIMIT 8";
+    $sql_drivers = "SELECT * FROM drivercard_view WHERE drivercard_view.tid > 0 ORDER BY drivercard_view.tid ASC LIMIT 8";
     //prepare globals
     $stm = $pdo->prepare($sql_global);
     //statement executing
