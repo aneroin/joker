@@ -162,9 +162,9 @@
 			case 3: {
 				driver_info["carvendor"] = $('#carvendor').val();
 				driver_info["carmodel"] = $('#carmodel').val();
-				driver_info["carcolor"] = $('#carcolor').val();
-				var n_match  = ntc.name(driver_info["carcolor"]);
-				driver_info["carhex"] = n_match[1]; // Text string: Color name
+				driver_info["carhex"] = $('#carcolor').val();
+				var n_match  = ntc.name(driver_info["carhex"]);
+				driver_info["carcolor"] = n_match[1]; // Text string: Color name
 				driver_info["carnumber"] = $('#carnumber').val();
 				break;
 			}
