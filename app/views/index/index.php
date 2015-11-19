@@ -31,14 +31,14 @@
 					 <img border="0" src="<?php echo URL; ?>img/driver.png">
 				</div>
 				<div class="panel-footer hidden-xs hidden-sm col-xs-12 capital">
-					<a href=""> <?php echo $data['driver-info-action']; ?> </a>
+					<a href="/drivers/join"> <?php echo $data['driver-info-action']; ?> </a>
 				</div>
 				<div class="panel-text col-xs-6 col-md-12" >
 					<?php echo $data['driver-info']; ?>
 				</div>
 			</div>
 			<div class="panel-footer-xs hidden-md hidden-lg capital">
-				<a href=""> <?php echo $data['driver-info-action']; ?> </a>
+				<a href="/drivers/join"> <?php echo $data['driver-info-action']; ?> </a>
 			</div>
 		</div>
 		 <p class="whitespace-h visible-xs  visible-sm"> </p>

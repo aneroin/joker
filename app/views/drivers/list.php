@@ -22,7 +22,7 @@
 			</div>
 			<div class="info col-xs-8 col-sm-8">
 				<div class="name row">
-					{$row['name']} {$row['surname']}
+					{$row['name']}
 				</div>
 				<div class="car row">
 					{$row['model']} {$row['color']} <br>	<span class="img-circle" style="background-color: {$row['hex']}"> &nbsp;   		&nbsp;		   &nbsp; </span>	

@@ -94,6 +94,7 @@
 		        console.log('Form ok');
 		        $('#step-'+(step-1)).addClass("label-success");
 		        $('#driver-form-content').html(data);
+		        initialize_typeahead('#car-group .typeahead');
 		    })
 		    .fail(function(jqXHR, textStatus, errorThrown) {
 		        console.log('Form fail');

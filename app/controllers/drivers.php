@@ -142,7 +142,7 @@ EOT;
 $driverform[2] = <<<EOT
 				<div class="form-group" id="car-group" data-error='{$model->data['driver_error_car']}'>
 					<label for="carvendor">{$model->data['carvendor']}:</label>
-					<input type="text" class="form-control main" name="carvendor" id="carvendor" pattern="([a-zA-Z])+" required="required" maxlength=45>
+					<input type="text" class="form-control main typeahead" name="carvendor" id="carvendor" pattern="([a-zA-Z ])+" required="required" maxlength=45>
 					<label for="carmodel">{$model->data['carmodel']}:</label>
 					<input type="text" class="form-control main" name="carmodel" id="carmodel" pattern="([a-zA-Z ])+" required="required" maxlength=45>
 					<label for="carcolor">{$model->data['carcolor']}:</label>
@@ -173,9 +173,9 @@ EOT;
 $driverform[4] = <<<EOT
 				<div class="form-group" id="city-group" data-error='Помилка в файлах'>
 					<label for="photo-portrait">{$model->data['photo-portrait']}:</label>
-					<input type="file" class="form-control file" name="photo=portrait" id="photo-portrait" ccept="image/*">
+					<input type="file" class="form-control file" name="photo-portrait" id="photo-portrait" accept="image/*">
 					<label for="photo-car">{$model->data['photo-car']}:</label>
-					<input type="file" class="form-control file" name="photo-car" id="photo-car" ccept="image/*">
+					<input type="file" class="form-control file" name="photo-car" id="photo-car" accept="image/*">
 				</div>
 
 				<div class="form-group" id="submit-group">
