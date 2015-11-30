@@ -5,7 +5,7 @@
 	function getkey() {
 		$string1="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		$string2="1234567890";
-		$string=$string1.$string2;
+		$string=$string2;
 		$string= str_shuffle($string);
 		$random_key= substr($string,0,4);
 		return $random_key;

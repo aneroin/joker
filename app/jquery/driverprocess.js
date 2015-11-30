@@ -10,7 +10,10 @@
 		'carnumber' : '',		
 		'city'  	: '',
 		'street'	: '',
-		'house'		: ''
+		'house'		: '',
+		'photo-portrait' : '',
+		'photo-car' : '',
+		'accept' : false
 	};
 
 	$(document).ready(function(){
@@ -95,6 +98,7 @@
 		        $('#step-'+(step-1)).addClass("label-success");
 		        $('#driver-form-content').html(data);
 		        initialize_typeahead('#car-group .typeahead');
+		        read_data(step);
 		    })
 		    .fail(function(jqXHR, textStatus, errorThrown) {
 		        console.log('Form fail');
@@ -106,6 +110,33 @@
 		}
 	};
 
+	function driver_form_prev(step){
+			console.log(driver_info);
+			$(".step-displayer>li").each(function() {
+				$( this ).html('<span>'+$(this).data('cap-s')+'</span>').addClass("label label-default");
+			});
+
+			$('#step-'+step).html('<span>'+$('#step-'+step).data('cap')+'</span>').addClass("label-default");
+
+			var xhr = $.ajax({
+		        type: "POST",
+		        url: "http://taxijoker.com/drivers/driverform/"+step,
+		    })
+		    .done(function(data) {
+		        console.log('Form ok');
+		        $('#step-'+(step-1)).addClass("label-success");
+		        $('#driver-form-content').html(data);
+		        initialize_typeahead('#car-group .typeahead');
+		        read_data(step);
+		    })
+		    .fail(function(jqXHR, textStatus, errorThrown) {
+		        console.log('Form fail');
+		        $('#step-'+(step)).addClass("label-danger");
+		        console.log(errorThrown);
+		    });
+		
+	};
+
 	function driver_form_finally(){
 		if(validate_form(5)==true) {
 			write_data(5);
@@ -115,7 +146,9 @@
 		        type: "POST",
 		        dataType: 'json',
 		        url: "http://taxijoker.com/driver_join.php",
-		        data: driver_info
+		        data: driver_info,
+		        processData: false,
+		        contentType: false
 		    })
 		    .done(function(data) {
 		    	if (data['response']=='1') {
@@ -158,6 +191,7 @@
 				driver_info["fname"] = $('#fname').val();
 				driver_info["mname"] = $('#mname').val();
 				driver_info["lname"] = $('#lname').val();
+				driver_info["accept"] = $('#accept').prop('checked');
 				break;
 			}
 			case 3: {
@@ -173,6 +207,34 @@
 				driver_info["city"] = $('#city').val();
 				driver_info["street"] = $('#street').val();
 				driver_info["house"] = $('#house').val();
+			}
+			case 5: {
+				driver_info["photo-portrait"] = $('#photo-portrait').val();
+				driver_info["photo-car"] = $('#photo-car').val();
+			}
+		}
+	}
+
+	function read_data(step){
+		switch (step) {
+			case 1: {
+				$('#fname').val(driver_info["fname"]);
+				$('#mname').val(driver_info["mname"]);
+				$('#lname').val(driver_info["lname"]);
+				$('#accept').prop('checked', driver_info["accept"]);
+				break;
+			}
+			case 2: {
+				$('#carvendor').val(driver_info["carvendor"]);
+				$('#carmodel').val(driver_info["carmodel"]);
+				$('#carcolor').val(driver_info["carhex"]);
+				$('#carnumber').val(driver_info["carnumber"]);
+				break;
+			}
+			case 3: {
+				$('#city').val(driver_info["city"]);
+				$('#street').val(driver_info["street"]);
+				$('#house').val(driver_info["house"]);
 			}
 		}
 	}

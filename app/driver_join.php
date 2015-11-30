@@ -1,5 +1,6 @@
 <?php
 	require ('dbcon.php');
+	require ('defines.php');
 	$driverdata['phone'] = $_POST['phone'];
 	$driverdata['fname'] = $_POST['fname'];
 	$driverdata['mname'] = $_POST['mname'];
@@ -16,13 +17,14 @@
 	$p_portrait = "driver_placeholder.png";
 	$p_car = "driver_placeholder.png";
 
-	$uploaddir = URL.'/img/drivers/';
+	$uploaddir = URL.'img/drivers/';
+
 	foreach ($_FILES["photo-portrait"]["error"] as $key => $error) {
 	    if ($error == UPLOAD_ERR_OK) {
-	        $tmp_name = $_FILES["pictures"]["tmp_name"][$key];
-	        $name = $_FILES["pictures"]["name"][$key];
+	        $tmp_name = $_FILES["photo-portrait"]["tmp_name"][$key];
+	        $name = $_FILES["photo-portrait"]["name"][$key];
 	        $p_portrait = $name;
-	        move_uploaded_file($tmp_name, "$uploads_dir/$name");
+	        move_uploaded_file($tmp_name, $uploaddir.$name);
 
 	    }
 	}
@@ -31,7 +33,7 @@
 	        $tmp_name = $_FILES["photo-car"]["tmp_name"][$key];
 	        $name = $_FILES["photo-car"]["name"][$key];
 	        $p_car = $name;
-	        move_uploaded_file($tmp_name, "$uploads_dir/$name");
+	        move_uploaded_file($tmp_name, $uploaddir.$name);
 	    }
 	}
 
@@ -49,6 +51,7 @@
 		//message
 		$message = "<html><body>";
 		$message.= "<h2> Відправник: <strong>{$driverdata['lname']} {$driverdata['fname']} {$driverdata['mname']}</strong> </h2> <br>";
+		$message.= "<img src='{$uploaddir}{$p_portrait}' style='height: 300px; width: auto;'> фото водія </img> <br>";
 		$message.= "<h3> Номер телефону: <strong>{$driverdata['phone']} </strong> <br> Бажає стати водієм таксі Джокер.<hr style='color:#333; background-color:#333'>";
 		$message.= "Автомобіль марки: <strong>{$driverdata['carvendor']} - {$driverdata['carmodel']}</strong>, колір кузова {$driverdata['carcolor']}  <pre style='background-color:{$driverdata['carhex']}; border-color: #333; border-style: solid; border-width: 1px;'>        </pre>";
 		$message.= " Номерний знак <strong>{$driverdata['carnumber']}</strong><hr style='color:#333; background-color:#333'>";

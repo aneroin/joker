@@ -99,7 +99,7 @@ $driverform[0] = <<<EOT
 
 				<div class="form-group" id="phone-group" data-error='{$model->data['driver_error_phone']}'>
 					<label for="phone">{$model->data['phone']}:</label>
-					<input type="text" class="form-control main" name="phone" id="phone" placeholder="380"  data-validation="length number" data-validation-length="12" data-validation-allowing="range[0;9]" maxlength=12>
+					<input type="text" class="form-control main" name="phone" id="phone" placeholder="380" maxlength=12 pattern="(\b(380){1}[0-9]{9}){1}"">
 				</div>
 
 				<div class="form-group" id="submit-group">
@@ -142,16 +142,17 @@ EOT;
 $driverform[2] = <<<EOT
 				<div class="form-group" id="car-group" data-error='{$model->data['driver_error_car']}'>
 					<label for="carvendor">{$model->data['carvendor']}:</label>
-					<input type="text" class="form-control main typeahead" name="carvendor" id="carvendor" pattern="([a-zA-Z ])+" required="required" maxlength=45>
+					<input type="text" class="form-control main typeahead" name="carvendor" id="carvendor" pattern="([a-zA-Z0-9 -])+" required="required" maxlength=45>
 					<label for="carmodel">{$model->data['carmodel']}:</label>
-					<input type="text" class="form-control main" name="carmodel" id="carmodel" pattern="([a-zA-Z ])+" required="required" maxlength=45>
+					<input type="text" class="form-control main" name="carmodel" id="carmodel" pattern="([a-zA-Z0-9 -])+" required="required" maxlength=45>
 					<label for="carcolor">{$model->data['carcolor']}:</label>
 					<input type="color" class="form-control main color" name="carcolor" id="carcolor" pattern="(#{1}[a-fA-F0-9]{6})+" required="required" maxlength=45>
 					<label for="carnumber">{$model->data['carnumber']}:</label>
-					<input type="text" class="form-control main" name="carnumber" id="carnumber" pattern="([Є-Я0-9])+" required="required" maxlength=15>
+					<input type="text" class="form-control main" name="carnumber" id="carnumber" pattern="([Є-Я]*[0-9]+[-]{0,1}[0-9]+[Є-Я]+)" required="required" maxlength=15>
 				</div>
 				<div class="form-group" id="submit-group">
 					<input type="button" onclick="driver_form_next(3);" class="btn btn-main btn-xl btn3d capital" name="submit-driver-form" id="submit-driver-form" value='{$model->data['main-btn']}'>
+					<input type="button" onclick="driver_form_prev(1);" class="btn btn-second btn-xl btn3d capital" name="submit-driver-form" id="submit-driver-form" value='назад'>
 				</div>
 EOT;
 
@@ -167,6 +168,7 @@ $driverform[3] = <<<EOT
 
 				<div class="form-group" id="submit-group">
 					<input type="button" onclick="driver_form_next(4);" class="btn btn-main btn-xl btn3d capital" name="submit-driver-form" id="submit-driver-form" value='{$model->data['main-btn']}'>
+					<input type="button" onclick="driver_form_prev(2);" class="btn btn-second btn-xl btn3d capital" name="submit-driver-form" id="submit-driver-form" value='назад'>
 				</div>
 EOT;
 
@@ -180,6 +182,7 @@ $driverform[4] = <<<EOT
 
 				<div class="form-group" id="submit-group">
 					<input type="button" onclick="driver_form_finally();" class="btn btn-main btn-xl btn3d capital" name="submit-driver-form" id="submit-driver-form" value='{$model->data['main-btn']}'>
+					<input type="button" onclick="driver_form_prev(3);" class="btn btn-second btn-xl btn3d capital" name="submit-driver-form" id="submit-driver-form" value='назад'>
 				</div>
 EOT;
 
