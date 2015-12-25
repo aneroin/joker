@@ -174,10 +174,11 @@ EOT;
 
 $driverform[4] = <<<EOT
 				<div class="form-group" id="city-group" data-error='Помилка в файлах'>
-					<label for="photo-portrait">{$model->data['photo-portrait']}:</label>
-					<input type="file" class="form-control file" name="photo-portrait" id="photo-portrait" accept="image/*">
-					<label for="photo-car">{$model->data['photo-car']}:</label>
-					<input type="file" class="form-control file" name="photo-car" id="photo-car" accept="image/*">
+					<label for="photos">{$model->data['photo-portrait']}:</label>
+					<input type="file" class="form-control file" multiple id="photos" name="files[]" data-url='{$model->data['uploadurl']}' data-maxNumberOfFiles=5 accept="image/*">
+				<div id="progress">
+				    <div class="bar" style="width: 0%;"></div>
+				</div>
 				</div>
 
 				<div class="form-group" id="submit-group">

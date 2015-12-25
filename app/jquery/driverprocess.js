@@ -1,19 +1,19 @@
 	var driver_info = {
-		'phone' 	: '',
-		'lname' 	: '',
-		'fname' 	: '',
-		'mname' 	: '',
-		'carvendor' : '',
-		'carmodel'  : '',
-		'carcolor'  : '',
-		'carhex'	: '',
-		'carnumber' : '',		
-		'city'  	: '',
-		'street'	: '',
-		'house'		: '',
-		'photo-portrait' : '',
-		'photo-car' : '',
-		'accept' : false
+		phone 	: '',
+		lname 	: '',
+		fname 	: '',
+		mname 	: '',
+		carvendor : '',
+		carmodel  : '',
+		carcolor  : '',
+		carhex	: '',
+		carnumber : '',		
+		city  	: '',
+		street	: '',
+		house		: '',
+		photoportrait : '',
+		photocar : '',
+		accept : false
 	};
 
 	$(document).ready(function(){
@@ -99,6 +99,9 @@
 		        $('#driver-form-content').html(data);
 		        initialize_typeahead('#car-group .typeahead');
 		        read_data(step);
+		        if (step == 4) {
+					uploader('#photos');
+				}
 		    })
 		    .fail(function(jqXHR, textStatus, errorThrown) {
 		        console.log('Form fail');
@@ -141,14 +144,11 @@
 		if(validate_form(5)==true) {
 			write_data(5);
 			console.log(driver_info);
-
 			var xhr = $.ajax({
 		        type: "POST",
 		        dataType: 'json',
 		        url: "http://taxijoker.com/driver_join.php",
-		        data: driver_info,
-		        processData: false,
-		        contentType: false
+		        data: driver_info
 		    })
 		    .done(function(data) {
 		    	if (data['response']=='1') {
@@ -156,10 +156,12 @@
 			    	redirect('Реєстрація пройшла успішно, бажаєте переглянути список наших водіїв?','/drivers/all','/drivers')
 				} else {
 					console.log('DRIVER JOIN error');
+					console.log(data);
 				}
 		    })
 		    .fail(function(jqXHR, textStatus, errorThrown) {
 		        console.log('DRIVER JOIN fail');
+		        console.log(jqXHR);
 		        console.log(errorThrown);
 			});
 		}
@@ -209,8 +211,8 @@
 				driver_info["house"] = $('#house').val();
 			}
 			case 5: {
-				driver_info["photo-portrait"] = $('#photo-portrait').val();
-				driver_info["photo-car"] = $('#photo-car').val();
+				driver_info["photoportrait"] = $('#photos').data("imgurl-1");
+				driver_info["photocar"] = $('#photos').data("imgurl-1");
 			}
 		}
 	}
@@ -246,4 +248,44 @@
     } else {
 		window.location.assign(location_f);
     }
+	}
+
+	function uploader(id) {
+		$(function () {
+		    $(id).fileupload({
+		        dataType: 'json',
+		        add: function (e, data) {
+		            console.log('uploading');
+		            data.submit();
+		        },
+		        done: function (e, data) {
+		            console.log('upload finished');
+		            $.each(data.result.files, function (index, file) {
+		                $(id).data("imgurl-"+(index+1),"http://taxijoker.com/files/"+file.name);
+		            });
+		        },
+		        progressall: function (e, data) {
+			        var progress = parseInt(data.loaded / data.total * 100, 10);
+			        $('#progress .bar').css(
+			            'width',
+			            progress + '%'
+			        );
+			    }
+		    });
+
+		    $(id)
+		    .bind('fileuploaddrop', function (e, data) {
+		    	$.each(data.files, function (index, file) {
+            		console.log('file dropped '+file.nam);
+        		});
+		    })
+		    .bind('fileuploadchange', function (e, data) {
+				$.each(data.files, function (index, file) {
+	            	console.log('file selected '+file.name);
+	        	});
+			})
+			.bind('fileuploadprocessfail', function (e, data) {
+				console.log('upload failed');
+			});
+		});
 	}

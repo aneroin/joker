@@ -29,7 +29,7 @@
 				</div>
 			</div>
 			<div class="photo hidden-xs col-sm-2 img-responsive">
-				<img class="img-responsive" src="http://taxijoker.com/img/drivers/{$row['photo']}">
+				<img class="img-responsive" src="{$row['photo']}">
 
 				</img>
 			</div>

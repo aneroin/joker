@@ -14,28 +14,21 @@
 	$driverdata['house'] = $_POST['house'];
 	$driverdata['carhex'] = $_POST['carhex'];
 
-	$p_portrait = "driver_placeholder.png";
-	$p_car = "driver_placeholder.png";
-
-	$uploaddir = URL.'img/drivers/';
-
-	foreach ($_FILES["photo-portrait"]["error"] as $key => $error) {
-	    if ($error == UPLOAD_ERR_OK) {
-	        $tmp_name = $_FILES["photo-portrait"]["tmp_name"][$key];
-	        $name = $_FILES["photo-portrait"]["name"][$key];
-	        $p_portrait = $name;
-	        move_uploaded_file($tmp_name, $uploaddir.$name);
-
-	    }
+	if (isset($_POST['photoportrait'])) {
+		$p_portrait = $_POST['photoportrait'];
+	} else {
+		$p_portrait = "http://taxijoker.com/img/drivers/driver_placeholder.png";
 	}
-	foreach ($_FILES["photo-car"]["error"] as $key => $error) {
-	    if ($error == UPLOAD_ERR_OK) {
-	        $tmp_name = $_FILES["photo-car"]["tmp_name"][$key];
-	        $name = $_FILES["photo-car"]["name"][$key];
-	        $p_car = $name;
-	        move_uploaded_file($tmp_name, $uploaddir.$name);
-	    }
+
+	if (isset($_POST['photocar'])) {
+		$p_car = $_POST['photocar'];
+	} else {
+		$p_car = "http://taxijoker.com/img/drivers/driver_placeholder.png";
 	}
+
+		$res['photo'] = $p_portrait;
+	   	$res['phone'] = $_POST['phone'];
+	   	$res['carhex'] = $driverdata['carhex'];
 
 	//SQLs
 	$sql_join = "CALL `taxijoke_db`.`driver_join`(?,?,?,?,?,?,?,?,?,?,?);";
@@ -51,7 +44,7 @@
 		//message
 		$message = "<html><body>";
 		$message.= "<h2> Відправник: <strong>{$driverdata['lname']} {$driverdata['fname']} {$driverdata['mname']}</strong> </h2> <br>";
-		$message.= "<img src='{$uploaddir}{$p_portrait}' style='height: 300px; width: auto;'> фото водія </img> <br>";
+		$message.= "<img src='{$p_portrait}' style='height: 300px; width: auto;'> фото водія </img> <br>";
 		$message.= "<h3> Номер телефону: <strong>{$driverdata['phone']} </strong> <br> Бажає стати водієм таксі Джокер.<hr style='color:#333; background-color:#333'>";
 		$message.= "Автомобіль марки: <strong>{$driverdata['carvendor']} - {$driverdata['carmodel']}</strong>, колір кузова {$driverdata['carcolor']}  <pre style='background-color:{$driverdata['carhex']}; border-color: #333; border-style: solid; border-width: 1px;'>        </pre>";
 		$message.= " Номерний знак <strong>{$driverdata['carnumber']}</strong><hr style='color:#333; background-color:#333'>";

@@ -304,6 +304,10 @@ body {
   color: #333333;
 }
 
+.bar {
+    height: 12px;
+    background: #FFEB19;
+}
 
 
 

@@ -6,6 +6,7 @@ session_start();
     //pre init
     $this->data['current_page'] = "drivers/drivers_sub_join";
     $this->data['title'] = 'DataBase is OFFLINE';
+    $this->data['uploadurl'] = "http://taxijoker.com/upload.php";
      //connecting to db
     require ('dbcon.php');
     //statement preparing
