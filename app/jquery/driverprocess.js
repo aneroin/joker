@@ -200,8 +200,7 @@
 				driver_info["carvendor"] = $('#carvendor').val();
 				driver_info["carmodel"] = $('#carmodel').val();
 				driver_info["carhex"] = $('#carcolor').val();
-				var n_match  = ntc.name(driver_info["carhex"]);
-				driver_info["carcolor"] = n_match[1]; // Text string: Color name
+				driver_info["carcolor"] = colorEngine.name(driver_info["carhex"]);
 				driver_info["carnumber"] = $('#carnumber').val();
 				break;
 			}
@@ -263,6 +262,10 @@
 		            $.each(data.result.files, function (index, file) {
 		                $(id).data("imgurl-"+(index+1),"http://taxijoker.com/files/"+file.name);
 		            });
+		            $('#photos').css(
+			            'background-color',
+			            '#5CB85C'
+			        );
 		        },
 		        progressall: function (e, data) {
 			        var progress = parseInt(data.loaded / data.total * 100, 10);

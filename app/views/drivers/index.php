@@ -85,9 +85,9 @@
 	<script>
 		$(function(){
 		$('.info-panel').hover(function(){
-		        $(this.data("target")).slideToggle(500);
+		        $(this).data("target").slideToggle(500);
 		    },function(){
-		        $(this.data("target")).slideToggle(500);
+		        $(this).data("target").slideToggle(500);
 		    });
 		})
 	</script>	

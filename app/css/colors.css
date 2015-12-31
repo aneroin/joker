@@ -5,7 +5,7 @@ body {
 	height: auto;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-position: right bottom;
+  background-position: center bottom;
 	background-size: cover;
 	font-family: 'Open Sans', sans-serif;
 }
@@ -304,10 +304,6 @@ body {
   color: #333333;
 }
 
-.bar {
-    height: 12px;
-    background: #FFEB19;
-}
 
 
 

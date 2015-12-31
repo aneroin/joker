@@ -173,14 +173,13 @@ $driverform[3] = <<<EOT
 EOT;
 
 $driverform[4] = <<<EOT
-				<div class="form-group" id="city-group" data-error='Помилка в файлах'>
+				<div class="form-group" id="file-group" data-error='Помилка в файлах'>
 					<label for="photos">{$model->data['photo-portrait']}:</label>
 					<input type="file" class="form-control file" multiple id="photos" name="files[]" data-url='{$model->data['uploadurl']}' data-maxNumberOfFiles=5 accept="image/*">
-				<div id="progress">
+				</div>
+				<div class="form-group" id="progress" style="height: 12px; background-color: #CCC;">
 				    <div class="bar" style="width: 0%;"></div>
 				</div>
-				</div>
-
 				<div class="form-group" id="submit-group">
 					<input type="button" onclick="driver_form_finally();" class="btn btn-main btn-xl btn3d capital" name="submit-driver-form" id="submit-driver-form" value='{$model->data['main-btn']}'>
 					<input type="button" onclick="driver_form_prev(3);" class="btn btn-second btn-xl btn3d capital" name="submit-driver-form" id="submit-driver-form" value='назад'>

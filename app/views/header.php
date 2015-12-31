@@ -12,7 +12,8 @@
 	<script src="<?php echo URL; ?>jquery/jquery.validate.additional-methods.js"></script>
 	<script src="<?php echo URL; ?>jquery/scroll.js"></script>
 	<script src="<?php echo URL; ?>bootstrap/js/bootstrap.min.js"></script>
-	<script src="<?php echo URL; ?>jquery/ntc.js"></script>
+	<script src="<?php echo URL; ?>jquery/tinycolor.js"></script>
+	<script src="<?php echo URL; ?>jquery/colorengine.js"></script>
 	<script src="<?php echo URL; ?>jquery/typeahead.js"></script>
 	<script src="<?php echo URL; ?>jquery/carvendors.bloodhound.js"></script>
 	
@@ -82,7 +83,7 @@
 			</ul>
 							
 	</div>
-
+	<img class="hidden-xs hidden-sm" id="special" src="<?php echo URL; ?>img/moroz<?php echo rand(1,2); ?>.png"><img>
 	<div id="page-content-wrapper">
 		<div class="container-fluid" id="top">
             <div class="row">

@@ -319,6 +319,17 @@ label.error {
 }
 
 
+.bar {
+    height: 12px;
+    background-color: #FFEB19;
+}
+
+.form-control.file {
+  color: rgba(255,255,255,0);
+  min-height: 25.0vh !important;
+}
+
+
 @media screen and (max-width: 767px) {
   .table-responsive {
     border: 1px solid #FFEB19;
