@@ -38,28 +38,54 @@ function toXYZ(color) {
 	return tinycolor(color).toXyzString();
 }
 
+function getL(color) {
+	tcolor = tinycolor(color).toLab();
+	return tcolor.l;
+}
+
+function getA(color) {
+	tcolor = tinycolor(color).toLab();
+	return tcolor.a;
+}
+
+function getB(color) {
+	tcolor = tinycolor(color).toLab();
+	return tcolor.b;
+}
+
+function toLAB(color) {
+	return tinycolor(color).toLabString();
+}
+
+function HEXtoRGB(hex) {
+	return tinycolor(hex).toRgb();
+}
+
 var colorEngine = {
 	hsl: function(color) {
 		return toHSL(color);
 	},
 
 	suggest: function(color) {
-		var x = getX(color);
-		var y = getY(color);
-		var z = getZ(color);
-
-		var minDist = 0.0;
+		var labColor ={l: getL(color), a: getA(color), b: getB(color)};
+		var minDist = 999999999.0;
+		var tDist= 0.0;
 		var minColor = "дивний";
-
-		colorList.forEach(function(x,y,z){
-			var tDist = this.colorDist(element.x, element.y, element.z, x, y, z);
+		console.log("calculating distance");
+		console.log(colorList);
+		for (var i = 0; i < labList.length; i++) {
+			tDist = this.colorDist(labList[i], labColor);
 			if (tDist < minDist) {
 				minDist = tDist;
-				minColor = element.name;
-			};
-		});
-
-		return minColor;
+				minColor = labList[i].name;
+			}
+		}
+		console.log(tDist);
+		if (tDist < 5.0) {
+			return minColor;
+		} else {
+			return this.name(color);
+		}
 	},
 
 	name: function(color) {
@@ -131,12 +157,31 @@ var colorEngine = {
 		return color_word_1+color_word_2+color_word_3;
 	},
 
-	colorDist: function(x1,y1,z1,x2,y2,z2){
-		return Math.pow((x1-x2),2) + Math.pow((y1-y2),2) + Math.pow((z1-z2),2);
+	colorDist: function(lab1, lab2){
+		return Math.sqrt(Math.pow((lab1.l-lab2.l),2) + Math.pow((lab1.a-lab2.a),2) + Math.pow((lab1.b-lab2.b),2));
 	}
 }
 
-var colorList: {
+var labList = [
+	{l: 0.0, a: 0.0, b: 0.0, name : "чорний"},
+	{l: 1.92, a: 8.62, b: 3.03, name : "червоний"},
+	{l: 6.46, a: -13.2, b: 9.43, name : "зелений"},
+	{l: 0.65, a: 4.58, b: -12.47, name : "синій"},
+	{l: 8.37, a: -4.56, b: 12.46, name : "жовтий"},
+	{l: 2.57, a: 13.2, b: -9.44, name : "рожевий"},
+	{l: 2.02, a: 1.78, b: -10.47, name : "голубий"},
+	{l: 1.06, a: 6.41, b: -11.83, name : "фіолетовий"},
+	{l: 5.08, a: -6.52, b: 0.27, name : "аквамарин"},
+	{l: 0.6, a: 2.67, b: 0.92, name : "вишневий"},
+	{l: 1.23, a: -2.1, b: 1.6, name : "темно-зелений"},
+	{l: 0.35, a: 0.5, b: -1.7, name : "темно-синій"},
+	{l: 0.23, a: 0.54, b: -0.91, name : "темно-фіолетовий"},
+	{l: 3.59, a: 4.56, b: 5.19, name : "помаранчевий"},
+	{l: 1.31, a: 0.39, b: 0.85, name : "коричневий"},
+	{l: 9.0, a: 0.0, b: 0.0, name : "білий"}
+];
+
+var colorList = [
 	{x: 0.0, y: 0.0, z: 0.0, name : "чорний"},
 	{x: 0.41, y: 0.21, z: 0.02, name : "червоний"},
 	{x: 0.36, y: 0.72, z: 0.12, name : "зелений"},
@@ -148,6 +193,12 @@ var colorList: {
 	{x: 0.45, y: 0.23, z: 0.22, name : "малиновий"},
 	{x: 0.40, y: 0.73, z: 0.32, name : "салатовий"},
 	{x: 0.27, y: 0.12, z: 0.95, name : "фіолетовий"},
-	{x: 0.49, y: 0.36, z: 0.04, name : "помаранчевий"},
+	{x: 0.22, y: 0.21, z: 0.14, name : "коричневий"},
+	{x: 0.41, y: 0.46, z: 0.21, name : "хакі"},
+	{x: 0.35, y: 0.49, z: 0.46, name : "аквамарин"},
+	{x: 0.20, y: 0.12, z: 0.04, name : "вишневий"},
+	{x: 0.15, y: 0.21, z: 0.12, name : "темно-зелений"},
+	{x: 0.07, y: 0.05, z: 0.19, name : "темно-синій"},
+	{x: 0.08, y: 0.05, z: 0.17, name : "темно-фіолетовий"},
 	{x: 0.95, y: 1.0, z: 1.0, name : "білий"}
-}
+];
