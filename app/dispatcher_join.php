@@ -41,7 +41,6 @@
 		$message.= "<h2> Відправник: <strong>{$dispatcherdata['lname']} {$dispatcherdata['fname']} {$dispatcherdata['mname']}</strong> </h2> <br>";
 		$message.= "<img src='{$p_portrait}' style='height: 300px; width: auto;'> фото диспетчера </img> <br>";
 		$message.= "<h3> Номер телефону: <strong>{$dispatcherdata['phone']} </strong> <br> Бажає стати диспетчером таксі Джокер.<hr style='color:#333; background-color:#333'>";
-		$message.= "<hr style='color:#333; background-color:#333'>";
 		$message.= "Адреса проживання: <ul> <li> місто: {$dispatcherdata['city']}</li><li> вулиця: {$dispatcherdata['street']}</li><li> будинок: {$dispatcherdata['house']}</li><li> квартира: {$dispatcherdata['apartment']}</li></ul> </h3>";
 		$message.= "</html></body>";
 		//headers
