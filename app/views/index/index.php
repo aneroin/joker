@@ -49,14 +49,14 @@
 					 <img border="0" src="<?php echo URL; ?>img/operator.png">
 				</div>
 				<div class="panel-footer hidden-xs hidden-sm col-xs-12 capital">
-					<a href="" target="_blank"> <?php echo $data['dispatcher-info-action']; ?> </a>
+					<a href="/dispatchers/join"> <?php echo $data['dispatcher-info-action']; ?> </a>
 				</div>
 				<div class="panel-text col-xs-6 col-md-12" >
 					<?php echo $data['dispatcher-info']; ?>
 				</div>
 			</div>
 			<div class="panel-footer-xs hidden-md hidden-lg capital">
-				<a href="" target="_blank"> <?php echo $data['dispatcher-info-action']; ?> </a>
+				<a href="/dispatchers/join"> <?php echo $data['dispatcher-info-action']; ?> </a>
 			</div>
 		</div>
 	</div>

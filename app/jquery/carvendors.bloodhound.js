@@ -21,10 +21,37 @@ var substringMatcher = function(strs) {
 };
 
 var _carvendors = [
-'Acura', 'Audi', 'BMW', 'Chevrolet', 'Citroen', 'Fiat', 
-'Ford', 'Geely', 'Honda', 'Hyundai', 'Infiniti', 'Kia', 
-'Lexus', 'Mazda', 'Mercedes-Benz', 'Mitsubishi', 'Nissan', 
-'Peugeot', 'Renault', 'Subaru', 'Toyota', 'VolksWagen', 'Volvo'
+'Audi', 
+'BMW', 
+'Chevrolet', 
+'Citroen', 
+'Dacia',
+'Daewoo',
+'Fiat', 
+'Ford', 
+'Geely', 
+'Honda', 
+'Hyundai', 
+'Kia', 
+'Lada', 
+'Lexus', 
+'Mazda', 
+'Mercedes',
+'Mercedes-Benz', 
+'Mitsubishi', 
+'Nissan', 
+'Opel',
+'Peugeot', 
+'Renault', 
+'Skoda',
+'Ssang Yong', 
+'Toyota', 
+'UAZ',
+'VAZ',
+'VolksWagen', 
+'Volvo',
+'ZAZ',
+'ZAZ FORZA'
 ];
 
 var carvendors = new Bloodhound({

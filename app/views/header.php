@@ -65,13 +65,13 @@
 				</li>
 					<ul id="dispatchers_sub" class="nav nav-list collapse">
 						<li id="dispatchers_sub_all">
-							<a href="/drivers/all"> <?php echo $data['Dispatchers_All']; ?> </a>
+							<a href="/dispatchers/all"> <?php echo $data['Dispatchers_All']; ?> </a>
 						</li>
 						<li id="dispatchers_sub_join">
-							<a href="/drivers/join"> <?php echo $data['Dispatchers_Join']; ?> </a>
+							<a href="/dispatchers/join"> <?php echo $data['Dispatchers_Join']; ?> </a>
 						</li>
 						<li id="dispatchers_sub_faq">
-							<a href="/drivers/faq"> <?php echo $data['Dispatchers_FAQ']; ?> </a>
+							<a href="/dispatchers/faq"> <?php echo $data['Dispatchers_FAQ']; ?> </a>
 						</li>
 					</ul>
 				<li id="contacts">
