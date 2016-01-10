@@ -31,6 +31,7 @@
 	    .done(function(data) {
 	    	if (data['response']=='1'){
 			    console.log('SMS ok');
+			    $("#driver-form-content").after('<div class="alert alert-success fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>SMS:</strong> Code sent successfully, wait a bit.</div>');
 			} else {
 				console.log('SMS error');
 				console.log(data['exception']);
@@ -64,7 +65,14 @@
 		    	console.log('SMS CODE ok');
 				dispatcher_form_next(1);
 			} else {
-				console.log('SMS CODE error');
+				if (data['code']=='901') {
+					console.log('SMS CODE error: wrong data');
+					$("#driver-form-content").after('<div class="alert alert-warning fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>SMS:</strong> Wrong phone number format or code format.</div>');
+				}
+				if (data['code']=='902') {
+					console.log('SMS CODE error: code not found or expired');
+					$("#driver-form-content").after('<div class="alert alert-warning fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>SMS:</strong> Wrong or expired code. Try again or send another code.</div>');
+				}
 				console.log(data);
 			}
 	    })

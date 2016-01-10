@@ -25,12 +25,15 @@
 		$phone = $req['phone'];
 		$key = $req['key'];
 		if (checkkey($phone,$key,$pdo)){
-			 $res['response'] = '1';           
+			 $res['response'] = '1';  
+			 $res['code'] = '200'; //200 - OK         
 		} else {
 			$res['response'] = '0';
+			$res['code'] = '902'; //902 - code expired
 		}
 	} else {
 		$res['response'] = '0';
+		$res['code'] = '901'; //901 - wrong data
 	}
 	echo json_encode($res);
 ?>

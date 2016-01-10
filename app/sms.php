@@ -36,7 +36,7 @@
 	           $login = $sms_user;
 	           $password = $sms_pass;
 	           $alphaName = 'Taxi Joker';
-	           $text = 'Ваш код для реєстрації: '.$key;
+	           $text = 'Ваш код для реєстрації: '.$key.' , дійсний протягом 1 години.';
 	           // SINGLE MESSAGE
 	           $destAddr = $phone;
 	           try
