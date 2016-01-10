@@ -22,7 +22,7 @@ session_start();
 			//model init with locale params from sessing variables
     		$model = new Index_Model($_SESSION['lang'],$_SESSION['local']);
     		//rendering index page
-			$this->view->render('index/index',$model->data,$title);
+			$this->view->render('index/index',$model->data,$title,true,false);
 		}
 	}
 ?>

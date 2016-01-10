@@ -64,7 +64,7 @@ session_start();
 			//model init with locale params from session variables
     		$model = new Drivers_Join_Model($_SESSION['lang'],$_SESSION['local']);
     		//rendering join page
-			$this->view->render('drivers/join',$model->data,$title);				
+			$this->view->render('drivers/join',$model->data,$title,true,true);				
 		}
 
 		public function faq($locale = null) {

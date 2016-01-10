@@ -12,17 +12,12 @@
 	<script src="<?php echo URL; ?>jquery/jquery.validate.additional-methods.js"></script>
 	<script src="<?php echo URL; ?>jquery/scroll.js"></script>
 	<script src="<?php echo URL; ?>bootstrap/js/bootstrap.min.js"></script>
-	<script src="<?php echo URL; ?>jquery/tinycolor.js"></script>
-	<script src="<?php echo URL; ?>jquery/colorengine.js"></script>
-	<script src="<?php echo URL; ?>jquery/typeahead.js"></script>
-	<script src="<?php echo URL; ?>jquery/carvendors.bloodhound.js"></script>
-	
-	<script src="<?php echo URL; ?>jquery/jquery.ui.widget.js"></script>
-	<script src="<?php echo URL; ?>jquery/jquery.iframe-transport.js"></script>
-	<script src="<?php echo URL; ?>jquery/jquery.fileupload.js"></script>
-	<script src="<?php echo URL; ?>jquery/jquery.fileupload-image.js"></script>
 
+	<?php 
+		echo $header;
+	?>
 
+	<!--styles-->
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/markup.css">
