@@ -74,7 +74,7 @@
 		<div class="col-md-5 info-panel text-center rounded" >
 		<div class="row">
 			<div class="col-xs-6 col-md-12" >
-				 <img border="0" src="<?php echo URL; ?>img/gplay.png">
+				 <?php echo file_get_contents(URL."img/playmarket.svg"); ?>
 			</div>
 			<div class="panel-footer hidden-xs hidden-sm col-xs-12 capital">
 				<a href=<?php echo $data['smartphone-pm-link'];?> target="_blank"><?php echo $data['smartphone-row-action'];?></a>
@@ -92,7 +92,7 @@
 		<div class="col-md-5 col-md-offset-2 info-panel text-center rounded">
 		<div class="row">
 			<div class="col-xs-6 col-md-12" >
-				 <img border="0" src="<?php echo URL; ?>img/astore.png">
+				 <?php echo file_get_contents(URL."img/appstore.svg"); ?>
 			</div>
 			<div class="panel-footer hidden-xs hidden-sm col-xs-12 capital">
 				<a href=<?php echo $data['smartphone-as-link'];?> target="_blank"><?php echo $data['smartphone-row-action'];?></a>

@@ -9,23 +9,22 @@
 
 	<!-- end of accent -->
 <?php 
-	foreach ($data['drivers'] as $row) {
-	$drivercard = <<<EOT
+	foreach ($data['dispatchers'] as $row) {
+	$dispatchercard = <<<EOT
 	<p class="whitespace-h"> </p>
 	<div class="row drivers-container" id="driver-{$row['id']}">
 		<div class="drivers col-xs-12 col-md-10 col-md-offset-1" id="accent-row">
 			<div class="row-fluid">
 			<div class="id col-xs-3 col-sm-2">
 				<div class="callsign">
-					{$row['tid']}
+					{$row['id']}
 				</div>
 			</div>
 			<div class="info col-xs-8 col-sm-8">
-				<div class="name row">
+				<div class="name">
 					{$row['name']}
-				</div>
-				<div class="car row">
-					{$row['model']} {$row['color']} <br>	<span class="img-circle" style="background-color: {$row['hex']}"> &nbsp;   		&nbsp;		   &nbsp; </span>	
+					&nbsp 
+					{$row['surname']}
 				</div>
 			</div>
 			<div class="photo hidden-xs col-sm-2 img-responsive">
@@ -37,7 +36,7 @@
 		</div>
 	</div>
 EOT;
-	echo $drivercard;
+	echo $dispatchercard;
 	}
 ?>
 

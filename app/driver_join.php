@@ -12,6 +12,7 @@
 	$driverdata['city'] = $_POST['city'];
 	$driverdata['street'] = $_POST['street'];
 	$driverdata['house'] = $_POST['house'];
+	$driverdata['apartment'] = $_POST['apartment'];
 	$driverdata['carhex'] = $_POST['carhex'];
 
 	if (isset($_POST['photoportrait'])) {
@@ -31,11 +32,11 @@
 	   	$res['carhex'] = $driverdata['carhex'];
 
 	//SQLs
-	$sql_join = "CALL `taxijoke_db`.`driver_join`(?,?,?,?,?,?,?,?,?,?,?);";
+	$sql_join = "CALL `taxijoke_db`.`driver_join`(?,?,?,?,?,?,?,?,?,?,?,?,?);";
 	//prepare globals
 	$stm = $pdo->prepare($sql_join);
 	//statement executing
-	if ($stm->execute(array($driverdata['fname'],$driverdata['mname'],$driverdata['lname'],$p_portrait,$driverdata['city'],$driverdata['street'],$driverdata['house'],$driverdata['carvendor'],$driverdata['carmodel'],$driverdata['carcolor'],$driverdata['carhex']))) {
+	if ($stm->execute(array($driverdata['fname'],$driverdata['mname'],$driverdata['lname'],$p_portrait,$driverdata['city'],$driverdata['street'],$driverdata['house'],$driverdata['apartment'],$driverdata['phone'],$driverdata['carvendor'],$driverdata['carmodel'],$driverdata['carcolor'],$driverdata['carhex']))) {
 	   	$res['response'] = '1';
 	   	//receiver
 		$to = 'ua828ua@gmail.com';

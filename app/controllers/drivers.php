@@ -162,8 +162,16 @@ $driverform[3] = <<<EOT
 					<input type="text" class="form-control main" name="city" id="city" pattern="([Є-Яа-ї -])+" required="required" maxlength="45">
 					<label for="street">{$model->data['street']}:</label>
 					<input type="text" class="form-control main" name="street" id="street" pattern="([Є-Яа-ї0-9 -])+" required="required" maxlength="45">
-					<label for="house">{$model->data['house']}:</label>
-					<input type="text" class="form-control main" name="house" id="house" pattern="([Є-Яа-ї0-9 -])+" required="required" maxlength="45">
+					<div class="row">
+						<div class="col-xs-12 col-md-6">
+							<label for="house">{$model->data['house']}:</label>
+							<input type="text" class="form-control main" name="house" id="house" pattern="([Є-Яа-ї0-9 -])+" required="required" maxlength="45">
+						</div>
+						<div class="col-xs-12 col-md-6">
+							<label for="apartment">{$model->data['apartment']}:</label>
+							<input type="text" class="form-control main" name="apartment" id="apartment" pattern="([0-9])*" maxlength="45">
+						</div>
+					</div>
 				</div>
 
 				<div class="form-group" id="submit-group">

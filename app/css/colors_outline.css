@@ -250,6 +250,12 @@ text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.4);
   text-decoration: none;
   border: none;
 }
+.panel-accent a:-moz-focus-inner{
+  border: 0;
+}
+.panel-accent a:focus{
+  outline: 0;
+}
 .panel-accent > .panel-heading {
   color: #FFEB19;
   background: #151515;

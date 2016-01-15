@@ -686,3 +686,17 @@ body {
 	bottom: 16vh;
 }
 
+.svg-icon {
+	max-height: 100px;
+	max-width: auto; 
+}
+
+.svg-icon:hover {
+	max-height: 100px;
+	max-width: auto;
+}
+
+.svg-outline {
+	stroke: #FFEB19;
+  	stroke-width: 4;
+}

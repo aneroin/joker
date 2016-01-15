@@ -9,28 +9,29 @@
 	$dispatcherdata['street'] = $_POST['street'];
 	$dispatcherdata['house'] = $_POST['house'];
 	$dispatcherdata['apartment'] = $_POST['apartment'];
-
+	
 	if (isset($_POST['photoportrait'])) {
 		$p_portrait = $_POST['photoportrait'];
 	} else {
-		$p_portrait = "http://taxijoker.com/img/drivers/driver_placeholder.png";
-	}
-
-	if (isset($_POST['photocar'])) {
-		$p_car = $_POST['photocar'];
-	} else {
-		$p_car = "http://taxijoker.com/img/drivers/driver_placeholder.png";
+		$p_portrait = "http://taxijoker.com/img/dispatchers/dispatcher_placeholder.png";
 	}
 
 		$res['photo'] = $p_portrait;
 	   	$res['phone'] = $_POST['phone'];
+	   	$res['fname'] = $_POST['fname'];
+	   	$res['mname'] = $_POST['mname'];
+	   	$res['lname'] = $_POST['lname'];
+	   	$res['city'] = $_POST['city'];
+	   	$res['street'] = $_POST['street'];
+	   	$res['house'] = $_POST['house'];
+	   	$res['apartment'] = $_POST['apartment'];
 
 	//SQLs
-	//$sql_join = "CALL `taxijoke_db`.`driver_join`(?,?,?,?,?,?,?,?,?,?,?);";
+	$sql_join = "CALL `taxijoke_db`.`dispatcher_join`(?,?,?,?,?,?,?,?,?);";
 	//prepare globals
-	//$stm = $pdo->prepare($sql_join);
+	$stm = $pdo->prepare($sql_join);
 	//statement executing
-	//if ($stm->execute(array($dispatcherdata['fname'],$dispatcherdata['mname'],$dispatcherdata['lname'],$p_portrait,$dispatcherdata['city'],$dispatcherdata['street'],$dispatcherdata['house'],$dispatcherdata['carvendor'],$dispatcherdata['carmodel'],$dispatcherdata['carcolor'],$dispatcherdata['carhex']))) {
+	if ($stm->execute(array($dispatcherdata['fname'], $dispatcherdata['mname'], $dispatcherdata['lname'], $p_portrait, $dispatcherdata['city'], $dispatcherdata['street'], $dispatcherdata['house'], $dispatcherdata['apartment'], $dispatcherdata['phone']))) {
 	   	$res['response'] = '1';
 	   	//receiver
 		$to = 'ua828ua@gmail.com';
@@ -50,9 +51,9 @@
 		//send
 		mail($to,$subject,$message,$headers);
 
-	//} else {
-	//   	$res['response'] = '0';
-	//}
+	} else {
+	   	$res['response'] = '0';
+	}
 
 	echo json_encode($res);
 ?>

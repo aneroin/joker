@@ -4,21 +4,21 @@
 		private $header;
 
 		public function __construct() {
-		$this->header['forms'] = <<<EOD
+		$this->header['forms'] = <<<EOT
 	<!--forms-->
-	<script src="<?php echo URL; ?>jquery/tinycolor.js"></script>
-	<script src="<?php echo URL; ?>jquery/colorengine.js"></script>
-	<script src="<?php echo URL; ?>jquery/typeahead.js"></script>
-	<script src="<?php echo URL; ?>jquery/carvendors.bloodhound.js"></script>
-EOD;
+	<script src="http://taxijoker.com/jquery/tinycolor.js"></script>
+	<script src="http://taxijoker.com/jquery/colorengine.js"></script>
+	<script src="http://taxijoker.com/jquery/typeahead.js"></script>
+	<script src="http://taxijoker.com/jquery/carvendors.bloodhound.js"></script>
+EOT;
 
-		$this->header['uploads'] = <<<EOD
+		$this->header['uploads'] = <<<EOT
 	<!--uploads-->
-	<script src="<?php echo URL; ?>jquery/jquery.ui.widget.js"></script>
-	<script src="<?php echo URL; ?>jquery/jquery.iframe-transport.js"></script>
-	<script src="<?php echo URL; ?>jquery/jquery.fileupload.js"></script>
-	<script src="<?php echo URL; ?>jquery/jquery.fileupload-image.js"></script>
-EOD;
+	<script src="http://taxijoker.com/jquery/jquery.ui.widget.js"></script>
+	<script src="http://taxijoker.com/jquery/jquery.iframe-transport.js"></script>
+	<script src="http://taxijoker.com/jquery/jquery.fileupload.js"></script>
+	<script src="http://taxijoker.com/jquery/jquery.fileupload-image.js"></script>
+EOT;
 		}
 		
 		public function render($name,$data=null,$title="Taxi Joker",$h_forms=false,$h_uploads=false) {

@@ -153,24 +153,28 @@ tinycolor.prototype = {
     },
     toXyz: function() {
         var rgb = this.toRgb();
-        var RsRGB, GsRGB, BsRGB, R, G, B;
-        RsRGB = rgb.r/255;
-        GsRGB = rgb.g/255;
-        BsRGB = rgb.b/255;
 
-        if (RsRGB <= 0.03928) {R = RsRGB / 12.92;} else {R = Math.pow(((RsRGB + 0.055) / 1.055), 2.4);}
-        if (GsRGB <= 0.03928) {G = GsRGB / 12.92;} else {G = Math.pow(((GsRGB + 0.055) / 1.055), 2.4);}
-        if (BsRGB <= 0.03928) {B = BsRGB / 12.92;} else {B = Math.pow(((BsRGB + 0.055) / 1.055), 2.4);}
+        var RsRGB, GsRGB, BsRGB, R, G, B;
+        RsRGB = rgb.r/255.0;
+        GsRGB = rgb.g/255.0
+        BsRGB = rgb.b/255.0;
+
+        if (RsRGB <= 0.04045) {R = RsRGB / 12.92;} else {R = Math.pow(((RsRGB + 0.055) / 1.055), 2.4);}
+        if (GsRGB <= 0.04045) {G = GsRGB / 12.92;} else {G = Math.pow(((GsRGB + 0.055) / 1.055), 2.4);}
+        if (BsRGB <= 0.04045/*03928*/) {B = BsRGB / 12.92;} else {B = Math.pow(((BsRGB + 0.055) / 1.055), 2.4);}
 
         X = R * 0.4124 + G * 0.3576 + B * 0.1805
+        X *= 100;
         Y = R * 0.2126 + G * 0.7152 + B * 0.0722
+        Y *= 100;
         Z = R * 0.0193 + G * 0.1192 + B * 0.9505
+        Z *= 100;
 
         return { x: X, y: Y, z: Z};
     },
     toXyzString: function(){
         var xyz = rgbToXyz(this._r, this._g, this._b);
-        var x = mathRound(xyz.x * 100), y = mathRound(xyz.y * 100), z = mathRound(xyz.z * 100);
+        var x = mathRound(xyz.x), y = mathRound(xyz.y), z = mathRound(xyz.z);
         return "xyz("  + x + "%, " + y + "%, " + z + "%)";
     },
     toLab: function() {
@@ -198,7 +202,7 @@ tinycolor.prototype = {
              wz = 7.787*wz + 16/116;
         }
 
-        var L = 116*wy -16;
+        var L = L < 0.0 ? 0.0 : 116*wy -16;
         var A = 500*(wx-wy);
         var B = 200*(wy-wz);
          
@@ -206,8 +210,8 @@ tinycolor.prototype = {
     },
     toLabString: function() {
         var lab = rgbToLab(this._r, this._g, this._b);
-        var l = mathRound(lab.l*100)/100, a = mathRound(lab.a*100)/100, b = mathRound(lab.b*100)/100;
-        return "Lab("  + l + "%, " + a + "%, " + b + "%)";
+        var l = lab.l, a = lab.a, b = lab.b;
+        return "Lab("  + l + ", " + a + ", " + b + ")";
     },
     toFilter: function(secondColor) {
         var hex8String = '#' + rgbaToHex(this._r, this._g, this._b, this._a);
@@ -592,8 +596,11 @@ function rgbToXyz(r, g, b) {
         if (BsRGB <= 0.03928) {B = BsRGB / 12.92;} else {B = Math.pow(((BsRGB + 0.055) / 1.055), 2.4);}
 
         X = R * 0.4124 + G * 0.3576 + B * 0.1805;
+        X *= 100;
         Y = R * 0.2126 + G * 0.7152 + B * 0.0722;
+        Y *= 100;
         Z = R * 0.0193 + G * 0.1192 + B * 0.9505;
+        Z *= 100;
 
         return { x: X, y: Y, z: Z};
 }
@@ -609,15 +616,30 @@ function xyzToLab(x, y, z) {
     var wy = y/100;
     var wz = z/108.883;
     
-    if (wx>0.008856) { wx = Math.pow(wx,1/3); } else { wx = 7.787*wx + 16/116; }
-    if (wy>0.008856) { wy = Math.pow(wy,1/3); } else { wy = (7.787*wy) + (16/116); }
-    if (wz>0.008856) { wz = Math.pow(wz,1/3); } else { wz = 7.787*wz + 16/116; }
+   if(wx>0.008856){
+             wx = Math.pow(wx,1/3);
+        }
+        else{
+             wx = 7.787*wx + 16/116;
+        }
+        if(wy>0.008856){
+             wy = Math.pow(wy,1/3);
+        }
+        else{
+             wy = (7.787*wy) + (16/116);
+        }
+        if(wz>0.008856){
+             wz = Math.pow(wz,1/3);
+        }
+        else{
+             wz = 7.787*wz + 16/116;
+        }
 
-    var L = 116*wy -16;
-    var A = 500*(wx-wy);
-    var B = 200*(wy-wz);
+        var L = L < 0.0 ? 0.0 : 116*wy -16;
+        var A = 500*(wx-wy);
+        var B = 200*(wy-wz);
          
-    return { l: L, a: A, b: B};
+        return { l: L, a: A, b: B};
 }
 
 // `equals`

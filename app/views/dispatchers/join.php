@@ -19,8 +19,8 @@
 				<li class="step" id="step-3" data-cap-s="4" data-cap="<?php echo $data['join_step_4'] ?>"> </li>
 			</ul>
 		</div>
-		<div class="col-xs-12 col-md-8 col-md-pull-4" id="driver-form">
-			<form  role="form" class="driverform" id="driver-form-content">
+		<div class="col-xs-12 col-md-8 col-md-pull-4" id="dispatcher-form">
+			<form  role="form" class="driverform" id="dispatcher-form-content">
 
 			</form>
 		</div>

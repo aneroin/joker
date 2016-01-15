@@ -206,8 +206,9 @@ class UploadHandler
     }
 
     protected function get_user_id() {
-        @session_start();
-        return session_id();
+        //@session_start();
+        //return session_id();
+        return  $this->handle_form_data_ID($file,$index);
     }
 
     protected function get_user_path() {
@@ -1146,6 +1147,10 @@ class UploadHandler
 
     protected function handle_form_data($file, $index) {
         // Handle form data, e.g. $_POST['description'][$index]
+    }
+
+    protected function handle_form_data_ID($file, $index) {
+        return md5($_POST['phoneID']);
     }
 
     protected function get_version_param() {

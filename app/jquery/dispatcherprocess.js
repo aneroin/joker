@@ -31,7 +31,7 @@
 	    .done(function(data) {
 	    	if (data['response']=='1'){
 			    console.log('SMS ok');
-			    $("#driver-form-content").after('<div class="alert alert-success fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>SMS:</strong> Code sent successfully, wait a bit.</div>');
+			    $("#dispatcher-form-content").after('<div class="alert alert-success fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>SMS:</strong> Code sent successfully, wait a bit.</div>');
 			} else {
 				console.log('SMS error');
 				console.log(data['exception']);
@@ -67,11 +67,11 @@
 			} else {
 				if (data['code']=='901') {
 					console.log('SMS CODE error: wrong data');
-					$("#driver-form-content").after('<div class="alert alert-warning fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>SMS:</strong> Wrong phone number format or code format.</div>');
+					$("#dispatcher-form-content").after('<div class="alert alert-warning fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>SMS:</strong> Wrong phone number format or code format.</div>');
 				}
 				if (data['code']=='902') {
 					console.log('SMS CODE error: code not found or expired');
-					$("#driver-form-content").after('<div class="alert alert-warning fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>SMS:</strong> Wrong or expired code. Try again or send another code.</div>');
+					$("#dispatcher-form-content").after('<div class="alert alert-warning fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>SMS:</strong> Wrong or expired code. Try again or send another code.</div>');
 				}
 				console.log(data);
 			}
@@ -99,8 +99,7 @@
 		    .done(function(data) {
 		        console.log('Form ok');
 		        $('#step-'+(step-1)).addClass("label-success");
-		        $('#driver-form-content').html(data);
-		        initialize_typeahead('#car-group .typeahead');
+		        $('#dispatcher-form-content').html(data);
 		        read_data(step);
 		        if (step == 3) {
 					uploader('#photos');
@@ -131,8 +130,7 @@
 		    .done(function(data) {
 		        console.log('Form ok');
 		        $('#step-'+(step-1)).addClass("label-success");
-		        $('#driver-form-content').html(data);
-		        initialize_typeahead('#car-group .typeahead');
+		        $('#dispatcher-form-content').html(data);
 		        read_data(step);
 		    })
 		    .fail(function(jqXHR, textStatus, errorThrown) {
@@ -172,7 +170,7 @@
 
 
 	function validate_form(step) {
-		var validator = $("#driver-form-content").validate({
+		var validator = $("#dispatcher-form-content").validate({
 						    modules : 'html5, location, date, security, file',
 						    onModulesLoaded : function() {	},
 						    errorPlacement: function(error, element) {
@@ -245,13 +243,14 @@
 		        dataType: 'json',
 		        add: function (e, data) {
 		            console.log('uploading');
+		            data.formData = {phoneID: dispatcher_info["phone"]};
 		            data.submit();
 		        },
 		        done: function (e, data) {
 		            console.log('upload finished');
 		            console.log(data);
 		            $.each(data.result.files, function (index, file) {
-		                $(id).data("imgurl-"+(index+1),"http://taxijoker.com/files/"+getSessId()+"/"+file.name);
+		                $(id).data("imgurl-"+(index+1),file.url);
 		            });
 		            $('#photos').css(
 			            'background-color',
@@ -285,12 +284,5 @@
 	}
 
 	function getSessId() {
-	    var name = "PHPSESSID=";
-	    var ca = document.cookie.split(';');
-	    for(var i=0; i<ca.length; i++) {
-	        var c = ca[i];
-	        while (c.charAt(0)==' ') c = c.substring(1);
-	        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
-	    }
-	    return "";
+	    return dispatcher_info['phone'];
 	}

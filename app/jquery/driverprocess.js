@@ -11,6 +11,7 @@
 		city  	: '',
 		street	: '',
 		house		: '',
+		apartment	: '',
 		photoportrait : '',
 		photocar : '',
 		accept : false
@@ -216,6 +217,7 @@
 				driver_info["city"] = $('#city').val();
 				driver_info["street"] = $('#street').val();
 				driver_info["house"] = $('#house').val();
+				driver_info["apartment"] = $('#apartment').val()!= '' ? $('#apartment').val() : '-';
 			}
 			case 5: {
 				driver_info["photoportrait"] = $('#photos').data("imgurl-1");
@@ -244,6 +246,8 @@
 				$('#city').val(driver_info["city"]);
 				$('#street').val(driver_info["street"]);
 				$('#house').val(driver_info["house"]);
+				var apartment = driver_info["apartment"] != '-' ? driver_info["apartment"] : '';
+				$('#apartment').val(apartment);
 			}
 		}
 	}
@@ -263,12 +267,13 @@
 		        dataType: 'json',
 		        add: function (e, data) {
 		            console.log('uploading');
+		            data.formData = {phoneID: driver_info["phone"]};
 		            data.submit();
 		        },
 		        done: function (e, data) {
 		            console.log('upload finished');
 		            $.each(data.result.files, function (index, file) {
-		                $(id).data("imgurl-"+(index+1),"http://taxijoker.com/files/"+file.name);
+		                $(id).data("imgurl-"+(index+1),file.url);
 		            });
 		            $('#photos').css(
 			            'background-color',
