@@ -18,6 +18,15 @@
 		    }
 	    }
 
+		$(function(){
+		$('#special').hover(function(){
+		        $(document).find('#special_text').slideDown(150);
+		    },function(){
+		        $(document).find('#special_text').slideUp(150);
+		    });
+
+		})
+
 	    actives.forEach(highlight);
 
 		$(window).load( function () {

@@ -219,6 +219,7 @@
 		$(function(){
 		$('.info-panel').hover(function(){
 		        $(this).find('.panel-footer').slideDown(300);
+		        console.log ("info_hover");
 		    },function(){
 		        $(this).find('.panel-footer').slideUp(300);
 		    });

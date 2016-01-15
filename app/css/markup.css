@@ -684,6 +684,19 @@ body {
 	height: auto;
 	right: 0;
 	bottom: 16vh;
+	z-index: 2;
+}
+
+#special_text {
+	position: fixed;
+	width: 16vw;
+	max-width: 16vw;
+	height: auto;
+	right: 8vw;
+	bottom: 26vh;
+	border: none;
+    display:none;
+    z-index: 1;
 }
 
 .svg-icon {

@@ -78,7 +78,8 @@
 			</ul>
 							
 	</div>
-	<img class="hidden-xs hidden-sm" id="special" src="<?php echo URL; ?>img/moroz<?php echo rand(1,2); ?>.png"><img>
+	<img class="hidden-xs hidden-sm" id="special" src="<?php echo URL; ?>img/moroz<?php $special_n = rand(1,2); echo $special_n;?>.png"></img>
+	<img class="hidden-xs hidden-sm" id="special_text" src="<?php echo URL; ?>img/moroz_text<?php echo $special_n; unset ($special_n);?>.png"></img>
 	<div id="page-content-wrapper">
 		<div class="container-fluid" id="top">
             <div class="row">

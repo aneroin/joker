@@ -29,5 +29,9 @@ EOT;
 			require 'views/'.$name.'.php';
 			require 'views/footer.php';
 		}
+
+		public function display($name,$data=null,$title="Taxi Joker",$h_forms=false,$h_uploads=false) {
+			require 'views/'.$name.'.php';
+		}
 	}
 ?>
