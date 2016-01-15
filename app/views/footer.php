@@ -62,7 +62,7 @@
 				<div class="row">
 			 		<div class="dropdown col-xs-5 col-md-12">
 						<button class="btn btn-yellow dropdown-toggle fill_h" type="button" data-toggle="dropdown">
-						<span class="selection"><?php echo $data['local_title']; ?></span>
+						<span class="selection"><?php echo $data['cur_city']; ?></span>
 						<span class="caret"></span></button>
 						<ul class="dropdown-menu col-xs-12">
 							<li class="dropdown-menu-item"><a href="<?php echo URL; ?>language.php?local=te" ><?php echo $data['local_te']; ?></a></li>
@@ -72,7 +72,7 @@
 					<div class="dropdown col-xs-5 col-offset-xs-2 col-md-12">
 						<p class="whitespace-h hidden-xs hidden-sm"> </p>
 						<button class="btn btn-yellow dropdown-toggle fill_h" type="button" data-toggle="dropdown">
-						<span class="selection"><?php echo $data['lang_title']; ?></span>
+						<span class="selection"><?php echo $data['cur_lang']; ?></span>
 						<span class="caret"></span></button>
 						<ul class="dropdown-menu  col-xs-12">
 							<li class="dropdown-menu-item"><a href="<?php echo URL; ?>language.php?lang=ua" ><?php echo $data['lang_ua']; ?></a></li>

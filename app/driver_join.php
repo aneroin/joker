@@ -45,7 +45,7 @@
 		//message
 		$message = "<html><body>";
 		$message.= "<h2> Відправник: <strong>{$driverdata['lname']} {$driverdata['fname']} {$driverdata['mname']}</strong> </h2> <br>";
-		$message.= "<img src='{$p_portrait}' style='height: 300px; width: auto;'> фото водія </img> <br>";
+		$message.= "<img src='{$p_portrait}' style='height: 300px; width: auto;' alt='фото водія'></img> <br>";
 		$message.= "<h3> Номер телефону: <strong>{$driverdata['phone']} </strong> <br> Бажає стати водієм таксі Джокер.<hr style='color:#333; background-color:#333'>";
 		$message.= "Автомобіль марки: <strong>{$driverdata['carvendor']} - {$driverdata['carmodel']}</strong>, колір кузова {$driverdata['carcolor']}  <pre style='background-color:{$driverdata['carhex']}; border-color: #333; border-style: solid; border-width: 1px;'>        </pre>";
 		$message.= " Номерний знак <strong>{$driverdata['carnumber']}</strong><hr style='color:#333; background-color:#333'>";
