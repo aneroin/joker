@@ -2,8 +2,22 @@
 <html>
 <head>
 	<title><?php echo $title; ?></title>
-	<link rel="icon" type="image/png" href="<?php echo URL; ?>img/favicon_light.png">
-	<meta charset="UTF-8">
+	<meta name="description" content="<?php echo $data['meta_desc']; ?>"/>
+	<link rel="icon" type="image/png" href="<?php echo URL; ?>img/favicon_light.png"/>
+
+    <meta property="og:title" content="<?php echo $data['meta_title']; ?>"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="<?php echo URL; ?>"/>
+    <meta property="og:image" content="<?php echo URL; ?>img_m/social.png"/>
+    <meta property="og:description" content="<?php echo $data['meta_desc']; ?>"/>
+    <meta property="og:site_name" content="Taxi Joker"/>
+    <meta property="fb:app_id" content="966242223397117 "/> 
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="<?php echo URL; ?>">
+    <meta name="twitter:title" content="<?php echo $data['meta_title']; ?>">
+    <meta name="twitter:description" content="<?php echo $data['meta_desc']; ?>">
+
 	<meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=0" />
 	<!--link href='https://fonts.googleapis.com/css?family=Roboto:400,100&subset=latin,cyrillic,cyrillic-ext' rel='stylesheet' type='text/css'-->
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700&subset=latin,cyrillic,cyrillic-ext' rel='stylesheet' type='text/css'>
