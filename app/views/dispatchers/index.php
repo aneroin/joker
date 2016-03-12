@@ -36,7 +36,7 @@
 <!--Parallax-->
 <div class="parallax-container">
         <div class="btn-rel-container">
-            <a class="btn btn-large waves-effect waves-light" href="/mdispatchers/join"> <i class="mdi-content-content-paste"></i> <?php echo $data['vacancy_button'] ?> </a>
+            <a class="btn btn-large waves-effect waves-light" href="/dispatchers/join"> <i class="mdi-content-content-paste"></i> <?php echo $data['vacancy_button'] ?> </a>
             <a class="btn btn-large waves-effect waves-light" href="#"> <i class="mdi-action-question-answer"></i> <?php echo $data['faq_button'] ?> </a>
         </div>
     <div class="parallax">
