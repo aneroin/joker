@@ -7,7 +7,7 @@
 		carmodel  : '',
 		carcolor  : '',
 		carhex	: '',
-		carnumber : '',		
+		carnumber : '',
 		city  	: '',
 		street	: '',
 		house		: '',
@@ -16,6 +16,8 @@
 		photocar : '',
 		accept : false
 	};
+
+	var globalDelay = 1000;
 
 	$(document).ready(function(){
 		driver_form_next(0);
@@ -38,7 +40,7 @@
 	    .done(function(data) {
 	    	if (data['response']=='1'){
 			    console.log('SMS ok');
-			    $("#driver-form-content").after('<div class="alert alert-success fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>SMS:</strong> Code sent successfully, wait a bit.</div>');
+			    $("#driver-form-content").after('<div class="chip"><i class="material-icons">close</i><strong>SMS:</strong> Code sent successfully, wait a bit.</div>');
 			} else {
 				console.log('SMS error');
 				console.log(data['exception']);
@@ -75,11 +77,11 @@
 			} else {
 				if (data['code']=='901') {
 					console.log('SMS CODE error: wrong data');
-					$("#driver-form-content").after('<div class="alert alert-warning fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>SMS:</strong> Wrong phone number format or code format.</div>');
+					$("#driver-form-content").after('<div class="chip fade in"><i class="material-icons">close</i><strong>SMS:</strong> Wrong phone number format or code format.</div>');
 				}
 				if (data['code']=='902') {
 					console.log('SMS CODE error: code not found or expired');
-					$("#driver-form-content").after('<div class="alert alert-warning fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>SMS:</strong> Wrong or expired code. Try again or send another code.</div>');
+					$("#driver-form-content").after('<div class="chip"><i class="material-icons">close</i><strong>SMS:</strong> Wrong or expired code. Try again or send another code.</div>');
 				}
 				console.log(data);
 			}
@@ -95,31 +97,44 @@
 			write_data(step);
 
 			$(".step-displayer>li").each(function() {
-				$( this ).html('<span>'+$(this).data('cap-s')+'</span>').addClass("label label-default");
+				if ($(this).hasClass("active")){
+					$(this).removeClass("active").addClass("passive");
+				}
+				$( this ).html('<span>'+$(this).data('cap-s')+'</span>');
 			});
 
-			$('#step-'+step).html('<span>'+$('#step-'+step).data('cap')+'</span>').addClass("label-default");
+			$('#step-'+step).html('<span>'+$('#step-'+step).data('cap-s')+'</span>').removeClass("passive").addClass("active");
+			$('#step-cap').html($('#step-'+step).data('cap')+':');
+			
+			if (step!=0) $('#screen').removeClass("postload").addClass("preload");
 
 			var xhr = $.ajax({
 		        type: "POST",
 		        crossDomain: true,
-		        url: "http://"+window.location.hostname+"/drivers/driverform/"+step,
+		        url: "http://"+window.location.hostname+"/mdrivers/driverform/"+step,
 		    })
 		    .done(function(data) {
 		        console.log('Form ok');
-		        $('#step-'+(step-1)).addClass("label-success");
-		        $('#driver-form-content').html(data);
-		        initialize_typeahead('#car-group .typeahead');
-		        read_data(step);
-		        if (step == 4) {
-					uploader('#photos');
-				}
+		        $('#step-'+(step-1)).addClass("success");
+				if (step==0) var localDelay=0; else var localDelay=globalDelay;
+				setTimeout(function(){
+		        	$('#driver-form-content').html(data);
+					initialize_typeahead('#car-group .typeahead');
+					read_data(step);
+					if (step == 4) {
+						uploader('#portrait');
+						uploader('#car');
+					}
+				}, localDelay);
 		    })
 		    .fail(function(jqXHR, textStatus, errorThrown) {
 		        console.log('Form fail');
-		        $('#step-'+(step)).addClass("label-danger");
+		        $('#step-'+(step)).addClass("warning");
 		        console.log(errorThrown);
-		    });
+		    })
+			.always(function() {
+				setTimeout(function(){ $('#screen').removeClass("preload").addClass("postload"); }, globalDelay);
+			});
 		} else {
 			console.log('invalid form data');
 		}
@@ -128,28 +143,41 @@
 	function driver_form_prev(step){
 			console.log(driver_info);
 			$(".step-displayer>li").each(function() {
-				$( this ).html('<span>'+$(this).data('cap-s')+'</span>').addClass("label label-default");
+				if ($(this).hasClass("active")){
+					$(this).removeClass("active").addClass("passive");
+				}
+				$( this ).html('<span>'+$(this).data('cap-s')+'</span>');
 			});
 
-			$('#step-'+step).html('<span>'+$('#step-'+step).data('cap')+'</span>').addClass("label-default");
+			$('#step-'+step).html('<span>'+$('#step-'+step).data('cap-s')+'</span>').removeClass("passive").addClass("active");
+			$('#step-cap').html($('#step-'+step).data('cap')+':');
+		
+			if (step!=0) $('#screen').removeClass("postload").addClass("preload");
 
 			var xhr = $.ajax({
 		        type: "POST",
 		        crossDomain: true,
-		        url: "http://"+window.location.hostname+"/drivers/driverform/"+step,
+		        url: "http://"+window.location.hostname+"/mdrivers/driverform/"+step,
 		    })
 		    .done(function(data) {
 		        console.log('Form ok');
-		        $('#step-'+(step-1)).addClass("label-success");
-		        $('#driver-form-content').html(data);
-		        initialize_typeahead('#car-group .typeahead');
-		        read_data(step);
+		        $('#step-'+(step-1)).addClass("success");
+				if (step==0) var localDelay=0; else var localDelay=globalDelay;
+				setTimeout(function(){
+		        	$('#driver-form-content').html(data);
+					initialize_typeahead('#car-group .typeahead');
+					read_data(step);
+				}, localDelay);
+		        
 		    })
 		    .fail(function(jqXHR, textStatus, errorThrown) {
 		        console.log('Form fail');
-		        $('#step-'+(step)).addClass("label-danger");
+		        $('#step-'+(step)).addClass("warning");
 		        console.log(errorThrown);
-		    });
+		    })
+			.always(function() {
+				setTimeout(function(){ $('#screen').removeClass("preload").addClass("postload"); }, globalDelay);
+			});
 		
 	};
 
@@ -165,6 +193,7 @@
 		        data: driver_info
 		    })
 		    .done(function(data) {
+				$('#screen').removeClass("postload").addClass("preload");
 		    	if (data['response']=='1') {
 			    	console.log('DRIVER JOIN ok');
 			    	redirect('Реєстрація пройшла успішно, бажаєте переглянути список наших водіїв?','/drivers/all','/drivers')
@@ -225,8 +254,8 @@
 				driver_info["apartment"] = $('#apartment').val()!= '' ? $('#apartment').val() : '-';
 			}
 			case 5: {
-				driver_info["photoportrait"] = $('#photos').data("imgurl-1");
-				driver_info["photocar"] = $('#photos').data("imgurl-1");
+				driver_info["photoportrait"] = $('#portrait').data("imgurl");
+				driver_info["photocar"] = $('#car').data("imgurl");
 			}
 		}
 	}
@@ -253,8 +282,17 @@
 				$('#house').val(driver_info["house"]);
 				var apartment = driver_info["apartment"] != '-' ? driver_info["apartment"] : '';
 				$('#apartment').val(apartment);
+				break;
 			}
 		}
+		$('input[type=text]').each(function(){
+		    if ($(this).val()!="") {
+		    	var label = $("label[for='"+$(this).attr('id')+"']");
+		    	if (!label.hasClass("active")) {
+		    		label.addClass("active");
+		    	}
+		    }
+		})
 	}
 
 	function redirect(message, location_t, location_f) {
@@ -277,23 +315,22 @@
 		        },
 		        done: function (e, data) {
 		            console.log('upload finished');
-		            $.each(data.result.files, function (index, file) {
-		                $(id).data("imgurl-"+(index+1),file.url);
-		            });
-		            $('#photos').css(
+					file = data.result.files[0];
+		            $(id).data('imgurl',file.url);		
+		            $(id).prev('.btn').first().css(
 			            'background-color',
 			            '#5CB85C'
 			        );
 		        },
 		        progressall: function (e, data) {
 			        var progress = parseInt(data.loaded / data.total * 100, 10);
-			        $('#progress .bar').css(
+					$(id+'-progress').css(
 			            'width',
 			            progress + '%'
 			        );
 			    }
 		    });
-
+			
 		    $(id)
 		    .bind('fileuploaddrop', function (e, data) {
 		    	$.each(data.files, function (index, file) {
@@ -309,4 +346,19 @@
 				console.log('upload failed');
 			});
 		});
+	}
+
+	function remover(durl,id,dtype){
+		var req = $.ajax({
+			dataType: 'json',
+			data : {formData: {phoneID: driver_info["phone"]}},
+			url: durl,
+			type: dtype
+		})
+		.done(function(data) {
+			$(id).parent().parent().css(
+				'background-color',
+				'inherit'
+			);
+		})
 	}

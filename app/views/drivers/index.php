@@ -1,93 +1,56 @@
-<!-- accent of the page -->
-	<!-- photo background -->
-	<div class="row rounded" id="accent-photo">
-		<!-- text over photo -->
-		<div class="col-md-5 text-center rounded-left" id="accent-text">
-			<?php echo $data['accent'] ?>
-		</div>
-	</div>
+<!--Banner-->
+<div class="section no-pad-bot" id="head-banner">
+    <img src="<?php echo URL; ?>img_m/car.png"></img>
+</div>
 
-	<!-- end of accent -->
-	
-	<p class="whitespace-h"> </p>
-	<div class="row rounded"  id="accent-row">
-		<?php echo $data['drivers_motive'] ?>
-	</div>
-	<p class="whitespace-h"> </p>
-	<!-- vacancy offer -->
-	<div class="row rounded"  id="accent-row">
-		<input type="button"  onclick="window.location.href='/drivers/join'" class="btn btn-main btn-xl btn3d capital" id="submit-call-taxi" value='<?php echo $data['vacancy_button'] ?>'>
-	</div>
-	<p class="whitespace-h"> </p>	
-	<!-- start of opportunity-panel -->	
-	<div class="row info-panel adaptive rounded">
-		<div class="opportunity-panel text-center col-md-3">
-			<div class="row">
-				<div class="col-xs-12 img-responsive">
-					 <img border="0" src="<?php echo URL; ?>img/drivers.png">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-12">
-					<?php echo $data['drivers_collective'] ?>
-				</div>
-			</div>
-		</div>
-		<p class="whitespace-h visible-sm"> </p>
-		<div class="opportunity-panel text-center col-md-4 col-md-offset-1 half-cell-md">
-			<div class="row">
-				<div class="col-xs-12 img-responsive">
-					 <img border="0" src="<?php echo URL; ?>img/time.png">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-12">
-					<?php echo $data['drivers_time'] ?>
-				</div>
-			</div>
-		</div>
-		<p class="whitespace-h visible-sm"> </p>
-		<div class="opportunity-panel text-center col-md-3 col-md-offset-1 half-cell-md">
-			<div class="row">
-				<div class="col-xs-12 img-responsive">
-					 <img border="0" src="<?php echo URL; ?>img/money.png">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-12">
-					<?php echo $data['drivers_income'] ?>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end of opportunity-panel -->
-	<p class="whitespace-h"> </p>
-	<!-- vacancy offer -->
-	<div class="row rounded"  id="accent-row">
-		<div class="col-xs-12 col-md-6">
-			<input type="button"  onclick="window.location.href='/drivers/all'" class="btn btn-main btn-xl btn3d capital" id="submit-call-taxi" value='<?php echo $data['list_button'] ?>'>
-		</div>
-		<div class="col-xs-12 col-md-6">
-			<input type="button"  onclick="window.location.href='/drivers/faq'" class="btn btn-second btn-xl btn3d capital" id="submit-call-taxi" value='<?php echo $data['faq_button'] ?>'>
-		</div>
-	</div>
-	<p class="whitespace-h"> </p>
+<!--infographics-->
+<div id="infographics" class="section scrollspy">
+    <div class="container">
+    <h2 class="center header text_b"><?php echo $data['accent'] ?></h2>
+        <div class="row">
+            <div  class="col s12 m4 l4">
+                <div class="center promo promo-example">
+                    <i class="mdi-social-group"></i>
+                    <h5 class="promo-caption"><?php echo $data['drivers_collective'] ?></h5>
+                    <p class="light center">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div class="center promo promo-example">
+                    <i class="mdi-action-alarm-on"></i>
+                    <h5 class="promo-caption"><?php echo $data['drivers_time'] ?></h5>
+                    <p class="light center">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div class="center promo promo-example">
+                    <i class="mdi-action-credit-card"></i>
+                    <h5 class="promo-caption"><?php echo $data['drivers_income'] ?></h5>
+                    <p class="light center">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
 
-	<!-- scrollers -->
-	<a data-id="top" class="scroll-link totop side hidden-xs">
-		<img class="img-circle" src="<?php echo URL; ?>img/up.png"/>
-	</a>
-	
-	<a data-id="top" class="scroll-link totop top visible-xs">
-		<img class="img-circle" src="<?php echo URL; ?>img/up-s.png"/>
-	</a>
+<!--Parallax-->
+<div class="parallax-container">
+        <div class="btn-rel-container">
+            <a class="btn btn-large waves-effect waves-light" href="/mdrivers/join"> <i class="mdi-content-content-paste"></i> <?php echo $data['vacancy_button'] ?> </a>
+            <a class="btn btn-large waves-effect waves-light" href="#"> <i class="mdi-action-question-answer"></i> <?php echo $data['faq_button'] ?> </a>
+        </div>
+    <div class="parallax">
+        <img src="<?php echo URL; ?>img_m/parallax2.png">
+    </div>
+</div>
 
-	<script>
-		$(function(){
-		$('.info-panel').hover(function(){
-		        $(this).data("target").slideToggle(500);
-		    },function(){
-		        $(this).data("target").slideToggle(500);
-		    });
-		})
-	</script>	
+<!--Additional info-->
+<div id="addinfo" class="section scrollspy">
+    <div class="container">
+        <div class="row">
+            <div  class="col s12">
+                <h4 class="center header text_h2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient montes.</h4>
+            </div>
+        </div>
+    </div>
+</div>

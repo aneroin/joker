@@ -1,0 +1,17 @@
+AddType application/vnd.ms-fontobject    .eot
+AddType application/x-font-ttf           .ttf
+AddType application/font-woff            .woff
+
+<FilesMatch "\.(jsz|eot|ttf|otf|svg|woff|woff2)$">
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+</IfModule>
+</FilesMatch>
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteCond %{HTTP_HOST} ((//)?([^.]+)\.)?taxijoker\.dev.*$
+
+RewriteRule ^(.+)$ index.php?url=$1&lang=%3 [QSA,L]

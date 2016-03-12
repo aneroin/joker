@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 
   class Prices_Model extends Model {
    public function __construct($lang = 'ua', $city = 'te') {
@@ -122,43 +122,37 @@ session_start();
 
 function prices_to_table($title, $tdata, $local, &$outdata){
 $outdata.= <<<EOT
-        <div class="panel panel-accent">
-        <a data-toggle="collapse" data-parent="#accordion" href="#{$title[0]}">
-            <div class="panel-heading">
-                <h4>{$title[1]}</h4>
+        <li>
+            <div class="collapsible-header">
+                {$title[1]}
             </div>
-        </a>
-            <div id="{$title[0]}" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead>
-                              <tr>
-                                <th>{$title[1]}</th>
-                                <th>{$local['incity_title']}</th>
-                                <th>{$local['outcity_title']}</th>
-                              </tr>
-                            </thead>
-                            <tbody>
+            <div class="collapsible-body">
+                <table class="striped responsive-table">
+                    <thead>
+                        <tr>
+                            <th data-field="name">{$title[1]}</th>
+                            <th data-field="incity">{$local['incity_title']}</th>
+                            <th data-field="outcity">{$local['outcity_title']}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 EOT;
 
 foreach ($tdata as $row) {
     $outdata.=  <<<EOT
-                                  <tr>
-                                    <td>{$row[0][1]}</td>
-                                    <td>{$row[1][0]}</td>
-                                    <td>{$row[2][0]}</td>
-                                  </tr>
+                        <tr>
+                            <td>{$row[0][1]}</td>
+                            <td>{$row[1][0]}</td>
+                            <td>{$row[2][0]}</td>
+                        </tr>
 EOT;
 }
 
 $outdata.=  <<<EOT
-                            </tbody>
-                        </table>
-                    </div>                 
-                </div>
-             </div>
-        </div>
+                    </tbody>
+                </table>
+            </div>                 
+        </li>
 EOT;
 }
 ?>

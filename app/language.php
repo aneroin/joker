@@ -57,9 +57,9 @@ session_start();
 	
 	if (isset($geoValue)) {
 		if ($geoValue=="false") 
-		    setcookie("GeoLocated", $geoValue, time()+ (3600 * 24), '/', '.taxijoker.com');
+		    setcookie("GeoLocated", $geoValue, time()+3600*24*7, '/', '.taxijoker.dev');
 		else 
-		    setcookie("GeoLocated", $geoValue, time() + (10 * 365 * 24 * 60 * 60), '/', '.taxijoker.com');
+		    setcookie("GeoLocated", $geoValue, 0, '/', '.taxijoker.dev');
 	}
 
 	if (isset($ref)) {
@@ -70,11 +70,11 @@ session_start();
 			echo "</pre>";
 		}
 		else {
-			header('Location: ' . 'http://'.$_SESSION['lang'].'.taxijoker.com/'.$ref);
+			header('Location: ' . 'http://'.$_SESSION['lang'].'.taxijoker.dev/'.$ref);
 		}
 		
 	} else {
-		preg_match('/http:\/\/([^.]+)\.taxijoker\.com/', $_SERVER['HTTP_REFERER'], $matches);
+		preg_match('/http:\/\/([^.]+)\.taxijoker\.dev/', $_SERVER['HTTP_REFERER'], $matches);
 		if(isset($matches[1])) {
 			preg_match('/(\..+$)/', $_SERVER['HTTP_REFERER'], $submatches);
 			if(isset($submatches[1])) {
@@ -84,7 +84,7 @@ session_start();
 				return false;
 			}
 		}
-		header('Location: ' . "http://".$_SESSION['lang'].'.taxijoker.com/');
+		header('Location: ' . "http://".$_SESSION['lang'].'.taxijoker.dev/');
 		return false;
 	}
 ?>

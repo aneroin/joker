@@ -1,12 +1,11 @@
 <?php
-session_start();
+//session_start();
 	class Index extends Controller  {
 		public function __construct($locale = null) {
 			parent::__construct();
 		}
 
-		public function Index($locale = null) {
-			header("Link: <http://".$_SESSION['lang'].".taxijoker.com/>; rel=canonical");
+		public function Index($locale = null) {		
 			$title = "Taxi Joker";
 			//if locale param is set - setting up session variables
 			if (isset($locale)) {
@@ -19,8 +18,9 @@ session_start();
 			require 'models/index_model.php';
 			//model init with locale params from sessing variables
     		$model = new Index_Model($_SESSION['lang'],$_SESSION['local']);
-    		//rendering index page
-			$this->view->render('index/index',$model->data,$title,true,false);
+			$inc = Array("callform");
+    		//displaying index page
+			$this->view->render('index/index',$model->data,$title,$inc);
 		}
 	}
 ?>

@@ -10,7 +10,7 @@
 			parent::__construct();
 			$this->view->errcode = "error {$input[0]}";
 			$this->view->msg = $input[1];
-			$title = "Taxi Joker - ERROR: {$input[0]}";
+			$title = "Taxi Joker - error: {$input[0]}";
 			//if locale param is set - setting up session variables
 			if (isset($locale)) {
 				$_SESSION['local'] = $locale;

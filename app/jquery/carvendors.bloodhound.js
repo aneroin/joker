@@ -61,13 +61,13 @@ var carvendors = new Bloodhound({
 });
 
 function initialize_typeahead (selector) {
-    $(selector).typeahead({   
-      hint: true,
-      highlight: true,
-      minLength: 1
-    },
-    {
-      name: 'carvendors',
-      source: carvendors
-    }).unwrap();
+  $(selector).typeahead({
+    hint: true,
+    highlight: true,
+    minLength: 1
+  },
+  {
+    name: 'carvendors',
+    source: carvendors
+  }).unwrap();
 }

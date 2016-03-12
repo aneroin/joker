@@ -1,19 +1,14 @@
-<div class="row">
-	<div class="col-xs-12">
-		<img src="<?php echo URL; ?>img/oops.png" class="img-responsive center"> </img>
-	</div>
-</div>
-
-<p class="whitespace-h"> </p>
-
-<div class="row">
-	<div class="col-xs-12">
-		<h2 class="center"> 
-			<?php echo $this->errcode; ?>
-		<br>
-			<small> <?php echo $this->msg; ?> </small>
-		<br>
-			<a href="/"> try to go back </a>
-		</h2>
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+        <h1 class="center header">
+        <div class="row center">
+            <?php echo $this->errcode; ?>
+            <br>
+            <?php echo $this->msg; ?>
+        </div>
+        </h1>
+    </div>
+    <div class="row center">
+	    <a class="btn waves-effect waves-light" id="goback" onClick="window.history.back();"> back </a>
 	</div>
 </div>

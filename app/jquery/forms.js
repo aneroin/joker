@@ -4,9 +4,9 @@
  * Copyright 2013-2015 Twitter, Inc. and other contributors; Licensed MIT
  */
 
-(function(root, factory) {
+(function (root, factory) {
     if (typeof define === "function" && define.amd) {
-        define("bloodhound", [ "jquery" ], function(a0) {
+        define("bloodhound", [ "jquery" ], function (a0) {
             return root["Bloodhound"] = factory(a0);
         });
     } else if (typeof exports === "object") {

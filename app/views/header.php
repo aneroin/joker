@@ -1,9 +1,13 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html>
 <head>
-	<title><?php echo $title; ?></title>
-	<meta name="description" content="<?php echo $data['meta_desc']; ?>"/>
-	<link rel="icon" type="image/png" href="<?php echo URL; ?>img/favicon_light.png"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#e64a19">
+    
+    <title>Taxi Joker</title>
+    <meta name="description" content="<?php echo $data['meta_desc']; ?>"/>
+    <link rel="icon" type="image/png" href="<?php echo URL; ?>img/favicon_light.png"/>
 
     <meta property="og:title" content="<?php echo $data['meta_title']; ?>"/>
     <meta property="og:type" content="website"/>
@@ -18,92 +22,80 @@
     <meta name="twitter:title" content="<?php echo $data['meta_title']; ?>">
     <meta name="twitter:description" content="<?php echo $data['meta_desc']; ?>">
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=0" />
-	<!--link href='https://fonts.googleapis.com/css?family=Roboto:400,100&subset=latin,cyrillic,cyrillic-ext' rel='stylesheet' type='text/css'-->
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700&subset=latin,cyrillic,cyrillic-ext' rel='stylesheet' type='text/css'>
-	<script src="<?php echo URL; ?>jquery/jquery-2.1.4.js"></script>
-	<script src="<?php echo URL; ?>jquery/jquery.validate.js"></script>
-	<script src="<?php echo URL; ?>jquery/jquery.validate.additional-methods.js"></script>
-	<script src="<?php echo URL; ?>jquery/scroll.js"></script>
-	<script src="<?php echo URL; ?>bootstrap/js/bootstrap.min.js"></script>
+    <!-- CSS  -->
+    <link href="http://taxijoker.dev/min/materialize.css" type="text/css" rel="stylesheet">
+    <link href="http://taxijoker.dev/min/custom.css" type="text/css" rel="stylesheet" >
 
-	<?php 
-		echo $header;
-	?>
-
-	<!--styles-->
-	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/sidebar.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/markup.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/colors_outline.css">
-	<link id="theme" data-theme-dark="<?php echo URL; ?>css/colors-light.css" data-theme-light="<?php echo URL; ?>css/colors-light.css" data-theme-xsdark="<?php echo URL; ?>css/colors-light-xs.css" data-theme-xslight="<?php echo URL; ?>css/colors-light-xs.css" rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/colors-dark.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/buttons3d.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/checkbox.css">
-
+    <?php foreach($includes as $includes_entry): ?>
+    
+		<?php if ($includes_entry=="joinform") : ?>
+			<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+			<link href="http://taxijoker.dev/min/steps.css" type="text/css" rel="stylesheet" >
+		<?php endif; ?>
+	
+	<?php endforeach; ?>
+	
 </head>
-<body style="background-image: url('<?php echo URL; ?>img/<?php echo $_SESSION['local'] ?>.png')">
-	<div id="wrapper"> 
-	<div id="sidebar-wrapper" data-current-page="<?php echo $data['current_page']; ?>">
-			<ul class="sidebar-nav">
+<body id="top" class="scrollspy">
 
-				<li class="sidebar-brand clearfix">
-					<a href="/"> <img src="<?php echo URL; ?>img/logo.png" alt="таксі джокер" style="min-width: 80%; width: 80%; min-height: auto; height: auto; padding: 0px 20px;"> </a>
-				</li>
-				<li id="index">
-					<a href="/index"> <?php echo $data['Index']; ?> </a>
-				</li>
-				<li id="prices">
-					<a href="/prices"> <?php echo $data['Prices']; ?> </a>
-				</li>
-				<li id="drivers" data-target="#drivers_sub">
-					<a href="/drivers"> <?php echo $data['Drivers']; ?> </a>
-				</li>
-					<ul id="drivers_sub" class="nav nav-list collapse">
-						<li id="drivers_sub_all">
-							<a href="/drivers/all"> <?php echo $data['Drivers_All']; ?> </a>
-						</li>
-						<li id="drivers_sub_join">
-							<a href="/drivers/join"> <?php echo $data['Drivers_Join']; ?> </a>
-						</li>
-						<li id="drivers_sub_faq">
-							<a href="/drivers/faq"> <?php echo $data['Drivers_FAQ']; ?> </a>
-						</li>
-					</ul>
-				<li id="dispatchers" data-target="#dispatchers_sub">
-					<a href="/dispatchers"> <?php echo $data['Dispatchers']; ?> </a>
-				</li>
-					<ul id="dispatchers_sub" class="nav nav-list collapse">
-						<li id="dispatchers_sub_all">
-							<a href="/dispatchers/all"> <?php echo $data['Dispatchers_All']; ?> </a>
-						</li>
-						<li id="dispatchers_sub_join">
-							<a href="/dispatchers/join"> <?php echo $data['Dispatchers_Join']; ?> </a>
-						</li>
-						<li id="dispatchers_sub_faq">
-							<a href="/dispatchers/faq"> <?php echo $data['Dispatchers_FAQ']; ?> </a>
-						</li>
-					</ul>
-				<li id="contacts">
-					<a href="/contacts"> <?php echo $data['Contacts']; ?> </a>
-				</li>
-				
-					<a href="http://taxiadmin.com.ua/"><img border="0" src="<?php echo URL; ?>img/taxiadmin.png" style="max-width: 150px; max-height: auto; margin-top: 48px; margin-left: 50px; opacity: 0.6;"></img></a>
-				
-			</ul>
-							
-	</div>
-	<!--img class="hidden-xs hidden-sm" id="special" src="<?php echo URL; ?>img/moroz<?php $special_n = rand(1,2); echo $special_n;?>.png"></img>
-	<img class="hidden-xs hidden-sm" id="special_text" src="<?php echo URL; ?>img/moroz_text<?php echo $special_n; unset ($special_n);?>.png"></img-->
-	<div id="page-content-wrapper">
-		<div class="container-fluid" id="top">
-            <div class="row">
-                <div class="col-xs-12 col-sd-10 col-md-10 col-xl-8 col-offset-xl-2">
-                	<!-- toggle buttons -->
-					<a href="#menu-toggle" class="btn btn-yellow" id="menu-toggle-wrapper">
-						<img border="0" alt="toggle menu" src="<?php echo URL; ?>img/sidebar.gif" width="100%" height="auto">
-					</a>
-					<!--phone numbers-->
-						<div class="row rounded contacts" id="accent-row" style="">
-							<?php echo $data['our_phone']; ?>  &nbsp; <a href="tel:828" style=""><span class="glyphicon glyphicon-earphone"  style="font-size: 0.8em !important;"></span> 828 </a>&nbsp; <?php echo $data['free_phone']; ?>
-						</div>
-						<p class="whitespace-h"> </p>
+<!-- Pre Loader -->
+<div id="loader-wrapper">
+    <div id="loader"></div>
+ 
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+ 
+</div>
+
+<!--Navigation-->
+ <div class="navbar-fixed">
+    <nav id="nav_f" class="default_color" role="navigation" data-current-page="<?php echo $data['current_page']; ?>">
+        <div class="container">
+            <div class="nav-wrapper">
+            <a href="http://taxijoker.dev/m" id="logo-container" class="brand-logo hide-on-large-only">Таксі Джокер</a>
+            <a href="http://taxijoker.dev/m" id="logo-container" class="brand-logo show-on-large"></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="http://taxijoker.dev"><?php echo $data['Index']; ?></a></li>
+                    <li><a href="http://taxijoker.dev/prices"><?php echo $data['Prices']; ?></a></li>
+                    <li><a href="http://taxijoker.dev/drivers"><?php echo $data['Drivers']; ?></a></li>
+                    <li><a href="http://taxijoker.dev/dispatchers"><?php echo $data['Dispatchers']; ?></a></li>
+                    <li><a href="http://taxijoker.dev/contacts"><?php echo $data['Contacts']; ?></a></li>
+					<li><a href="http://taxijoker.dev/about">Про нас</a></li>
+                </ul>
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="http://taxijoker.dev"><?php echo $data['Index']; ?></a></li>
+                    <li class="divider"></li>
+                    <li><a href="http://taxijoker.dev/prices"><?php echo $data['Prices']; ?></a></li>
+                    <li class="divider"></li>
+                    <li><a href="http://taxijoker.dev/drivers"><?php echo $data['Drivers']; ?></a></li>
+                    <li class="divider"></li>
+                    <li><a href="http://taxijoker.dev/dispatchers"><?php echo $data['Dispatchers']; ?></a></li>
+                    <li class="divider"></li>
+                    <li><a href="http://taxijoker.dev/contacts"><?php echo $data['Contacts']; ?></a></li>
+					<li><a href="http://taxijoker.dev/about">Про нас</a></li>
+                </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+            </div>
+        </div>
+
+        <div class="fixed-action-btn horizontal click-to-toggle hide-on-med-and-down" style="top: 85px; right: 24px;">
+            <a class="btn-floating btn-large deep-orange darken-4">
+              <?php echo $_SESSION['lang']; ?><i class="large mdi-action-language"></i>
+            </a>
+            <ul>
+              <a class="btn-floating btn-large deep-orange darken-1" href="http://taxijoker.dev/language.php?lang=ua">UA</a>
+              <a class="btn-floating btn-large deep-orange darken-2" href="http://taxijoker.dev/language.php?lang=ru">RU</a>
+              <a class="btn-floating btn-large deep-orange darken-3" href="http://taxijoker.dev/language.php?lang=eng">ENG</a>
+            </ul>
+        </div>
+        <div class="fixed-action-btn horizontal click-to-toggle hide-on-med-and-down" style="top: 165px; right: 24px;">
+            <a class="btn-floating btn-large amber darken-4">
+              <?php echo $_SESSION['local']; ?><i class="large mdi-communication-location-on"></i>
+            </a>
+            <ul>
+              <a class="btn-floating btn-large amber darken-2" href="http://taxijoker.dev/language.php?local=te">TE</a>
+              <a class="btn-floating btn-large amber darken-3" href="http://taxijoker.dev/language.php?local=lu">LU</a>
+            </ul>
+        </div>
+    </nav>
+</div>

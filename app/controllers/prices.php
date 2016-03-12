@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 	class Prices extends Controller  {
 		public function __construct($locale = null) {
 			parent::__construct();
@@ -18,7 +18,7 @@ session_start();
 			require 'models/prices_model.php';
 			//model init with locale params from sessing variables
     		$model = new Prices_Model($_SESSION['lang'],$_SESSION['local']);
-    		//rendering index page
+    		//rendering prices page
 			$this->view->render('prices/index',$model->data,$title);
 		}
 	}

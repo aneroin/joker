@@ -1,32 +1,26 @@
-<!-- accent of the page -->
-	<!-- photo background -->
-	<div class="row rounded" id="accent-photo">
-		<!-- text over photo -->
-		<div class="col-md-5 text-center rounded-left" id="accent-text">
-			<?php echo $data['accent'] ?>
-		</div>
-	</div>
-
-	<!-- end of accent -->
-	<p class="whitespace-h"> </p>
-	<div class="row rounded contacts" id="accent-row">
-	 	<?php 
-	 	foreach ($data['contacts'] as $row) {
-	 		echo $row;
-			echo "<p class='whitespace-h'> </p>";
-		}
-		?>
-	</div>
+<!--Intro and service-->
+<div id="intro" class="section scrollspy">
+    <div class="container">
+        <div class="row">
+            <div  class="col s12">
+                <h4 class="center header text_h2"> Lorem ipsum dolor. Sit amet donec lorem elementum posuere lorem adipiscing faucibus. Ut vestibulum amet. Urna ullamcorper wisi. Habitasse faucibus quis. Odio lacus non. Rerum in nam. Fusce orci et. </h4>
+            </div>
+        </div>
     </div>
+</div>
 
-
-
-
-	<!-- scrollers -->
-	<a data-id="top" class="scroll-link totop side hidden-xs">
-		<img class="img-circle" src="<?php echo URL; ?>img/up.png"/>
-	</a>
-	
-	<a data-id="top" class="scroll-link totop top visible-xs">
-		<img class="img-circle" src="<?php echo URL; ?>img/up-s.png"/>
-	</a>
+<!--abracadabra-->
+<div id="prices" class="section scrollspy">
+    <div class="container">
+        <h2 class="center header text_b">Контакти</h2>
+        <div class="row center">
+            <?php 
+            foreach ($data['contacts'] as $row) {
+                echo "<div class=\"col s12 m4 l3\"><div class=\"card\"><div class=\"card-content\">";
+                echo $row;
+                echo "</div></div></div>";
+            }
+            ?>
+        </div>
+    </div>
+</div>

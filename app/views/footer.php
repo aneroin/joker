@@ -1,97 +1,100 @@
-	<!-- inline scripts -->
-	<script>
+<!--Footer-->
+<footer id="contact" class="page-footer default_color scrollspy">
+    <div class="container">  
+        <div class="row">
+            <div class="col l6 s12">
+                <form class="col s12" action="contact.php" method="post">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <i class="mdi-action-account-circle prefix white-text"></i>
+                            <input id="icon_prefix" name="name" type="text" class="validate white-text">
+                            <label for="icon_prefix" class="white-text">First Name</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <i class="mdi-communication-email prefix white-text"></i>
+                            <input id="icon_email" name="email" type="email" class="validate white-text">
+                            <label for="icon_email" class="white-text">Email-id</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <i class="mdi-editor-mode-edit prefix white-text"></i>
+                            <textarea id="icon_prefix2" name="message" class="materialize-textarea white-text"></textarea>
+                            <label for="icon_prefix2" class="white-text">Message</label>
+                        </div>
+                        <div class="col offset-s7 s5">
+                            <button class="btn waves-effect waves-light red darken-1" type="submit">Submit
+                                <i class="mdi-content-send right white-text"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col l3 s12">
+                <h5 class="white-text">taxijoker.dev</h5>
+                <ul>
+                    <li><a class="white-text" href="tel:828">call 828 (callback)</a></li>
+                    <li><a class="white-text" href="tel:0352401401">call (0352) 401-401 ternopil</a></li>
+                    <li><a class="white-text" href="tel:0332285285">call (0332) 285-285 lutsk</a></li>
+                </ul>
+            </div>
+            <div class="col l3 s12">
+                <h5 class="white-text">Localizations</h5>
+                 <ul>
+                    <li><a class="white-text" href="http://taxijoker.dev/language.php?local=te"><?php echo $data['local_te']; ?></a></li>
+                    <li><a class="white-text" href="http://taxijoker.dev/language.php?local=lu"><?php echo $data['local_lu']; ?></a></li>
+                    <li><a class="white-text" href="http://taxijoker.dev/language.php?lang=eng"><?php echo $data['lang_en']; ?></a></li>
+                    <li><a class="white-text" href="http://taxijoker.dev/language.php?lang=ua"><?php echo $data['lang_ua']; ?></a></li>
+                    <li><a class="white-text" href="http://taxijoker.dev/language.php?lang=ru"><?php echo $data['lang_ru']; ?></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright default_color">
+        <div class="container">
+            by Pavlenko Andriy for Taxi Joker
+        </div>
+    </div>
+</footer>
 
-	    $("#menu-toggle-wrapper").click(function(e) {
-	        e.preventDefault();
-	        $("#wrapper").toggleClass("toggled")
-	        setTimeout( function() {
-		        $('#pull-down').css('margin-top', $('#call-form').height()-$('#pull-down-element').height());
-	    	},500);
-	    });
 
-	    var current = $( "#sidebar-wrapper" ).data( "current-page" );
-	    var actives = current.split("/");
-	    function highlight(element, index, array) {
-	    	$("#"+element).addClass("nav-active");
-	    	if (index==0){
-		    	$($("#"+element).data("target")).toggleClass('in');
-		    }
-	    }
+    <!--  Scripts-->
+    <script src="http://taxijoker.dev/min/plugin.js"></script>
+    <script src="http://taxijoker.dev/min/preloader.js"></script>
+    <script src="http://taxijoker.dev/min/custom.js"></script>
+    <script src="http://taxijoker.dev/min/geo.js"></script>
+	
+	<?php foreach($includes as $includes_entry): ?>
+    
+		<?php if ($includes_entry=="callform") : ?>
+			<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+			<script src="http://taxijoker.dev/min/typeahead.js"></script>
+			<script src="http://taxijoker.dev/min/addresspicker.js"></script>
+			<script src="http://taxijoker.dev/jquery/formprocess.js"></script>
+		<?php endif; ?>
+		
+		<?php if ($includes_entry=="joinform") : ?>
+			<script src="http://taxijoker.dev/jquery/jquery.validate.js"></script>
+			<script src="http://taxijoker.dev/jquery/jquery.validate.additional-methods.js"></script>
+			<script src="http://taxijoker.dev/jquery/jquery.ui.widget.js"></script>
+			<script src="http://taxijoker.dev/jquery/jquery.iframe-transport.js"></script>
+			<script src="http://taxijoker.dev/jquery/jquery.fileupload.js"></script>
+			<script src="http://taxijoker.dev/jquery/jquery.fileupload-image.js"></script>
+		<?php endif; ?>
+		
+		<?php if ($includes_entry=="driver") : ?>
+			<script src="http://taxijoker.dev/min/typeahead.js"></script>
+			<script src="http://taxijoker.dev/jquery/carvendors.bloodhound.js"></script>
+			<script src="http://taxijoker.dev/jquery/tinycolor.js"></script>
+			<script src="http://taxijoker.dev/jquery/colorengine.js"></script>
+			<script src="http://taxijoker.dev/jquery/driverprocess.js"></script>
+		<?php endif; ?>
+		
+		<?php if ($includes_entry=="dispatcher") : ?>
+			<script src="http://taxijoker.dev/jquery/dispatcherprocess.js"></script>
+		<?php endif; ?>
+		
+	<?php endforeach; ?>
+    
 
-		$(function(){
-		$('#special').hover(function(){
-		        $(document).find('#special_text').slideDown(150);
-		    },function(){
-		        $(document).find('#special_text').slideUp(150);
-		    });
-
-		})
-
-	    actives.forEach(highlight);
-
-		$(window).load( function () {
-			$('#pull-down').css('margin-top', $('#call-form').height()-$('#pull-down-element').height());
-	    });
-
-	    $(window).resize(function () { 
-	    	$('#pull-down').css('margin-top', $('#call-form').height()-$('#pull-down-element').height());
-		});
-
-		$(document).ready(function (){
-			var dark = $('head link#theme').data('theme-dark');
-			var light = $('head link#theme').data('theme-light');
-			var xsdark = $('head link#theme').data('theme-xsdark');
-			var xslight = $('head link#theme').data('theme-xslight');
-			var time = new Date();
-			var hours = time.getHours();
-			if ($(window).width() < 768) {
-				if (hours > 8 && hours < 20){ 
-	   				$('head link#theme').attr('href',xslight);
-	   			} else {
-	   				$('head link#theme').attr('href',xsdark);
-	   			}
-   			} else {
-				if (hours > 8 && hours < 20){ 
-	   				$('head link#theme').attr('href',light);
-	   			} else {
-	   				$('head link#theme').attr('href',dark);
-   				}
-   			}
-
-		});
-
-	</script>
-</div>
-</div>
-</div>
-</div>
-				<div id="appbar-wrapper">
-				<div class="container-fluid">
-
-				<div class="row">
-			 		<div class="dropdown col-xs-5 col-md-12">
-						<button class="btn btn-yellow dropdown-toggle fill_h" type="button" data-toggle="dropdown">
-						<span class="selection"><?php echo $data['cur_city']; ?></span>
-						<span class="caret"></span></button>
-						<ul class="dropdown-menu col-xs-12">
-							<li class="dropdown-menu-item"><a href="<?php echo URL; ?>language.php?local=te" ><?php echo $data['local_te']; ?></a></li>
-							<li class="dropdown-menu-item"><a href="<?php echo URL; ?>language.php?local=lu" ><?php echo $data['local_lu']; ?></a></li>
-						</ul>
-					</div>
-					<div class="dropdown col-xs-5 col-offset-xs-2 col-md-12">
-						<p class="whitespace-h hidden-xs hidden-sm"> </p>
-						<button class="btn btn-yellow dropdown-toggle fill_h" type="button" data-toggle="dropdown">
-						<span class="selection"><?php echo $data['cur_lang']; ?></span>
-						<span class="caret"></span></button>
-						<ul class="dropdown-menu  col-xs-12">
-							<li class="dropdown-menu-item"><a href="<?php echo URL; ?>language.php?lang=ua" ><?php echo $data['lang_ua']; ?></a></li>
-							<li class="dropdown-menu-item"><a href="<?php echo URL; ?>language.php?lang=ru" ><?php echo $data['lang_ru']; ?></a></li>
-							<li class="dropdown-menu-item"><a href="<?php echo URL; ?>language.php?lang=eng" ><?php echo $data['lang_en']; ?></a></li>
-						</ul>
-					</div>
-
-				</div>
-				</div>
-</div>
-</body>
+    
+    </body>
 </html>

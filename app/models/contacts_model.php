@@ -14,7 +14,7 @@ session_start();
     $sql_locals = "SELECT name, ".$lang." FROM locals WHERE locals.local=?";
     $sql_pages = "SELECT name, ".$lang." FROM pages";
     $sql_blocks = "SELECT name, ".$lang." FROM blocks WHERE blocks.local=? AND blocks.idPages=6";
-    $sql_contacts = "SELECT name, type, value, ".$lang." FROM contacts WHERE contacts.local=?";
+    $sql_contacts = "SELECT name, type, value, ".$lang." FROM contacts WHERE contacts.local=? ORDER BY id ASC";
     //prepare globals
     $stm = $pdo->prepare($sql_global);
     //statement executing
@@ -53,7 +53,7 @@ session_start();
     $stm->execute(array($city));
     //fetching contacts array
     while ($db_data = $stm->fetch(PDO::FETCH_ASSOC)){
-      $this->data['contacts'][$db_data['name']] = $db_data[$lang]." - <a href=".$db_data['type'].":".$db_data['value'].">".$db_data['value']."</a>";    
+      $this->data['contacts'][$db_data['name']] = "<p class=\"card-title grey-text text-darken-4\">".$db_data[$lang]."</p><p class=\"card-action grey-text text-darken-2\"><a href=".$db_data['type'].":".$db_data['value'].">".$db_data['value']."</a></p>";   
     }
  
    }

@@ -5,7 +5,6 @@ session_start();
 require 'defines.php';
   class App {
   	//constructor
-  	//avi,bmp,png,css,doc,gif,htm,html,ico,jpeg,jpg,js,mp3,swf,txt,xls,zip,wml,wmlc,wmls,wmlsc,wbmp,fla,flv,xml,mpg,mpeg,pdf,woff,eot,otf,svg,ttf
 	public function __construct() {
 		//cheching if lang is empty
 		$lang = isset($_GET['lang']) ? $_GET['lang'] : null;
@@ -16,13 +15,13 @@ require 'defines.php';
 			($_SESSION['lang'] = 'ua');
 		}
 
-		preg_match('/([^.]+)\.taxijoker\.com/', $_SERVER['SERVER_NAME'], $matches);
+/*		preg_match('/([^.]+)\.taxijoker\.com/', $_SERVER['SERVER_NAME'], $matches);
 		if(!isset($matches[1])) {
 			$subdomain = $_SESSION['lang'].".";
-			header("Location: http://".$subdomain.$_SERVER[HTTP_HOST].$_SERVER[SCRIPT_URL],true,302);
+			header("Location: http://".$subdomain.$_SERVER[HTTP_HOST].$_SERVER[SCRIPT_URL],true,301);
 			return false;
 		}
-
+*/
 		header("Access-Control-Allow-Origin: *");
 
 		//checking if url is empty

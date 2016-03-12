@@ -322,3 +322,6 @@ body {
       background: rgba(5,5,5,0.7);
   }
 }
+
+:focus {outline:none;}
+::-moz-focus-inner {border:0;}
