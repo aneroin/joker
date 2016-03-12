@@ -23,14 +23,14 @@
     <meta name="twitter:description" content="<?php echo $data['meta_desc']; ?>">
 
     <!-- CSS  -->
-    <link href="http://taxijoker.dev/min/materialize.css" type="text/css" rel="stylesheet">
-    <link href="http://taxijoker.dev/min/custom.css" type="text/css" rel="stylesheet" >
+    <link href="http://taxijoker.com/min/materialize.css" type="text/css" rel="stylesheet">
+    <link href="http://taxijoker.com/min/custom.css" type="text/css" rel="stylesheet" >
 
     <?php foreach($includes as $includes_entry): ?>
     
 		<?php if ($includes_entry=="joinform") : ?>
 			<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-			<link href="http://taxijoker.dev/min/steps.css" type="text/css" rel="stylesheet" >
+			<link href="http://taxijoker.com/min/steps.css" type="text/css" rel="stylesheet" >
 		<?php endif; ?>
 	
 	<?php endforeach; ?>
@@ -52,27 +52,27 @@
     <nav id="nav_f" class="default_color" role="navigation" data-current-page="<?php echo $data['current_page']; ?>">
         <div class="container">
             <div class="nav-wrapper">
-            <a href="http://taxijoker.dev/m" id="logo-container" class="brand-logo hide-on-large-only">Таксі Джокер</a>
-            <a href="http://taxijoker.dev/m" id="logo-container" class="brand-logo show-on-large"></a>
+            <a href="http://taxijoker.com/m" id="logo-container" class="brand-logo hide-on-large-only">Таксі Джокер</a>
+            <a href="http://taxijoker.com/m" id="logo-container" class="brand-logo show-on-large"></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="http://taxijoker.dev"><?php echo $data['Index']; ?></a></li>
-                    <li><a href="http://taxijoker.dev/prices"><?php echo $data['Prices']; ?></a></li>
-                    <li><a href="http://taxijoker.dev/drivers"><?php echo $data['Drivers']; ?></a></li>
-                    <li><a href="http://taxijoker.dev/dispatchers"><?php echo $data['Dispatchers']; ?></a></li>
-                    <li><a href="http://taxijoker.dev/contacts"><?php echo $data['Contacts']; ?></a></li>
-					<li><a href="http://taxijoker.dev/about">Про нас</a></li>
+                    <li><a href="http://taxijoker.com"><?php echo $data['Index']; ?></a></li>
+                    <li><a href="http://taxijoker.com/prices"><?php echo $data['Prices']; ?></a></li>
+                    <li><a href="http://taxijoker.com/drivers"><?php echo $data['Drivers']; ?></a></li>
+                    <li><a href="http://taxijoker.com/dispatchers"><?php echo $data['Dispatchers']; ?></a></li>
+                    <li><a href="http://taxijoker.com/contacts"><?php echo $data['Contacts']; ?></a></li>
+					<li><a href="http://taxijoker.com/about">Про нас</a></li>
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
-                    <li><a href="http://taxijoker.dev"><?php echo $data['Index']; ?></a></li>
+                    <li><a href="http://taxijoker.com"><?php echo $data['Index']; ?></a></li>
                     <li class="divider"></li>
-                    <li><a href="http://taxijoker.dev/prices"><?php echo $data['Prices']; ?></a></li>
+                    <li><a href="http://taxijoker.com/prices"><?php echo $data['Prices']; ?></a></li>
                     <li class="divider"></li>
-                    <li><a href="http://taxijoker.dev/drivers"><?php echo $data['Drivers']; ?></a></li>
+                    <li><a href="http://taxijoker.com/drivers"><?php echo $data['Drivers']; ?></a></li>
                     <li class="divider"></li>
-                    <li><a href="http://taxijoker.dev/dispatchers"><?php echo $data['Dispatchers']; ?></a></li>
+                    <li><a href="http://taxijoker.com/dispatchers"><?php echo $data['Dispatchers']; ?></a></li>
                     <li class="divider"></li>
-                    <li><a href="http://taxijoker.dev/contacts"><?php echo $data['Contacts']; ?></a></li>
-					<li><a href="http://taxijoker.dev/about">Про нас</a></li>
+                    <li><a href="http://taxijoker.com/contacts"><?php echo $data['Contacts']; ?></a></li>
+					<li><a href="http://taxijoker.com/about">Про нас</a></li>
                 </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
             </div>
@@ -83,9 +83,9 @@
               <?php echo $_SESSION['lang']; ?><i class="large mdi-action-language"></i>
             </a>
             <ul>
-              <a class="btn-floating btn-large deep-orange darken-1" href="http://taxijoker.dev/language.php?lang=ua">UA</a>
-              <a class="btn-floating btn-large deep-orange darken-2" href="http://taxijoker.dev/language.php?lang=ru">RU</a>
-              <a class="btn-floating btn-large deep-orange darken-3" href="http://taxijoker.dev/language.php?lang=eng">ENG</a>
+              <a class="btn-floating btn-large deep-orange darken-1" href="http://taxijoker.com/language.php?lang=ua">UA</a>
+              <a class="btn-floating btn-large deep-orange darken-2" href="http://taxijoker.com/language.php?lang=ru">RU</a>
+              <a class="btn-floating btn-large deep-orange darken-3" href="http://taxijoker.com/language.php?lang=eng">ENG</a>
             </ul>
         </div>
         <div class="fixed-action-btn horizontal click-to-toggle hide-on-med-and-down" style="top: 165px; right: 24px;">
@@ -93,8 +93,8 @@
               <?php echo $_SESSION['local']; ?><i class="large mdi-communication-location-on"></i>
             </a>
             <ul>
-              <a class="btn-floating btn-large amber darken-2" href="http://taxijoker.dev/language.php?local=te">TE</a>
-              <a class="btn-floating btn-large amber darken-3" href="http://taxijoker.dev/language.php?local=lu">LU</a>
+              <a class="btn-floating btn-large amber darken-2" href="http://taxijoker.com/language.php?local=te">TE</a>
+              <a class="btn-floating btn-large amber darken-3" href="http://taxijoker.com/language.php?local=lu">LU</a>
             </ul>
         </div>
     </nav>

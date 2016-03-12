@@ -1,3 +1,3 @@
 <?php
-  define('URL', 'http://taxijoker.dev/');
+  define('URL', 'http://taxijoker.com/');
 ?>

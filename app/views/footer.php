@@ -29,7 +29,7 @@
                 </form>
             </div>
             <div class="col l3 s12">
-                <h5 class="white-text">taxijoker.dev</h5>
+                <h5 class="white-text">taxijoker.com</h5>
                 <ul>
                     <li><a class="white-text" href="tel:828">call 828 (callback)</a></li>
                     <li><a class="white-text" href="tel:0352401401">call (0352) 401-401 ternopil</a></li>
@@ -39,11 +39,11 @@
             <div class="col l3 s12">
                 <h5 class="white-text">Localizations</h5>
                  <ul>
-                    <li><a class="white-text" href="http://taxijoker.dev/language.php?local=te"><?php echo $data['local_te']; ?></a></li>
-                    <li><a class="white-text" href="http://taxijoker.dev/language.php?local=lu"><?php echo $data['local_lu']; ?></a></li>
-                    <li><a class="white-text" href="http://taxijoker.dev/language.php?lang=eng"><?php echo $data['lang_en']; ?></a></li>
-                    <li><a class="white-text" href="http://taxijoker.dev/language.php?lang=ua"><?php echo $data['lang_ua']; ?></a></li>
-                    <li><a class="white-text" href="http://taxijoker.dev/language.php?lang=ru"><?php echo $data['lang_ru']; ?></a></li>
+                    <li><a class="white-text" href="http://taxijoker.com/language.php?local=te"><?php echo $data['local_te']; ?></a></li>
+                    <li><a class="white-text" href="http://taxijoker.com/language.php?local=lu"><?php echo $data['local_lu']; ?></a></li>
+                    <li><a class="white-text" href="http://taxijoker.com/language.php?lang=eng"><?php echo $data['lang_en']; ?></a></li>
+                    <li><a class="white-text" href="http://taxijoker.com/language.php?lang=ua"><?php echo $data['lang_ua']; ?></a></li>
+                    <li><a class="white-text" href="http://taxijoker.com/language.php?lang=ru"><?php echo $data['lang_ru']; ?></a></li>
                 </ul>
             </div>
         </div>
@@ -57,39 +57,39 @@
 
 
     <!--  Scripts-->
-    <script src="http://taxijoker.dev/min/plugin.js"></script>
-    <script src="http://taxijoker.dev/min/preloader.js"></script>
-    <script src="http://taxijoker.dev/min/custom.js"></script>
-    <script src="http://taxijoker.dev/min/geo.js"></script>
+    <script src="http://taxijoker.com/min/plugin.js"></script>
+    <script src="http://taxijoker.com/min/preloader.js"></script>
+    <script src="http://taxijoker.com/min/custom.js"></script>
+    <script src="http://taxijoker.com/min/geo.js"></script>
 	
 	<?php foreach($includes as $includes_entry): ?>
     
 		<?php if ($includes_entry=="callform") : ?>
 			<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
-			<script src="http://taxijoker.dev/min/typeahead.js"></script>
-			<script src="http://taxijoker.dev/min/addresspicker.js"></script>
-			<script src="http://taxijoker.dev/jquery/formprocess.js"></script>
+			<script src="http://taxijoker.com/min/typeahead.js"></script>
+			<script src="http://taxijoker.com/min/addresspicker.js"></script>
+			<script src="http://taxijoker.com/jquery/formprocess.js"></script>
 		<?php endif; ?>
 		
 		<?php if ($includes_entry=="joinform") : ?>
-			<script src="http://taxijoker.dev/jquery/jquery.validate.js"></script>
-			<script src="http://taxijoker.dev/jquery/jquery.validate.additional-methods.js"></script>
-			<script src="http://taxijoker.dev/jquery/jquery.ui.widget.js"></script>
-			<script src="http://taxijoker.dev/jquery/jquery.iframe-transport.js"></script>
-			<script src="http://taxijoker.dev/jquery/jquery.fileupload.js"></script>
-			<script src="http://taxijoker.dev/jquery/jquery.fileupload-image.js"></script>
+			<script src="http://taxijoker.com/jquery/jquery.validate.js"></script>
+			<script src="http://taxijoker.com/jquery/jquery.validate.additional-methods.js"></script>
+			<script src="http://taxijoker.com/jquery/jquery.ui.widget.js"></script>
+			<script src="http://taxijoker.com/jquery/jquery.iframe-transport.js"></script>
+			<script src="http://taxijoker.com/jquery/jquery.fileupload.js"></script>
+			<script src="http://taxijoker.com/jquery/jquery.fileupload-image.js"></script>
 		<?php endif; ?>
 		
 		<?php if ($includes_entry=="driver") : ?>
-			<script src="http://taxijoker.dev/min/typeahead.js"></script>
-			<script src="http://taxijoker.dev/jquery/carvendors.bloodhound.js"></script>
-			<script src="http://taxijoker.dev/jquery/tinycolor.js"></script>
-			<script src="http://taxijoker.dev/jquery/colorengine.js"></script>
-			<script src="http://taxijoker.dev/jquery/driverprocess.js"></script>
+			<script src="http://taxijoker.com/min/typeahead.js"></script>
+			<script src="http://taxijoker.com/jquery/carvendors.bloodhound.js"></script>
+			<script src="http://taxijoker.com/jquery/tinycolor.js"></script>
+			<script src="http://taxijoker.com/jquery/colorengine.js"></script>
+			<script src="http://taxijoker.com/jquery/driverprocess.js"></script>
 		<?php endif; ?>
 		
 		<?php if ($includes_entry=="dispatcher") : ?>
-			<script src="http://taxijoker.dev/jquery/dispatcherprocess.js"></script>
+			<script src="http://taxijoker.com/jquery/dispatcherprocess.js"></script>
 		<?php endif; ?>
 		
 	<?php endforeach; ?>

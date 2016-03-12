@@ -97,7 +97,7 @@
                 </div>
             </div>
             <div class="col s12">
-                <button class="btn waves-effect waves-light yellow darken-4" onclick="document.location.href='http://taxijoker.dev/m/prices'">> Детальніше </button>
+                <button class="btn waves-effect waves-light yellow darken-4" onclick="document.location.href='http://taxijoker.com/m/prices'">> Детальніше </button>
             </div>
         </div>
     </div>
@@ -203,7 +203,7 @@
                             <small><em><a class="grey-text text-darken-1" href="#"><?php echo $data['driver-info']; ?></a></em></small></span>
                     </div>
                     <div class="card-action">
-                        <a href="http://taxijoker.dev/mdrivers/join"> <?php echo $data['driver-info-action']; ?> </a>
+                        <a href="http://taxijoker.com/drivers/join"> <?php echo $data['driver-info-action']; ?> </a>
                     </div>
                 </div>
             </div>
@@ -219,7 +219,7 @@
                             <small><em><a class="grey-text text-darken-1" href="#"><?php echo $data['dispatcher-info']; ?></a></em></small></span>
                     </div>
                     <div class="card-action">
-                        <a href="http://taxijoker.dev/mdispatchers/join"> <?php echo $data['dispatcher-info-action']; ?> </a>
+                        <a href="http://taxijoker.com/dispatchers/join"> <?php echo $data['dispatcher-info-action']; ?> </a>
                     </div>
                 </div>
             </div>

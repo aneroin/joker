@@ -2,7 +2,7 @@ function getLocation() {
 	if (!isLocated()) {
 	    if (navigator.geolocation) {
 	        navigator.geolocation.getCurrentPosition(function(position) {
-				location.href="http://taxijoker.dev/language.php?lat="+position.coords.latitude+"&lon="+position.coords.longitude;
+				location.href="http://taxijoker.com/language.php?lat="+position.coords.latitude+"&lon="+position.coords.longitude;
 			});
 			console.log("Geolocation done.");
 	    } else {
