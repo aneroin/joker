@@ -111,7 +111,7 @@
 			var xhr = $.ajax({
 		        type: "POST",
 		        crossDomain: true,
-		        url: "http://"+window.location.hostname+"/mdrivers/driverform/"+step,
+		        url: "http://"+window.location.hostname+"/drivers/driverform/"+step,
 		    })
 		    .done(function(data) {
 		        console.log('Form ok');
@@ -157,7 +157,7 @@
 			var xhr = $.ajax({
 		        type: "POST",
 		        crossDomain: true,
-		        url: "http://"+window.location.hostname+"/mdrivers/driverform/"+step,
+		        url: "http://"+window.location.hostname+"/drivers/driverform/"+step,
 		    })
 		    .done(function(data) {
 		        console.log('Form ok');

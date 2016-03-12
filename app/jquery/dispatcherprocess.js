@@ -105,7 +105,7 @@
 			var xhr = $.ajax({
 		        type: "POST",
 	        crossDomain: true,
-		        url: "http://"+window.location.hostname+"/mdispatchers/dispatcherform/"+step,
+		        url: "http://"+window.location.hostname+"/dispatchers/dispatcherform/"+step,
 		    })
 		    .done(function(data) {
 		        console.log('Form ok');
@@ -149,7 +149,7 @@
 			var xhr = $.ajax({
 		        type: "POST",
 	        crossDomain: true,
-		        url: "http://"+window.location.hostname+"/mdispatchers/dispatcherform/"+step,
+		        url: "http://"+window.location.hostname+"/dispatchers/dispatcherform/"+step,
 		    })
 		    .done(function(data) {
 		        console.log('Form ok');
