@@ -1,11 +1,31 @@
 <?php
+session_set_cookie_params(0, '/', '.taxijoker.com');
 session_start();
 //adding environment defines
 require 'defines.php';
   class App {
   	//constructor
+  	//avi,bmp,png,css,doc,gif,htm,html,ico,jpeg,jpg,js,mp3,swf,txt,xls,zip,wml,wmlc,wmls,wmlsc,wbmp,fla,flv,xml,mpg,mpeg,pdf,woff,eot,otf,svg,ttf
 	public function __construct() {
-		//cheching if url is empty
+		//cheching if lang is empty
+		$lang = isset($_GET['lang']) ? $_GET['lang'] : null;
+		if ($lang != null) {
+			$_SESSION['lang'] = $lang;
+		} else {
+			if (!isset($_SESSION['lang']))
+			($_SESSION['lang'] = 'ua');
+		}
+
+		preg_match('/([^.]+)\.taxijoker\.com/', $_SERVER['SERVER_NAME'], $matches);
+		if(!isset($matches[1])) {
+			$subdomain = $_SESSION['lang'].".";
+			header("Location: http://".$subdomain.$_SERVER[HTTP_HOST].$_SERVER[SCRIPT_URL],true,302);
+			return false;
+		}
+
+		header("Access-Control-Allow-Origin: *");
+
+		//checking if url is empty
 		$url = isset($_GET['url']) ? $_GET['url'] : null;
 	    $url = rtrim($url, '/');
 	    $url = explode('/', $url);

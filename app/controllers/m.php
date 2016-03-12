@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 	class M extends Controller  {
 		public function __construct($locale = null) {
 			parent::__construct();
@@ -9,11 +9,8 @@ session_start();
 			$title = "Taxi Joker";
 			//if locale param is set - setting up session variables
 			if (isset($locale)) {
-				$_SESSION['lang'] = $locale['0'];
-				$_SESSION['local'] = $locale['1'];
+				$_SESSION['local'] = $locale;
 			} else {
-				if (!isset($_SESSION['lang']))
-					$_SESSION['lang'] = 'ua';
 				if (!isset($_SESSION['local']))
 					$_SESSION['local'] = 'te';
 			}

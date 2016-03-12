@@ -4,6 +4,7 @@ $(document).ready(function() {
     //var formated_date = now.format("yyyy-mm-dd");
     console.log(formatDate(now));
     $('#advanced').val(formatDate(now));
+    $('#captcha').html('<img src=\'http://taxijoker.dyndns.org/taxi/captcha.php?num='+Math.random()+'\'>');
 });
 
     function formatDate(d) {
@@ -40,14 +41,14 @@ $(document).ready(function() {
             };
             //prepare form
             var xhr = $.ajax({
-                headers: { 'Access-Control-Allow-Origin':'http://taxijoker.dyndns.org/' },
-                type: "POST",
+                type: 'GET',
+                headers: { 'Access-Control-Allow-Origin':'http://taxijoker.dyndns.org/' },               
                 jsonp: 'jsonp_callback',
                 dataType: 'jsonp',
-                crossDomain: true,
+                //crossDomain: true,
                 url: "http://taxijoker.dyndns.org/taxi/info.php",
                 data: formData,
-                jsonpCallback: "new_site_order",
+                jsonpCallback: "new_site_order"
             })
             .done(function(data) {
                 console.log('Замовлення пройшло!');
@@ -56,6 +57,8 @@ $(document).ready(function() {
             .fail(function(jqXHR, textStatus, errorThrown) {
                 console.log('Сервіс недоступний!');
                 errorThrower(jqXHR.status);
+                console.log(this);
+                console.log(jqXHR);
             })
             .always(function() {
                 $('.callform #submit-call-taxi').removeClass('disabled');
@@ -94,6 +97,9 @@ $(document).ready(function() {
                     } else
                     if (errorcodes=='404'){
                         console.log('Файл не найден!');
+                        if (!(typeof Materialize === 'undefined')) {
+                            Materialize.toast('Помилка 404!', 4000);
+                        }
                         $('.callform #submit-group').addClass('has-error');
                         $('.callform #submit-group').append('<div class="help-block">' + "ERROR: 404" + '</div>');
                     } else
@@ -106,6 +112,9 @@ $(document).ready(function() {
                         $('#home').val('');
                         $('#entrance').val('');
                         $('#message').val('');
+                        if (!(typeof Materialize === 'undefined')) {
+                            Materialize.toast('Таксі замовлено!', 4000);
+                        }
                         $('.callform .form-group').addClass('has-success');
                         //success
                         $('.callform').prepend('<div class="alert alert-success">' + "success" + '</div>');
@@ -139,4 +148,53 @@ $(document).ready(function() {
             return false;
         }
         return true;
+    }
+  
+    var cityBounds = getCityInfo($('#sattlement').val());
+
+    var streetPicker = new AddressPicker({
+        remote: 'fakeRemote',
+        autocompleteService: {
+            bounds: cityBounds,
+            types: ['address'], 
+            componentRestrictions: { country: 'UA' }
+        }
+    }, $('#sattlement').val());
+
+    $('#sattlement').bind('blur', function(){ 
+        cityBounds = getCityInfo($('#sattlement').val())
+            streetPicker = new AddressPicker({
+            remote: 'fakeRemote',
+            autocompleteService: {
+                bounds: cityBounds,
+                types: ['address'], 
+                componentRestrictions: { country: 'UA' }
+            }
+        }, $('#sattlement').val());
+    });
+
+    $('#street').typeahead({   
+        hint: true,
+        highlight: true,
+        minLength: 1
+      }, {
+        displayKey: 'terms',
+        source: streetPicker.ttAdapter()
+    }).unwrap();
+
+
+    function getCityInfo(city) {
+        // Check if input is not empty
+        if (city.length < 1) {
+            return;
+        }
+        var geocoder = new google.maps.Geocoder();
+        geocoder.geocode(
+            { 'address': city },
+            function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    return results[0].geometry.bounds;
+                }
+            }
+        );
     }

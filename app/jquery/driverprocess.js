@@ -30,8 +30,9 @@
 
 		var xhr = $.ajax({
 	        type: "POST",
+	        crossDomain: true,
 	        dataType: 'json',
-	        url: "http://taxijoker.com/sms.php",
+	        url: "http://"+window.location.hostname+"/sms.php",
 	        data: formData
 	    })
 	    .done(function(data) {
@@ -62,8 +63,9 @@
 
 		var xhr = $.ajax({
 	        type: "POST",
+	        crossDomain: true,
 	        dataType: 'json',
-	        url: "http://taxijoker.com/sms_check.php",
+	        url: "http://"+window.location.hostname+"/sms_check.php",
 	        data: formData
 	    })
 	    .done(function(data) {
@@ -100,7 +102,8 @@
 
 			var xhr = $.ajax({
 		        type: "POST",
-		        url: "http://taxijoker.com/drivers/driverform/"+step,
+		        crossDomain: true,
+		        url: "http://"+window.location.hostname+"/drivers/driverform/"+step,
 		    })
 		    .done(function(data) {
 		        console.log('Form ok');
@@ -132,7 +135,8 @@
 
 			var xhr = $.ajax({
 		        type: "POST",
-		        url: "http://taxijoker.com/drivers/driverform/"+step,
+		        crossDomain: true,
+		        url: "http://"+window.location.hostname+"/drivers/driverform/"+step,
 		    })
 		    .done(function(data) {
 		        console.log('Form ok');
@@ -155,8 +159,9 @@
 			console.log(driver_info);
 			var xhr = $.ajax({
 		        type: "POST",
+		        crossDomain: true,
 		        dataType: 'json',
-		        url: "http://taxijoker.com/driver_join.php",
+		        url: "http://"+window.location.hostname+"/driver_join.php",
 		        data: driver_info
 		    })
 		    .done(function(data) {

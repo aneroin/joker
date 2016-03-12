@@ -1,18 +1,24 @@
-	var dispatcher_info = {
+	var driver_info = {
 		phone 	: '',
 		lname 	: '',
 		fname 	: '',
 		mname 	: '',
+		carvendor : '',
+		carmodel  : '',
+		carcolor  : '',
+		carhex	: '',
+		carnumber : '',		
 		city  	: '',
 		street	: '',
 		house		: '',
-		apartment	: '-',
+		apartment	: '',
 		photoportrait : '',
+		photocar : '',
 		accept : false
 	};
 
 	$(document).ready(function(){
-		dispatcher_form_next(0);
+		driver_form_next(0);
 	});
 
 	function sms(){
@@ -32,7 +38,7 @@
 	    .done(function(data) {
 	    	if (data['response']=='1'){
 			    console.log('SMS ok');
-			    $("#dispatcher-form-content").after('<div class="alert alert-success fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>SMS:</strong> Code sent successfully, wait a bit.</div>');
+			    $("#driver-form-content").after('<div class="alert alert-success fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>SMS:</strong> Code sent successfully, wait a bit.</div>');
 			} else {
 				console.log('SMS error');
 				console.log(data['exception']);
@@ -47,7 +53,7 @@
 	    });
 	};
 
-	function dispatcher_form_start(){
+	function driver_form_start(){
 		var formData = {
 			'phone'		: $('#phone').val(),
 			'smscode'	: $('#smscode').val()
@@ -65,15 +71,15 @@
 	    .done(function(data) {
 	    	if (data['response']=='1') {
 		    	console.log('SMS CODE ok');
-				dispatcher_form_next(1);
+				driver_form_next(1);
 			} else {
 				if (data['code']=='901') {
 					console.log('SMS CODE error: wrong data');
-					$("#dispatcher-form-content").after('<div class="alert alert-warning fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>SMS:</strong> Wrong phone number format or code format.</div>');
+					$("#driver-form-content").after('<div class="alert alert-warning fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>SMS:</strong> Wrong phone number format or code format.</div>');
 				}
 				if (data['code']=='902') {
 					console.log('SMS CODE error: code not found or expired');
-					$("#dispatcher-form-content").after('<div class="alert alert-warning fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>SMS:</strong> Wrong or expired code. Try again or send another code.</div>');
+					$("#driver-form-content").after('<div class="alert alert-warning fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>SMS:</strong> Wrong or expired code. Try again or send another code.</div>');
 				}
 				console.log(data);
 			}
@@ -84,7 +90,7 @@
 	    });
 	};
 
-	function dispatcher_form_next(step){
+	function driver_form_next(step){
 		if(validate_form(step)==true) {
 			write_data(step);
 
@@ -96,15 +102,16 @@
 
 			var xhr = $.ajax({
 		        type: "POST",
-	        crossDomain: true,
-		        url: "http://"+window.location.hostname+"/dispatchers/dispatcherform/"+step,
+		        crossDomain: true,
+		        url: "http://"+window.location.hostname+"/mdrivers/driverform/"+step,
 		    })
 		    .done(function(data) {
 		        console.log('Form ok');
 		        $('#step-'+(step-1)).addClass("label-success");
-		        $('#dispatcher-form-content').html(data);
+		        $('#driver-form-content').html(data);
+		        initialize_typeahead('#car-group .typeahead');
 		        read_data(step);
-		        if (step == 3) {
+		        if (step == 4) {
 					uploader('#photos');
 				}
 		    })
@@ -118,8 +125,8 @@
 		}
 	};
 
-	function dispatcher_form_prev(step){
-			console.log(dispatcher_info);
+	function driver_form_prev(step){
+			console.log(driver_info);
 			$(".step-displayer>li").each(function() {
 				$( this ).html('<span>'+$(this).data('cap-s')+'</span>').addClass("label label-default");
 			});
@@ -128,13 +135,14 @@
 
 			var xhr = $.ajax({
 		        type: "POST",
-	        crossDomain: true,
-		        url: "http://"+window.location.hostname+"/dispatchers/dispatcherform/"+step,
+		        crossDomain: true,
+		        url: "http://"+window.location.hostname+"/mdrivers/driverform/"+step,
 		    })
 		    .done(function(data) {
 		        console.log('Form ok');
 		        $('#step-'+(step-1)).addClass("label-success");
-		        $('#dispatcher-form-content').html(data);
+		        $('#driver-form-content').html(data);
+		        initialize_typeahead('#car-group .typeahead');
 		        read_data(step);
 		    })
 		    .fail(function(jqXHR, textStatus, errorThrown) {
@@ -145,28 +153,28 @@
 		
 	};
 
-	function dispatcher_form_finally(){
-		if(validate_form(4)==true) {
-			write_data(4);
-			console.log(dispatcher_info);
+	function driver_form_finally(){
+		if(validate_form(5)==true) {
+			write_data(5);
+			console.log(driver_info);
 			var xhr = $.ajax({
 		        type: "POST",
-	        crossDomain: true,
+		        crossDomain: true,
 		        dataType: 'json',
-		        url: "http://"+window.location.hostname+"/dispatcher_join.php",
-		        data: dispatcher_info
+		        url: "http://"+window.location.hostname+"/driver_join.php",
+		        data: driver_info
 		    })
 		    .done(function(data) {
 		    	if (data['response']=='1') {
-			    	console.log('DISPATCHER JOIN ok');
-			    	redirect('Реєстрація пройшла успішно, бажаєте переглянути список наших диспетчерів?','/dispatchers/all','/dispatchers')
+			    	console.log('DRIVER JOIN ok');
+			    	redirect('Реєстрація пройшла успішно, бажаєте переглянути список наших водіїв?','/drivers/all','/drivers')
 				} else {
-					console.log('DISPATCHER JOIN error');
+					console.log('DRIVER JOIN error');
 					console.log(data);
 				}
 		    })
 		    .fail(function(jqXHR, textStatus, errorThrown) {
-		        console.log('DISPATCHER JOIN fail');
+		        console.log('DRIVER JOIN fail');
 		        console.log(jqXHR);
 		        console.log(errorThrown);
 			});
@@ -175,7 +183,7 @@
 
 
 	function validate_form(step) {
-		var validator = $("#dispatcher-form-content").validate({
+		var validator = $("#driver-form-content").validate({
 						    modules : 'html5, location, date, security, file',
 						    onModulesLoaded : function() {	},
 						    errorPlacement: function(error, element) {
@@ -192,24 +200,33 @@
 	function write_data(step){
 		switch (step) {
 			case 1: {
-				dispatcher_info["phone"] = $('#phone').val();
+				driver_info["phone"] = $('#phone').val();
 				break;
 			}
 			case 2: {
-				dispatcher_info["fname"] = $('#fname').val();
-				dispatcher_info["mname"] = $('#mname').val();
-				dispatcher_info["lname"] = $('#lname').val();
-				dispatcher_info["accept"] = $('#accept').prop('checked');
+				driver_info["fname"] = $('#fname').val();
+				driver_info["mname"] = $('#mname').val();
+				driver_info["lname"] = $('#lname').val();
+				driver_info["accept"] = $('#accept').prop('checked');
 				break;
 			}
 			case 3: {
-				dispatcher_info["city"] = $('#city').val();
-				dispatcher_info["street"] = $('#street').val();
-				dispatcher_info["house"] = $('#house').val();
-				dispatcher_info["apartment"] = $('#apartment').val()!= '' ? $('#apartment').val() : '-';
+				driver_info["carvendor"] = $('#carvendor').val();
+				driver_info["carmodel"] = $('#carmodel').val();
+				driver_info["carhex"] = $('#carcolor').val();
+				driver_info["carcolor"] = colorEngine.name(driver_info["carhex"]);
+				driver_info["carnumber"] = $('#carnumber').val();
+				break;
 			}
 			case 4: {
-				dispatcher_info["photoportrait"] = $('#photos').data("imgurl-1");
+				driver_info["city"] = $('#city').val();
+				driver_info["street"] = $('#street').val();
+				driver_info["house"] = $('#house').val();
+				driver_info["apartment"] = $('#apartment').val()!= '' ? $('#apartment').val() : '-';
+			}
+			case 5: {
+				driver_info["photoportrait"] = $('#photos').data("imgurl-1");
+				driver_info["photocar"] = $('#photos').data("imgurl-1");
 			}
 		}
 	}
@@ -217,20 +234,36 @@
 	function read_data(step){
 		switch (step) {
 			case 1: {
-				$('#fname').val(dispatcher_info["fname"]);
-				$('#mname').val(dispatcher_info["mname"]);
-				$('#lname').val(dispatcher_info["lname"]);
-				$('#accept').prop('checked', dispatcher_info["accept"]);
+				$('#fname').val(driver_info["fname"]);
+				$('#mname').val(driver_info["mname"]);
+				$('#lname').val(driver_info["lname"]);
+				$('#accept').prop('checked', driver_info["accept"]);
 				break;
 			}
 			case 2: {
-				$('#city').val(dispatcher_info["city"]);
-				$('#street').val(dispatcher_info["street"]);
-				$('#house').val(dispatcher_info["house"]);
-				var apartment = dispatcher_info["apartment"] != '-' ? dispatcher_info["apartment"] : '';
+				$('#carvendor').val(driver_info["carvendor"]);
+				$('#carmodel').val(driver_info["carmodel"]);
+				$('#carcolor').val(driver_info["carhex"]);
+				$('#carnumber').val(driver_info["carnumber"]);
+				break;
+			}
+			case 3: {
+				$('#city').val(driver_info["city"]);
+				$('#street').val(driver_info["street"]);
+				$('#house').val(driver_info["house"]);
+				var apartment = driver_info["apartment"] != '-' ? driver_info["apartment"] : '';
 				$('#apartment').val(apartment);
+				break;
 			}
 		}
+		$('input[type=text]').each(function(){
+		    if ($(this).val()!="") {
+		    	var label = $("label[for='"+$(this).attr('id')+"']");
+		    	if (!label.hasClass("active")) {
+		    		label.addClass("active");
+		    	}
+		    }
+		})
 	}
 
 	function redirect(message, location_t, location_f) {
@@ -248,12 +281,11 @@
 		        dataType: 'json',
 		        add: function (e, data) {
 		            console.log('uploading');
-		            data.formData = {phoneID: dispatcher_info["phone"]};
+		            data.formData = {phoneID: driver_info["phone"]};
 		            data.submit();
 		        },
 		        done: function (e, data) {
 		            console.log('upload finished');
-		            console.log(data);
 		            $.each(data.result.files, function (index, file) {
 		                $(id).data("imgurl-"+(index+1),file.url);
 		            });
@@ -286,8 +318,4 @@
 				console.log('upload failed');
 			});
 		});
-	}
-
-	function getSessId() {
-	    return dispatcher_info['phone'];
 	}

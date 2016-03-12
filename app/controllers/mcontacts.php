@@ -1,12 +1,12 @@
 <?php
-session_start();
-	class Contacts extends Controller  {
+//session_start();
+	class Mcontacts extends Controller  {
 		public function __construct($locale = null) {
 			parent::__construct();
 		}
 
 		public function Index($locale = null) {
-			$title = "Taxi Joker - contacts";
+			$title = "Таксі Джокер - Контакти";
 			//if locale param is set - setting up session variables
 			if (isset($locale)) {
 				$_SESSION['local'] = $locale;
@@ -15,11 +15,11 @@ session_start();
 					$_SESSION['local'] = 'te';
 			}
 			//connecting to the model
-			require 'models/contacts_model.php';
+			require 'models/mcontacts_model.php';
 			//model init with locale params from sessing variables
-    		$model = new Contacts_Model($_SESSION['lang'],$_SESSION['local']);
+    		$model = new Mcontacts_Model($_SESSION['lang'],$_SESSION['local']);
     		//rendering index page
-			$this->view->render('contacts/index',$model->data,$title);
+			$this->view->display('material/contacts/index',$model->data,$title,true,false);
 		}
 	}
 ?>

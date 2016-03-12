@@ -8,10 +8,14 @@ session_start();
 	$lat = $_GET['lat'];
 	$lon = $_GET['lon'];
 	//rewriting session vars
-	if (isset($lang))
-	$_SESSION['lang'] = $lang;
-	if (isset($local))
-	$_SESSION['local'] = $local;
+	if (isset($lang)) {
+		$_SESSION['lang'] = $lang;
+		$geoValue = "true";
+	}
+	if (isset($local)) {
+		$_SESSION['local'] = $local;
+		$geoValue = "true";
+	}
 	//returning
 	if (!(isset($lang) || isset($local))) {
 		if (isset($lat) && isset($lon)) {
@@ -30,8 +34,11 @@ session_start();
 	        } else if (preg_match($regions['ru'],$country)) {
 	        	$_SESSION['lang']="ru";
 	        	$geoValue = "true";
-	        } else {
+	        } else if (preg_match($regions['eng'],$country)) {
 	        	$_SESSION['lang']="eng";
+	        	$geoValue = "true";
+	        } else {
+	        	$_SESSION['lang']="ua";
 	        	$geoValue = "false";
 	        }
 
@@ -45,11 +52,16 @@ session_start();
 	        	$_SESSION['local'] ="te";
 	        	$geoValue = "false";
 	        }
-	        if ($geoValue=="false") 
-	        	setcookie("GeoLocated", $geoValue, time()-3600);
-	        setcookie("GeoLocated", $geoValue, time()+3600*7);
 	    }
 	}
+	
+	if (isset($geoValue)) {
+		if ($geoValue=="false") 
+		    setcookie("GeoLocated", $geoValue, time()+ (3600 * 24), '/', '.taxijoker.com');
+		else 
+		    setcookie("GeoLocated", $geoValue, time() + (10 * 365 * 24 * 60 * 60), '/', '.taxijoker.com');
+	}
+
 	if (isset($ref)) {
 		if ($ref=="no") {
 			echo "town ".$town." county ".$county."<br>";
@@ -58,10 +70,21 @@ session_start();
 			echo "</pre>";
 		}
 		else {
-			header('Location: ' . 'http://taxijoker.com/'.$ref);
+			header('Location: ' . 'http://'.$_SESSION['lang'].'.taxijoker.com/'.$ref);
 		}
 		
 	} else {
-		header('Location: ' . $_SERVER['HTTP_REFERER']);
+		preg_match('/http:\/\/([^.]+)\.taxijoker\.com/', $_SERVER['HTTP_REFERER'], $matches);
+		if(isset($matches[1])) {
+			preg_match('/(\..+$)/', $_SERVER['HTTP_REFERER'], $submatches);
+			if(isset($submatches[1])) {
+				$subdomain = $_SESSION['lang'];
+				$query = $submatches[1];
+				header("Location: http://".$subdomain.$query);
+				return false;
+			}
+		}
+		header('Location: ' . "http://".$_SESSION['lang'].'.taxijoker.com/');
+		return false;
 	}
 ?>

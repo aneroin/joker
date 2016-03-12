@@ -88,32 +88,31 @@
     </nav>
 </div>
 
-
-
-<!--Intro and service-->
-<div id="intro" class="section scrollspy">
+<!--DriverForm-->
+<div class="section scrollspy" id="driverform">
     <div class="container">
+        <h2 class="center header text_b">Форма:</h2>
         <div class="row">
-            <div  class="col s12">
-                <h4 class="center header text_h2"> Lorem ipsum dolor. Sit amet donec lorem elementum posuere lorem adipiscing faucibus. Ut vestibulum amet. Urna ullamcorper wisi. Habitasse faucibus quis. Odio lacus non. Rerum in nam. Fusce orci et. </h4>
+            <div class="col-xs-12 col-md-4 col-md-push-8" id="driver-form-step">
+                <ul class="step-displayer">
+                    <li class="step" id="step-0" data-cap-s="1" data-cap="<?php echo $data['join_step_1'] ?>"> </li>
+                    <li class="step" id="step-1" data-cap-s="2" data-cap="<?php echo $data['join_step_2'] ?>"> </li>
+                    <li class="step" id="step-2" data-cap-s="3" data-cap="<?php echo $data['join_step_3'] ?>"> </li>
+                    <li class="step" id="step-3" data-cap-s="4" data-cap="<?php echo $data['join_step_4'] ?>"> </li>
+                    <li class="step" id="step-4" data-cap-s="5" data-cap="<?php echo $data['join_step_5'] ?>"> </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m8 l6 offset-m2 offset-l3" id="driver-form">
+                <form  role="form" class="driverform" id="driver-form-content">
+
+                </form>
             </div>
         </div>
     </div>
 </div>
 
-<!--abracadabra-->
-<div id="prices" class="section scrollspy">
-    <div class="container">
-        <h2 class="center header text_b">Тарифна сітка</h2>
-        <div class="row center">
-        <div class="col s12 m12 l12">
-			<ul class="collapsible popout" data-collapsible="accordion">
-                <?php echo $data['table'];?>
-			</ul>
-		</div>
-        </div>
-    </div>
-</div>
 
 <!--Footer-->
 <footer id="contact" class="page-footer default_color scrollspy">
@@ -178,6 +177,23 @@
     <script src="http://taxijoker.com/min/preloader.js"></script>
     <script src="http://taxijoker.com/min/custom.js"></script>
     <script src="http://taxijoker.com/min/geo.js"></script>
-    <script src="http://taxijoker.com/jquery/formprocess.js"></script>
+    
+    <script src="http://taxijoker.com/min/typeahead.js"></script>
+    <script src="http://taxijoker.com/jquery/carvendors.bloodhound.js"></script>
+
+    <script src="http://taxijoker.com/jquery/jquery.validate.js"></script>
+    <script src="http://taxijoker.com/jquery/jquery.validate.additional-methods.js"></script>
+
+    <script src="http://taxijoker.com/jquery/tinycolor.js"></script>
+    <script src="http://taxijoker.com/jquery/colorengine.js"></script>
+
+    <script src="http://taxijoker.com/jquery/jquery.ui.widget.js"></script>
+    <script src="http://taxijoker.com/jquery/jquery.iframe-transport.js"></script>
+    <script src="http://taxijoker.com/jquery/jquery.fileupload.js"></script>
+    <script src="http://taxijoker.com/jquery/jquery.fileupload-image.js"></script>
+    
+
+
+    <script src="http://taxijoker.com/jquery/mdriverprocess.js"></script>
     </body>
 </html>

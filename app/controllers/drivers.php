@@ -9,11 +9,8 @@ session_start();
 			$title = "Taxi Joker - drivers";
 			//if locale param is set - setting up session variables
 			if (isset($locale)) {
-				$_SESSION['lang'] = $locale['0'];
-				$_SESSION['local'] = $locale['1'];
+				$_SESSION['local'] = $locale;
 			} else {
-				if (!isset($_SESSION['lang']))
-					$_SESSION['lang'] = 'ua';
 				if (!isset($_SESSION['local']))
 					$_SESSION['local'] = 'te';
 			}
@@ -30,11 +27,8 @@ session_start();
 			parent::__construct();
 			//if locale param is set - setting up session variables
 			if (isset($locale)) {
-				$_SESSION['lang'] = $locale['0'];
-				$_SESSION['local'] = $locale['1'];
+				$_SESSION['local'] = $locale;
 			} else {
-				if (!isset($_SESSION['lang']))
-					$_SESSION['lang'] = 'ua';
 				if (!isset($_SESSION['local']))
 					$_SESSION['local'] = 'te';
 			}
@@ -51,11 +45,8 @@ session_start();
 			parent::__construct();
 			//if locale param is set - setting up session variables
 			if (isset($locale)) {
-				$_SESSION['lang'] = $locale['0'];
-				$_SESSION['local'] = $locale['1'];
+				$_SESSION['local'] = $locale;
 			} else {
-				if (!isset($_SESSION['lang']))
-					$_SESSION['lang'] = 'ua';
 				if (!isset($_SESSION['local']))
 					$_SESSION['local'] = 'te';
 			}
@@ -72,11 +63,8 @@ session_start();
 			parent::__construct();
 			//if locale param is set - setting up session variables
 			if (isset($locale)) {
-				$_SESSION['lang'] = $locale['0'];
-				$_SESSION['local'] = $locale['1'];
+				$_SESSION['local'] = $locale;
 			} else {
-				if (!isset($_SESSION['lang']))
-					$_SESSION['lang'] = 'ua';
 				if (!isset($_SESSION['local']))
 					$_SESSION['local'] = 'te';
 			}

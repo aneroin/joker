@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#F3AE0D">
-    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Taxi Joker</title>
     <meta name="description" content="<?php echo $data['meta_desc']; ?>"/>
     <link rel="icon" type="image/png" href="<?php echo URL; ?>img/favicon_light.png"/>
@@ -23,7 +23,7 @@
     <meta name="twitter:description" content="<?php echo $data['meta_desc']; ?>">
 
     <!-- CSS  -->
-    <link href="http://taxijoker.com/min/plugin.css" type="text/css" rel="stylesheet">
+    <link href="http://taxijoker.com/min/materialize.css" type="text/css" rel="stylesheet">
     <link href="http://taxijoker.com/min/custom.css" type="text/css" rel="stylesheet" >
 </head>
 <body id="top" class="scrollspy">
@@ -39,34 +39,54 @@
 
 <!--Navigation-->
  <div class="navbar-fixed">
-    <nav id="nav_f" class="default_color" role="navigation">
+    <nav id="nav_f" class="default_color" role="navigation" data-current-page="<?php echo $data['current_page']; ?>">
         <div class="container">
             <div class="nav-wrapper">
             <a href="http://taxijoker.com/m" id="logo-container" class="brand-logo">Таксі Джокер</a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="http://taxijoker.com/m">Головна</a></li>
-                    <li><a href="http://taxijoker.com/m/prices">Тарифи</a></li>
-                    <li><a href="#!">Водії</a></li>
-                    <li><a href="#!">Диспетчери</a></li>
-                    <li><a href="http://taxijoker.com/m/contacts">Наші контакти</a></li>
+                    <li><a href="http://taxijoker.com/m"><?php echo $data['Index']; ?></a></li>
+                    <li><a href="http://taxijoker.com/mprices"><?php echo $data['Prices']; ?></a></li>
+                    <li><a href="http://taxijoker.com/mdrivers"><?php echo $data['Drivers']; ?></a></li>
+                    <li><a href="#!"><?php echo $data['Dispatchers']; ?></a></li>
+                    <li><a href="http://taxijoker.com/mcontacts"><?php echo $data['Contacts']; ?></a></li>
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
-                    <li><a href="http://taxijoker.com/m">Головна</a></li>
+                    <li><a href="http://taxijoker.com/m"><?php echo $data['Index']; ?></a></li>
                     <li class="divider"></li>
-                    <li><a href="http://taxijoker.com/m/prices">Тарифи</a></li>
+                    <li><a href="http://taxijoker.com/mprices"><?php echo $data['Prices']; ?></a></li>
                     <li class="divider"></li>
-                    <li><a href="#!">Водії</a></li>
+                    <li><a href="http://taxijoker.com/mdrivers"><?php echo $data['Drivers']; ?></a></li>
                     <li class="divider"></li>
-                    <li><a href="#!">Диспетчери</a></li>
+                    <li><a href="#!"><?php echo $data['Dispatchers']; ?></a></li>
                     <li class="divider"></li>
-                    <li><a href="http://taxijoker.com/m/contacts">Наші контакти</a></li>
+                    <li><a href="http://taxijoker.com/mcontacts"><?php echo $data['Contacts']; ?></a></li>
                 </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
             </div>
         </div>
 
+        <div class="fixed-action-btn horizontal click-to-toggle hide-on-med-and-down" style="top: 85px; right: 24px;">
+            <a class="btn-floating btn-large deep-orange darken-4">
+              <?php echo $_SESSION['lang']; ?><i class="large mdi-action-language"></i>
+            </a>
+            <ul>
+              <a class="btn-floating btn-large deep-orange darken-1" href="http://taxijoker.com/language.php?lang=ua">UA</a>
+              <a class="btn-floating btn-large deep-orange darken-2" href="http://taxijoker.com/language.php?lang=ru">RU</a>
+              <a class="btn-floating btn-large deep-orange darken-3" href="http://taxijoker.com/language.php?lang=eng">ENG</a>
+            </ul>
+        </div>
+        <div class="fixed-action-btn horizontal click-to-toggle hide-on-med-and-down" style="top: 165px; right: 24px;">
+            <a class="btn-floating btn-large amber darken-4">
+              <?php echo $_SESSION['local']; ?><i class="large mdi-communication-location-on"></i>
+            </a>
+            <ul>
+              <a class="btn-floating btn-large amber darken-2" href="http://taxijoker.com/language.php?local=te">TE</a>
+              <a class="btn-floating btn-large amber darken-3" href="http://taxijoker.com/language.php?local=lu">LU</a>
+            </ul>
+        </div>
     </nav>
 </div>
+
 
 <!--Intro and service-->
 <div id="intro" class="section scrollspy">
@@ -84,62 +104,13 @@
     <div class="container">
         <h2 class="center header text_b">Контакти</h2>
         <div class="row center">
-	        <div class="col s12 m4 l3">
-				<div class="card">
-			        <div class="card-content">
-			        	<p class="card-title grey-text text-darken-4">Мобільний телефон</p>
-			        	<p class="card-action grey-text text-darken-2"><a href="tel:0974769393">0974769393</a></p>
-			        </div>
-				</div>
-			</div>
-			<div class="col s12 m4 l3">
-				<div class="card">
-			        <div class="card-content">
-			        	<p class="card-title grey-text text-darken-4">Мобільний телефон</p>
-			        	<p class="card-action grey-text text-darken-2"><a href="tel:0634769393">0634769393</a></p>
-			        </div>
-				</div>
-			</div>
-			<div class="col s12 m4 l3">
-				<div class="card">
-			        <div class="card-content">
-			        	<p class="card-title grey-text text-darken-4">Мобільний телефон</p>
-			        	<p class="card-action grey-text text-darken-2"><a href="tel:0664769393">0664769393</a></p>
-			        </div>
-				</div>
-			</div>
-			<div class="col s12 m4 l3">
-				<div class="card">
-			        <div class="card-content">
-			        	<p class="card-title grey-text text-darken-4">Стільниковий телефон</p>
-			        	<p class="card-action grey-text text-darken-2"><a href="tel:0352401401">0352401401</a></p>
-			        </div>
-				</div>
-			</div>
-			<div class="col s12 m4 l3">
-				<div class="card">
-			        <div class="card-content">
-			        	<p class="card-title grey-text text-darken-4">Callback з мобільного</p>
-			        	<p class="card-action grey-text text-darken-2"><a href="tel:828">828</a></p>
-			        </div>
-				</div>
-			</div>
-			<div class="col s12 m4 l3">
-				<div class="card">
-			        <div class="card-content">
-			        	<p class="card-title grey-text text-darken-4">Інформаційний центр</p>
-			        	<p class="card-action grey-text text-darken-2"><a href="mailto:info@taxijoker.com">info@taxijoker.com</a></p>
-			        </div>
-				</div>
-			</div>
-			<div class="col s12 m4 l3">
-				<div class="card">
-			        <div class="card-content">
-			        	<p class="card-title grey-text text-darken-4">Технічна адреса</p>
-			        	<p class="card-action grey-text text-darken-2"><a href="mailto:ua828ua@gmail.com">ua828ua@gmail.com</a></p>
-			        </div>
-				</div>
-			</div>
+            <?php 
+            foreach ($data['contacts'] as $row) {
+                echo "<div class=\"col s12 m4 l3\"><div class=\"card\"><div class=\"card-content\">";
+                echo $row;
+                echo "</div></div></div>";
+            }
+            ?>
         </div>
     </div>
 </div>
@@ -177,7 +148,6 @@
             <div class="col l3 s12">
                 <h5 class="white-text">taxijoker.com</h5>
                 <ul>
-                    <li><a class="white-text" href="http://taxijoker.com/m/contacts">Contacts</a></li>
                     <li><a class="white-text" href="tel:828">call 828 (callback)</a></li>
                     <li><a class="white-text" href="tel:0352401401">call (0352) 401-401 ternopil</a></li>
                     <li><a class="white-text" href="tel:0332285285">call (0332) 285-285 lutsk</a></li>
@@ -187,7 +157,7 @@
                 <h5 class="white-text">Localizations</h5>
                  <ul>
                     <li><a class="white-text" href="http://taxijoker.com/language.php?local=te"><?php echo $data['local_te']; ?></a></li>
-                    <li><a class="white-text" href="http://taxijoker.com/language.php?local=te"><?php echo $data['local_lu']; ?></a></li>
+                    <li><a class="white-text" href="http://taxijoker.com/language.php?local=lu"><?php echo $data['local_lu']; ?></a></li>
                     <li><a class="white-text" href="http://taxijoker.com/language.php?lang=eng"><?php echo $data['lang_en']; ?></a></li>
                     <li><a class="white-text" href="http://taxijoker.com/language.php?lang=ua"><?php echo $data['lang_ua']; ?></a></li>
                     <li><a class="white-text" href="http://taxijoker.com/language.php?lang=ru"><?php echo $data['lang_ru']; ?></a></li>
@@ -205,7 +175,9 @@
 
     <!--  Scripts-->
     <script src="http://taxijoker.com/min/plugin.js"></script>
+    <script src="http://taxijoker.com/min/preloader.js"></script>
     <script src="http://taxijoker.com/min/custom.js"></script>
-
+    <script src="http://taxijoker.com/min/geo.js"></script>
+    <script src="http://taxijoker.com/jquery/formprocess.js"></script>
     </body>
 </html>
