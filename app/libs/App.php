@@ -7,13 +7,19 @@ require 'defines.php';
   	//constructor
 	public function __construct() {
 		//cheching if lang is empty
-		$lang = isset($_GET['lang']) ? $_GET['lang'] : null;
-		if ($lang != null) {
-			$_SESSION['lang'] = $lang;
+		$local = isset($_GET['local']) ? $_GET['local'] : null;
+		if ($local != null) {
+			$locs = explode('-', $local);
+			$_SESSION['local'] = $locs[0];
+			$_SESSION['lang'] = $locs[1];
 		} else {
+			if (!isset($_SESSION['local']))
+				($_SESSION['local'] = 'te');
 			if (!isset($_SESSION['lang']))
-			($_SESSION['lang'] = 'ua');
+				($_SESSION['lang'] = 'ua');
 		}
+
+		define('LOCALURL', URL.$_SESSION['local'].'-'.$_SESSION['lang'].'/');
 
 /*		preg_match('/([^.]+)\.taxijoker\.com/', $_SERVER['SERVER_NAME'], $matches);
 		if(!isset($matches[1])) {

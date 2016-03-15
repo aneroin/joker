@@ -54,6 +54,9 @@ session_start();
 	        }
 	    }
 	}
+
+	$lang = $_SESSION['lang'];
+	$local = $_SESSION['local'];
 	
 	if (isset($geoValue)) {
 		if ($geoValue=="false") 
@@ -70,21 +73,12 @@ session_start();
 			echo "</pre>";
 		}
 		else {
-			header('Location: ' . 'http://'.$_SESSION['lang'].'.taxijoker.com/'.$ref);
+			header('Location: ' . 'http://taxijoker.com/'.$local.'-'.$lang.'/'.$ref);
 		}
 		
 	} else {
-		preg_match('/http:\/\/([^.]+)\.taxijoker\.com/', $_SERVER['HTTP_REFERER'], $matches);
-		if(isset($matches[1])) {
-			preg_match('/(\..+$)/', $_SERVER['HTTP_REFERER'], $submatches);
-			if(isset($submatches[1])) {
-				$subdomain = $_SESSION['lang'];
-				$query = $submatches[1];
-				header("Location: http://".$subdomain.$query);
-				return false;
-			}
-		}
-		header('Location: ' . "http://".$_SESSION['lang'].'.taxijoker.com/');
+		preg_match('/^([0-9a-zA-Z]+:\/\/)?[0-9a-zA-Z]+\.[0-9a-zA-Z]+\/{1}([0-9a-zA-Z]+\-[0-9a-zA-Z]+)?(.*)$/', $_SERVER['HTTP_REFERER'], $matches);
+		header('Location: ' .$local.'-'.$lang.'/'.ltrim($matches[3],'/'));
 		return false;
 	}
 ?>

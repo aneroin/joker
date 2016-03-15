@@ -12,6 +12,5 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-l
-RewriteCond %{HTTP_HOST} ((//)?([^.]+)\.)?taxijoker\.com.*$
 
-RewriteRule ^(.+)$ index.php?url=$1&lang=%3 [QSA,L]
+RewriteRule /?([0-9a-zA-Z]+-[0-9a-zA-Z]+)?(.*)$ index.php?url=$2&local=$1 [QSA,L]

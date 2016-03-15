@@ -52,27 +52,27 @@
     <nav id="nav_f" class="default_color" role="navigation" data-current-page="<?php echo $data['current_page']; ?>">
         <div class="container">
             <div class="nav-wrapper">
-            <a href="http://taxijoker.com/m" id="logo-container" class="brand-logo hide-on-large-only">Таксі Джокер</a>
-            <a href="http://taxijoker.com/m" id="logo-container" class="brand-logo show-on-large"></a>
+            <a href="http://taxijoker.com" id="logo-container" class="brand-logo hide-on-large-only">Таксі Джокер</a>
+            <a href="http://taxijoker.com" id="logo-container" class="brand-logo show-on-large"></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="http://taxijoker.com"><?php echo $data['Index']; ?></a></li>
-                    <li><a href="http://taxijoker.com/prices"><?php echo $data['Prices']; ?></a></li>
-                    <li><a href="http://taxijoker.com/drivers"><?php echo $data['Drivers']; ?></a></li>
-                    <li><a href="http://taxijoker.com/dispatchers"><?php echo $data['Dispatchers']; ?></a></li>
-                    <li><a href="http://taxijoker.com/contacts"><?php echo $data['Contacts']; ?></a></li>
-					<li><a href="http://taxijoker.com/about">Про нас</a></li>
+                    <li><a href="<?php LOCALURL ?>"><?php echo $data['Index']; ?></a></li>
+                    <li><a href="<?php LOCALURL ?>prices"><?php echo $data['Prices']; ?></a></li>
+                    <li><a href="<?php LOCALURL ?>drivers"><?php echo $data['Drivers']; ?></a></li>
+                    <li><a href="<?php LOCALURL ?>dispatchers"><?php echo $data['Dispatchers']; ?></a></li>
+                    <li><a href="<?php LOCALURL ?>contacts"><?php echo $data['Contacts']; ?></a></li>
+					<li><a href="<?php LOCALURL ?>about">Про нас</a></li>
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
-                    <li><a href="http://taxijoker.com"><?php echo $data['Index']; ?></a></li>
+                    <li><a href="<?php LOCALURL ?>"><?php echo $data['Index']; ?></a></li>
                     <li class="divider"></li>
-                    <li><a href="http://taxijoker.com/prices"><?php echo $data['Prices']; ?></a></li>
+                    <li><a href="<?php LOCALURL ?>prices"><?php echo $data['Prices']; ?></a></li>
                     <li class="divider"></li>
-                    <li><a href="http://taxijoker.com/drivers"><?php echo $data['Drivers']; ?></a></li>
+                    <li><a href="<?php LOCALURL ?>drivers"><?php echo $data['Drivers']; ?></a></li>
                     <li class="divider"></li>
-                    <li><a href="http://taxijoker.com/dispatchers"><?php echo $data['Dispatchers']; ?></a></li>
+                    <li><a href="<?php LOCALURL ?>dispatchers"><?php echo $data['Dispatchers']; ?></a></li>
                     <li class="divider"></li>
-                    <li><a href="http://taxijoker.com/contacts"><?php echo $data['Contacts']; ?></a></li>
-					<li><a href="http://taxijoker.com/about">Про нас</a></li>
+                    <li><a href="<?php LOCALURL ?>contacts"><?php echo $data['Contacts']; ?></a></li>
+					<li><a href="<?php LOCALURL ?>about">Про нас</a></li>
                 </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
             </div>
