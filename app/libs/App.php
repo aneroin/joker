@@ -19,8 +19,6 @@ require 'defines.php';
 				($_SESSION['lang'] = 'ua');
 		}
 
-		define('LOCALURL', URL.$_SESSION['local'].'-'.$_SESSION['lang'].'/');
-
 /*		preg_match('/([^.]+)\.taxijoker\.com/', $_SERVER['SERVER_NAME'], $matches);
 		if(!isset($matches[1])) {
 			$subdomain = $_SESSION['lang'].".";
@@ -33,6 +31,7 @@ require 'defines.php';
 		//checking if url is empty
 		$url = isset($_GET['url']) ? $_GET['url'] : null;
 	    $url = rtrim($url, '/');
+	    $url = ltrim($url, '/');
 	    $url = explode('/', $url);
 
 		if (empty($url[0])){

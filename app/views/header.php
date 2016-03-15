@@ -54,25 +54,25 @@
             <div class="nav-wrapper">
             <a href="http://taxijoker.com" id="logo-container" class="brand-logo hide-on-large-only">Таксі Джокер</a>
             <a href="http://taxijoker.com" id="logo-container" class="brand-logo show-on-large"></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="<?php LOCALURL ?>"><?php echo $data['Index']; ?></a></li>
-                    <li><a href="<?php LOCALURL ?>prices"><?php echo $data['Prices']; ?></a></li>
-                    <li><a href="<?php LOCALURL ?>drivers"><?php echo $data['Drivers']; ?></a></li>
-                    <li><a href="<?php LOCALURL ?>dispatchers"><?php echo $data['Dispatchers']; ?></a></li>
-                    <li><a href="<?php LOCALURL ?>contacts"><?php echo $data['Contacts']; ?></a></li>
-					<li><a href="<?php LOCALURL ?>about">Про нас</a></li>
+               <ul class="right hide-on-med-and-down">
+                    <li><a href="<?php echo LOCALURL ?>"><?php echo $data['Index']; ?></a></li>
+                    <li><a href="<?php echo LOCALURL ?>prices"><?php echo $data['Prices']; ?></a></li>
+                    <li><a href="<?php echo LOCALURL ?>drivers"><?php echo $data['Drivers']; ?></a></li>
+                    <li><a href="<?php echo LOCALURL ?>dispatchers"><?php echo $data['Dispatchers']; ?></a></li>
+                    <li><a href="<?php echo LOCALURL ?>contacts"><?php echo $data['Contacts']; ?></a></li>
+                    <li><a href="<?php echo LOCALURL ?>about">Про нас</a></li>
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
-                    <li><a href="<?php LOCALURL ?>"><?php echo $data['Index']; ?></a></li>
+                    <li><a href="<?php echo LOCALURL ?>"><?php echo $data['Index']; ?></a></li>
                     <li class="divider"></li>
-                    <li><a href="<?php LOCALURL ?>prices"><?php echo $data['Prices']; ?></a></li>
+                    <li><a href="<?php echo LOCALURL ?>prices"><?php echo $data['Prices']; ?></a></li>
                     <li class="divider"></li>
-                    <li><a href="<?php LOCALURL ?>drivers"><?php echo $data['Drivers']; ?></a></li>
+                    <li><a href="<?php echo LOCALURL ?>drivers"><?php echo $data['Drivers']; ?></a></li>
                     <li class="divider"></li>
-                    <li><a href="<?php LOCALURL ?>dispatchers"><?php echo $data['Dispatchers']; ?></a></li>
+                    <li><a href="<?php echo LOCALURL ?>dispatchers"><?php echo $data['Dispatchers']; ?></a></li>
                     <li class="divider"></li>
-                    <li><a href="<?php LOCALURL ?>contacts"><?php echo $data['Contacts']; ?></a></li>
-					<li><a href="<?php LOCALURL ?>about">Про нас</a></li>
+                    <li><a href="<?php echo LOCALURL ?>contacts"><?php echo $data['Contacts']; ?></a></li>
+                    <li><a href="<?php echo LOCALURL ?>about">Про нас</a></li>
                 </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
             </div>
