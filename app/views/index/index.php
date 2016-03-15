@@ -203,7 +203,7 @@
                             <small><em><a class="grey-text text-darken-1" href="#"><?php echo $data['driver-info']; ?></a></em></small></span>
                     </div>
                     <div class="card-action">
-                        <a href="http://taxijoker.com/drivers/join"> <?php echo $data['driver-info-action']; ?> </a>
+                        <a href="<?php echo LOCALURL ?>drivers/join"> <?php echo $data['driver-info-action']; ?> </a>
                     </div>
                 </div>
             </div>
@@ -219,7 +219,7 @@
                             <small><em><a class="grey-text text-darken-1" href="#"><?php echo $data['dispatcher-info']; ?></a></em></small></span>
                     </div>
                     <div class="card-action">
-                        <a href="http://taxijoker.com/dispatchers/join"> <?php echo $data['dispatcher-info-action']; ?> </a>
+                        <a href="<?php echo LOCALURL ?>dispatchers/join"> <?php echo $data['dispatcher-info-action']; ?> </a>
                     </div>
                 </div>
             </div>
