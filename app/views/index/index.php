@@ -191,6 +191,15 @@
     <div class="container">
         <h2 class="center header text_b"> Наші працівники </h2>
         <div class="row">
+            <div  class="col s12"> 
+                <h5 class="center text_h5 text_distribute">
+                <?php for($a=0; $a<3; $a++): ?>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient montes.
+                <?php endfor; ?>
+                </h5>   
+            </div>
+        </div>
+        <div class="row">
             <div class="col s12 m6 l4 offset-l2">
                 <div class="card card-avatar">
                     <div class="waves-effect waves-block waves-light">
@@ -200,7 +209,7 @@
                     </div>
                     <div class="card-content">
                         <span class="card-title activator"><?php echo $data['Drivers']; ?><br/>
-                            <small><em><a class="grey-text text-darken-1" href="#"><?php echo $data['driver-info']; ?></a></em></small></span>
+                            <small><em><a class="grey-text text-darken-1" href="<?php echo LOCALURL ?>drivers"><?php echo $data['driver-info']; ?></a></em></small></span>
                     </div>
                     <div class="card-action">
                         <a href="<?php echo LOCALURL ?>drivers/join"> <?php echo $data['driver-info-action']; ?> </a>
@@ -216,7 +225,7 @@
                     </div>
                     <div class="card-content">
                         <span class="card-title activator"><?php echo $data['Dispatchers']; ?><br/>
-                            <small><em><a class="grey-text text-darken-1" href="#"><?php echo $data['dispatcher-info']; ?></a></em></small></span>
+                            <small><em><a class="grey-text text-darken-1" href="<?php echo LOCALURL ?>dispatchers"><?php echo $data['dispatcher-info']; ?></a></em></small></span>
                     </div>
                     <div class="card-action">
                         <a href="<?php echo LOCALURL ?>dispatchers/join"> <?php echo $data['dispatcher-info-action']; ?> </a>
@@ -231,6 +240,15 @@
 <div class="section scrollspy" id="apps">
     <div class="container">
         <h2 class="center header text_b"> Мобільне таксі </h2>
+        <div class="row">
+            <div  class="col s12"> 
+                <h5 class="center text_h5 text_distribute">
+                <?php for($a=0; $a<2; $a++): ?>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient montes.
+                <?php endfor; ?>
+                </h5>   
+            </div>
+        </div>
         <div class="row">
             <div class="col s12 m6 l4 offset-l2">
                 <div class="card card-avatar">

@@ -2,8 +2,12 @@
 <div id="intro" class="section scrollspy">
     <div class="container">
         <div class="row">
-            <div  class="col s12">
-                <h4 class="center header text_h2"> Lorem ipsum dolor. Sit amet donec lorem elementum posuere lorem adipiscing faucibus. Ut vestibulum amet. Urna ullamcorper wisi. Habitasse faucibus quis. Odio lacus non. Rerum in nam. Fusce orci et. </h4>
+            <div  class="col s12"> 
+                <h5 class="center text_h5 text_distribute">
+                <?php for($a=0; $a<3; $a++): ?>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient montes.
+                <?php endfor; ?>
+                </h5>   
             </div>
         </div>
     </div>

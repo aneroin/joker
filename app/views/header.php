@@ -57,6 +57,7 @@
                <ul class="right hide-on-med-and-down">
                     <li><a href="<?php echo LOCALURL ?>"><?php echo $data['Index']; ?></a></li>
                     <li><a href="<?php echo LOCALURL ?>prices"><?php echo $data['Prices']; ?></a></li>
+                    <!--li><a href="<?php echo LOCALURL ?>promo">Акції</a></li-->
                     <li><a href="<?php echo LOCALURL ?>drivers"><?php echo $data['Drivers']; ?></a></li>
                     <li><a href="<?php echo LOCALURL ?>dispatchers"><?php echo $data['Dispatchers']; ?></a></li>
                     <li><a href="<?php echo LOCALURL ?>contacts"><?php echo $data['Contacts']; ?></a></li>
@@ -66,6 +67,7 @@
                     <li><a href="<?php echo LOCALURL ?>"><?php echo $data['Index']; ?></a></li>
                     <li class="divider"></li>
                     <li><a href="<?php echo LOCALURL ?>prices"><?php echo $data['Prices']; ?></a></li>
+                    <!--li><a href="<?php echo LOCALURL ?>promo">Акції</a></li-->
                     <li class="divider"></li>
                     <li><a href="<?php echo LOCALURL ?>drivers"><?php echo $data['Drivers']; ?></a></li>
                     <li class="divider"></li>
