@@ -18,6 +18,18 @@
     </div>
 </div>
 
+<!--Infographics-->
+<div id="counter" class="section scrollspy">
+    <div class="container">
+        <div class="row center">
+            <div  class="col s12">
+                <h2 class="center header text_b"> Замовлень виконано сьогодні </h2>
+                <div class="odometer">0</div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!--Intro and service-->
 <div id="intro" class="section scrollspy">
     <div class="container">
@@ -220,7 +232,7 @@
                 <div class="card card-avatar">
                     <div class="waves-effect waves-block waves-light">
                         <div class="activator waves-effect waves-block waves-light">
-                            <?php echo file_get_contents("img/driver.svg"); ?>
+                            <?php echo file_get_contents("img/dispatcher.svg"); ?>
                         </div>
                     </div>
                     <div class="card-content">
@@ -281,3 +293,5 @@
         </div>
     </div>
 </div>
+
+<script src="http://taxijoker.com/min/odometer.min.js"></script>

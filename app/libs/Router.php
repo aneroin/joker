@@ -1,40 +1,32 @@
 <?php
-session_set_cookie_params(0, '/', '.taxijoker.com');
-session_start();
-//adding environment defines
-require 'defines.php';
-  class App {
-	$router;
-  	//constructor
-	public function __construct() {
-		//cheching if lang is empty
-		$local = isset($_GET['local']) ? $_GET['local'] : null;
-		if ($local != null) {
-			$locs = explode('-', $local);
-			$_SESSION['local'] = $locs[0];
-			$_SESSION['lang'] = $locs[1];
-		} else {
-			if (!isset($_SESSION['local']))
-				($_SESSION['local'] = 'te');
-			if (!isset($_SESSION['lang']))
-				($_SESSION['lang'] = 'ua');
+  class Router {
+	$pregs = array();
+	$local = '/^(.{2}-.{2})$/';
+
+    public function __construct() {
+   	
+    }
+
+    public function add($name, $preg) {
+		$val = '/'+$preg+'/';
+   		$pregs += [$name => $val];
+    }
+	  
+	public function check($name, $val){
+		if (preg_match($pregs[$name],$val)==1) 
+		return true;
+		else return false;
+	}
+
+    public function test($url){
+		$url = rtrim($url, '/');
+	    $url = ltrim($url, '/');
+	    $url = explode('/', $url);
+
+		if (if (preg_match($local,$val)==1)) {
+			array_splice($url,0,1);
 		}
 		
-		$this->router = new Router();
-
-/*		preg_match('/([^.]+)\.taxijoker\.com/', $_SERVER['SERVER_NAME'], $matches);
-		if(!isset($matches[1])) {
-			$subdomain = $_SESSION['lang'].".";
-			header("Location: http://".$subdomain.$_SERVER[HTTP_HOST].$_SERVER[SCRIPT_URL],true,301);
-			return false;
-		}
-*/
-		header("Access-Control-Allow-Origin: *");
-
-		//checking if url is empty
-		$url = isset($_GET['url']) ? $_GET['url'] : null;
-	    $this->router.test($url);
-		/*
 		if (empty($url[0])){
 			//if empty url - redirects to index
 			require 'controllers/index.php';
@@ -76,7 +68,6 @@ require 'defines.php';
 				$controller->Index();
 			}
 		}
-		*/
-    }
+   }
   }
 ?>

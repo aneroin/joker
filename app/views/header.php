@@ -25,6 +25,7 @@
     <!-- CSS  -->
     <link href="http://taxijoker.com/min/materialize.css" type="text/css" rel="stylesheet">
     <link href="http://taxijoker.com/min/custom.css" type="text/css" rel="stylesheet" >
+    <link href="http://taxijoker.com/min/odometer.css" type="text/css" rel="stylesheet" >
 
     <?php foreach($includes as $includes_entry): ?>
     

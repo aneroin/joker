@@ -60,9 +60,9 @@ session_start();
 	
 	if (isset($geoValue)) {
 		if ($geoValue=="false") 
-		    setcookie("GeoLocated", $geoValue, time()+3600*24*7, '/', '.taxijoker.com');
+		    setcookie("GeoLocated", $geoValue, '/', '.taxijoker.com');
 		else 
-		    setcookie("GeoLocated", $geoValue, 0, '/', '.taxijoker.com');
+		    setcookie("GeoLocated", $geoValue, time()+3600*24*365, '/', '.taxijoker.com');
 	}
 
 	if (isset($ref)) {

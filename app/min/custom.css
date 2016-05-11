@@ -583,3 +583,7 @@ footer.page-footer {
         -webkit-transform-origin: 50% 50%;
         transform-origin: 471.03px 176.485px;
     }
+
+    .odometer {
+        font-size: 64px;
+    }
