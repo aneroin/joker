@@ -1,29 +1,29 @@
 <?php
 	class User {
 		//login in system
-		$login;
+		public $login;
 		//sha-encoded password
-		$password;
+		public $password;
 		//role in system
-		$role;
+		public $role;
 		//personal data as array
-		$data = new Array();
+		public $data = array();
 		//is logged in?
-		$logged = false;
+		public $logged = false;
 
 		public function __construct() {
 		}
 		
 		public function make($l,$p) {
-		 	$login = $l;
-		 	$password = hash('sha256', $p, false);
+		 	$this->login = $l;
+		 	$this->password = hash('sha256', $p, false);
 		}
 
 		public function makenew($l,$p,$e){
 			/*TODO*/
-			$login = $l;
-			$password = hash('sha256', $p, false);
-			$data['email'] = $e;
+			$this->login = $l;
+			$this->password = hash('sha256', $p, false);
+			$this->data['email'] = $e;
 		}
 
 		public function signup(){
@@ -33,17 +33,18 @@
 
 		public function singin(){
 			/*TODO*/
-			$logged = true;
+			$this->logged = true;
 			return true;
 		}
 
 		public function signout(){
 			/*TODO*/
-			$logged = false;
+			$this->logged = false;
+			return true;
 		}
 
 		public function chechRole($r){
-			return $role === $r;
+			return $this->role === $r;
 		}
 
 		public function persist(){
@@ -53,7 +54,7 @@
 
 		public function restore(){
 			session_start();
-			$this = json_decode($_SESSION['USER']);
+			return json_decode($_SESSION['USER']);
 		}
 	}
 ?>

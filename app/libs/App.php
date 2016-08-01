@@ -30,7 +30,7 @@ require 'defines.php';
 
 		//checking if url is empty
 		$url = isset($_GET['url']) ? $_GET['url'] : null;
-	    $this->router.test($url);
+	    $this->router->test($url);
     }
   }
 ?>

@@ -42,7 +42,7 @@
             <label for="icon_prefix">Повторіть пароль</label>
         </div>
         <div class="input-field col s6">
-            <input type="button" onclick="sms();" class="btn-flat red darken-1 white-text waves-effect waves-light" value='Отримати код'>
+            <input type="button" onclick="sms();" class="btn-flat red darken-1 white-text waves-effect waves-light right" value='Отримати код'>
         </div>
         <div class="input-field col s6">
             <i class="mdi-communication-textsms prefix"></i>

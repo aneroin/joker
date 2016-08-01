@@ -1,5 +1,7 @@
 <?php
 	//connecting libs
+	require 'libs/User.php';
+	require 'libs/Service.php';
 	require 'libs/Router.php';
 	require 'libs/App.php';
 	require 'libs/Controller.php';
