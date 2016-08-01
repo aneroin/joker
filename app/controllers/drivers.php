@@ -21,25 +21,7 @@ session_start();
     		//rendering drivers page
 			$this->view->render('drivers/index',$model->data,$title);
 		}
-/*
-		public function all($locale = null) {
-			$title = "Taxi Joker - drivers list";
-			parent::__construct();
-			//if locale param is set - setting up session variables
-			if (isset($locale)) {
-				$_SESSION['local'] = $locale;
-			} else {
-				if (!isset($_SESSION['local']))
-					$_SESSION['local'] = 'te';
-			}
-			//connecting to the model
-			require 'models/drivers_list_model.php';
-			//model init with locale params from sessing variables
-    		$model = new Drivers_List_Model($_SESSION['lang'],$_SESSION['local']);
-    		//rendering list page
-			$this->view->render('drivers/list',$model->data,$title);			
-		}
-*/
+
 		public function join($locale = null) {
 			$title = "Таксі Джокер - Стати водієм";
 			//if locale param is set - setting up session variables
@@ -74,6 +56,28 @@ session_start();
     		$model = new Drivers_FAQ_Model($_SESSION['lang'],$_SESSION['local']);
     		//rendering list page
 			$this->view->render('drivers/faq',$model->data,$title);			
+		}
+
+		public function dashboard($locale = null,$user = null) {
+			if (parent::auth($user)){
+				$title = "Таксі Джокер - Кабінет водія";
+				//if locale param is set - setting up session variables
+				if (isset($locale)) {
+					$_SESSION['local'] = $locale;
+				} else {
+					if (!isset($_SESSION['local']))
+						$_SESSION['local'] = 'te';
+				}
+				//connecting to the model
+				require 'models/drivers_model.php';
+				//model init with locale params from session variables
+				$model = new Drivers_Model($_SESSION['lang'],$_SESSION['local']);
+				$inc = Array("driver","chartist");
+				//rendering drivers join page
+				$this->view->render('drivers/dashboard',$model->data,$title,$inc);	
+			} else {
+				return false;	
+			}
 		}
 
 		public function driverform($args = null) {

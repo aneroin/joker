@@ -3,9 +3,9 @@
   * Router Class, created by INshadow
   */
   class Router {
-	$pregs = array();
-	$ends = array();
-	$local = '/^(.{2}-.{2})$/';
+	public $pregs = array();
+	public $ends = array();
+	public $local = '/^(.{2}-.{2})$/';
 
     public function __construct() {
    	
@@ -26,8 +26,8 @@
   	*/
     public function add($name, $preg, $end) {
 		$val = '/'+$preg+'/';
-   		$pregs += [$name => $val];
-		$ends += [$name => $end];
+   		$this->pregs += [$name => $val];
+		$this->ends += [$name => $end];
     }
 	
 	/**
@@ -42,7 +42,7 @@
   	* @return boolean
   	*/  
 	public function check($name, $val){
-		if (preg_match($pregs[$name],$val)==1) 
+		if (preg_match($this->pregs[$name],$val)==1) 
 		return true;
 		else return false;
 	}
@@ -64,16 +64,16 @@
 		if ($val!=NULL){
 			if (check($name, $val)){
 				if ($params!=NULL) {
-					$ends[$name]($params);
+					$this->ends[$name]($params);
 				} else {
-					$ends[$name]();
+					$this->ends[$name]();
 				}
 			}
 		} else {
 			if ($params!=NULL) {
-					$ends[$name]($params);
+					$this->ends[$name]($params);
 				} else {
-					$ends[$name]();
+					$this->ends[$name]();
 				}
 		}
 	}
@@ -92,7 +92,7 @@
 	    $url = ltrim($url, '/');
 	    $url = explode('/', $url);
 
-		if (if (preg_match($local,$val)==1)) {
+		if (preg_match($this->local,$val)==1) {
 			array_splice($url,0,1);
 		}
 		

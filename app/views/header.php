@@ -33,6 +33,9 @@
 			<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 			<link href="http://taxijoker.com/min/steps.css" type="text/css" rel="stylesheet" >
 		<?php endif; ?>
+        <?php if ($includes_entry=="chartist") : ?>
+            <link href="http://taxijoker.com/min/chartist.min.css" type="text/css" rel="stylesheet" >
+        <?php endif; ?>
 	
 	<?php endforeach; ?>
 	
@@ -100,5 +103,15 @@
               <a class="btn-floating btn-large amber darken-3" href="http://taxijoker.com/language.php?local=lu">LU</a>
             </ul>
         </div>
+        <div class="fixed-action-btn horizontal click-to-toggle hide-on-med-and-down" style="top: 245px; right: 24px;">
+            <a class="btn-floating btn-large red darken-4">
+              <i class="large mdi-communication-location-on"></i>
+            </a>
+            <ul>
+              <a class="btn-floating btn-large amber darken-2" href="#">signin</a>
+              <a class="btn-floating btn-large amber darken-3" href="#">signup</a>
+            </ul>
+        </div>
+        <a class="btn-floating btn-large red darken-4 fixed-action-btn modal-trigger hide-on-med-and-down" style="top: 245px; right: 24px;" href="#modal_in">&nbsp;</a>
     </nav>
 </div>

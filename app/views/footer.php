@@ -1,3 +1,61 @@
+<!-- Modal Signin -->
+  <div id="modal_in" class="modal">
+    <div class="modal-content">
+        <div class="input-field col s6">
+            <i class="mdi-action-account-box prefix prefix"></i>
+            <input id="icon_prefix" name="phone" type="text" class="validate">
+            <label for="icon_prefix">Номер телефону</label>
+        </div>
+        <div class="input-field col s6">
+            <i class="mdi-communication-vpn-key prefix"></i>
+            <input id="icon_prefix" name="pass" type="password" class="validate">
+            <label for="icon_prefix">Пароль</label>
+        </div>
+    <div class="modal-footer">
+        <a href="#" class="modal-action modal-close waves-effect waves-light btn-flat">&times;</a>
+        <a href="#modal_up" class="modal-action modal-close modal-trigger waves-effect waves-light btn-flat">Зареєструватись</a>
+        <a href="#!" class="modal-action modal-close waves-effect waves-light white-text red darken-1 btn-flat">Увійти</a>
+    </div>
+  </div>
+</div>
+<!-- Modal Signup -->
+  <div id="modal_up" class="modal">
+    <div class="modal-content row">
+        <div class="input-field col s12">
+            <i class="mdi-action-perm-identity prefix"></i>
+            <input id="icon_prefix" name="name" type="text" class="validate">
+            <label for="icon_prefix">Ім'я</label>
+        </div>
+        <div class="input-field col s12">
+            <i class="mdi-action-account-box prefix"></i>
+            <input id="icon_prefix" name="phone" type="text" class="validate">
+            <label for="icon_prefix">Номер телефону</label>
+        </div>
+        <div class="input-field col s6">
+            <i class="mdi-communication-vpn-key prefix"></i>
+            <input id="icon_prefix" name="pass" type="password" class="validate">
+            <label for="icon_prefix">Пароль</label>
+        </div>
+        <div class="input-field col s6">
+            <i class="mdi-communication-vpn-key prefix"></i>
+            <input id="icon_prefix" name="pass_re" type="password" class="validate">
+            <label for="icon_prefix">Повторіть пароль</label>
+        </div>
+        <div class="input-field col s6">
+            <input type="button" onclick="sms();" class="btn-flat red darken-1 white-text waves-effect waves-light" value='Отримати код'>
+        </div>
+        <div class="input-field col s6">
+            <i class="mdi-communication-textsms prefix"></i>
+            <input id="icon_prefix" name="code" type="text" class="validate">
+            <label for="icon_prefix">Код з СМС</label>
+        </div>
+     
+    <div class="modal-footer">
+        <a href="#" class="modal-action modal-close waves-effect waves-light btn-flat">&times;</a>
+        <a href="#!" class="modal-action modal-close waves-effect waves-light white-text red darken-1 btn-flat">Зареєструватись</a>
+    </div>
+  </div>
+</div>
 <!--Footer-->
 <footer id="contact" class="page-footer default_color scrollspy">
     <div class="container">  
@@ -61,7 +119,13 @@
     <script src="http://taxijoker.com/min/preloader.js"></script>
     <script src="http://taxijoker.com/min/custom.js"></script>
     <script src="http://taxijoker.com/min/geo.js"></script>
-	
+	<script> 
+      $(document).ready(function(){
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('.modal-trigger').leanModal();
+      });
+    </script>
+
 	<?php foreach($includes as $includes_entry): ?>
     
 		<?php if ($includes_entry=="callform") : ?>
@@ -91,7 +155,11 @@
 		<?php if ($includes_entry=="dispatcher") : ?>
 			<script src="http://taxijoker.com/jquery/dispatcherprocess.js"></script>
 		<?php endif; ?>
-		
+
+		<?php if ($includes_entry=="chartist") : ?>
+            <script src="http://taxijoker.com/min/chartist.min.js"></script>
+            <script src="http://taxijoker.com/jquery/charter.js"></script>
+        <?php endif; ?>
 	<?php endforeach; ?>
     
 
