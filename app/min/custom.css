@@ -31,9 +31,6 @@ body {
     box-shadow: none !important;
     -webkit-box-shadow: none !important;
 }
-nav ul a{
-    font-size: 0.5vw;
-}
 .text_h {
     padding: 15% 0;
     font-size: 5vw;
@@ -104,7 +101,8 @@ a {
     display: block;
     font-weight: 300;
     padding: 0px 15px;
-    font-size: 1.25vw;
+    font-size: 1.2vw;
+	letter-spacing: 0.15vw;
 }
 .cd-headline.type .cd-words-wrapper {
     vertical-align: top;
@@ -596,3 +594,15 @@ footer.page-footer {
     .odometer {
         font-size: 64px;
     }
+
+	/*Gmap3 Config*/
+	.gm-map {
+		min-width: 100%;
+		min-height: 300px;
+		min-height: 60vh;
+	}
+
+	.gm-card {
+		min-height: 300px;
+		min-height: 60vh;
+	}

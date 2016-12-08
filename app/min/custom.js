@@ -268,14 +268,3 @@
         }
     });
 })(jQuery);
-    
-    $(document).ready(function(){
-        $.get("http://taxijoker.com/getcount.php", function(data){
-          $('.odometer').html(data);
-        }); 
-    })
-    setInterval(function(){
-        $.get("http://taxijoker.com/getcount.php", function(data){
-          $('.odometer').html(data);
-        });       
-      }, 4000);

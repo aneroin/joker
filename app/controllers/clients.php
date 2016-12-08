@@ -33,12 +33,39 @@ session_start();
 						$_SESSION['local'] = 'te';
 				}
 				//connecting to the model
-				require 'models/index_model.php';
+				require 'models/clients_dashboard_model.php';
 				//model init with locale params from session variables
-				$model = new Index_Model($_SESSION['lang'],$_SESSION['local']);
+				$model = new Clients_Dashboard_Model($_SESSION['lang'],$_SESSION['local']);
+				$model->data['clientdata'] = json_decode(parent::get("http://taxijoker.com/fakedata.php?entity=clientdata"));
 				$inc = Array("chartist");
 				//rendering drivers join page
 				$this->view->render('clients/dashboard',$model->data,$title,$inc);	
+			} else {
+				http_response_code(401);
+				if (isset($_SERVER["HTTP_REFERER"])) {
+					header("Location: " . $_SERVER["HTTP_REFERER"]);
+				}	
+			}
+		}
+		
+		public function route($input = Array(),$locale = null,$user = null) {
+			if (parent::auth($user)){
+				$title = "Таксі Джокер - Кабінет користувача";
+				//if locale param is set - setting up session variables
+				if (isset($locale)) {
+					$_SESSION['local'] = $locale;
+				} else {
+					if (!isset($_SESSION['local']))
+						$_SESSION['local'] = 'te';
+				}
+				//connecting to the model
+				require 'models/index_model.php';
+				//model init with locale params from session variables
+				$model = new Index_Model($_SESSION['lang'],$_SESSION['local']);
+				$model->data['routedata'] = json_decode(parent::get("http://taxijoker.com/fakedata.php?entity=route&id=".$input[0]));
+				$inc = Array("gmap3","route");
+				//rendering drivers join page
+				$this->view->render('clients/route',$model->data,$title,$inc);	
 			} else {
 				return false;	
 			}

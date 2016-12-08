@@ -16,18 +16,36 @@
         </div>
     </div>
 </div>
-	
-<!--Intro and service-->
-<div id="intro" class="section scrollspy">
+
+<!--map -->
+<div class="section">
     <div class="container">
-        <div class="row">
-            <div  class="col s12"> 
-                <h5 class="center text_h5 text_distribute">
-                <?php for($a=0; $a<3; $a++): ?>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient montes.
-                <?php endfor; ?>
-                </h5>   
-            </div>
-        </div>
+		<div class="col s12 m12 l12" >
+			<div class="card gm-card">
+				<span class="row">
+					<span class="col s12 m8">
+						<span class="row">
+							<input class="input-field col s12" id="from" type="text" value="звідки">
+						</span>
+						<span class="row">
+							<input class="input-field col s12" id="to" type="text" value="куди">
+						</span>
+					</span>
+					<span class="col s12 m4">
+						<span class="row">
+							<a id="pricesDropdownHeader" class='dropdown-button btn-flat col s12 center' href='#' data-activates='pricesDropdown'>тариф</a>
+							<ul id="pricesDropdown" class="dropdown-content">
+							</ul>
+						</span>
+						<span class="row">	
+							<input class="btn-flat col s12" type="button" onclick="calculatePrice(priceStandart)" value="розрахувати">
+							<input class="btn-flat col s12" type="button" onclick="resetPrice()" value="скинути">
+						</span>
+					</span>
+				</span>
+				<div class="center card-title" id="price"></div>
+				<div class="gm-map" id="map" style="height: 200px;"></div>
+			</div>	
+		</div>
     </div>
-</div>
+</div> 

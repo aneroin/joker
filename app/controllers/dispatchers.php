@@ -53,7 +53,7 @@ session_start();
 			//connecting to the model
 			require 'models/dispatchers_faq_model.php';
 			//model init with locale params from sessing variables
-    		$model = new Drivers_FAQ_Model($_SESSION['lang'],$_SESSION['local']);
+    		$model = new Dispatchers_FAQ_Model($_SESSION['lang'],$_SESSION['local']);
     		//rendering list page
 			$this->view->render('dispatchers/faq',$model->data,$title);			
 		}

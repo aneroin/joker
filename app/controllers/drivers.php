@@ -75,8 +75,11 @@ session_start();
 				$inc = Array("driver","chartist");
 				//rendering drivers join page
 				$this->view->render('drivers/dashboard',$model->data,$title,$inc);	
-			} else {
-				return false;	
+			}  else {
+				http_response_code(401);
+				if (isset($_SERVER["HTTP_REFERER"])) {
+					header("Location: " . $_SERVER["HTTP_REFERER"]);
+				}	
 			}
 		}
 

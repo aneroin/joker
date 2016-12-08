@@ -6,7 +6,7 @@ require 'defines.php';
   class App {
 	public $router;
 	public $user;
-	public $service;  
+	public $service;
   	//constructor
 	public function __construct() {
 		//cheching if lang is empty
@@ -21,16 +21,18 @@ require 'defines.php';
 			if (!isset($_SESSION['lang']))
 				($_SESSION['lang'] = 'ua');
 		}
-		
+
 		$this->router = new Router();
-		$this->user = new User();
-		$this->service = new Service();
+		$this->user = JokerUser::Instance();
+		$this->service = Service::Instance();
 
 		header("Access-Control-Allow-Origin: *");
 
 		//checking if url is empty
 		$url = isset($_GET['url']) ? $_GET['url'] : null;
-	    $this->router->test($url);
+	  $this->user->restore();
+		$this->router->test($url);
+		$this->user->persist();
     }
   }
 ?>

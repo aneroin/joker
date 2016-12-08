@@ -19,7 +19,7 @@
 </div>
 
 <!--Infographics-->
-<div id="counter" class="section scrollspy">
+<!--div id="counter" class="section scrollspy">
     <div class="container">
         <div class="row center">
             <div  class="col s12">
@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-</div>
+</div-->
 
 <!--Intro and service-->
 <div id="intro" class="section scrollspy">
@@ -202,15 +202,15 @@
 <div class="section scrollspy" id="team">
     <div class="container">
         <h2 class="center header text_b"> Наші працівники </h2>
-        <div class="row">
+        <!--div class="row">
             <div  class="col s12"> 
                 <h5 class="center text_h5 text_distribute">
-                <?php for($a=0; $a<3; $a++): ?>
+                <?php //for($a=0; $a<3; $a++): ?>
                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient montes.
-                <?php endfor; ?>
+                <?php //endfor; ?>
                 </h5>   
             </div>
-        </div>
+        </div-->
         <div class="row">
             <div class="col s12 m6 l4 offset-l2">
                 <div class="card card-avatar">
@@ -219,10 +219,10 @@
                             <?php echo file_get_contents("img/driver.svg"); ?>
                         </div>
                     </div>
-                    <div class="card-content">
+                    <!--div class="card-content">
                         <span class="card-title activator"><?php echo $data['Drivers']; ?><br/>
                             <small><em><a class="grey-text text-darken-1" href="<?php echo LOCALURL ?>drivers"><?php echo $data['driver-info']; ?></a></em></small></span>
-                    </div>
+                    </div-->
                     <div class="card-action">
                         <a href="<?php echo LOCALURL ?>drivers/join"> <?php echo $data['driver-info-action']; ?> </a>
                     </div>
@@ -235,10 +235,10 @@
                             <?php echo file_get_contents("img/dispatcher.svg"); ?>
                         </div>
                     </div>
-                    <div class="card-content">
+                    <!--div class="card-content">
                         <span class="card-title activator"><?php echo $data['Dispatchers']; ?><br/>
                             <small><em><a class="grey-text text-darken-1" href="<?php echo LOCALURL ?>dispatchers"><?php echo $data['dispatcher-info']; ?></a></em></small></span>
-                    </div>
+                    </div-->
                     <div class="card-action">
                         <a href="<?php echo LOCALURL ?>dispatchers/join"> <?php echo $data['dispatcher-info-action']; ?> </a>
                     </div>
@@ -252,15 +252,15 @@
 <div class="section scrollspy" id="apps">
     <div class="container">
         <h2 class="center header text_b"> Мобільне таксі </h2>
-        <div class="row">
+        <!--div class="row">
             <div  class="col s12"> 
                 <h5 class="center text_h5 text_distribute">
-                <?php for($a=0; $a<2; $a++): ?>
+                <?//php for($a=0; $a<2; $a++): ?>
                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient montes.
-                <?php endfor; ?>
+                <?//php endfor; ?>
                 </h5>   
             </div>
-        </div>
+        </div-->
         <div class="row">
             <div class="col s12 m6 l4 offset-l2">
                 <div class="card card-avatar">

@@ -5,6 +5,7 @@ $(document).ready(function() {
     console.log(formatDate(now));
     $('#advanced').val(formatDate(now));
     $('#captcha').html('<img src=\'http://taxijoker.dyndns.org/taxi/captcha.php?num='+Math.random()+'\'>');
+	resattlement();
 });
 
     function formatDate(d) {
@@ -40,6 +41,7 @@ $(document).ready(function() {
                 'id_taxi'                     : $('#call-form').data('tid')
             };
             //prepare form
+			console.log(formData);
             var xhr = $.ajax({
                 type: 'GET',
                 headers: { 'Access-Control-Allow-Origin':'http://taxijoker.dyndns.org/' },               
@@ -107,7 +109,6 @@ $(document).ready(function() {
                         console.log("done");
                         $('#key').val('');
                         $('#phone').val('');
-                        $('#sattlement').val('');
                         $('#street').val('');
                         $('#home').val('');
                         $('#entrance').val('');
@@ -117,7 +118,7 @@ $(document).ready(function() {
                         }
                         $('.callform .form-group').addClass('has-success');
                         //success
-                        $('.callform').prepend('<div class="alert alert-success">' + "success" + '</div>');
+                        //$('.callform').prepend('<div class="alert alert-success">' + "success" + '</div>');
                     } 
     }
 
@@ -161,7 +162,7 @@ $(document).ready(function() {
         }
     }, $('#sattlement').val());
 
-    $('#sattlement').bind('blur', function(){ 
+	function resattlement(){ 
         cityBounds = getCityInfo($('#sattlement').val())
             streetPicker = new AddressPicker({
             remote: 'fakeRemote',
@@ -171,7 +172,9 @@ $(document).ready(function() {
                 componentRestrictions: { country: 'UA' }
             }
         }, $('#sattlement').val());
-    });
+    }
+
+    $('#sattlement').bind('blur', resattlement());
 
     $('#street').typeahead({   
         hint: true,

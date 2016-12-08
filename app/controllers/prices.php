@@ -18,8 +18,9 @@
 			require 'models/prices_model.php';
 			//model init with locale params from sessing variables
     		$model = new Prices_Model($_SESSION['lang'],$_SESSION['local']);
+			$inc = Array("gmap3","price");
     		//rendering prices page
-			$this->view->render('prices/index',$model->data,$title);
+			$this->view->render('prices/index',$model->data,$title,$inc);
 		}
 	}
 ?>

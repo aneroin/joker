@@ -1,5 +1,6 @@
 <?php
 	//connecting libs
+	include ('libs/httpful.phar');
 	require 'libs/User.php';
 	require 'libs/Service.php';
 	require 'libs/Router.php';

@@ -11,7 +11,7 @@
 		<div class="row">
 		<div class="col-xs-12 col-md-6">
 			<label for="sattlement"><?php echo $data['sattlement'] ?>:</label>
-			<input type="text" class="form-control main" id="sattlement" value=<?php echo $data['call_city'] ?>
+			<input type="text" class="form-control main" id="sattlement" value='<?php echo $data['call_city'] ?> '
 				onblur="this.value=this.value.toUpperCase()" maxlength=20>
 		</div>
 		<div class="col-xs-12 col-md-6">

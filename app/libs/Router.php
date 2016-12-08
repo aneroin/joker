@@ -95,7 +95,7 @@
 		if (preg_match($this->local,$val)==1) {
 			array_splice($url,0,1);
 		}
-		
+
 		if (empty($url[0])){
 			//if empty url - redirects to index
 			require 'controllers/index.php';
