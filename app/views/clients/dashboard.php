@@ -1,9 +1,9 @@
 <!--graph -->
 <div class="section">
     <div class="container">
-    <h2 class="center"><?php echo $data['clientdata']->fname." ".$data['clientdata']->lname ?></h2>
-	</div>
-</div> 
+    <h2 class="center"><?php echo $data['clientdata']->FirstName." ".$data['clientdata']->Surname ?></h2>
+	  </div>
+</div>
 <div class="section">
     <div class="container">
 		<div class="row center">
@@ -11,23 +11,23 @@
 				<div class="card">
 					<div class="card-content">
 						<p class="card-title grey-text text-darken-4">зроблено замовлень</p>
-						<h3 class="card-action grey-text text-darken-2"><?php echo $data['clientdata']->calls ?></h3>
+						<h3 class="card-action grey-text text-darken-2"><?php echo count($data['ordersdata'])?></h3>
 					</div>
-				</div>	
+				</div>
 			</div>
             <div class="col s12 m6 l6" >
 				<div class="card">
 					<div class="card-content">
 						<p class="card-title grey-text text-darken-4">проїхано кілометрів</p>
-						<h3 class="card-action grey-text text-darken-2"><?php echo $data['clientdata']->kilometers ?></h3>
+						<h3 class="card-action grey-text text-darken-2"><?php $k=0; foreach($data['ordersdata'] as $value){$k += $value->Distance;} unset($value); echo $k ?></h3>
 					</div>
-				</div>	
+				</div>
 			</div>
         </div>
     </div>
-</div> 
+</div>
 <!--places-->
-<div class="section">
+<!--div class="section">
     <div class="container">
     <h2 class="center text_h2">Мої місця</h2>
         <div class="row center">
@@ -45,7 +45,7 @@
 							<a href="#"> видалити </a>
                     	</div>
 					</div>
-				</div>	
+				</div>
 			</div>
             <div class="col s12 m6 l4" >
 				<div class="card">
@@ -61,7 +61,7 @@
 							<a href="#"> видалити </a>
                     	</div>
 					</div>
-				</div>	
+				</div>
 			</div>
 			<div class="col s12 m6 l4" >
 				<div class="card">
@@ -77,11 +77,11 @@
 							<a href="#"> видалити </a>
                     	</div>
 					</div>
-				</div>	
+				</div>
 			</div>
         </div>
     </div>
-</div> 
+</div-->
 <!--abracadabra-->
 <div class="section">
     <div class="container">
@@ -99,17 +99,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <?php foreach ($data['clientdata']->orders as $order): ?>
-                        <tr style="cursor:pointer" onclick="window.document.location='route/<?php echo $order->id ?>';">
-                            <td><?php echo $order->id ?></td>
-                            <td><?php echo $order->when ?></td>
-                            <td><?php echo $order->from ?></td>
-                            <td><?php echo $order->to ?></td>
-                            <td><?php echo $order->callsign ?></td>
+                    <?php foreach ($data['ordersdata'] as $order): ?>
+                        <tr style="cursor:pointer" onclick="window.document.location='route/<?php echo $order->Id ?>';">
+                            <td><?php echo $order->Id ?></td>
+                            <td><?php echo DateTime::createFromFormat('U',substr($order->OrderTime,6,10))->format("Y-m-d\TH:i:s") ?></td>
+                            <td><?php echo $order->Address ?></td>
+                            <td><?php echo $order->Destination ?></td>
+                            <td><?php echo $order->Driver ?></td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>
                 </table>
         </div>
         </div>
-        </div>
+    </div>
+</div>

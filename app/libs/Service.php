@@ -7,21 +7,21 @@
 		private $restEndPoint = array(
 			'login' => "/Login",
 			'user' => array(
-				"get" => "/GetUser",
+				"get" => "/GetUser/",
 				"getall" => "/GetUsers",
 				"add" => "/AddUser",
 				"update" => "/UpdateUser",
 				"delete" => "/DeleteUser"
 			),
 			'order' => array(
-				"get" => "/GetOrder",
+				"get" => "/GetOrder/",
 				"getall" => "/GetOrders",
 				"add" => "/AddOrder",
 				"update" => "/UpdateOrder",
 				"delete" => "/DeleteOrder"
 			),
 			'orderstate' => array(
-				"get" => "/GetOrderState",
+				"get" => "/GetOrderState/",
 				"getall" => "/GetOrderStates",
 				"add" => "/AddOrderState",
 				"update" => "/UpdateOrderState",
@@ -176,21 +176,28 @@
 			$token = array(
 				'token' => User::Instance()->token;
 			);
-			return withAuth(get($serverUri.$restEndPoint['order']['get'],$id,$token));
+			return withAuth(get($serverUri.$restEndPoint['order']['get'].$id,$token));
 		}
 
 		public function getorders(){
 			$token = array(
 				'token' => User::Instance()->token;
 			);
-			return withAuth(get($serverUri.$restEndPoint['order']['getall'],null,$token));
+			return withAuth(get($serverUri.$restEndPoint['order']['getall'],$token));
 		}
 
-		public function checkorder($id){
+		public function getorderstate($id){
 			$token = array(
 				'token' => User::Instance()->token
 			);
-			return withAuth(get($serverUri.$restEndPoint['orderstate']['get'],$id,$token));
+			return withAuth(get($serverUri.$restEndPoint['orderstate']['get'].$id,$token));
+		}
+
+		public function getuser($id){
+			$token = array(
+				'token' => User::Instance()->token
+			);
+			return withAuth(get($serverUri.$restEndPoint['user']['get'].$id,$token));
 		}
 
 
