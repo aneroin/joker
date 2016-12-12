@@ -1,7 +1,8 @@
 <?php
 	class Service {
 
-		private $serverUri = "5.58.83.13:8094/JokerWebService";
+		private $testUri = "http://google.com/";
+		private $serverUri = "http://5.58.83.13:8094/JokerWebService";
 		private $localUri = "http://taxijoker.com";
 
 		private $restEndPoint = array(
@@ -78,7 +79,7 @@
 			} else {
 				$response = \Httpful\Request::post($uri)
 				->sendsJson()
-				->body($body)
+				->body(json_encode($body))
 				->addHeaders($headers)
 				->send();
 				return $response;
@@ -126,7 +127,7 @@
 				'phone' => $data->phone,
 				'key' => $data->code
 			);
-			$res = post($localUri.$funcEndPoint['smscheck'],$smsdata);
+			$res = $this->post($this->localUri.$this->funcEndPoint['smscheck'],$smsdata);
 			return $res;
 		}
 
@@ -138,7 +139,7 @@
 			* 2) renew token by providing expired token and obtaining new one
 			*/
 			if ($data->logged && $data->token!=null){
-				$res = signin($data);
+				$res = $this->signin($data);
 				if ($res->code == 200){
 					$data->token = $res->body['token'];
 					//$data->tokenTime = $res->body['tokenTime'];
@@ -155,65 +156,80 @@
 
 		public function signin($user){
 			$login_headers = array(
-				'login' => $user->phone,
-				'password' => $user->password
+				"login" => $user->login,
+				"password" => $user->password
 			);
-			return post($serverUri.$restEndPoint['login'],null,$login_headers);
+			return $this->post($this->serverUri.$this->restEndPoint['login'],"",$login_headers);
+		}
+
+		public function test(){
+			return \Httpful\Request::get($this->serverUri)->send();
 		}
 
 		public function signup($user){
-			return post($serverUri.$restEndPoint['user']['add'],$user);
+			return $this->post($this->serverUri.$this->restEndPoint['user']['add'],$user);
 		}
 
 		public function makeorder($order){
-			$token = array(
-				'token' => User::Instance()->token;
-			);
-			return withAuth(post($serverUri.$restEndPoint['order']['add'],$order,$token));
+			return $this->withAuth($this->serverUri.$this->restEndPoint['order']['add'], function($uri, $token) use (&$order){return Service::Instance()->post($uri,$order,$token);});
 		}
 
 		public function getorder($id){
-			$token = array(
-				'token' => User::Instance()->token;
-			);
-			return withAuth(get($serverUri.$restEndPoint['order']['get'].$id,$token));
+			return $this->withAuth($this->serverUri.$this->restEndPoint['order']['get'].$id, function($uri, $token){return Service::Instance()->get($uri,$token);});
 		}
 
 		public function getorders(){
-			$token = array(
-				'token' => User::Instance()->token;
-			);
-			return withAuth(get($serverUri.$restEndPoint['order']['getall'],$token));
+			return $this->withAuth($this->serverUri.$this->restEndPoint['order']['getall'], function($uri,$token){return Service::Instance()->get($uri,$token);});
 		}
 
 		public function getorderstate($id){
-			$token = array(
-				'token' => User::Instance()->token
-			);
-			return withAuth(get($serverUri.$restEndPoint['orderstate']['get'].$id,$token));
+			return $this->withAuth($this->serverUri.$this->restEndPoint['orderstate']['get'].$id, function($uri,$token){return Service::Instance()->get($uri,$token);});
 		}
 
 		public function getuser($id){
-			$token = array(
-				'token' => User::Instance()->token
-			);
-			return withAuth(get($serverUri.$restEndPoint['user']['get'].$id,$token));
+			return $this->withAuth($this->serverUri.$this->restEndPoint['user']['get'].$id, function($uri,$token){return Service::Instance()->get($uri,$token);});
 		}
 
 
 		//TODO: token renew procedure
-		private function withAuth($res){
+		private function withAuth($uri,callable $func){
+			$token = Array(
+				"token" => JokerUser::Instance()->token
+			);
+			$res = $func($uri,$token);
+			echo("res1 : ".$res->code);
 			if ($res->code == 200){
 				return $res;
 			} else if ($res->code == 400 || $res->code == 401){
-				User::Instance()->signout();
+				if ((JokerUser::Instance()->signin())){
+					$token = Array(
+						"token" => JokerUser::Instance()->token
+					);
+					$res = $func($uri,$token);
+					echo("res2 : ".$res->code);
+					if ($res->code == 200){
+						return $res;
+					} else if ($res->code == 400 || $res->code == 401){
+						JokerUser::Instance()->signout();
+						header("Location: " . URL);
+						return null;
+					}
+				}	else {
+					JokerUser::Instance()->signout();
+					header("Location: " . URL);
+					return null;
+				}
+			}
+			else {
+				JokerUser::Instance()->signout();
+				header("Location: " . URL);
 				return null;
 			}
 		}
 
 		//TODO: token renew procedure
 		private function hasAccess($access){
-			return User::Instance()->checkRole($access);
+			return JokerUser::Instance()->checkRole($access);
 		}
 
 

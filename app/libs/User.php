@@ -58,6 +58,9 @@
 		//is logged in?
 		public $logged = false;
 
+		public function test(){
+			return Service::Instance()->test();
+		}
 
 		/*authentication*/
 		//make a new user instance by signin
@@ -79,7 +82,7 @@
 
 		//signup
 		public function signup(){
-			$res = Service::signup($this);
+			$res = Service::Instance()->signup($this);
 			if ($res->code == 200){
 				/*TODO:confirmation*/
 				return true;
@@ -89,10 +92,10 @@
 
 		//signin
 		public function signin(){
-			$res = Service::signin($this);
+			$res = Service::Instance()->signin($this);
 			if ($res->code == 200){
 				$this->logged = true;
-				$this->token = $res->body['token'];
+				$this->token = $res->body;
 				/*TODO: login response
 				$this->firstName = $res->body['firstName'];
 				$this->middleName = $res->body['middleName'];

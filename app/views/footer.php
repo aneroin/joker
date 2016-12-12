@@ -49,7 +49,7 @@
             <input id="icon_prefix" name="code" type="text" class="validate">
             <label for="icon_prefix">Код з СМС</label>
         </div>
-     
+
     <div class="modal-footer">
         <a href="#" class="modal-action modal-close waves-effect waves-light btn-flat">&times;</a>
         <a onClick="signup()" class="modal-action modal-close waves-effect waves-light white-text red darken-1 btn-flat">Зареєструватись</a>
@@ -58,7 +58,7 @@
 </div>
 <!--Footer-->
 <footer id="contact" class="page-footer default_color scrollspy">
-    <div class="container">  
+    <div class="container">
         <div class="row">
             <div class="col l6 s12">
                 <form class="col s12" action="contact.php" method="post">
@@ -100,7 +100,7 @@
                     <li><a class="white-text" href="http://taxijoker.com/language.php?local=te"><?php echo $data['local_te']; ?></a></li>
                     <li><a class="white-text" href="http://taxijoker.com/language.php?local=lu"><?php echo $data['local_lu']; ?></a></li>
                     <li><a class="white-text" href="http://taxijoker.com/language.php?local=vn"><?php echo $data['local_vn']; ?></a></li>
-					<li><a class="white-text" href="http://taxijoker.com/language.php?lang=eng"><?php echo $data['lang_en']; ?></a></li>
+					          <li><a class="white-text" href="http://taxijoker.com/language.php?lang=eng"><?php echo $data['lang_en']; ?></a></li>
                     <li><a class="white-text" href="http://taxijoker.com/language.php?lang=ua"><?php echo $data['lang_ua']; ?></a></li>
                     <li><a class="white-text" href="http://taxijoker.com/language.php?lang=ru"><?php echo $data['lang_ru']; ?></a></li>
                 </ul>
@@ -110,6 +110,7 @@
     <div class="footer-copyright default_color">
         <div class="container">
             by Pavlenko Andriy for Taxi Joker
+            <?php echo "JokerUser::t ".JokerUser::Instance()->token ?>
         </div>
     </div>
 </footer>
@@ -120,12 +121,12 @@
     <script src="http://taxijoker.com/min/preloader.js"></script>
     <script src="http://taxijoker.com/min/custom.js"></script>
     <script src="http://taxijoker.com/min/geo.js"></script>
-	<script> 
+	<script>
       $(document).ready(function(){
         // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
         $('.modal-trigger').leanModal();
       });
-		
+
 		function signin(){
 		  var XHR = new XMLHttpRequest();
 		  var FD  = new FormData();
@@ -133,10 +134,10 @@
 		  // We push our data into our FormData object
 		  FD.append('login', $('input[name=phone_in]').val());
 		  FD.append('pass', $('input[name=pass_in]').val());
-			
+
 		  // We define what will happen if the data are successfully sent
 		  XHR.addEventListener('load', function(event) {
-			  location.reload();
+        location.reload();
 		  });
 
 		  // We define what will happen in case of error
@@ -150,7 +151,7 @@
 		  // We just send our FormData object, HTTP headers are set automatically
 		  XHR.send(FD);
 		}
-		
+
 		function sms(){
 		var formData = {
 			'phone'		: $('input[name=phone_up]').val()
@@ -223,7 +224,7 @@
 			return false;
 	    });
 		};
-		
+
 		function signup(){
 			if (sms_check()){
 				var XHR = new XMLHttpRequest();
@@ -255,7 +256,7 @@
     </script>
 
 	<?php foreach($includes as $includes_entry): ?>
-    
+
 		<?php if ($includes_entry=="callform") : ?>
 			<!--script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script-->
  			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMDyZfuT156yQTgSi-S1D5i0Esu5oFnwE&libraries=places"></script>
@@ -263,7 +264,7 @@
 			<script src="http://taxijoker.com/min/addresspicker.js"></script>
 			<script src="http://taxijoker.com/jquery/formprocess.js"></script>
 		<?php endif; ?>
-		
+
 		<?php if ($includes_entry=="joinform") : ?>
 			<script src="http://taxijoker.com/jquery/jquery.validate.js"></script>
 			<script src="http://taxijoker.com/jquery/jquery.validate.additional-methods.js"></script>
@@ -272,7 +273,7 @@
 			<script src="http://taxijoker.com/jquery/jquery.fileupload.js"></script>
 			<script src="http://taxijoker.com/jquery/jquery.fileupload-image.js"></script>
 		<?php endif; ?>
-		
+
 		<?php if ($includes_entry=="driver") : ?>
 			<script src="http://taxijoker.com/min/typeahead.js"></script>
 			<script src="http://taxijoker.com/jquery/carvendors.bloodhound.js"></script>
@@ -280,7 +281,7 @@
 			<script src="http://taxijoker.com/jquery/colorengine.js"></script>
 			<script src="http://taxijoker.com/jquery/driverprocess.js"></script>
 		<?php endif; ?>
-		
+
 		<?php if ($includes_entry=="dispatcher") : ?>
 			<script src="http://taxijoker.com/jquery/dispatcherprocess.js"></script>
 		<?php endif; ?>
@@ -304,8 +305,8 @@
 		<?php endif; ?>
 
 	<?php endforeach; ?>
-    
 
-    
+
+
     </body>
 </html>

@@ -9,6 +9,10 @@
 			die();
 		}
 
+		public function test($locale = null){
+			echo JokerUser::Instance()->test();
+		}
+
 		public function signin($locale = null){
 			$login = isset($_POST['login']) ? $_POST['login'] : null;
 			$pass = isset($_POST['pass']) ? $_POST['pass'] : null;
@@ -68,9 +72,7 @@
 		public function signout($locale = null){
 			JokerUser::Instance()->signout();
 			http_response_code(200);
-			if (isset($_SERVER["HTTP_REFERER"])) {
-				header("Location: " . $_SERVER["HTTP_REFERER"]);
-			}
+			header("Location: " . URL);
 		}
 	}
 ?>

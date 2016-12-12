@@ -101,13 +101,13 @@
                     <tbody>
                     <?php foreach ($data['ordersdata'] as $order): ?>
                         <tr style="cursor:pointer" onclick="window.document.location='route/<?php echo $order->Id ?>';">
-                            <td><?php echo $order->Id ?></td>
-                            <td><?php echo DateTime::createFromFormat('U',substr($order->OrderTime,6,10))->format("Y-m-d\TH:i:s") ?></td>
-                            <td><?php echo $order->Address ?></td>
-                            <td><?php echo $order->Destination ?></td>
-                            <td><?php echo $order->Driver ?></td>
+                            <td><?php echo is_null($order->Id) ? "-" : $order->Id ?></td>
+                            <td><?php echo is_null($order->OrderTime) ? "-" : DateTime::createFromFormat('U',substr($order->OrderTime,6,10))->format("Y-m-d  H:i:s") ?></td>
+                            <td><?php echo is_null($order->Address) ? "-" : $order->Address ?></td>
+                            <td><?php echo is_null($order->Destination) ? "-" : $order->Destination ?></td>
+                            <td><?php echo is_null($order->Driver) ? "-" : (is_null($order->Driver->Id) ? "-" : $order->Driver->Id) ?></td>
                         </tr>
-                    <?php endforeach; ?>
+                    <?php unset($order); endforeach; ?>
                     </tbody>
                 </table>
         </div>

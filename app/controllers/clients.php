@@ -23,7 +23,7 @@ session_start();
 		}
 
 		public function dashboard($locale = null,$user = null) {
-			if (parent::auth($user)){
+			if (parent::auth()){
 				$title = "Таксі Джокер - Кабінет користувача";
 				//if locale param is set - setting up session variables
 				if (isset($locale)) {
@@ -36,10 +36,20 @@ session_start();
 				require 'models/clients_dashboard_model.php';
 				//model init with locale params from session variables
 				$model = new Clients_Dashboard_Model($_SESSION['lang'],$_SESSION['local']);
-				$model->data['clientdata'] = json_decode(Service::Instance()->getuser(2));
-				$model->data['ordersdata'] = json_decode(Service::Instance()->getorders())
+				$model->data['clientdata'] = json_decode(Service::Instance()->getuser(6));
+				$phone = $model->data['clientdata']->MobilePhone;
+				$model->data['ordersdata'] = array_filter(json_decode(Service::Instance()->getorders()), function ($order)use (&$phone){
+						if (isset($order->Phone))
+							return $order->Phone == $phone;
+						return false;
+				});
+				usort($model->data['ordersdata'], function($a, $b)
+				{
+				    return -strcmp($a->Id, $b->Id);
+				});
+
 				$inc = Array("chartist");
-				//rendering drivers join page
+				//rendering clients join page
 				$this->view->render('clients/dashboard',$model->data,$title,$inc);
 			} else {
 				http_response_code(401);
