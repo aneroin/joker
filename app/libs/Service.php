@@ -197,7 +197,6 @@
 				"token" => JokerUser::Instance()->token
 			);
 			$res = $func($uri,$token);
-			echo("res1 : ".$res->code);
 			if ($res->code == 200){
 				return $res;
 			} else if ($res->code == 400 || $res->code == 401){
@@ -206,7 +205,6 @@
 						"token" => JokerUser::Instance()->token
 					);
 					$res = $func($uri,$token);
-					echo("res2 : ".$res->code);
 					if ($res->code == 200){
 						return $res;
 					} else if ($res->code == 400 || $res->code == 401){

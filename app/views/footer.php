@@ -110,7 +110,6 @@
     <div class="footer-copyright default_color">
         <div class="container">
             by Pavlenko Andriy for Taxi Joker
-            <?php echo "JokerUser::t ".JokerUser::Instance()->token ?>
         </div>
     </div>
 </footer>

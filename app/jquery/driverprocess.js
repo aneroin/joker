@@ -41,14 +41,15 @@
 	    	if (data['response']=='1'){
 			    console.log('SMS ok');
 			    $("#driver-form-content").after('<div class="chip"><i class="material-icons">close</i><strong>SMS:</strong> Code sent successfully, wait a bit.</div>');
-			} else {
-				console.log('SMS error');
-				console.log(data['exception']);
-				console.log(data['credits']);
-			}
-			console.log(data);
+				} else {
+					console.log('SMS error');
+					console.log(data['exception']);
+					console.log(data['credits']);
+				}
+				console.log(data);
 	    })
 	    .fail(function(jqXHR, textStatus, errorThrown) {
+					console.log(jqXHR);
 	        console.log('SMS fail');
 	        console.log(textStatus);
 	        console.log(errorThrown);
@@ -105,7 +106,7 @@
 
 			$('#step-'+step).html('<span>'+$('#step-'+step).data('cap-s')+'</span>').removeClass("passive").addClass("active");
 			$('#step-cap').html($('#step-'+step).data('cap')+':');
-			
+
 			if (step!=0) $('#screen').removeClass("postload").addClass("preload");
 
 			var xhr = $.ajax({
@@ -151,7 +152,7 @@
 
 			$('#step-'+step).html('<span>'+$('#step-'+step).data('cap-s')+'</span>').removeClass("passive").addClass("active");
 			$('#step-cap').html($('#step-'+step).data('cap')+':');
-		
+
 			if (step!=0) $('#screen').removeClass("postload").addClass("preload");
 
 			var xhr = $.ajax({
@@ -168,7 +169,7 @@
 					initialize_typeahead('#car-group .typeahead');
 					read_data(step);
 				}, localDelay);
-		        
+
 		    })
 		    .fail(function(jqXHR, textStatus, errorThrown) {
 		        console.log('Form fail');
@@ -178,7 +179,7 @@
 			.always(function() {
 				setTimeout(function(){ $('#screen').removeClass("preload").addClass("postload"); }, globalDelay);
 			});
-		
+
 	};
 
 	function driver_form_finally(){
@@ -316,7 +317,7 @@
 		        done: function (e, data) {
 		            console.log('upload finished');
 					file = data.result.files[0];
-		            $(id).data('imgurl',file.url);		
+		            $(id).data('imgurl',file.url);
 		            $(id).prev('.btn').first().css(
 			            'background-color',
 			            '#5CB85C'
@@ -330,7 +331,7 @@
 			        );
 			    }
 		    });
-			
+
 		    $(id)
 		    .bind('fileuploaddrop', function (e, data) {
 		    	$.each(data.files, function (index, file) {

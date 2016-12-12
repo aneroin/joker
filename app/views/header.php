@@ -86,6 +86,12 @@ data-city="<?php echo $data['cur_city']; ?>">
                 		<?php endif; ?>
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
+                  <?php if (!(JokerUser::Instance()->logged)): ?>
+                    <li><a class="modal-trigger" href="#modal_in">Увійти</a></li>
+                  <?php endif; ?>
+                  <?php if ((JokerUser::Instance()->logged)): ?>
+                    <li><a href="../user/signout">Вийти</a></li>
+                  <?php endif; ?>
                     <li><a href="<?php echo LOCALURL ?>"><?php echo $data['Index']; ?></a></li>
                     <li class="divider"></li>
                     <li><a href="<?php echo LOCALURL ?>prices"><?php echo $data['Prices']; ?></a></li>
@@ -100,12 +106,6 @@ data-city="<?php echo $data['cur_city']; ?>">
                     <li class="divider"></li>
 					<li><a href="<?php echo LOCALURL ?>contacts"><?php echo $data['Contacts']; ?></a></li>
                     <li><a href="<?php echo LOCALURL ?>about">Про нас</a></li>
-                    <?php if (!(JokerUser::Instance()->logged)): ?>
-                      <li><a class="modal-trigger" href="#modal_in">Увійти</a></li>
-                    <?php endif; ?>
-                    <?php if ((JokerUser::Instance()->logged)): ?>
-                      <li><a href="../user/signout">Вийти</a></li>
-                    <?php endif; ?>
                 </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
             </div>
