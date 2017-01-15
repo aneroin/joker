@@ -2,15 +2,15 @@
 <div class="section">
     <div class="container">
 		<div class="col s12 m12 l12" >
-			<p class="center" id="where"><?php echo $data['routedata']->from; ?> - <?php echo $data['routedata']->to; ?></p>
-			<p class="center" id="when"><?php echo $data['routedata']->when; ?></p>
+			<p class="center" id="where"><?php echo is_null($data['routedata']->Address) ? "-" : $data['routedata']->Address ?> - <?php echo is_null($data['routedata']->Destination) ? "-" : $data['routedata']->Destination ?></p>
+			<p class="center" id="when"><?php echo is_null($data['routedata']->OrderTime) ? "-" : DateTime::createFromFormat('U',substr($data['routedata']->OrderTime,6,10))->format("Y-m-d  H:i:s") ?></p>
 			<div class="card gm-card">
 				<div class="gm-map" id="map"
-					 data-from="<?php echo $data['routedata']->from; ?>"
-					 data-to="<?php echo $data['routedata']->to; ?>"
-					 data-when="<?php echo $data['routedata']->when; ?>"
+					 data-from="<?php echo is_null($data['routedata']->Address) ? "-" : $data['routedata']->Address ?>"
+					 data-to="<?php echo is_null($data['routedata']->Destination) ? "-" : $data['routedata']->Destination ?>"
+					 data-when="<?php echo is_null($data['routedata']->OrderTime) ? "-" : DateTime::createFromFormat('U',substr($data['routedata']->OrderTime,6,10))->format("Y-m-d  H:i:s") ?>"
 				></div>
 			</div>
 		</div>
     </div>
-</div> 
+</div>

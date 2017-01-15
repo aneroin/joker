@@ -8,7 +8,7 @@
 	public $local = '/^(.{2}-.{2})$/';
 
     public function __construct() {
-   	
+
     }
   	/**
   	* Adds a new route to router
@@ -29,7 +29,7 @@
    		$this->pregs += [$name => $val];
 		$this->ends += [$name => $end];
     }
-	
+
 	/**
   	* Checks a route in router
   	*
@@ -40,13 +40,13 @@
 	* @param string $val - url to check
 	*
   	* @return boolean
-  	*/  
+  	*/
 	public function check($name, $val){
-		if (preg_match($this->pregs[$name],$val)==1) 
+		if (preg_match($this->pregs[$name],$val)==1)
 		return true;
 		else return false;
 	}
-	
+
 	/**
   	* Road a route in router
   	*
@@ -59,7 +59,7 @@
 	* @param array $params - parameters to pass into endpoint
 	*
   	* @return void
-  	*/  
+  	*/
 	public function road($name, $val=NULL, $params=NULL){
 		if ($val!=NULL){
 			if (check($name, $val)){
@@ -124,7 +124,7 @@
 					return false;
 				}
 				$controller->$url[1]($args);
-			} else  if(isset($url[1])) { 
+			} else  if(isset($url[1])) {
 				//else, if url 2 is empty but url 1 is not, calling method withoud param
 				if (!(method_exists($controller, $url[1]))){
 				 	//if there is no such method - throwing an error

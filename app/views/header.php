@@ -14,7 +14,7 @@
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="<?php echo URL; ?>"/>
     <meta property="og:image" content="<?php echo URL; ?>img_m/social.png"/>
-	<meta property="og:title" content="<?php echo $data['meta_title']; ?>"/>
+	  <meta property="og:title" content="<?php echo $data['meta_title']; ?>"/>
     <meta property="og:description" content="<?php echo $data['meta_desc']; ?>"/>
     <meta property="og:site_name" content="Taxi Joker"/>
 
@@ -24,12 +24,15 @@
     <meta name="twitter:site" content="<?php echo URL; ?>">
     <meta name="twitter:title" content="<?php echo $data['meta_title']; ?>">
     <meta name="twitter:description" content="<?php echo $data['meta_desc']; ?>">
-	<meta name="twitter:url" content="<?php echo URL; ?>">
+	  <meta name="twitter:url" content="<?php echo URL; ?>">
 
     <!-- CSS  -->
     <link href="http://taxijoker.com/min/materialize.css" type="text/css" rel="stylesheet">
     <link href="http://taxijoker.com/min/custom.css" type="text/css" rel="stylesheet" >
-    <link href="http://taxijoker.com/min/odometer.css" type="text/css" rel="stylesheet" >
+    <!--link href="http://taxijoker.com/min/odometer.css" type="text/css" rel="stylesheet"-->
+
+    <!-- ReCaptcha -->
+    <script src='https://www.google.com/recaptcha/api.js' async defer></script>
 
     <?php foreach($includes as $includes_entry): ?>
 
@@ -42,7 +45,6 @@
         <?php endif; ?>
 
 	<?php endforeach; ?>
-
 </head>
 <body id="top" class="scrollspy"
 data-lang="<?php echo $data['cur_lang']; ?>"
@@ -66,31 +68,33 @@ data-city="<?php echo $data['cur_city']; ?>">
 		<div class="nav-wrapper">
             <a href="http://taxijoker.com" id="logo-container" class="brand-logo hide-on-large-only">Таксі Джокер</a>
                <ul class="right hide-on-med-and-down">
-				   	<ul id="cabinets" class="dropdown-content">
-					  <li><a href="<?php echo LOCALURL ?>clients/dashboard">Кабінет клієнта</a></li>
-				    	<li><a href="<?php echo LOCALURL ?>drivers/dashboard">Кабінет водія</a></li>
-					</ul>
+          				  <ul id="cabinets" class="dropdown-content">
+                      <li><a href="<?php echo LOCALURL ?>clients/dashboard"><?php echo $data['Clients_Cabinet']; ?></a></li>
+                      <li><a href="<?php echo LOCALURL ?>drivers/dashboard"><?php echo $data['Drivers_Cabinet']; ?></a></li>
+          					</ul>
                     <li><a href="<?php echo LOCALURL ?>"><?php echo $data['Index']; ?></a></li>
                     <li><a href="<?php echo LOCALURL ?>prices"><?php echo $data['Prices']; ?></a></li>
                     <!--li><a href="<?php echo LOCALURL ?>promo">Акції</a></li-->
                     <li><a href="<?php echo LOCALURL ?>drivers"><?php echo $data['Drivers']; ?></a></li>
                     <li><a href="<?php echo LOCALURL ?>dispatchers"><?php echo $data['Dispatchers']; ?></a></li>
                     <li><a href="<?php echo LOCALURL ?>contacts"><?php echo $data['Contacts']; ?></a></li>
-				   <li><a class="dropdown-button" href="#!" data-activates="cabinets">Кабінет<i class="small right mdi-navigation-expand-more"></i></a></li>
-                    <li><a href="<?php echo LOCALURL ?>about">Про нас</a></li>
+                    <?php if ((JokerUser::Instance()->logged)): ?>
+				              <li><a class="dropdown-button" href="#!" data-activates="cabinets"><?php echo $data['Cabinet']; ?><i class="small right mdi-navigation-expand-more"></i></a></li>
+                    <?php endif; ?>
+                    <li><a href="<?php echo LOCALURL ?>about"><?php echo $data['About']; ?></a></li>
                     <?php if (!(JokerUser::Instance()->logged)): ?>
-                      <li><a class="modal-trigger" href="#modal_in">Увійти</a></li>
+                      <li><a class="modal-trigger" href="#modal_in"><?php echo $data['login']; ?></a></li>
                 		<?php endif; ?>
                 		<?php if ((JokerUser::Instance()->logged)): ?>
-                      <li><a href="../user/signout">Вийти</a></li>
+                      <li><a href="../user/signout"><?php echo $data['logout']; ?></a></li>
                 		<?php endif; ?>
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
                   <?php if (!(JokerUser::Instance()->logged)): ?>
-                    <li><a class="modal-trigger" href="#modal_in">Увійти</a></li>
+                    <li><a class="modal-trigger" href="#modal_in"><?php echo $data['login']; ?></a></li>
                   <?php endif; ?>
                   <?php if ((JokerUser::Instance()->logged)): ?>
-                    <li><a href="../user/signout">Вийти</a></li>
+                    <li><a href="../user/signout"><?php echo $data['logout']; ?></a></li>
                   <?php endif; ?>
                     <li><a href="<?php echo LOCALURL ?>"><?php echo $data['Index']; ?></a></li>
                     <li class="divider"></li>
@@ -101,11 +105,13 @@ data-city="<?php echo $data['cur_city']; ?>">
                     <li class="divider"></li>
                     <li><a href="<?php echo LOCALURL ?>dispatchers"><?php echo $data['Dispatchers']; ?></a></li>
                     <li class="divider"></li>
-					<li><a href="<?php echo LOCALURL ?>clients/dashboard">Кабінет клієнта</a></li>
-					<li><a href="<?php echo LOCALURL ?>drivers/dashboard">Кабінет водія</a></li>
-                    <li class="divider"></li>
+                    <?php if ((JokerUser::Instance()->logged)): ?>
+					            <li><a href="<?php echo LOCALURL ?>clients/dashboard"><?php echo $data['Clients_Cabinet']; ?></a></li>
+					            <li><a href="<?php echo LOCALURL ?>drivers/dashboard"><?php echo $data['Drivers_Cabinet']; ?></a></li>
+                      <li class="divider"></li>
+                    <?php endif; ?>
 					<li><a href="<?php echo LOCALURL ?>contacts"><?php echo $data['Contacts']; ?></a></li>
-                    <li><a href="<?php echo LOCALURL ?>about">Про нас</a></li>
+                    <li><a href="<?php echo LOCALURL ?>about"><?php echo $data['About']; ?></a></li>
                 </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
             </div>

@@ -92,16 +92,16 @@ if (tid==42){
 	selectors.push('<li><a class="priceOption" data-type="pStandart">стандарт</a></li>');
 	selectors.push('<li><a class="priceOption" data-type="pEconomic">економ</a></li>');
 	selectors.push('<li><a class="priceOption" data-type="pMinivan">мінівен</a></li>');
-	selectors.push('<li><a class="priceOption" data-type="pCargo">вантаж</a></li>');							
+	selectors.push('<li><a class="priceOption" data-type="pCargo">вантаж</a></li>');
 }
 if (tid==329){
 	selectors.push('<li><a class="priceOption" data-type="pStandart">стандарт</a></li>');
 	selectors.push('<li><a class="priceOption" data-type="pMinivan">мінівен</a></li>');
-	selectors.push('<li><a class="priceOption" data-type="pCargo">вантаж</a></li>');								
+	selectors.push('<li><a class="priceOption" data-type="pCargo">вантаж</a></li>');
 }
 if (tid==331){
 	selectors.push('<li><a class="priceOption" data-type="pStandart">стандарт</a></li>');
-	selectors.push('<li><a class="priceOption" data-type="pMinivan">мінівен</a></li>');								
+	selectors.push('<li><a class="priceOption" data-type="pMinivan">мінівен</a></li>');
 }
 
 $("#pricesDropdown").append(selectors.join(''));
@@ -200,7 +200,7 @@ $(".priceOption").click(function() {
         break;
     default:
         priceCurrent = priceStandart;
-	} 
+	}
 });
 
 function resetPrice(){
@@ -216,10 +216,10 @@ function resetPrice(){
 		line.setMap(null);
 		line = null;
     };
-	
-	$("#from").val("звідки");
-	$("#to").val("куди");
-	
+
+	$("#from").val($("#from").data("default"));
+	$("#to").val($("#to").data("default"));
+
 	$('#map')
 	.gmap3({
 		address: poi,
@@ -229,14 +229,14 @@ function resetPrice(){
 	.marker([{
 			address: poi,
 			draggable: true,
-			label: "К",
+			label: $("#to").data("default").charAt(0).toUpperCase(),
 			id: 772,
 			zIndex: 1
 			},
 			{
 			address: poi,
 			draggable: true,
-			label: "З",
+			label: $("#from").data("default").charAt(0).toUpperCase(),
 			id: 771,
 			zIndex: 2
 			}]
@@ -265,7 +265,7 @@ function calculatePrice(){
 		fromcoord = markerspool[1].getPosition();
 	if (markerspool[0])
 		tocoord = markerspool[0].getPosition();
-	
+
 	if (markerspool){
 		markerspool.forEach(function (marker) {
 			marker.setMap(null);
@@ -280,19 +280,19 @@ function calculatePrice(){
 		line.setMap(null);
 		line = null;
     }
-	
+
 	var pricePerKmIn = priceCurrent.ppkmin;
 	var pricePerKmOut = priceCurrent.ppkmout;
 	var minimumKm = priceCurrent.minkm;
 	var minimumPrice = priceCurrent.minp;
-	
+
 	var totalDistanceIn = 0;
 	var totalDistanceOut = 0;
 	var priceTotal = 0;
-		
+
 	var from = $("#from").val();
 	var to = $("#to").val();
-	
+
 	$('#map')
 	.gmap3({
 		address: from,
@@ -338,7 +338,7 @@ function calculatePrice(){
 			if (totalDistanceIn<=minimumKm && totalDistanceOut==0) {
 				priceTotal = minimumPrice;
 			} else {
-				priceTotal = minimumPrice 
+				priceTotal = minimumPrice
 							+ (pricePerKmIn * (totalDistanceIn>minimumKm?totalDistanceIn-minimumKm:0))
 							+ (pricePerKmOut * totalDistanceOut);
 			}
@@ -347,9 +347,9 @@ function calculatePrice(){
 			console.log(priceTotal);
 			console.log(pathpool);
 			priceTotal = priceTotal.toFixed(2);
-			$('#price').text("Очікувана вартість поїздки становить "+priceTotal+" грн.");
+			$('#price').text($('#price').data("estimate") + "  " + priceTotal + "  " + $('#price').data("currency"));
 		}
-			
+
 	})
 	.polyline({
 		strokeColor: "#FFAA00",

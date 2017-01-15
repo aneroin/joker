@@ -2,7 +2,7 @@
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
         <h1 class="text_h center header cd-headline letters type">
-            <span>Таксі джокер - це </span> 
+            <span>Таксі джокер - це </span>
             <span class="cd-words-wrapper waiting">
                 <b class="is-visible">якість</b>
                 <b>надійність</b>
@@ -142,7 +142,7 @@
             </div>
             <div class="input-field col s12 m6">
                 <label for="street"><?php echo $data['street'] ?>:</label>
-                <input type="text" class="form-control main" id="street" 
+                <input type="text" class="form-control main" id="street"
                      maxlength=50>
             </div>
             </div>
@@ -201,14 +201,14 @@
 <!--Team-->
 <div class="section scrollspy" id="team">
     <div class="container">
-        <h2 class="center header text_b"> Наші працівники </h2>
+        <h2 class="center header text_b"> <?php echo $data['workers']; ?> </h2>
         <!--div class="row">
-            <div  class="col s12"> 
+            <div  class="col s12">
                 <h5 class="center text_h5 text_distribute">
                 <?php //for($a=0; $a<3; $a++): ?>
                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient montes.
                 <?php //endfor; ?>
-                </h5>   
+                </h5>
             </div>
         </div-->
         <div class="row">
@@ -251,14 +251,14 @@
 <!--Apps-->
 <div class="section scrollspy" id="apps">
     <div class="container">
-        <h2 class="center header text_b"> Мобільне таксі </h2>
+        <h2 class="center header text_b"> <?php echo $data['mobile']; ?> </h2>
         <!--div class="row">
-            <div  class="col s12"> 
+            <div  class="col s12">
                 <h5 class="center text_h5 text_distribute">
                 <?//php for($a=0; $a<2; $a++): ?>
                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient montes.
                 <?//php endfor; ?>
-                </h5>   
+                </h5>
             </div>
         </div-->
         <div class="row">
@@ -294,4 +294,4 @@
     </div>
 </div>
 
-<script src="http://taxijoker.com/min/odometer.min.js"></script>
+<!--script src="http://taxijoker.com/min/odometer.min.js"></script-->

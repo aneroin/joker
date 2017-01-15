@@ -1,7 +1,7 @@
 <!--graph -->
 <div class="section">
     <div class="container">
-    <h2 class="center"><?php echo $data['clientdata']->FirstName." ".$data['clientdata']->Surname ?></h2>
+    <h2 class="center"><?php echo $data['clientdata']->FirstName." ".$data['clientdata']->Surname ?>  <a href="profile"><i class="grey-text mdi-editor-mode-edit "></i></a> </h2>
 	  </div>
 </div>
 <div class="section">
@@ -102,7 +102,7 @@
                     <?php foreach ($data['ordersdata'] as $order): ?>
                         <tr style="cursor:pointer" onclick="window.document.location='route/<?php echo $order->Id ?>';">
                             <td><?php echo is_null($order->Id) ? "-" : $order->Id ?></td>
-                            <td><?php echo is_null($order->OrderTime) ? "-" : DateTime::createFromFormat('U',substr($order->OrderTime,6,10))->format("Y-m-d  H:i:s") ?></td>
+                            <td><?php echo is_null($order->OrderTime) ? "-" : date('d.m.Y H:i:s', substr($order->OrderTime,6,10).substr($order->OrderTime,19,5)) ?></td>
                             <td><?php echo is_null($order->Address) ? "-" : $order->Address ?></td>
                             <td><?php echo is_null($order->Destination) ? "-" : $order->Destination ?></td>
                             <td><?php echo is_null($order->Driver) ? "-" : (is_null($order->Driver->Id) ? "-" : $order->Driver->Id) ?></td>

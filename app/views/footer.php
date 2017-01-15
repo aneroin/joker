@@ -13,8 +13,8 @@
         </div>
     <div class="modal-footer">
         <a href="#" class="modal-action modal-close waves-effect waves-light btn-flat">&times;</a>
-        <a href="#modal_up" class="modal-action modal-close modal-trigger waves-effect waves-light btn-flat">Зареєструватись</a>
-        <a onClick="signin()" class="modal-action modal-close waves-effect waves-light white-text red darken-1 btn-flat">Увійти</a>
+        <a href="#modal_up" class="modal-action modal-close modal-trigger waves-effect waves-light btn-flat"><?php echo $data['register']; ?></a>
+        <a onClick="signin()" class="modal-action modal-close waves-effect waves-light white-text red darken-1 btn-flat"><?php echo $data['login']; ?></a>
     </div>
   </div>
 </div>
@@ -50,9 +50,16 @@
             <label for="icon_prefix">Код з СМС</label>
         </div>
 
+        <div class="g-recaptcha input-field col s12 hide-on-med-and-down"
+          data-sitekey="6LeCQxEUAAAAAPKd-ge3Mk08wl0xHxS4QM8OG5Jw"
+          data-callback="captcha"
+          data-badge="bottomleft"
+          data-size="invisible">
+        </div>
+
     <div class="modal-footer">
         <a href="#" class="modal-action modal-close waves-effect waves-light btn-flat">&times;</a>
-        <a onClick="signup()" class="modal-action modal-close waves-effect waves-light white-text red darken-1 btn-flat">Зареєструватись</a>
+        <a onClick="signup_submit()" class="modal-action modal-close waves-effect waves-light white-text red darken-1 btn-flat"><?php echo $data['register']; ?></a>
     </div>
   </div>
 </div>
@@ -151,6 +158,48 @@
 		  XHR.send(FD);
 		}
 
+    function captcha(token){
+      console.log("invisible recaptcha succeeded");
+      signup_handle();
+    }
+
+    function signup_submit(){
+      console.log("invisible recaptcha invoked");
+      grecaptcha.execute();
+    }
+
+    function signup_handle(){
+      if (sms_check()){
+        var XHR = new XMLHttpRequest();
+        var FD  = new FormData();
+
+        console.log(grecaptcha.getResponse());
+
+        // We push our data into our FormData object
+        FD.append('phone', $('input[name=phone_up]').val());
+        FD.append('pass', $('input[name=pass_up]').val());
+        FD.append('login', $('input[name=login]').val());
+        FD.append('code', $('input[name=code]').val());
+        FD.append('g-recaptcha-response', grecaptcha.getResponse());
+
+        // We define what will happen if the data are successfully sent
+        XHR.addEventListener('load', function(event) {
+          location.reload();
+        });
+
+        // We define what will happen in case of error
+        XHR.addEventListener('error', function(event) {
+          alert('oops');
+        });
+
+        // We setup our request
+        XHR.open('POST', 'http://taxijoker.com/user/signup');
+
+        // We just send our FormData object, HTTP headers are set automatically
+        XHR.send(FD);
+      }
+    }
+
 		function sms(){
 		var formData = {
 			'phone'		: $('input[name=phone_up]').val()
@@ -224,34 +273,6 @@
 	    });
 		};
 
-		function signup(){
-			if (sms_check()){
-				var XHR = new XMLHttpRequest();
-				var FD  = new FormData();
-
-				// We push our data into our FormData object
-				FD.append('phone', $('input[name=phone_up]').val());
-				FD.append('pass', $('input[name=pass_up]').val());
-				FD.append('login', $('input[name=login]').val());
-				FD.append('code', $('input[name=code]').val());
-
-				// We define what will happen if the data are successfully sent
-				XHR.addEventListener('load', function(event) {
-					location.reload();
-				});
-
-				// We define what will happen in case of error
-				XHR.addEventListener('error', function(event) {
-					alert('oops');
-				});
-
-				// We setup our request
-				XHR.open('POST', 'http://taxijoker.com/user/signup');
-
-				// We just send our FormData object, HTTP headers are set automatically
-				XHR.send(FD);
-			}
-		}
     </script>
 
 	<?php foreach($includes as $includes_entry): ?>
@@ -301,6 +322,10 @@
 
 		<?php if ($includes_entry=="price") : ?>
 			<script src="http://taxijoker.com/jquery/pricemap.js"></script>
+		<?php endif; ?>
+
+    <?php if ($includes_entry=="profile") : ?>
+			<script src="http://taxijoker.com/jquery/profile.js"></script>
 		<?php endif; ?>
 
 	<?php endforeach; ?>

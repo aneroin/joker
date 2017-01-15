@@ -67,7 +67,7 @@
 		public function make($l,$p) {
 			/*TODO:define signup and signin data sets*/
 			$this->login = $l;
-		 	$this->password = $p; //TODO: add hashing on the server hash('sha256', $p, false);
+		 	$this->password = hash('sha512', $p, false);
 			return $this->signin();
 		}
 
@@ -75,7 +75,7 @@
 		public function makenew($l,$p,$f){
 			/*TODO:define signup and signin data sets*/
 			$this->login = $l;
-			$this->password = $p; //TODO: add hashing on the server hash('sha256', $p, false);
+			$this->password = hash('sha512', $p, false);
 			$this->phone = $f;
 			return $this->signup();
 		}
@@ -95,13 +95,9 @@
 			$res = Service::Instance()->signin($this);
 			if ($res->code == 200){
 				$this->logged = true;
-				$this->token = $res->body;
-				/*TODO: login response
-				$this->firstName = $res->body['firstName'];
-				$this->middleName = $res->body['middleName'];
-				$this->surName = $res->body['surName'];
-				$this->role = ['client'=>true,'driver'=>false];
-				*/
+				$this->token = $res->body->Token;
+				$this->tokenTime = $res->body->TokenExpirationDate;
+				$this->id = $res->body->Id;
 				$this->persist();
 				return true;
 			} else {
