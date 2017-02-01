@@ -321,6 +321,8 @@
 		<?php endif; ?>
 
 		<?php if ($includes_entry=="price") : ?>
+      <script src="http://taxijoker.com/jquery/wicket.js"></script>
+      <script src="http://taxijoker.com/jquery/wicket-gmap3.js"></script>
 			<script src="http://taxijoker.com/jquery/pricemap.js"></script>
 		<?php endif; ?>
 

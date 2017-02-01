@@ -4,6 +4,7 @@ session_start();
    public function __construct($lang = 'ua', $city = 'te') {
     parent::__construct();
     //pre init
+    $this->data['current_page_url'] = "drivers/faq";
     $this->data['current_page'] = "drivers/drivers_sub_faq";
     $this->data['title'] = 'DataBase is OFFLINE';
      //connecting to db
@@ -22,7 +23,7 @@ session_start();
     $stm->execute(array($city));
     //fetching globals array
     while ($db_data = $stm->fetch(PDO::FETCH_ASSOC)){
-      $this->data[$db_data['name']] = $db_data[$lang];    
+      $this->data[$db_data['name']] = $db_data[$lang];
     }
     //prepare locals
     $stm = $pdo->prepare($sql_locals);
@@ -30,7 +31,7 @@ session_start();
     $stm->execute(array($city));
     //fetching locals array
     while ($db_data = $stm->fetch(PDO::FETCH_ASSOC)){
-      $this->data[$db_data['name']] = $db_data[$lang];    
+      $this->data[$db_data['name']] = $db_data[$lang];
     }
     //prepare pages
     $stm = $pdo->prepare($sql_pages);
@@ -38,7 +39,7 @@ session_start();
     $stm->execute(array($city));
     //fetching pages array
     while ($db_data = $stm->fetch(PDO::FETCH_ASSOC)){
-      $this->data[$db_data['name']] = $db_data[$lang];    
+      $this->data[$db_data['name']] = $db_data[$lang];
     }
     //prepare blocks
     $stm = $pdo->prepare($sql_blocks);
@@ -46,10 +47,10 @@ session_start();
     $stm->execute(array($city));
     //fetching blocks array
     while ($db_data = $stm->fetch(PDO::FETCH_ASSOC)){
-      $this->data[$db_data['name']] = $db_data[$lang];    
+      $this->data[$db_data['name']] = $db_data[$lang];
     }
 
-    //FAQ-------------------------------------------------------------------------------- 
+    //FAQ--------------------------------------------------------------------------------
     //statement preparing
     //prepare faq
     $stm = $pdo->prepare($sql_faq);
@@ -57,7 +58,7 @@ session_start();
     $stm->execute(array($city));
     //fetching faq array
     while ($db_data = $stm->fetch(PDO::FETCH_NUM)){
-        $faq[] = $db_data; 
+        $faq[] = $db_data;
     }
 
     faq_to_table($faq, $this->data['faq']);

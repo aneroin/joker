@@ -99,7 +99,7 @@
 
 			$('#step-'+step).html('<span>'+$('#step-'+step).data('cap-s')+'</span>').removeClass("passive").addClass("active");
 			$('#step-cap').html($('#step-'+step).data('cap')+':');
-			
+
 			if (step!=0) $('#screen').removeClass("postload").addClass("preload");
 
 			var xhr = $.ajax({
@@ -143,7 +143,7 @@
 
 			$('#step-'+step).html('<span>'+$('#step-'+step).data('cap-s')+'</span>').removeClass("passive").addClass("active");
 			$('#step-cap').html($('#step-'+step).data('cap')+':');
-		
+
 			if (step!=0) $('#screen').removeClass("postload").addClass("preload");
 
 			var xhr = $.ajax({
@@ -159,7 +159,7 @@
 		        	$('#dispatcher-form-content').html(data);
 					read_data(step);
 				}, localDelay);
-		        
+
 		    })
 		    .fail(function(jqXHR, textStatus, errorThrown) {
 		        console.log('Form fail');
@@ -169,7 +169,7 @@
 			.always(function() {
 				setTimeout(function(){ $('#screen').removeClass("preload").addClass("postload"); }, globalDelay);
 			});
-		
+
 	};
 
 	function dispatcher_form_finally(){
@@ -183,11 +183,11 @@
 		        url: "http://"+window.location.hostname+"/dispatcher_join.php",
 		        data: dispatcher_info
 		    })
-		    .done(function(data) {	
+		    .done(function(data) {
 				$('#screen').removeClass("postload").addClass("preload");
 		    	if (data['response']=='1') {
 			    	console.log('DISPATCHER JOIN ok');
-			    	redirect('Реєстрація пройшла успішно, бажаєте переглянути список наших диспетчерів?','/dispatchers/all','/dispatchers')
+			    	redirect('Реєстрація пройшла успішно, бажаєте повернутись на головну сторнку?','/','/dispatchers')
 				} else {
 					console.log('DISPATCHER JOIN error');
 					console.log(data);

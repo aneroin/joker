@@ -197,7 +197,7 @@
 				$('#screen').removeClass("postload").addClass("preload");
 		    	if (data['response']=='1') {
 			    	console.log('DRIVER JOIN ok');
-			    	redirect('Реєстрація пройшла успішно, бажаєте переглянути список наших водіїв?','/drivers/all','/drivers')
+			    	redirect('Реєстрація пройшла успішно, бажаєте повернутись на головну сторнку?','/','/drivers')
 				} else {
 					console.log('DRIVER JOIN error');
 					console.log(data);

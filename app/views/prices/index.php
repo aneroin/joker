@@ -10,7 +10,88 @@
         <div class="row center">
         <div class="col s12 m12 l12">
 			<ul class="collapsible popout" data-collapsible="accordion">
-                <?php echo $data['table'];?>
+        <?php foreach($data['prices'] as $value): ?>
+          <li>
+              <div class="collapsible-header">
+                  <?=$value['name']?>
+              </div>
+              <div class="collapsible-body">
+                  <table class="striped responsive-table">
+                      <thead>
+                          <tr>
+                              <th data-field="name"><?=$value['name']?></th>
+                              <th data-field="incity">в місті</th>
+                              <th data-field="outcity">за містом</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+
+                        <?php if ($value['minprice_in']!=null || $value['minprice_out']!=null): ?>
+                          <tr>
+                              <td>Мінімальний проїзд</td>
+                              <?php if ($value['minprice_in']!=null): ?>
+                                <td><?=$value['minprice_in']?> грн (включає <?=$value['mindistance_in']?> км)</td>
+                              <?php else: ?>
+                                <td></td>
+                              <?php endif; ?>
+                              <?php if ($value['minprice_out']!=null): ?>
+                                <td><?=$value['minprice_out']?> грн (включає <?=$value['mindistance_out']?> км)</td>
+                              <?php else: ?>
+                                <td></td>
+                              <?php endif; ?>
+                          </tr>
+                        <?php endif; ?>
+                        <?php if ($value['perkm_in']!=null || $value['perkm_out']!=null): ?>
+                          <tr>
+                              <td>Проїзд (за кілометр)</td>
+                              <?php if ($value['perkm_in']!=null): ?>
+                                <td><?=$value['perkm_in']?> грн</td>
+                              <?php else: ?>
+                                <td></td>
+                              <?php endif; ?>
+                              <?php if ($value['perkm_out']!=null): ?>
+                                <td><?=$value['perkm_out']?> грн</td>
+                              <?php else: ?>
+                                <td></td>
+                              <?php endif; ?>
+                          </tr>
+                        <?php endif; ?>
+                        <?php if ($value['idling_in']!=null || $value['idling_out']!=null): ?>
+                          <tr>
+                              <td>Простій (за годину)</td>
+                              <?php if ($value['idling_in']!=null): ?>
+                                <td><?=$value['idling_in']?> грн</td>
+                              <?php else: ?>
+                                <td></td>
+                              <?php endif; ?>
+                              <?php if ($value['idling_out']!=null): ?>
+                                <td><?=$value['idling_out']?> грн</td>
+                              <?php else: ?>
+                                <td></td>
+                              <?php endif; ?>
+                          </tr>
+                        <?php endif; ?>
+                        <?php if ($value['serving_in']!=null || $value['serving_out']!=null): ?>
+                          <tr>
+                              <td>Подача (за км)</td>
+                              <?php if ($value['serving_in']!=null): ?>
+                                <td><?=$value['serving_in']?> грн</td>
+                              <?php else: ?>
+                                <td></td>
+                              <?php endif; ?>
+                              <?php if ($value['serving_out']!=null): ?>
+                                <td><?=$value['serving_out']?> грн</td>
+                              <?php else: ?>
+                                <td></td>
+                              <?php endif; ?>
+                          </tr>
+                        <?php endif; ?>
+
+                      </tbody>
+                  </table>
+              </div>
+          </li>
+        <?php endforeach; unset($value);?>
 			</ul>
 		</div>
         </div>
@@ -38,7 +119,7 @@
 							</ul>
 						</span>
 						<span class="row">
-							<input class="btn-flat col s12" type="button" onclick="calculatePrice(priceStandart)" value="<?php echo $data['calculate']; ?>">
+							<input class="btn-flat col s12" type="button" onclick="calculatePrice()" value="<?php echo $data['calculate']; ?>">
 							<input class="btn-flat col s12" type="button" onclick="resetPrice()" value="<?php echo $data['reset']; ?>">
 						</span>
 					</span>
@@ -49,3 +130,8 @@
 		</div>
     </div>
 </div>
+
+<script>
+  var taxi_location = <?=json_encode($data['location'])?>;
+  var taxi_prices = <?=json_encode(array_values($data['prices']))?>;
+</script>

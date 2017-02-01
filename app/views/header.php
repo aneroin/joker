@@ -12,7 +12,7 @@
 
 
     <meta property="og:type" content="website"/>
-    <meta property="og:url" content="<?php echo URL; ?>"/>
+    <meta property="og:url" content="<?php echo URL.$data['current_page_url']; ?>"/>
     <meta property="og:image" content="<?php echo URL; ?>img_m/social.png"/>
 	  <meta property="og:title" content="<?php echo $data['meta_title']; ?>"/>
     <meta property="og:description" content="<?php echo $data['meta_desc']; ?>"/>
@@ -24,7 +24,7 @@
     <meta name="twitter:site" content="<?php echo URL; ?>">
     <meta name="twitter:title" content="<?php echo $data['meta_title']; ?>">
     <meta name="twitter:description" content="<?php echo $data['meta_desc']; ?>">
-	  <meta name="twitter:url" content="<?php echo URL; ?>">
+	  <meta name="twitter:url" content="<?php echo URL.$data['current_page_url']; ?>">
 
     <!-- CSS  -->
     <link href="http://taxijoker.com/min/materialize.css" type="text/css" rel="stylesheet">

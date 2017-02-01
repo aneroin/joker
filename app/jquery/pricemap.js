@@ -6,79 +6,8 @@ var tid = $("body").data("idtaxi");
 * minkm - minimum fare km
 * minp - minimum fare price
 */
-/*
-*TERNOPIL 42
-*/
-if (tid==42){
-var priceStandart = {
-	ppkmin : 6.0,
-	ppkmout : 7.0,
-	minkm: 4.16,
-	minp: 25
-}
 
-var priceEconomic = {
-	ppkmin : 5.5,
-	ppkmout : 6.0,
-	minkm: 4.0,
-	minp: 22
-}
-
-var priceMinivan = {
-	ppkmin : 7.0,
-	ppkmout : 8.0,
-	minkm: 4,
-	minp: 45
-}
-
-var priceCargo = {
-	ppkmin : 7.0,
-	ppkmout : 8.0,
-	minkm: 4,
-	minp: 75
-}
-}
-
-if (tid==329){
-var priceStandart = {
-	ppkmin : 4.5,
-	ppkmout : 6.0,
-	minkm: 1.5,
-	minp: 20
-}
-
-var priceMinivan = {
-	ppkmin : 6.5,
-	ppkmout : 8.0,
-	minkm: 1.5,
-	minp: 30
-}
-
-var priceCargo = {
-	ppkmin : 6.5,
-	ppkmout : 8.0,
-	minkm: 1,
-	minp: 30
-}
-}
-
-if (tid==331){
-var priceStandart = {
-	ppkmin : 6.0,
-	ppkmout : 8.0,
-	minkm: 2.5,
-	minp: 25
-}
-
-var priceMinivan = {
-	ppkmin : 8.0,
-	ppkmout : 10.0,
-	minkm: 3,
-	minp: 35
-}
-}
-
-var priceCurrent = priceStandart;
+var priceCurrent = taxi_prices[0];
 
 var poi = $("body").data("city");
 var lang = $("body").data("lang");
@@ -88,82 +17,19 @@ var lang = $("body").data("lang");
 *
 */
 var selectors = [];
-if (tid==42){
-	selectors.push('<li><a class="priceOption" data-type="pStandart">стандарт</a></li>');
-	selectors.push('<li><a class="priceOption" data-type="pEconomic">економ</a></li>');
-	selectors.push('<li><a class="priceOption" data-type="pMinivan">мінівен</a></li>');
-	selectors.push('<li><a class="priceOption" data-type="pCargo">вантаж</a></li>');
-}
-if (tid==329){
-	selectors.push('<li><a class="priceOption" data-type="pStandart">стандарт</a></li>');
-	selectors.push('<li><a class="priceOption" data-type="pMinivan">мінівен</a></li>');
-	selectors.push('<li><a class="priceOption" data-type="pCargo">вантаж</a></li>');
-}
-if (tid==331){
-	selectors.push('<li><a class="priceOption" data-type="pStandart">стандарт</a></li>');
-	selectors.push('<li><a class="priceOption" data-type="pMinivan">мінівен</a></li>');
-}
+taxi_prices.forEach(function(item, i, arr) {
+		selectors.push('<li><a class="priceOption" data-index="'+i+'">'+item.name+'</a></li>');
+});
 
 $("#pricesDropdown").append(selectors.join(''));
 
 /*
 *CITY POLYGON
-*defines polygon of in_city / out_city
+*defines boundary of the city to manage prices
 */
-var cityCoords = [];
-
-if (tid==42){
-	cityCoords = [
-    {lat: 49.54638, lng: 25.5433},
-    {lat: 49.53719, lng: 25.54501},
-    {lat: 49.52663, lng: 25.56759},
-	{lat: 49.52213, lng: 25.60291},
-	{lat: 49.528, lng: 25.62552},
-	{lat: 49.54432, lng: 25.64887},
-	{lat: 49.56598, lng: 25.65642},
-	{lat: 49.582, lng: 25.63961},
-	{lat: 49.60113, lng: 25.59912},
-	{lat: 49.60512, lng: 25.53529},
-	{lat: 49.59397, lng: 25.51613},
-	{lat: 49.56008, lng: 25.54785}
-  ];
-}
-
-if (tid==329){
-	cityCoords = [
-    {lat: 49.54638, lng: 25.5433},
-    {lat: 49.53719, lng: 25.54501},
-    {lat: 49.52663, lng: 25.56759},
-	{lat: 49.52213, lng: 25.60291},
-	{lat: 49.528, lng: 25.62552},
-	{lat: 49.54432, lng: 25.64887},
-	{lat: 49.56598, lng: 25.65642},
-	{lat: 49.582, lng: 25.63961},
-	{lat: 49.60113, lng: 25.59912},
-	{lat: 49.60512, lng: 25.53529},
-	{lat: 49.59397, lng: 25.51613},
-	{lat: 49.56008, lng: 25.54785}
-  ];
-}
-
-if (tid==331){
-	cityCoords = [
-    {lat: 49.54638, lng: 25.5433},
-    {lat: 49.53719, lng: 25.54501},
-    {lat: 49.52663, lng: 25.56759},
-	{lat: 49.52213, lng: 25.60291},
-	{lat: 49.528, lng: 25.62552},
-	{lat: 49.54432, lng: 25.64887},
-	{lat: 49.56598, lng: 25.65642},
-	{lat: 49.582, lng: 25.63961},
-	{lat: 49.60113, lng: 25.59912},
-	{lat: 49.60512, lng: 25.53529},
-	{lat: 49.59397, lng: 25.51613},
-	{lat: 49.56008, lng: 25.54785}
-  ];
-}
-
-var cityPolygon = new google.maps.Polygon({paths: cityCoords});
+var wkt = new Wkt.Wkt();
+wkt.read(taxi_location.polygon);
+var cityPolygon = wkt.toObject();
 
 var markerspool = [];
 var pathpool = [];
@@ -182,25 +48,10 @@ $("#to").blur(function() {
 
 $(".priceOption").click(function() {
 	console.log($(this).text());
-	console.log($(this).data("type"));
+	console.log($(this).data("index"));
 	$("#pricesDropdownHeader").text($(this).text());
-	var type = $(this).data("type");
-	switch(type) {
-    case "pStandart":
-        priceCurrent = priceStandart;
-        break;
-    case "pEconomic":
-        priceCurrent = priceEconomic;
-        break;
-	case "pMinivan":
-        priceCurrent = priceMinivan;
-        break;
-	case "pCargo":
-        priceCurrent = priceSmallCargo;
-        break;
-    default:
-        priceCurrent = priceStandart;
-	}
+	var index = $(this).data("index");
+	priceCurrent = taxi_prices[index];
 });
 
 function resetPrice(){
@@ -216,6 +67,7 @@ function resetPrice(){
 		line.setMap(null);
 		line = null;
     };
+
 
 	$("#from").val($("#from").data("default"));
 	$("#to").val($("#to").data("default"));
@@ -281,10 +133,11 @@ function calculatePrice(){
 		line = null;
     }
 
-	var pricePerKmIn = priceCurrent.ppkmin;
-	var pricePerKmOut = priceCurrent.ppkmout;
-	var minimumKm = priceCurrent.minkm;
-	var minimumPrice = priceCurrent.minp;
+
+	var pricePerKmIn = Number(priceCurrent.perkm_in);
+	var pricePerKmOut = Number(priceCurrent.perkm_out);
+	var minimumKm = Number(priceCurrent.mindistance_in);
+	var minimumPrice = Number(priceCurrent.minprice_in);
 
 	var totalDistanceIn = 0;
 	var totalDistanceOut = 0;

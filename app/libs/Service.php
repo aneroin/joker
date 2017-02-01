@@ -265,7 +265,7 @@
 		*/
 		private function withAuth(callable $func, $uri, $data){
 			$token = Array(
-				"token" => JokerUser::Instance()->token
+				"Authorization" => "Bearer ".JokerUser::Instance()->token
 			);
 			$res = $func($token,$uri,$data);
 			if ($res->code == 200){
@@ -273,7 +273,7 @@
 			} else if ($res->code == 400 || $res->code == 401){
 				if ((JokerUser::Instance()->signin())){
 					$token = Array(
-						"token" => JokerUser::Instance()->token
+						"Authorization" => "Bearer ".JokerUser::Instance()->token
 					);
 					$res = $func($token,$uri,$data);
 					if ($res->code == 200){
