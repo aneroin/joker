@@ -2,33 +2,29 @@
 	class Service {
 
 		//TODO: move configuration to protected level
-		private $serverUri = "http://5.58.83.13:8094/JokerWebService";
+		private $serverUri = "http://taxiserver20170206125053.azurewebsites.net"; //http://5.58.83.13:8094/JokerWebService
 		private $localUri = "http://taxijoker.com";
 
 		//TODO: remove on RESTful implementation
 		private $restEndPoint = array(
-			'login' => "/Login",
-			'user' => array(
-				"get" => "/GetUser/",
-				"getall" => "/GetUsers",
-				"add" => "/AddUser",
-				"update" => "/UpdateUser/",
-				"delete" => "/DeleteUser"
+			'access_table' => "/api/access_tables/",
+			'authoruzation' => array (
+				'login' => "/api/authorization/login/",
+				'register' => "/api/authorization/register/",
 			),
-			'order' => array(
-				"get" => "/GetOrder/",
-				"getall" => "/GetOrders",
-				"add" => "/AddOrder",
-				"update" => "/UpdateOrder",
-				"delete" => "/DeleteOrder"
-			),
-			'orderstate' => array(
-				"get" => "/GetOrderState/",
-				"getall" => "/GetOrderStates",
-				"add" => "/AddOrderState",
-				"update" => "/UpdateOrderState",
-				"delete" => "/DeleteOrderState"
-			)
+			'auto_class' => "/api/autoclasses/",
+			'ban' => "/api/bans/",
+			'client' => "/api/clients/",
+			'dispatcher' => "/api/dispatchers/",
+			'driver_car' => "/api/drivercars/",
+			'driver' => "/api/drivers/",
+			'driver_insurence' => "/api/driversinsurences/",
+			'driver_state' => "/api/driverstates/",
+			'order' => "/api/orders/",
+			'order_state' => "/api/orderstates/",
+			'order_timings' => "/api/ordertimings/",
+			'user' => "/api/users/",
+			'web_sockets' => "/websockets/"
 		);
 
 		/**
@@ -135,6 +131,29 @@
 		}
 
 		/**
+		* Patch Method
+		* uri -> address to call
+		* body -> data to send
+		* headers -> optional array of headers to send
+		*/
+		public function patch($uri,$body,$headers = null){
+			if ($headers==null){
+				$response = \Httpful\Request::patch($uri)
+				->sendsJson()
+				->body($body)
+				->send();
+				return $response;
+			} else {
+				$response = \Httpful\Request::patch($uri)
+				->sendsJson()
+				->body($body)
+				->addHeaders($headers)
+				->send();
+				return $response;
+			}
+		}
+
+		/**
 		* Delete Method
 		* uri -> address to call
 		* headers -> optional array of headers to send
@@ -214,39 +233,39 @@
 		}
 
 		public function signin($user){
-			$login_headers = array(
-				"login" => $user->login,
-				"password" => $user->password
+			$authData = array(
+				"Login" => $user->login,
+				"Password" => $user->password
 			);
-			return $this->post($this->serverUri.$this->restEndPoint['login'],"",$login_headers);
+			return $this->post($this->serverUri.$this->restEndPoint['authorization']['login'],$authData);
 		}
 
 		public function signup($user){
-			return $this->post($this->serverUri.$this->restEndPoint['user']['add'],$user);
+			return $this->post($this->serverUri.$this->restEndPoint['authorization']['register'],$user);
 		}
 
 		public function makeorder($order){
-			return $this->withAuth(function($token, $uri) use (&$order){return Service::Instance()->post($uri,$order,$token);}, $this->serverUri.$this->restEndPoint['order']['add']);
+			return $this->withAuth(function($token, $uri) use (&$order){return Service::Instance()->post($uri,$order,$token);}, $this->serverUri.$this->restEndPoint['order']);
 		}
 
 		public function getorder($id){
-			return $this->withAuth(function($token, $uri){return Service::Instance()->get($uri,$token);}, $this->serverUri.$this->restEndPoint['order']['get'].$id);
+			return $this->withAuth(function($token, $uri){return Service::Instance()->get($uri,$token);}, $this->serverUri.$this->restEndPoint['order'].$id);
 		}
 
 		public function getorders(){
-			return $this->withAuth(function($token, $uri){return Service::Instance()->get($uri,$token);}, $this->serverUri.$this->restEndPoint['order']['getall']);
+			return $this->withAuth(function($token, $uri){return Service::Instance()->get($uri,$token);}, $this->serverUri.$this->restEndPoint['order']);
 		}
 
 		public function getorderstate($id){
-			return $this->withAuth(function($token, $uri){return Service::Instance()->get($uri,$token);}, $this->serverUri.$this->restEndPoint['orderstate']['get'].$id);
+			return $this->withAuth(function($token, $uri){return Service::Instance()->get($uri,$token);}, $this->serverUri.$this->restEndPoint['order_state'].$id);
 		}
 
 		public function getuser($id){
-			return $this->withAuth(function($token, $uri){return Service::Instance()->get($uri,$token);}, $this->serverUri.$this->restEndPoint['user']['get'].$id);
+			return $this->withAuth(function($token, $uri){return Service::Instance()->get($uri,$token);}, $this->serverUri.$this->restEndPoint['user'].$id);
 		}
 
 		public function updateuser($id,$data){
-			return $this->withAuth(function($token, $uri, $data){return Service::Instance()->post($uri,$data,$token);}, $this->serverUri.$this->restEndPoint['user']['update'].$id, $data);
+			return $this->withAuth(function($token, $uri, $data){return Service::Instance()->post($uri,$data,$token);}, $this->serverUri.$this->restEndPoint['user'].$id, $data);
 		}
 
 
